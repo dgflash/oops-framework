@@ -1,0 +1,14 @@
+{
+  "ver": "4.0.22",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "0f970a25-bb06-40a6-a1ae-95a474a2ea8f",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "importAsPlugin": false,
+    "moduleId": "project:///assets/script/core/game/GameWorld.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

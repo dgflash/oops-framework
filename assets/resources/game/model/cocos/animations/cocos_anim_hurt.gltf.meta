@@ -1,0 +1,80 @@
+{
+  "ver": "2.0.14",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "cb2cc463-6e7a-4d17-9247-bea8f3cf7bb1",
+  "files": [],
+  "subMetas": {
+    "51885": {
+      "ver": "1.0.12",
+      "importer": "gltf-scene",
+      "name": "cocos_anim_hurt.prefab",
+      "id": "51885",
+      "displayName": "",
+      "uuid": "cb2cc463-6e7a-4d17-9247-bea8f3cf7bb1@51885",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "4cafd": {
+      "ver": "1.0.14",
+      "importer": "gltf-animation",
+      "name": "cocos_anim_hurt.animation",
+      "id": "4cafd",
+      "displayName": "",
+      "uuid": "cb2cc463-6e7a-4d17-9247-bea8f3cf7bb1@4cafd",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.5
+        },
+        "events": [],
+        "wrapMode": 2
+      }
+    }
+  },
+  "userData": {
+    "normals": 2,
+    "tangents": 2,
+    "dumpMaterials": false,
+    "animationImportSettings": [
+      {
+        "name": "cocos_anim_hurt",
+        "duration": 0.5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "cocos_anim_hurt",
+            "from": 0,
+            "to": 0.5,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "cb2cc463-6e7a-4d17-9247-bea8f3cf7bb1@51885",
+    "assetFinder": {
+      "scenes": [
+        "cb2cc463-6e7a-4d17-9247-bea8f3cf7bb1@51885"
+      ],
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": []
+    },
+    "imageMetas": []
+  }
+}

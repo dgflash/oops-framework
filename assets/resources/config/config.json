@@ -1,0 +1,18 @@
+{
+    "config": {
+        "id": "192.168.1.1",
+        "port": 3434,
+        "version": "1.0.0",
+        "package": "com.dgflash.game"
+    },
+    "language": {
+        "type": [
+            "zh",
+            "en"
+        ],
+        "path": {
+            "json": "language/json",
+            "texture": "language/texture"
+        }
+    }
+}

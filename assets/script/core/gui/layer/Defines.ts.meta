@@ -1,0 +1,14 @@
+{
+  "ver": "4.0.22",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "82d3af5c-ef52-4490-8f79-777aac7079bc",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "importAsPlugin": false,
+    "moduleId": "project:///assets/script/core/gui/layer/Defines.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

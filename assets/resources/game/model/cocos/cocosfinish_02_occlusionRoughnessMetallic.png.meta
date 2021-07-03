@@ -1,0 +1,41 @@
+{
+  "ver": "1.0.21",
+  "importer": "image",
+  "imported": true,
+  "uuid": "cd618de5-59fc-4899-ba4f-55195f3e24ce",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "ver": "1.0.21",
+      "importer": "texture",
+      "name": "texture",
+      "id": "6c48a",
+      "displayName": "cocosfinish_02_occlusionRoughnessMetallic",
+      "uuid": "cd618de5-59fc-4899-ba4f-55195f3e24ce@6c48a",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "cd618de5-59fc-4899-ba4f-55195f3e24ce"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "cd618de5-59fc-4899-ba4f-55195f3e24ce@6c48a",
+    "hasAlpha": false
+  }
+}
