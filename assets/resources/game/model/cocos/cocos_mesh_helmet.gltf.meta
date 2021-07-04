@@ -1,0 +1,60 @@
+{
+  "ver": "2.0.14",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "fb9825a0-fd7f-48c5-b121-9af90f9f2011",
+  "files": [],
+  "subMetas": {
+    "72704": {
+      "ver": "1.1.0",
+      "importer": "gltf-mesh",
+      "name": "cocosfinish_02.mesh",
+      "id": "72704",
+      "displayName": "",
+      "uuid": "fb9825a0-fd7f-48c5-b121-9af90f9f2011@72704",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "28c31": {
+      "ver": "1.0.12",
+      "importer": "gltf-scene",
+      "name": "cocos_mesh_helmet.prefab",
+      "id": "28c31",
+      "displayName": "",
+      "uuid": "fb9825a0-fd7f-48c5-b121-9af90f9f2011@28c31",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "normals": 2,
+    "tangents": 2,
+    "dumpMaterials": false,
+    "redirect": "fb9825a0-fd7f-48c5-b121-9af90f9f2011@28c31",
+    "assetFinder": {
+      "meshes": [
+        "fb9825a0-fd7f-48c5-b121-9af90f9f2011@72704"
+      ],
+      "scenes": [
+        "fb9825a0-fd7f-48c5-b121-9af90f9f2011@28c31"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": []
+    },
+    "imageMetas": []
+  }
+}

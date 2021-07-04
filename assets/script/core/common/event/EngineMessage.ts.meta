@@ -1,0 +1,14 @@
+{
+  "ver": "4.0.22",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "7f50140e-d51c-4c81-aefb-4f89562e25ba",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "importAsPlugin": false,
+    "moduleId": "project:///assets/script/core/event/EngineMessage.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

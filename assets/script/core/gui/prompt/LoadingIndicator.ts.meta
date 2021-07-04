@@ -1,0 +1,14 @@
+{
+  "ver": "4.0.22",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "9514333f-f363-4238-b286-cf0d78265992",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "importAsPlugin": false,
+    "moduleId": "project:///assets/script/core/gui/prompt/LoadingIndicator.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

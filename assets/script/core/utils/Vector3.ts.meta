@@ -1,0 +1,14 @@
+{
+  "ver": "4.0.22",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "2a704326-3192-454c-afd3-40136d00b102",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "importAsPlugin": false,
+    "moduleId": "project:///assets/script/tscript/util/Vector3.js",
+    "importerSettings": 0,
+    "simulateGlobals": []
+  }
+}

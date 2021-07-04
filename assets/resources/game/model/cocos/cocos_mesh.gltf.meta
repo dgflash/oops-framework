@@ -1,0 +1,60 @@
+{
+  "ver": "2.0.14",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "5bee9f0c-9771-4e73-b0ea-0bbb6da67698",
+  "files": [],
+  "subMetas": {
+    "a865e": {
+      "ver": "1.1.0",
+      "importer": "gltf-mesh",
+      "name": "cocosfinish_01.mesh",
+      "id": "a865e",
+      "displayName": "",
+      "uuid": "5bee9f0c-9771-4e73-b0ea-0bbb6da67698@a865e",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "e69d3": {
+      "ver": "1.0.12",
+      "importer": "gltf-scene",
+      "name": "cocos_mesh.prefab",
+      "id": "e69d3",
+      "displayName": "",
+      "uuid": "5bee9f0c-9771-4e73-b0ea-0bbb6da67698@e69d3",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "normals": 2,
+    "tangents": 2,
+    "dumpMaterials": false,
+    "redirect": "5bee9f0c-9771-4e73-b0ea-0bbb6da67698@e69d3",
+    "assetFinder": {
+      "meshes": [
+        "5bee9f0c-9771-4e73-b0ea-0bbb6da67698@a865e"
+      ],
+      "scenes": [
+        "5bee9f0c-9771-4e73-b0ea-0bbb6da67698@e69d3"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": []
+    },
+    "imageMetas": []
+  }
+}

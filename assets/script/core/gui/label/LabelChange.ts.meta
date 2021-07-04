@@ -1,0 +1,14 @@
+{
+  "ver": "4.0.22",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "fff0f2f0-54d8-4d7b-9f55-8ab59308f149",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "importAsPlugin": false,
+    "moduleId": "project:///assets/script/core/gui/label/LabelChange.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "ver": "1.1.0",
+  "importer": "directory",
+  "imported": true,
+  "uuid": "c2392cff-8a0b-4baa-95de-e3bfe2999f3c",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "compressionType": {
+      "wechatgame": "zip"
+    },
+    "isRemoteBundle": {
+      "wechatgame": true,
+      "web-mobile": true,
+      "web-desktop": true
+    },
+    "isBundle": false
+  }
+}

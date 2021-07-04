@@ -1,0 +1,14 @@
+{
+  "ver": "4.0.22",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "110c8bc4-7793-443c-bfcd-f66786427697",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "importAsPlugin": false,
+    "moduleId": "project:///assets/script/core/gui/language/LanguageLabel.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}
