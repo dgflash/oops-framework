@@ -22,6 +22,8 @@ export class Root extends Component {
     public gui: Node | null = null;
 
     onLoad() {
+        this.init();
+
         //@ts-ignore
         engine.init(this);
 
