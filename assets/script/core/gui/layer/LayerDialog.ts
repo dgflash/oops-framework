@@ -1,4 +1,10 @@
 /*
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:13:17
+ * @LastEditors: dgflash
+ * @LastEditTime: 2021-10-13 16:13:14
+ */
+/*
  * 对话框层控制器
  * 该层的节点将一次只显示一个，删除以后会自动从队列当中取一个弹窗，直到队列为空
  */
@@ -49,6 +55,9 @@ export class LayerDialog extends LayerPopUp {
             this.current = this.queue.shift()!;
             if (this.current.node) {
                 this.createNode(null, this.current);
+            }
+            else {
+                this.load(this.current);
             }
         }
     }
