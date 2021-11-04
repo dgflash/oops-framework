@@ -1,7 +1,7 @@
 import { Component, Size, Sprite, SpriteFrame, UITransform, _decorator } from "cc";
 import { engine } from "../../Engine";
-import { Logger } from "../../utils/Logger";
-import { resLoader } from "../../utils/ResLoader";
+import { resLoader } from "../../common/loader/ResLoader";
+import { Logger } from "../../common/log/Logger";
 
 const { ccclass, property, menu } = _decorator;
 

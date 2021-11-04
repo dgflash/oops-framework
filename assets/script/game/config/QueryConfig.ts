@@ -1,5 +1,5 @@
 import { sys, warn } from "cc";
-import { Logger } from "../../core/utils/Logger";
+import { Logger } from "../../core/common/log/Logger";
 import { UrlParse } from "./UrlParse";
 
 /*

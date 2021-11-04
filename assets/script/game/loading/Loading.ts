@@ -1,7 +1,7 @@
 import { _decorator } from 'cc';
 import { engine } from '../../core/Engine';
 import VMParent from '../../core/libs/model-view/VMParent';
-import { resLoader } from '../../core/utils/ResLoader';
+import { resLoader } from '../../core/common/loader/ResLoader';
 import { UIID } from '../../Main';
 import { config } from '../config/Config';
 

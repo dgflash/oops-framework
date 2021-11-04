@@ -11,7 +11,7 @@
  * clear        : 清除所有Node节点，队列当中未创建的任务也会被清除。
  */
 import { error, instantiate, isValid, Node, Prefab, warn, Widget } from "cc";
-import { resLoader } from "../../utils/ResLoader";
+import { resLoader } from "../../common/loader/ResLoader";
 import { UICallbacks, ViewParams } from "./Defines";
 import { DelegateComponent } from "./DelegateComponent";
 

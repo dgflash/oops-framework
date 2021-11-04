@@ -1,4 +1,11 @@
-import { Logger } from "../../core/utils/Logger";
+/*
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:13:17
+ * @LastEditors: dgflash
+ * @LastEditTime: 2021-11-04 17:33:25
+ */
+
+import { Logger } from "../../core/common/log/Logger";
 
 /*
  * 游戏配置解析，对应 resources/config/config.json 配置

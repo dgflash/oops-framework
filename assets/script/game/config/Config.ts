@@ -1,6 +1,6 @@
 
 import { JsonAsset } from "cc";
-import { resLoader } from "../../core/utils/ResLoader";
+import { resLoader } from "../../core/common/loader/ResLoader";
 import { BuildTimeConstants } from "./BuildTimeConstants";
 import { GameConfig } from "./GameConfig";
 import { QueryConfig } from "./QueryConfig";

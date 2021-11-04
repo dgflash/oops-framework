@@ -1,4 +1,4 @@
-export class Mathf {
+export class MathUtil {
     /**
      * 角度转弧度
      */
@@ -63,7 +63,7 @@ export class Mathf {
             target = current + (360 + dAngle);
         }
 
-        return (Mathf.lerp(current, target, t) % 360 + 360) % 360;
+        return (MathUtil.lerp(current, target, t) % 360 + 360) % 360;
     }
 
     /**

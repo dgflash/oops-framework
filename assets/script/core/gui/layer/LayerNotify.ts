@@ -4,7 +4,7 @@
  */
 
 import { error, instantiate, Node, Prefab } from "cc";
-import { resLoader } from "../../utils/ResLoader";
+import { resLoader } from "../../common/loader/ResLoader";
 import { UICallbacks, ViewParams } from "./Defines";
 import { DelegateComponent } from "./DelegateComponent";
 import { LayerUI } from "./LayerUI";

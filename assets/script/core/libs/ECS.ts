@@ -88,7 +88,7 @@ export module ecs {
                     compPools.set(ctor.tid, []);
                 }
                 else {
-                    compCtors.push(null!);
+                    compCtors.push(null);
                 }
                 compAddOrRemove.set(ctor.tid, []);
             }

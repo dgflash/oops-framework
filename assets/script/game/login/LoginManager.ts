@@ -1,5 +1,5 @@
+import { Logger } from "../../core/common/log/Logger";
 import { engine } from "../../core/Engine";
-import { Logger } from "../../core/utils/Logger";
 import { netChannel } from "./NetChannelManager";
 import { netConfig } from "./NetConfig";
 

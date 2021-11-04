@@ -1,13 +1,9 @@
 /**
- *
  * @file EncryptUtil.ts
- * @author dream
  * @description 一些加密解密方法
- *
  */
 
 export module EncryptUtil {
-
     /**
      * AES 加密
      * @param msg 
@@ -43,5 +39,4 @@ export module EncryptUtil {
     function utf8Parse(utf8Str: string): string {
         return CryptoJS.enc.Utf8.parse(utf8Str);
     }
-
 }

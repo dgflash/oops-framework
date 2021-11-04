@@ -1,5 +1,11 @@
+/*
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:13:17
+ * @LastEditors: dgflash
+ * @LastEditTime: 2021-11-04 17:32:16
+ */
 import { Camera, Component, ResolutionPolicy, UITransform, view, _decorator } from "cc";
-import { Logger } from "../utils/Logger";
+import { Logger } from "../common/log/Logger";
 
 const { ccclass, menu } = _decorator;
 

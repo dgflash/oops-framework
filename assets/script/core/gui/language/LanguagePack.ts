@@ -1,6 +1,6 @@
-import { director, error, JsonAsset, resources, warn } from "cc";
-import { Logger } from "../../utils/Logger";
-import { resLoader } from "../../utils/ResLoader";
+import { director, error, JsonAsset, warn } from "cc";
+import { resLoader } from "../../common/loader/ResLoader";
+import { Logger } from "../../common/log/Logger";
 import { LanguageLabel } from "./LanguageLabel";
 import { LanguageSprite } from "./LanguageSprite";
 

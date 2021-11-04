@@ -1,8 +1,6 @@
 /**
  * @file SqlUtil.ts
- * @author dream
  * @description 本地化存储方案
- *
  */
 import { sys } from "cc";
 import { PREVIEW } from "cc/env";

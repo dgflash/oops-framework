@@ -1,6 +1,6 @@
 import { error, log, warn } from "cc";
 import { EventDispatcher } from "../../common/event/EventDispatcher";
-import { Logger } from "../../utils/Logger";
+import { Logger } from "../../common/log/Logger";
 import { LanguageLabel } from "./LanguageLabel";
 import LanguagePack from "./LanguagePack";
 
@@ -78,6 +78,7 @@ export class LanguageManager extends EventDispatcher {
                 callback(false);
                 return;
             }
+            
             Logger.logBusiness(`当前语言为【${language}】`);
             this._currentLang = language;
             this._languagePack.updateLanguage(language);

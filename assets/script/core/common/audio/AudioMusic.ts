@@ -1,5 +1,5 @@
 import { AudioClip, AudioSource, error, _decorator } from 'cc';
-import { resLoader } from '../../utils/ResLoader';
+import { resLoader } from '../loader/ResLoader';
 const { ccclass, menu } = _decorator;
 
 /** 背景音乐 */

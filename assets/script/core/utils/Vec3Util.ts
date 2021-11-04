@@ -1,8 +1,8 @@
 
 import { Mat4, Vec3 } from "cc";
-import { Mathf } from "./Mathf";
+import { MathUtil } from "./MathUtil";
 
-export class Vector3 {
+export class Vec3Util {
     /**
      * X轴
      */
@@ -89,9 +89,9 @@ export class Vector3 {
      */
     public static progress(start: Vec3, end: Vec3, t: number): Vec3 {
         var current = new Vec3();
-        current.x = Mathf.progress(start.x, end.x, t);
-        current.y = Mathf.progress(start.y, end.y, t);
-        current.z = Mathf.progress(start.z, end.z, t);
+        current.x = MathUtil.progress(start.x, end.x, t);
+        current.y = MathUtil.progress(start.y, end.y, t);
+        current.z = MathUtil.progress(start.z, end.z, t);
         return current;
     }
 
@@ -380,10 +380,10 @@ export class Vector3 {
      * @param b 
      */
     public static dirAngle(a: Vec3, b: Vec3): number {
-        var c: Vec3 = Vector3.cross(a, b);
-        var angle: number = Vector3.angle(a, b);
+        var c: Vec3 = Vec3Util.cross(a, b);
+        var angle: number = Vec3Util.angle(a, b);
         // a 到 b 的夹角
-        var sign = Math.sign(Vector3.dot(c.normalize(), Vector3.cross(b.normalize(), a.normalize())));
+        var sign = Math.sign(Vec3Util.dot(c.normalize(), Vec3Util.cross(b.normalize(), a.normalize())));
 
         return angle * sign;
     }
