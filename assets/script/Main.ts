@@ -1,11 +1,17 @@
+/*
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:13:17
+ * @LastEditors: dgflash
+ * @LastEditTime: 2021-11-12 13:36:16
+ */
 import { game, setDisplayStats, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
 import { engine } from './core/Engine';
 import { LayerType, UIConfig } from './core/gui/layer/LayerManager';
 import { Root } from './core/Root';
+import { Demo } from './ecs/entity/Demo';
 import { RootSystem } from './ecs/RootSystem';
-
-const { ccclass } = _decorator;
+const { ccclass, property } = _decorator;
 
 export enum UIID {
     UILoading = 0,
@@ -38,6 +44,22 @@ export class Main extends Root {
     protected run() {
         engine.gui.init(UICF);
         engine.gui.open(UIID.UILoading);
+
+        this.ecs_demo();
+    }
+
+    /** 通过ECS设计通用业务组件来复用 */
+    private async ecs_demo() {
+        Demo.load(() => {
+            var a = new Demo();
+            a.init(1);
+
+            // 模块业务逻辑
+            a.login();
+
+            // 模块视图
+            a.show(this.node);
+        });
     }
 
     update(dt: number) {

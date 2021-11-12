@@ -1,3 +1,9 @@
+/*
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:13:17
+ * @LastEditors: dgflash
+ * @LastEditTime: 2021-11-11 19:42:56
+ */
 import { Component, director, game, Game, log, Node, view, _decorator } from "cc";
 import { config } from "../game/config/Config";
 import { EngineMessage } from "./common/event/EngineMessage";
@@ -28,7 +34,7 @@ export class Root extends Component {
         engine.init(this);
 
         // 加载游戏配置
-        config.init(this.run);
+        config.init(this.run.bind(this));
     }
 
     /** 加载完引擎配置文件后执行 */

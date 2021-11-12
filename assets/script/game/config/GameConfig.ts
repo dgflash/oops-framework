@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2021-11-04 17:33:25
+ * @LastEditTime: 2021-11-12 10:16:59
  */
 
 import { Logger } from "../../core/common/log/Logger";
@@ -16,6 +16,10 @@ export class GameConfig {
      */
     public get version(): string {
         return this._data["config"]["version"];
+    }
+
+    public static getConfigPath(relative_path: string) {
+        return "config/game/" + relative_path;
     }
 
     /**
