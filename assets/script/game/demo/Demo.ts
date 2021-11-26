@@ -1,3 +1,9 @@
+/*
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:13:17
+ * @LastEditors: dgflash
+ * @LastEditTime: 2021-11-16 15:33:25
+ */
 import { Component, EventTouch, _decorator } from "cc";
 import { engine } from "../../core/Engine";
 import { tips } from "../../core/gui/prompt/TipsManager";
@@ -48,6 +54,7 @@ export class Demo extends Component {
     }
 
     private btn_audio_open1(event: EventTouch, data: any) {
+        engine.audio.musicVolume = 0.5;
         engine.audio.playMusic("audios/nocturne");
     }
 

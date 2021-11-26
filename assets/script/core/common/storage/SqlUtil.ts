@@ -10,6 +10,7 @@ import { md5 } from "./Md5";
 export module SqlUtil {
     let _key: string | null = null;
     let _iv: string | null = null;
+    let _id: number = -1;
 
     /**
      * 初始化密钥
@@ -22,12 +23,22 @@ export module SqlUtil {
     }
 
     /**
+     * 设置用户标识
+     * @param id 
+     */
+    export function setUser(id: number) {
+        _id = id;
+    }
+
+    /**
      * 存储
      * @param key 存储key
      * @param value 存储值
      * @returns 
      */
     export function set(key: string, value: any) {
+        key = `${key}_${_id}`;
+
         if (null == key) {
             console.error("存储的key不能为空");
             return;
@@ -49,7 +60,7 @@ export module SqlUtil {
                 value = JSON.stringify(value);
             }
             catch (e) {
-                console.error(`解析失败，str=${value}`);
+                console.error(`解析失败，str = ${value}`);
                 return;
             }
         }
@@ -78,6 +89,9 @@ export module SqlUtil {
             console.error("存储的key不能为空");
             return;
         }
+
+        key = `${key}_${_id}`;
+
         if (!PREVIEW) {
             key = md5(key);
         }
@@ -126,6 +140,9 @@ export module SqlUtil {
             console.error("存储的key不能为空");
             return;
         }
+
+        key = `${key}_${_id}`;
+
         if (!PREVIEW) {
             key = md5(key);
         }

@@ -1,12 +1,14 @@
 {
-  "ver": "2.0.14",
+  "ver": "2.1.9",
   "importer": "gltf",
   "imported": true,
   "uuid": "b1cb32e6-c8c9-40c9-9d52-119dae416b32",
-  "files": [],
+  "files": [
+    "__original-animation-0.cconb"
+  ],
   "subMetas": {
     "0a7b5": {
-      "ver": "1.0.14",
+      "ver": "1.0.16",
       "importer": "gltf-animation",
       "name": "cocos_anim_walk.animation",
       "id": "0a7b5",
@@ -14,23 +16,22 @@
       "uuid": "b1cb32e6-c8c9-40c9-9d52-119dae416b32@0a7b5",
       "imported": true,
       "files": [
-        ".bin",
-        ".json"
+        ".cconb"
       ],
       "subMetas": {},
       "userData": {
         "events": [
           {
             "frame": 0.3333333333333333,
-            "functionName": "onFrameEvent",
-            "parameters": [
+            "func": "onFrameEvent",
+            "params": [
               "Walk"
             ]
           },
           {
             "frame": 0.6666666666666666,
-            "functionName": "onFrameEvent",
-            "parameters": [
+            "func": "onFrameEvent",
+            "params": [
               "Walk"
             ]
           }

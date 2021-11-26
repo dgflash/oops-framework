@@ -1,9 +1,11 @@
 {
-  "ver": "2.0.14",
+  "ver": "2.1.9",
   "importer": "gltf",
   "imported": true,
   "uuid": "2f1b63f2-ae5f-4f0a-8c3d-f85f5f15400e",
-  "files": [],
+  "files": [
+    "__original-animation-0.cconb"
+  ],
   "subMetas": {
     "5f22b": {
       "ver": "1.1.0",
@@ -57,7 +59,7 @@
       }
     },
     "73b7f": {
-      "ver": "1.0.14",
+      "ver": "1.0.16",
       "importer": "gltf-animation",
       "name": "Take 001.animation",
       "id": "73b7f",
@@ -65,8 +67,7 @@
       "uuid": "2f1b63f2-ae5f-4f0a-8c3d-f85f5f15400e@73b7f",
       "imported": true,
       "files": [
-        ".bin",
-        ".json"
+        ".cconb"
       ],
       "subMetas": {},
       "userData": {

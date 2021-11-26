@@ -4,6 +4,7 @@
     "includeModules": [
       "base",
       "gfx-webgl",
+      "gfx-webgl2",
       "3d",
       "2d",
       "ui",
@@ -21,8 +22,14 @@
       "terrain",
       "tiled-map",
       "spine",
-      "dragon-bones"
-    ]
+      "dragon-bones",
+      "marionette"
+    ],
+    "flags": {
+      "2d": {
+        "UI_GPU_DRIVEN": true
+      }
+    }
   },
   "__version__": "1.0.5"
 }
