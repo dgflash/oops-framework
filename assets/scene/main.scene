@@ -27,11 +27,11 @@
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 111
+      "__id__": 110
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 112
+      "__id__": 111
     },
     "_id": "ba0b085f-f8d5-40b0-9964-2fd25728d707"
   },
@@ -3690,23 +3690,7 @@
     "gui": {
       "__id__": 93
     },
-    "a": {
-      "__id__": 110
-    },
     "_id": "c5PY2uoV1Fub3p/gK8ZOCH"
-  },
-  {
-    "__type__": "cc.animation.AnimationController",
-    "_name": "",
-    "_objFlags": 0,
-    "node": null,
-    "_enabled": true,
-    "__prefab": null,
-    "graph": {
-      "__uuid__": "986922ff-74f1-4ffe-9c70-ff65910341ae",
-      "__expectedType__": "cc.animation.AnimationGraph"
-    },
-    "_id": "bc5wMgJetD36EEzHynH4Z0"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3715,16 +3699,16 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 113
+      "__id__": 112
     },
     "shadows": {
-      "__id__": 114
+      "__id__": 113
     },
     "_skybox": {
-      "__id__": 115
+      "__id__": 114
     },
     "fog": {
-      "__id__": 116
+      "__id__": 115
     }
   },
   {

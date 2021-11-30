@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2021-11-18 10:45:38
+ * @LastEditTime: 2021-11-30 15:51:42
  */
-import { animation, game, setDisplayStats, _decorator } from 'cc';
+import { game, setDisplayStats, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
 import { engine } from './core/Engine';
 import { LayerType, UIConfig } from './core/gui/layer/LayerManager';
@@ -31,14 +31,11 @@ export var UICF: { [key: number]: UIConfig } = {
 export class Main extends Root {
     rootSystem!: RootSystem;
 
-    @property({ type: animation.AnimationController })
-    a: animation.AnimationController | null = null;
-
     start() {
         if (DEBUG)
             setDisplayStats(true);
 
-        game.setFrameRate(60);
+        game.frameRate = 60;
 
         this.rootSystem = new RootSystem();
         this.rootSystem.init();
@@ -63,10 +60,6 @@ export class Main extends Root {
             // 模块视图
             a.show(this.node);
         });
-
-        setTimeout(() => {
-            this.a!.setValue('dir', 1);
-        }, 3000);
     }
 
     update(dt: number) {
