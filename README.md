@@ -1,4 +1,13 @@
+<!--
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:12:43
+ * @LastEditors: dgflash
+ * @LastEditTime: 2021-12-10 09:44:36
+-->
 # oops-framework
+
+#### 注：
+最近升级到Cocos Creator v3.4.0 社区测试版本，学习的小伙伴们可以升级引导看DEMO，需要用于开发项目的同学，可以把代码assets拷贝到自己对应的3.x版本工程中即可，本人一般会跟官方版本第一时间兼容新版本
 
 #### 介绍
 Cocos Creato 3.x 版本的游戏框架，框架中集成一些优秀的第三方库，基本游戏开发常用的功能都支持
