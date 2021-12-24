@@ -5,7 +5,7 @@
 
 import { error, instantiate, Node, Prefab } from "cc";
 import { resLoader } from "../../common/loader/ResLoader";
-import { UICallbacks, ViewParams } from "./Defines";
+import { ViewParams } from "./Defines";
 import { DelegateComponent } from "./DelegateComponent";
 import { LayerUI } from "./LayerUI";
 import { NotifyComponent } from "./NotifyComponent";
@@ -19,25 +19,15 @@ export class LayerNotify extends LayerUI {
      * @param useI18n 是否使用多语言
      */
     show(content: string, useI18n: boolean): void {
-        this.add(
-            ToastPrefabPath, {
-            content: content,
-            useI18n: useI18n
-        })
-    }
-
-    add(prefabPath: string, params?: any, callbacks?: UICallbacks): string {
         var viewParams = new ViewParams();
-        viewParams.uuid = this.getUuid(prefabPath);
-        viewParams.prefabPath = prefabPath;
-        viewParams.params = params || {};
-        viewParams.callbacks = callbacks || {};
+        viewParams.uuid = this.getUuid(ToastPrefabPath);
+        viewParams.prefabPath = ToastPrefabPath;
+        viewParams.params = { content: content, useI18n: useI18n };
+        viewParams.callbacks = {};
         viewParams.valid = true;
+
         this.ui_nodes.set(viewParams.uuid, viewParams);
-
-        this.load(viewParams)
-
-        return viewParams.uuid;
+        this.load(viewParams);
     }
 
     protected load(viewParams: ViewParams) {

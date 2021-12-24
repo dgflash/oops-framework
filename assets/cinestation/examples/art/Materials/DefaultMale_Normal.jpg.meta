@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.22",
+  "importer": "image",
+  "imported": true,
+  "uuid": "248968dc-9b48-418f-8cb1-ab7146a31ff4",
+  "files": [
+    ".jpg",
+    ".json"
+  ],
+  "subMetas": {
+    "3c318": {
+      "importer": "texture",
+      "uuid": "248968dc-9b48-418f-8cb1-ab7146a31ff4@3c318",
+      "displayName": "DefaultMale_Normal",
+      "id": "3c318",
+      "name": "normalMap",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "248968dc-9b48-418f-8cb1-ab7146a31ff4"
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "hasAlpha": false,
+    "type": "normal map",
+    "redirect": "248968dc-9b48-418f-8cb1-ab7146a31ff4@3c318"
+  }
+}

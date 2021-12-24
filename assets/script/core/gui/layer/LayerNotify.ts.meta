@@ -1,12 +1,11 @@
 {
-  "ver": "4.0.22",
+  "ver": "4.0.23",
   "importer": "typescript",
   "imported": true,
   "uuid": "da14ac7e-076c-4db0-bdad-69014e87bc1e",
   "files": [],
   "subMetas": {},
   "userData": {
-    "importAsPlugin": false,
     "moduleId": "project:///assets/script/core/gui/layer/LayerNotify.js",
     "importerSettings": 4,
     "simulateGlobals": []

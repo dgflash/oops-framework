@@ -1,5 +1,5 @@
 {
-  "ver": "4.0.22",
+  "ver": "4.0.23",
   "importer": "javascript",
   "imported": true,
   "uuid": "8fb0bbdd-75fa-41fc-b2d4-20fd7d45f582",
@@ -8,7 +8,6 @@
   ],
   "subMetas": {},
   "userData": {
-    "importAsPlugin": true,
     "moduleId": "project:///assets/libs/k-cocos.js",
     "importerSettings": 4,
     "isPlugin": true,

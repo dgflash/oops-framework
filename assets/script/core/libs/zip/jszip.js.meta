@@ -1,5 +1,5 @@
 {
-  "ver": "4.0.22",
+  "ver": "4.0.23",
   "importer": "javascript",
   "imported": true,
   "uuid": "14a75176-ab18-48ab-b465-aa2713efe3d2",
@@ -8,7 +8,6 @@
   ],
   "subMetas": {},
   "userData": {
-    "importAsPlugin": true,
     "moduleId": "project:///assets/libs/jszip.js",
     "isPlugin": true,
     "loadPluginInWeb": true,

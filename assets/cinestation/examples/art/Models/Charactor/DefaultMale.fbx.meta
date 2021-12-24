@@ -1,0 +1,99 @@
+{
+  "ver": "2.1.10",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "a139b327-542d-4ef0-bed6-f5ce719b0830",
+  "files": [],
+  "subMetas": {
+    "cbcd6": {
+      "importer": "gltf-mesh",
+      "uuid": "a139b327-542d-4ef0-bed6-f5ce719b0830@cbcd6",
+      "displayName": "",
+      "id": "cbcd6",
+      "name": "Body.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "a139b327-542d-4ef0-bed6-f5ce719b0830@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 59
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "dd239": {
+      "importer": "gltf-material",
+      "uuid": "a139b327-542d-4ef0-bed6-f5ce719b0830@dd239",
+      "displayName": "",
+      "id": "dd239",
+      "name": "DefaultMale_Mat.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "8def0": {
+      "importer": "gltf-scene",
+      "uuid": "a139b327-542d-4ef0-bed6-f5ce719b0830@8def0",
+      "displayName": "",
+      "id": "8def0",
+      "name": "DefaultMale.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "redirect": "a139b327-542d-4ef0-bed6-f5ce719b0830@8def0",
+    "assetFinder": {
+      "meshes": [
+        "a139b327-542d-4ef0-bed6-f5ce719b0830@cbcd6"
+      ],
+      "skeletons": [
+        "a139b327-542d-4ef0-bed6-f5ce719b0830@438fe"
+      ],
+      "textures": [],
+      "materials": [
+        "a139b327-542d-4ef0-bed6-f5ce719b0830@dd239"
+      ],
+      "scenes": [
+        "a139b327-542d-4ef0-bed6-f5ce719b0830@8def0"
+      ]
+    },
+    "useVertexColors": false,
+    "fbx": {
+      "preferLocalTimeSpan": false
+    }
+  }
+}

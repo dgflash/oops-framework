@@ -1,0 +1,88 @@
+CCEffect %{
+  techniques:
+  - name: opaque
+    passes:
+    - vert: view-vs:vert 
+      frag: view-fs:frag
+      properties: &props
+        lookatPoint:    { value: [0.5, 0.5] }
+        deadZoneWidth:  { value: 0.1, target: viewParams.x }
+        deadZoneHeight: { value: 0.1, target: viewParams.y }
+        softZoneWidth:  { value: 0.8, target: viewParams.z }
+        softZoneHeight: { value: 0.8, target: viewParams.w }
+
+  - name: transparent
+    passes:
+    - vert: view-vs:vert 
+      frag: view-fs:frag
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: src_alpha
+          blendDst: one_minus_src_alpha
+          blendSrcAlpha: src_alpha
+          blendDstAlpha: one_minus_src_alpha
+      properties: *props
+}%
+
+CCProgram view-vs %{
+  precision highp float;
+  #include <input>
+  #include <cc-local-batch>
+
+  vec4 vert() {
+    vec4 position;
+    CCVertInput(position);
+    return vec4(position.xyz * 2., 1.0);
+  }
+}%
+
+CCProgram view-fs %{
+  precision highp float;
+  #include <output>
+
+  uniform Constant {
+    vec4 viewParams;
+    vec2 lookatPoint;
+  };
+
+  #define u_deadZoneWidth  viewParams.x
+  #define u_deadZoneHeight viewParams.y
+  #define u_softZoneWidth  viewParams.z
+  #define u_softZoneHeight viewParams.w
+
+  float sdf_union(float a, float b) {
+    return min(a, b);
+  }
+
+  float sdf_intersect(float a, float b) {
+    return max(a, b);
+  }
+
+  float sdf_substraction(float a, float b) {
+    return max(-a, b);
+  }
+
+  vec4 frag () {
+    vec2  uv = gl_FragCoord.xy * cc_screenSize.zw;
+    float dx = abs(uv.x - 0.5) * 2.;
+    float dy = abs(uv.y - 0.5) * 2.;
+    float dpx = abs(uv.x - lookatPoint.x) * 2.;
+    float dpy = abs(uv.y - lookatPoint.y) * 2.; 
+    float softZoneWidth = max(u_deadZoneWidth, u_softZoneWidth);
+    float softZoneHeight = max(u_deadZoneHeight, u_softZoneHeight);
+    float deadZone = sdf_intersect(step(u_deadZoneWidth, dx), step(u_deadZoneHeight, dy));
+    float softZone = sdf_intersect(step(softZoneWidth, dx), step(softZoneHeight, dy));
+    float deadZoneLine0 = sdf_intersect(1. - step(u_deadZoneWidth, dx), step(u_deadZoneWidth + 7. * cc_screenSize.z, dx));
+    float deadZoneLine1 = sdf_intersect(1. - step(u_deadZoneHeight, dy), step(u_deadZoneHeight + 7. * cc_screenSize.w, dy));
+    float softZoneLine0 = sdf_intersect(1. - step(softZoneWidth, dx), step(softZoneWidth + 7. * cc_screenSize.z, dx));
+    float softZoneLine1 = sdf_intersect(1. - step(softZoneHeight, dy), step(softZoneHeight + 7. * cc_screenSize.w, dy));
+    vec4  color = vec4(1,0,0,0.15);
+    color = mix(vec4(0,0.7,1,0.15), color, softZone);
+    color = mix(vec4(0), color, deadZone);
+    color = mix(vec4(0,0.7,1,0.3), color, sdf_union(deadZoneLine0, deadZoneLine1));
+    color = mix(vec4(1,0,0,0.3), color, sdf_union(softZoneLine0, softZoneLine1));
+    color = mix(vec4(1,1,0,1), color, sdf_intersect(step(10. * cc_screenSize.z, dpx), step(10. * cc_screenSize.z, dpy * cc_screenSize.y/cc_screenSize.x)));
+    return color;
+  }
+}%

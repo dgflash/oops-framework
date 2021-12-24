@@ -1,12 +1,11 @@
 {
-  "ver": "4.0.22",
+  "ver": "4.0.23",
   "importer": "typescript",
   "imported": true,
   "uuid": "7ba67e71-1467-47a8-83b2-913cac37312e",
   "files": [],
   "subMetas": {},
   "userData": {
-    "importAsPlugin": false,
     "moduleId": "project:///assets/script/core/gui/layer/LayerManager.js",
     "importerSettings": 4,
     "simulateGlobals": []

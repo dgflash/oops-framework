@@ -25,11 +25,7 @@
       "dragon-bones",
       "marionette"
     ],
-    "flags": {
-      "2d": {
-        "UI_GPU_DRIVEN": true
-      }
-    }
+    "flags": {}
   },
   "__version__": "1.0.5"
 }
