@@ -11,7 +11,7 @@
     ],
     "_variables": {
       "dir": {
-        "__id__": 29
+        "__id__": 31
       }
     }
   },
@@ -43,7 +43,7 @@
     ],
     "_transitions": [
       {
-        "__id__": 28
+        "__id__": 30
       }
     ],
     "_entryState": {
@@ -59,7 +59,7 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": -246,
+      "centerX": -245,
       "centerY": -6
     },
     "name": "Entry"
@@ -119,10 +119,10 @@
         "__id__": 18
       },
       {
-        "__id__": 22
+        "__id__": 21
       },
       {
-        "__id__": 26
+        "__id__": 24
       },
       {
         "__id__": 27
@@ -148,13 +148,17 @@
   },
   {
     "__type__": "cc.animation.State",
+    "__editorExtras__": {
+      "centerX": 201,
+      "centerY": 59
+    },
     "name": "Exit"
   },
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": 196,
-      "centerY": -41
+      "centerX": 205,
+      "centerY": -106
     },
     "name": "Any"
   },
@@ -187,7 +191,7 @@
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
       "centerX": 68,
-      "centerY": 21
+      "centerY": 15
     },
     "name": "IdelRight",
     "_components": [
@@ -223,24 +227,16 @@
     ]
   },
   {
-    "__type__": "cc.animation.BinaryCondition",
+    "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
-    "lhs": {
+    "operand": {
       "__id__": 20
-    },
-    "rhs": {
-      "__id__": 21
     }
   },
   {
-    "__type__": "cc.animation.BindableNumber",
+    "__type__": "cc.animation.BindableBoolean",
     "variable": "dir",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "",
-    "value": 1
+    "value": false
   },
   {
     "__type__": "cc.animation.Transition",
@@ -252,43 +248,21 @@
     },
     "conditions": [
       {
-        "__id__": 23
+        "__id__": 22
       }
     ]
   },
   {
-    "__type__": "cc.animation.BinaryCondition",
-    "operator": 0,
-    "lhs": {
-      "__id__": 24
-    },
-    "rhs": {
-      "__id__": 25
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 23
     }
   },
   {
-    "__type__": "cc.animation.BindableNumber",
+    "__type__": "cc.animation.BindableBoolean",
     "variable": "dir",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "",
-    "value": 2
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
-      "__id__": 15
-    },
-    "to": {
-      "__id__": 12
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "_exitCondition": 1
+    "value": false
   },
   {
     "__type__": "cc.animation.AnimationTransition",
@@ -298,11 +272,57 @@
     "to": {
       "__id__": 15
     },
-    "conditions": [],
+    "conditions": [
+      {
+        "__id__": 25
+      }
+    ],
     "duration": 0.3,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 26
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "dir",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 15
+    },
+    "to": {
+      "__id__": 12
+    },
+    "conditions": [
+      {
+        "__id__": 28
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 0,
+    "operand": {
+      "__id__": 29
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "dir",
+    "value": false
   },
   {
     "__type__": "cc.animation.Transition",
@@ -316,7 +336,7 @@
   },
   {
     "__type__": "cc.animation.Variable",
-    "_type": 3,
-    "_value": 0
+    "_type": 1,
+    "_value": false
   }
 ]

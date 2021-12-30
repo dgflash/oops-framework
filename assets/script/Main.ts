@@ -42,10 +42,10 @@ export class Main extends Root {
     }
 
     protected run() {
-        engine.gui.init(UICF);
-        engine.gui.open(UIID.UILoading);
+        // engine.gui.init(UICF);
+        // engine.gui.open(UIID.UILoading);
 
-        this.ecs_demo();
+        // this.ecs_demo();
     }
 
     /** 通过ECS设计通用业务组件来复用 */
