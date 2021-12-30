@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2021-11-30 15:51:42
+ * @LastEditTime: 2021-12-30 16:22:27
  */
 import { game, setDisplayStats, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
@@ -42,10 +42,10 @@ export class Main extends Root {
     }
 
     protected run() {
-        // engine.gui.init(UICF);
-        // engine.gui.open(UIID.UILoading);
+        engine.gui.init(UICF);
+        engine.gui.open(UIID.UILoading);
 
-        // this.ecs_demo();
+        this.ecs_demo();
     }
 
     /** 通过ECS设计通用业务组件来复用 */

@@ -1631,7 +1631,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 401.67364016736406,
+    "_orthoHeight": 422.44224422442244,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -3360,6 +3360,9 @@
     },
     "fog": {
       "__id__": 255
+    },
+    "octree": {
+      "__id__": 256
     }
   },
   {
@@ -3476,5 +3479,22 @@
     "_fogTop": 1.5,
     "_fogRange": 1.2,
     "_accurate": false
+  },
+  {
+    "__type__": "cc.OctreeInfo",
+    "_enabled": false,
+    "_minPos": {
+      "__type__": "cc.Vec3",
+      "x": -1024,
+      "y": -1024,
+      "z": -1024
+    },
+    "_maxPos": {
+      "__type__": "cc.Vec3",
+      "x": 1024,
+      "y": 1024,
+      "z": 1024
+    },
+    "_depth": 8
   }
 ]
