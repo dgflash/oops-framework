@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-24 15:51:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-24 15:16:17
+ * @LastEditTime: 2022-01-24 15:20:41
  */
 import { log } from "cc";
 import { ecs } from "../../../core/libs/ECS";
@@ -34,6 +34,8 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
             }
 
             netChannel.game.req("LoginAction", "loadPlayer", params, onComplete);
+
+            e.remove(AccountNetDataComp);
         }
     }
 }

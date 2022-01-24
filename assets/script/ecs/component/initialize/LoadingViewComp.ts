@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-24 14:49:29
+ * @LastEditTime: 2022-01-24 15:25:59
  */
 
 import { _decorator } from "cc";
@@ -12,6 +12,7 @@ import { engine } from "../../../core/Engine";
 import { ecs } from "../../../core/libs/ECS";
 import { config } from "../../../game/config/Config";
 import { UIID } from "../../../game/config/UIConfig";
+import { Account } from "../../entity/Account";
 import { CCVMParentComp } from "../common/CCVMParentComp";
 import { SingletonModuleComp } from "../common/SingletonModuleComp";
 
@@ -29,7 +30,16 @@ export class LoadingViewComp extends CCVMParentComp {
     private progress: number = 0;
 
     reset(): void {
+        engine.gui.remove(UIID.Loading);
+        // 释放 ECS 组件
+        engine.gui.open(UIID.Demo);
+
+        // 进入游戏主界面
+        var module = ecs.getSingleton(SingletonModuleComp);
+        module.account = new Account();
+
         resLoader.releaseDir("loading");
+
         Logger.logView("释放loading资源");
     }
 
@@ -73,12 +83,6 @@ export class LoadingViewComp extends CCVMParentComp {
     }
 
     private onCompleteCallback() {
-        engine.gui.remove(UIID.Loading);
-        // 释放 ECS 组件
-        // this.ent.remove(LoadingViewComp);
-        engine.gui.open(UIID.Demo);
-
-        // 进入游戏主界面
-        var module = ecs.getSingleton(SingletonModuleComp);
+        this.ent.remove(LoadingViewComp);
     }
 }
