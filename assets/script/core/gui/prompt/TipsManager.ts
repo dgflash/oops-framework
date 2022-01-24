@@ -1,5 +1,12 @@
+/*
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:13:17
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-01-24 15:06:38
+ */
+
 import { Node, tween, Vec3 } from "cc";
-import { UIID } from "../../../Main";
+import { UIID } from "../../../game/config/UIConfig";
 import { engine } from "../../Engine";
 import { PopViewParams } from "../layer/Defines";
 
@@ -11,16 +18,16 @@ class TipsManager {
             engine.timer.unschedule(this._timeId);
             this._timeId = "";
         }
-        engine.gui.remove(UIID.UILoading_Prompt);
+        engine.gui.remove(UIID.Netinstable);
     }
     /** 打开网络不稳定提示 */
     public netInstableOpen() {
-        if (!engine.gui.has(UIID.UILoading_Prompt)) {
-            engine.gui.open(UIID.UILoading_Prompt);
+        if (!engine.gui.has(UIID.Netinstable)) {
+            engine.gui.open(UIID.Netinstable);
         }
     }
     public netInstableClose() {
-        engine.gui.remove(UIID.UILoading_Prompt);
+        engine.gui.remove(UIID.Netinstable);
     }
     /** 网络延时 */
     public networkLatency(time: number) {
@@ -45,6 +52,36 @@ class TipsManager {
             needCancel: true
         };
         engine.gui.open(UIID.Window, operate, this.getPopCommonEffect());
+    }
+
+    public alert(content: string, cb?: Function, title?: string, okWord?: string) {
+        let operate: any = {
+            title: title ? title : 'common_prompt_title_sys',
+            content: content,
+            okWord: okWord ? okWord : 'common_prompt_ok',
+            okFunc: () => {
+                cb && cb();
+            },
+            needCancel: false
+        };
+        engine.gui.open(UIID.Window, operate, tips.getPopCommonEffect());
+    }
+
+    public confirm(content: string, cb: Function, okWord: string = "common_prompt_ok") {
+        let operate: any = {
+            title: 'common_prompt_title_sys',
+            content: content,
+            okWord: okWord,
+            cancelWord: 'common_prompt_cancal',
+            okFunc: () => {
+                cb && cb()
+            },
+            cancelFunc: () => {
+
+            },
+            needCancel: true
+        };
+        engine.gui.open(UIID.Window, operate, tips.getPopCommonEffect());
     }
 
     /** 弹窗动画 */

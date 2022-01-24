@@ -435,7 +435,7 @@ export module ecs {
         add<T extends IComp>(ctor: CompCtor<T>, isReAdd?: boolean): T;
         add<T extends IComp>(ctor: CompType<T>, isReAdd?: boolean): T;
         add<T extends IComp>(ctor: CompType<T> | T, isReAdd: boolean = false): T | Entity {
-            console.log('typeof: ', typeof ctor);
+            // console.log('typeof: ', typeof ctor);
             if (typeof ctor === 'function') {
                 let compTid = ctor.tid;
                 if (ctor.tid === -1) {
@@ -587,11 +587,24 @@ export module ecs {
             this.remove(comp, false);
         }
 
+        private _remove_release(comp: CompType<IComp>) {
+            this.remove(comp, true);
+        }
+
         /**
-         * 销毁实体，实体会被回收到实体缓存池中。
+         * 销毁实体，实体会被回收到实体缓存池中。（不清楚ECS组件上的数据）
          */
         destroy() {
             this.compTid2Ctor.forEach(this._remove, this);
+            destroyEntity(this);
+            this.compTid2Obj.clear();
+        }
+
+        /**
+         * 销毁实体，实体会被回收到实体缓存池中。（可触发ecs.Comp 与 cc.Component节后组件的reset）
+         */
+        release() {
+            this.compTid2Ctor.forEach(this._remove_release, this);
             destroyEntity(this);
             this.compTid2Obj.clear();
         }
@@ -1032,7 +1045,8 @@ export module ecs {
          * 根据提供的组件过滤实体。
          */
         abstract filter(): IMatcher;
-        abstract update(entities: E[]): void;
+        // abstract update(entities: E[]): void;
+        update(entities: E[]) { };      // 避免不需要用update时写一些多余的代码
     }
 
     /**

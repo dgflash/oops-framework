@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-08-11 16:41:12
  * @LastEditors: dgflash
- * @LastEditTime: 2021-09-08 09:58:20
+ * @LastEditTime: 2022-01-24 15:00:52
  */
 /**
  * 数组工具
@@ -72,15 +72,6 @@ export default class ArrayUtil {
             array = [].concat.apply([], array); // 压扁数组
         }
         return array;
-    }
-
-    /**
-     * 数组去重
-     * @param array 目标数组
-     */
-    public static removeRepeated(array: any[]): any[] {
-        let newArray = [...new Set(array)];
-        return newArray;
     }
 
     /** 删除数组中指定项 */

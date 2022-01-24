@@ -2,21 +2,24 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2021-10-13 16:13:14
+ * @LastEditTime: 2022-01-24 14:24:04
  */
-/*
- * 对话框层控制器
- * 该层的节点将一次只显示一个，删除以后会自动从队列当中取一个弹窗，直到队列为空
- */
+
 import { Node } from "cc";
 import { UICallbacks, ViewParams } from "./Defines";
+import { UIConfig } from "./LayerManager";
 import { LayerPopUp } from "./LayerPopup";
 
+/*
+ * Dialog 层
+ * 该层的节点将一次只显示一个，删除以后会自动从队列当中取一个弹窗，直到队列为空
+ */
 export class LayerDialog extends LayerPopUp {
     private queue: Array<ViewParams> = [];
     private current!: ViewParams;
 
-    add(prefabPath: string, params?: any, callbacks?: UICallbacks): string {
+    add(config: UIConfig, params?: any, callbacks?: UICallbacks): string {
+        let prefabPath = config.prefab
         var uuid = this.getUuid(prefabPath);
         var viewParams = this.ui_nodes.get(uuid);
         if (viewParams == null) {

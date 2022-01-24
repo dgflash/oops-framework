@@ -1,12 +1,18 @@
 /*
- * Popup层，调用add显示，可以显示暗色背景，弹框参数可以查看PopViewParams
- * 允许同时弹出多个pop层
+ * @Date: 2021-11-24 16:08:36
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-01-24 14:18:46
  */
 
 import { BlockInputEvents, Layers } from "cc";
 import { PopViewParams } from "./Defines";
+import { UIConfig } from "./LayerManager";
 import { LayerUI } from "./LayerUI";
 
+/*
+ * Popup层，调用add显示，可以显示暗色背景，弹框参数可以查看PopViewParams
+ * 允许同时弹出多个窗口
+ */
 export class LayerPopUp extends LayerUI {
     private black!: BlockInputEvents;
 
@@ -27,9 +33,9 @@ export class LayerPopUp extends LayerUI {
      * @param params     传给组件onAdded、onRemoved方法的参数。
      * @param popParams  弹出界面的设置定义，详情见PopViewParams
      */
-    add(prefabPath: string, params: any, popParams?: PopViewParams): string {
+    add(config: UIConfig, params: any, popParams?: PopViewParams): string {
         this.black.enabled = true;
-        return super.add(prefabPath, params, popParams);
+        return super.add(config, params, popParams);
     }
 
     remove(prefabPath: string, isDestroy: boolean): void {

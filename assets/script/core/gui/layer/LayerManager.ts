@@ -2,7 +2,8 @@
  * 入口文件
  */
 
-import { Node, warn, Widget } from "cc";
+import { Camera, Node, warn, Widget } from "cc";
+import { GUI } from "../GUI";
 import { UICallbacks } from "./Defines";
 import { DelegateComponent } from "./DelegateComponent";
 import { LayerDialog } from "./LayerDialog";
@@ -12,10 +13,12 @@ import { LayerUI } from "./LayerUI";
 import { UIMap } from "./UIMap";
 
 export enum LayerType {
+    Game = "LayerGame",
     UI = "LayerUI",
     PopUp = "LayerPopUp",
     Dialog = "LayerDialog",
-    Alert = "LayerAlert"
+    Alert = "LayerAlert",
+    Notify = "LayerNotify"
 }
 
 /** UI配置结构体 */
@@ -23,9 +26,14 @@ export interface UIConfig {
     bundle?: string;
     layer: LayerType;
     prefab: string;
+    animation?: number;
 }
 
 export class LayerManager {
+    /** 界面根节点 */
+    public root!: Node;
+    /** 界面摄像机 */
+    public camera!: Camera;
     /** 游戏界面特效层 */
     public game!: Node;
     /** 界面地图 */
@@ -43,6 +51,11 @@ export class LayerManager {
     private notify!: LayerNotify;
     /** UI配置 */
     private configs: { [key: number]: UIConfig } = {};
+
+    /** 是否为竖屏显示 */
+    public get portrait() {
+        return this.root.getComponent(GUI)!.portrait;
+    }
 
     /**
      * 初始化所有UI的配置对象
@@ -87,16 +100,16 @@ export class LayerManager {
 
         switch (config.layer) {
             case LayerType.UI:
-                this.ui.add(config.prefab, uiArgs, callbacks);
+                this.ui.add(config, uiArgs, callbacks);
                 break;
             case LayerType.PopUp:
-                this.popup.add(config.prefab, uiArgs, callbacks);
+                this.popup.add(config, uiArgs, callbacks);
                 break;
             case LayerType.Dialog:
-                this.dialog.add(config.prefab, uiArgs, callbacks);
+                this.dialog.add(config, uiArgs, callbacks);
                 break;
             case LayerType.Alert:
-                this.alert.add(config.prefab, uiArgs, callbacks);
+                this.alert.add(config, uiArgs, callbacks);
                 break;
         }
     }
@@ -172,7 +185,9 @@ export class LayerManager {
     }
 
     public constructor(root: Node) {
-        this.game = new Node("LayerGame");
+        this.root = root;
+        this.camera = this.root.getComponentInChildren(Camera)!;
+        this.game = new Node(LayerType.Game);
         var widget: Widget = this.game.addComponent(Widget);
         widget.isAlignLeft = widget.isAlignRight = widget.isAlignTop = widget.isAlignBottom = true;
         widget.left = widget.right = widget.top = widget.bottom = 0;
@@ -183,7 +198,7 @@ export class LayerManager {
         this.popup = new LayerPopUp(LayerType.PopUp);
         this.dialog = new LayerDialog(LayerType.Dialog);
         this.alert = new LayerDialog(LayerType.Alert);
-        this.notify = new LayerNotify("LayerNotify");
+        this.notify = new LayerNotify(LayerType.Notify);
 
         root.addChild(this.game);
         root.addChild(this.ui);
