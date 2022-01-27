@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 15:45:07
+ * @LastEditTime: 2022-01-27 16:17:52
  */
 
 import { sp, _decorator } from "cc";
@@ -40,15 +40,7 @@ export class RoleViewComp extends CCComp {
                 return;
             }
 
-            var spsd = new sp.SkeletonData();
-            spsd.skeletonJson = sd.skeletonJson;
-            spsd.atlasText = sd.atlasText;
-            spsd.textures = sd.textures;
-            spsd.textureNames = sd.textureNames;
-            spsd.scale = sd.scale;
-            spsd.name = sd.name;
-
-            this.spine!.skeletonData = spsd;
+            this.spine!.skeletonData = sd;
             this.node.active = true;
         });
     }
