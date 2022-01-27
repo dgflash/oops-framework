@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-08-18 17:00:59
  * @LastEditors: dgflash
- * @LastEditTime: 2021-11-12 11:59:32
+ * @LastEditTime: 2022-01-25 15:18:58
  */
 
 import { error, JsonAsset } from "cc";
-import { GameConfig } from "../../game/config/GameConfig";
+import { config } from "../../game/common/config/Config";
 import { resLoader } from "../common/loader/ResLoader";
 
 /** JSON数据表工具 */
@@ -22,7 +22,7 @@ export class JsonUtil {
         if (data.has(name))
             callback(data.get(name));
         else {
-            var url = GameConfig.getConfigPath(name);
+            var url = config.game.getConfigPath(name);
             resLoader.load(url, JsonAsset, (err: Error | null, content: JsonAsset) => {
                 if (err) {
                     error(err.message);
@@ -31,5 +31,28 @@ export class JsonUtil {
                 callback(content.json)
             });
         }
+    }
+
+    static loadAsync(name: string) {
+        return new Promise((resolve, reject) => {
+            if (data.has(name)) {
+                resolve(data.get(name))
+            } else {
+                var url = config.game.getConfigPath(name);
+                resLoader.load(url, JsonAsset, (err: Error | null, content: JsonAsset) => {
+                    if (err) {
+                        error(err.message);
+                    }
+                    data.set(name, content.json);
+                    resolve(content.json)
+                });
+            }
+        });
+    }
+
+    static release(name: string) {
+        var url = config.game.getConfigPath(name);
+        data.delete(name);
+        resLoader.release(url);
     }
 }

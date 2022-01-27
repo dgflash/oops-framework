@@ -1,8 +1,8 @@
 /*
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
- * @LastEditors: H.Joeson
- * @LastEditTime: 2021-12-28 18:22:25
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-01-27 11:25:15
  */
 import { Camera, Component, ResolutionPolicy, screen, UITransform, view, _decorator } from "cc";
 import { Logger } from "../common/log/Logger";
@@ -32,7 +32,7 @@ export class GUI extends Component {
 
     public resize() {
         let dr = view.getDesignResolutionSize();
-        var s = screen.windowSize//view.getFrameSize();
+        var s = screen.windowSize; 
         var rw = s.width;
         var rh = s.height;
         var finalW = rw;

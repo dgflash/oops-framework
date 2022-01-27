@@ -28,7 +28,7 @@ export interface AnimationPlayer {
 export default class AnimatorBase extends Component {
     /** ---------- 后续扩展代码 开始 ---------- */
 
-    /** 动画帧自定义事件 */
+    /** 三维骨骼动画动画帧自定义事件 */
     private onFrameEvent(param: string) {
         this._animationPlayer?.onFrameEventCallback(param, this);
     }

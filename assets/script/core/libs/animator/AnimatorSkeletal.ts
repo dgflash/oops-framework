@@ -1,5 +1,11 @@
+/*
+ * @Author: dgflash
+ * @Date: 2021-06-30 13:56:26
+ * @LastEditors: dgflash
+ * @LastEditTime: 2021-11-04 10:46:00
+ */
 
-import { CCFloat, director, SkeletalAnimation, _decorator } from 'cc';
+import { CCFloat, game, SkeletalAnimation, _decorator } from 'cc';
 import AnimatorAnimation from './AnimatorAnimation';
 
 const { ccclass, property, requireComponent, disallowMultiple, menu } = _decorator;
@@ -33,13 +39,13 @@ export class AnimatorSkeletal extends AnimatorAnimation {
             return;
         }
 
-        if (director.getTotalTime() - this.current_time > this.cross_duration) {
+        if (game.totalTime - this.current_time > this.cross_duration) {
             this._animation.crossFade(animName, this.duration);
         }
         else {
             this._animation.play(animName);
         }
-        this.current_time = director.getTotalTime();
+        this.current_time = game.totalTime;
 
         this._animState = this._animation.getState(animName);
         if (!this._animState) {

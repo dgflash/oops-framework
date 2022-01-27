@@ -74,14 +74,14 @@ export default class LanguagePack {
                 callback(err);
                 return;
             }
-            Logger.logBusiness(lang_texture_path, "下载语言包 textures 资源");
+            Logger.logConfig(lang_texture_path, "下载语言包 textures 资源");
             resLoader.load(lang_json_path, JsonAsset, (err) => {
                 if (err) {
                     error(err);
                     callback(err);
                     return;
                 }
-                Logger.trace(lang_json_path, "下载语言包 json 资源");
+                Logger.logConfig(lang_json_path, "下载语言包 json 资源");
                 callback(err, lang);
             })
         })

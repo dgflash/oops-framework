@@ -1,5 +1,6 @@
 import { AudioManager } from "./common/audio/AudioManager";
 import { TimerManager } from "./common/manager/TimerManager";
+import { SqlUtil } from "./common/storage/SqlUtil";
 import { GameManager } from "./game/GameManager";
 import { LanguageManager } from "./gui/language/Language";
 import { LayerManager } from "./gui/layer/LayerManager";
@@ -19,15 +20,17 @@ export class engine {
     public static game: GameManager;
     /** HTTP */
     public static http: HttpRequest;
+    /** 本地存储 */
+    public static storage = SqlUtil;
 
     /** 在Root.ts中初始化引导模块 */
     private static init(root: Root) {
         engine.i18n = new LanguageManager()
         engine.timer = new TimerManager(root);
         engine.audio = AudioManager.instance;
+        engine.http = new HttpRequest();
         engine.gui = new LayerManager(root.gui!);
         engine.game = root.addComponent(GameManager)!;
-        engine.http = new HttpRequest();
     }
 
     /** 修改引擎全局游戏速度 （k-cocos.js） */

@@ -2,10 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2021-11-11 19:42:56
+ * @LastEditTime: 2022-01-25 13:55:13
  */
 import { Component, director, game, Game, log, Node, view, _decorator } from "cc";
-import { config } from "../game/config/Config";
+import { RootSystem } from "../game/common/ecs/RootSystem";
+import { config } from "../game/common/config/Config";
 import { EngineMessage } from "./common/event/EngineMessage";
 import { Message } from "./common/event/MessageManager";
 import { engine } from "./Engine";
@@ -27,6 +28,8 @@ export class Root extends Component {
     })
     public gui: Node | null = null;
 
+    private ecs!: RootSystem;
+
     onLoad() {
         this.init();
 
@@ -35,6 +38,13 @@ export class Root extends Component {
 
         // 加载游戏配置
         config.init(this.run.bind(this));
+
+        this.ecs = new RootSystem();
+        this.ecs.init();
+    }
+
+    update(dt: number) {
+        this.ecs.execute(dt);
     }
 
     /** 加载完引擎配置文件后执行 */

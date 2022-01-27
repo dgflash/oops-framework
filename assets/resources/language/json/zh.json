@@ -10,5 +10,8 @@
     "btn_notify_show": "提示信息",
     "netInstableOpen": "等待动画",
     "btn_audio_open1": "音乐播放",
-    "btn_audio_open2": "音效播放"
+    "btn_audio_open2": "音效播放",
+    "role_hp": "生命",
+    "role_power": "力量",
+    "role_agile": "敏捷"
 }

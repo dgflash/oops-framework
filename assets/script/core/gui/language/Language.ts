@@ -1,4 +1,4 @@
-import { error, log, warn } from "cc";
+import { error, warn } from "cc";
 import { EventDispatcher } from "../../common/event/EventDispatcher";
 import { Logger } from "../../common/log/Logger";
 import { LanguageLabel } from "./LanguageLabel";
@@ -64,7 +64,7 @@ export class LanguageManager extends EventDispatcher {
         language = language.toLowerCase();
         let index = this.languages.indexOf(language);
         if (index < 0) {
-            warn("当前不支持该语种" + language + " 将自动切换到 zh 语种！");
+            warn("当前不支持该语种" + language + " 将自动切换到 zh 语种!");
             language = DEFAULT_LANGUAGE;
         }
         if (language === this._currentLang) {
@@ -78,8 +78,8 @@ export class LanguageManager extends EventDispatcher {
                 callback(false);
                 return;
             }
-            
-            Logger.logBusiness(`当前语言为【${language}】`);
+
+            Logger.logConfig(`当前语言为【${language}】`);
             this._currentLang = language;
             this._languagePack.updateLanguage(language);
             this.dispatchEvent(LanguageEvent.CHANGE, lang);

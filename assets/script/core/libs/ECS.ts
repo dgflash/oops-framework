@@ -592,19 +592,15 @@ export module ecs {
         }
 
         /**
-         * 销毁实体，实体会被回收到实体缓存池中。（不清楚ECS组件上的数据）
+         * 销毁实体，实体会被回收到实体缓存池中。
+         * @param isClearData 是否清除组件上的数据
          */
-        destroy() {
-            this.compTid2Ctor.forEach(this._remove, this);
-            destroyEntity(this);
-            this.compTid2Obj.clear();
-        }
+        destroy(isClearData: boolean = true) {
+            if (isClearData)
+                this.compTid2Ctor.forEach(this._remove_release, this);
+            else
+                this.compTid2Ctor.forEach(this._remove, this);
 
-        /**
-         * 销毁实体，实体会被回收到实体缓存池中。（可触发ecs.Comp 与 cc.Component节后组件的reset）
-         */
-        release() {
-            this.compTid2Ctor.forEach(this._remove_release, this);
             destroyEntity(this);
             this.compTid2Obj.clear();
         }

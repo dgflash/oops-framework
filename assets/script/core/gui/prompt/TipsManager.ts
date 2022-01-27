@@ -6,7 +6,7 @@
  */
 
 import { Node, tween, Vec3 } from "cc";
-import { UIID } from "../../../game/config/UIConfig";
+import { UIID } from "../../../game/common/config/GameUIConfig";
 import { engine } from "../../Engine";
 import { PopViewParams } from "../layer/Defines";
 

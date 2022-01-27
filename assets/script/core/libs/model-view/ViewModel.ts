@@ -88,7 +88,7 @@ class VMManager {
     private _mvs: Map<string, ViewModel<any>> = new Map<string, ViewModel<any>>();
 
     /**
-     * 绑定一个数据，并且可以由VM所管理
+     * 绑定一个数据，并且可以由VM所管理（绑定的数据只能是值类型）
      * @param data 需要绑定的数据
      * @param tag 对应该数据的标签(用于识别为哪个VM，不允许重复)
      * @param activeRootObject 激活主路径通知，可能会有性能影响，一般不使用

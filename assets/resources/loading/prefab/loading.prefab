@@ -802,7 +802,7 @@
     "fileId": "26ZokSfFxPFr+5cT88/8nR"
   },
   {
-    "__type__": "e316dKkHYpPVZlM8A2wB25/",
+    "__type__": "92429ykTnxFCrcGyW58JWjj",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -812,11 +812,11 @@
     "__prefab": {
       "__id__": 41
     },
-    "_id": ""
+    "_id": "daCFe+B0BOeZtHLHqBYu9Z"
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "49OCCkOQJPVKZ/VACJynNb"
+    "fileId": "daCFe+B0BOeZtHLHqBYu9Z"
   },
   {
     "__type__": "cc.PrefabInfo",

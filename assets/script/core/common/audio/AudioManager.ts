@@ -1,4 +1,5 @@
-import { Component, game, Node, sys } from "cc";
+import { Component, game, Node } from "cc";
+import { engine } from "../../Engine";
 import { AudioEffect } from "./AudioEffect";
 import { AudioMusic } from "./AudioMusic";
 
@@ -37,7 +38,7 @@ export class AudioManager extends Component {
     private _localStorageTag: string = "";          // 本地存储标签名
 
     private init() {
-        let data = sys.localStorage.getItem(this._localStorageTag);
+        let data = engine.storage.get(this._localStorageTag);
         if (data) {
             try {
                 this.local_data = JSON.parse(data);
@@ -154,6 +155,6 @@ export class AudioManager extends Component {
         this.local_data.switch_effect = this._switch_effect;
 
         let data = JSON.stringify(this.local_data);
-        sys.localStorage.setItem(this._localStorageTag, data);
+        engine.storage.set(this._localStorageTag, data);
     }
 }

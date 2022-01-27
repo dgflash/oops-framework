@@ -10,5 +10,8 @@
     "btn_notify_show": "Prompt",
     "netInstableOpen": "Waiting ",
     "btn_audio_open1": "Music",
-    "btn_audio_open2": "Effect"
+    "btn_audio_open2": "Effect",
+    "role_hp": "HP",
+    "role_power": "Power",
+    "role_agile": "Agile"
 }

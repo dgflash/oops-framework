@@ -1,5 +1,3 @@
-import { error, warn } from "cc";
-
 /*
  * @CreateTime: May 30, 2018 9:35 AM
  * @Author: dgflash
@@ -8,9 +6,11 @@ import { error, warn } from "cc";
  * @Last Modified Time: May 26, 2020 2:04 PM
  * @Description: HTTP
  */
+
+import { error, warn } from "cc";
+
 var urls: any = {};                      // 当前请求地址集合
 var reqparams: any = {};                 // 请求参数
-var HTTP_TIMEOUT: number = 10000;        // 请求超时时间
 
 export enum HttpEvent {
     NO_NETWORK = "http_request_no_network",                  // 断网
@@ -19,21 +19,24 @@ export enum HttpEvent {
 }
 
 export class HttpRequest {
-    public server: string = "http://192.168.0.150/main/";
+    /** 服务器地址 */
+    public server: string = "http://192.168.1.150/";
+    /** 请求超时时间 */
+    public timeout: number = 10000;
 
     /**
-         * HTTP GET请求
-         * 例：
-         * 
-         * Get
-            var complete = function(response){
-                LogWrap.log(response);
-            }
-            var error = function(response){
-                LogWrap.log(response);
-            }
-            this.get(name, complete, error);
-        */
+     * HTTP GET请求
+     * 例：
+     * 
+     * Get
+        var complete = function(response){
+            LogWrap.log(response);
+        }
+        var error = function(response){
+            LogWrap.log(response);
+        }
+        this.get(name, complete, error);
+    */
     public get(name: string, completeCallback: Function, errorCallback: Function) {
         this.sendRequest(name, null, false, completeCallback, errorCallback)
     }
@@ -111,7 +114,7 @@ export class HttpRequest {
         errorCallback?: Function,
         responseType?: string,
         isOpenTimeout = true,
-        timeout: number = HTTP_TIMEOUT) {
+        timeout: number = this.timeout) {
         if (name == null || name == '') {
             error("请求地址不能为空");
             return;

@@ -1,9 +1,12 @@
 {
     "config": {
-        "id": "192.168.1.1",
-        "port": 3434,
         "version": "1.0.0",
-        "package": "com.dgflash.game"
+        "package": "com.oops.game",
+        "localDataKey": "oops",
+        "localDataIv": "framework",
+        "httpServer": "http://192.168.0.150/main/",
+        "httpTimeout": 10000,
+        "frameRate": 60
     },
     "language": {
         "type": [
