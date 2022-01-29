@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-23 15:51:15
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 16:50:29
+ * @LastEditTime: 2022-01-29 18:03:33
  */
 
 import { SqlUtil } from "../../../core/common/storage/SqlUtil";
@@ -10,8 +10,6 @@ import { engine } from "../../../core/Engine";
 import { ecs } from "../../../core/libs/ECS";
 import { VM } from "../../../core/libs/model-view/ViewModel";
 import { ViewUtil } from "../../../core/utils/ViewUtil";
-import { RoleNumeric } from "../../role/model/attribute/RoleNumeric";
-import { RoleAttributeType } from "../../role/model/RoleEnum";
 import { Role } from "../../role/Role";
 import { AccountEntity } from "../Account";
 import { AccountModelComp } from "../model/AccountModelComp";
