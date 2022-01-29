@@ -2,10 +2,18 @@
  * @Author: dgflash
  * @Date: 2022-01-21 09:33:44
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 14:36:40
+ * @LastEditTime: 2022-01-29 16:52:49
  */
 import { RoleAttributeType } from "../RoleEnum";
-import { RoleNumeric, RoleNumericDecorator } from "./RoleNumeric";
+import { RoleNumeric } from "./RoleNumeric";
+
+/** 角色数值装饰器 */
+export class RoleNumericDecorator {
+    /** 属性类型 */
+    attribute: RoleAttributeType = null!;
+    /** 属性数值 */
+    value: number = 0;
+}
 
 /** 单一类型角色属性集合 */
 export class RoleNumericMapSingle {
@@ -40,6 +48,11 @@ export class RoleNumericMapSingle {
 export class RoleNumericMap {
     private attributes: Map<RoleAttributeType, RoleNumeric> = new Map();
     private decorators: Map<RoleNumericDecorator, number> = new Map();
+    private vm: any = null!;
+
+    constructor(vm: any) {
+        this.vm = vm;
+    }
 
     /** 添加属性修饰器 */
     addDecorator(rnd: RoleNumericDecorator) {
@@ -59,19 +72,23 @@ export class RoleNumericMap {
         if (attr == null) {
             switch (type) {
                 case RoleAttributeType.power:
-                    attr = new RoleNumericPower(this);
+                    attr = new RoleNumericPower(type, this);
                     break;
                 case RoleAttributeType.physical:
-                    attr = new RoleNumericPhysical(this);
+                    attr = new RoleNumericPhysical(type, this);
                     break;
                 case RoleAttributeType.agile:
-                    attr = new RoleNumericAgile(this);
+                    attr = new RoleNumericAgile(type, this);
                     break;
                 default:
-                    attr = new RoleNumeric(this);
+                    attr = new RoleNumeric(type, this);
                     break;
             }
             this.attributes.set(type, attr);
+
+            attr.onUpdate = (rn: RoleNumeric) => {
+                this.vm[rn.type] = rn.value;
+            };
         }
         return attr;
     }

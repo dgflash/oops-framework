@@ -12,11 +12,13 @@ import { MoveToComp } from "../common/ecs/position/MoveTo";
 import { RoleChangeJobComp } from "./bll/RoleChangeJob";
 import { RoleBaseModelComp } from "./model/RoleBaseModelComp";
 import { RoleJobModelComp } from "./model/RoleJobModelComp";
+import { RoleLevelComp } from "./model/RoleLevelComp";
 import { RoleModelComp } from "./model/RoleModelComp";
 import { RoleViewComp } from "./view/RoleViewComp";
 
 export class RoleEntity extends ecs.Entity {
     RoleModel!: RoleModelComp;
+    RoleLevel!: RoleLevelComp;
     RoleBaseModel!: RoleBaseModelComp;
     RoleJobModel!: RoleJobModelComp;
     RoleView!: RoleViewComp;
@@ -39,6 +41,7 @@ export class Role {
     constructor() {
         this.entity = ecs.createEntityWithComps(
             RoleModelComp,
+            RoleLevelComp,
             RoleBaseModelComp,
             RoleJobModelComp);
 

@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-01-20 18:20:32
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 14:36:33
+ * @LastEditTime: 2022-01-29 16:52:08
  */
 
 import { RoleAttributeType } from "../RoleEnum";
@@ -14,9 +14,17 @@ import { RoleNumericMap } from "./RoleNumericMap";
  * 2、任意模块的属性值修改时，自动角色属性更新后的数值和
  */
 export class RoleNumeric {
+    /** 值更新事件 */
+    onUpdate: Function = null!
+
+    /** 属性类型 */
+    type: RoleAttributeType = null!;
+
+    /** 属性值集合 */
     protected attributes: RoleNumericMap;
 
-    constructor(attributes: RoleNumericMap) {
+    constructor(type: RoleAttributeType, attributes: RoleNumericMap) {
+        this.type = type;
         this.attributes = attributes;
     }
 
@@ -89,13 +97,7 @@ export class RoleNumeric {
             + this.equip
             + this.battle
             + this.decorator;
-    }
-}
 
-/** 角色数值装饰器 */
-export class RoleNumericDecorator {
-    /** 属性类型 */
-    attribute: RoleAttributeType = null!;
-    /** 属性数值 */
-    value: number = 0;
+        this.onUpdate && this.onUpdate(this);
+    }
 }

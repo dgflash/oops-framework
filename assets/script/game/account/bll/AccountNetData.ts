@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-23 15:51:15
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 14:36:55
+ * @LastEditTime: 2022-01-29 16:50:29
  */
 
 import { SqlUtil } from "../../../core/common/storage/SqlUtil";
@@ -49,16 +49,14 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
             /** 离线测试代码 */
             var role = new Role();
             role.entity.RoleModel.id = 1;
-            role.entity.RoleModel.lv = 1;                           // + 5 hp
             role.entity.RoleModel.name = "测试角色";
+            role.entity.RoleLevel.lv = 1;                           // + 5 hp
             role.entity.RoleJobModel.id = 1;                        // + 2 power, + 10 ad
 
             e.AccountModel.role = role;
 
-            // 角色属性数据绑定到界面上显示
-            role.entity.RoleModel.attributes.forEach((value: RoleNumeric, key: RoleAttributeType, map: Map<RoleAttributeType, RoleNumeric>) => {
-                VM.add(value, key);
-            });
+            // 角色基础属性绑定到界面上显示
+            VM.add(role.entity.RoleModel.vm, "role");
 
             // 角色信息界面
             var role_attr = ViewUtil.createPrefabNode("game/battle/role_attr");
