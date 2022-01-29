@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-01-25 17:49:26
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-26 16:45:09
+ * @LastEditTime: 2022-01-29 11:46:38
  */
 
 import { ecs } from "../../../core/libs/ECS";
@@ -26,9 +26,17 @@ export class RoleChangeJobSystem extends ecs.ComblockSystem implements ecs.IEnti
 
     entityEnter(entities: RoleEntity[]): void {
         for (let e of entities) {
+            console.log("【转职前】角色属性");
+            e.RoleModel.toString();
+
             // 数值更新
             e.RoleJobModel.id = e.RoleChangeJob.jobId;
 
+            console.log("【转职后】角色属性");
+            e.RoleModel.toString();
+
+            // 切换职业动画
+            e.RoleView.animator.changeJob();
             e.remove(RoleChangeJobComp);
         }
     }

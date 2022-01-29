@@ -50,8 +50,8 @@ export class JsonOb<T> {
                         if (OP.toString.call(newVal) === '[object Object]') {
                             self.observe(newVal, pathArray);
                         }
-                        self._callback(newVal, oldVal, pathArray)
-                        oldVal = newVal
+                        self._callback(newVal, oldVal, pathArray);
+                        oldVal = newVal;
                     }
                 }
             })
@@ -59,7 +59,7 @@ export class JsonOb<T> {
             // @ts-ignore
             if (OP.toString.call(obj[key]) === types.obj || OP.toString.call(obj[key]) === types.array) {
                 // @ts-ignore
-                this.observe(obj[key], pathArray)
+                this.observe(obj[key], pathArray);
             }
         }, this)
     }

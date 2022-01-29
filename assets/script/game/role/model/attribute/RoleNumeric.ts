@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-01-20 18:20:32
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-26 17:04:49
+ * @LastEditTime: 2022-01-29 14:36:33
  */
 
 import { RoleAttributeType } from "../RoleEnum";
@@ -11,8 +11,7 @@ import { RoleNumericMap } from "./RoleNumericMap";
 /** 
  * 角色属性值
  * 1、不同模块设置对应的属性值
- * 2、任意模块的值修改时，自动计算当前值的所有模块的和
- * 3、每个模块对象自己求出息管理属性列表的值，等待多模块角色属性对象叠加
+ * 2、任意模块的属性值修改时，自动角色属性更新后的数值和
  */
 export class RoleNumeric {
     protected attributes: RoleNumericMap;

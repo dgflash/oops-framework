@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-01-21 09:33:44
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 10:19:18
+ * @LastEditTime: 2022-01-29 14:36:40
  */
 import { RoleAttributeType } from "../RoleEnum";
 import { RoleNumeric, RoleNumericDecorator } from "./RoleNumeric";

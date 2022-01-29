@@ -2,11 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 16:17:52
+ * @LastEditTime: 2022-01-29 11:09:41
  */
 
-import { sp, _decorator } from "cc";
+import { EventTouch, Node, sp, UITransform, v3, _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
+import { engine } from "../../../core/Engine";
 import { ecs } from "../../../core/libs/ECS";
 import { config } from "../../common/config/Config";
 import { CCComp } from "../../common/ecs/CCComp";
@@ -42,7 +43,16 @@ export class RoleViewComp extends CCComp {
 
             this.spine!.skeletonData = sd;
             this.node.active = true;
+
+            // 移动控制
+            engine.gui.root.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
         });
+    }
+
+    private onTouchEnd(event: EventTouch) {
+        var role = this.ent.get(RoleModelComp).facade;
+        var uit = this.node.parent!.getComponent(UITransform)!;
+        role.move(v3(event.getUILocation().x - uit.contentSize.width / 2, event.getUILocation().y - uit.contentSize.height / 2));
     }
 
     reset() {

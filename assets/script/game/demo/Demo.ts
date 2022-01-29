@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 11:30:18
+ * @LastEditTime: 2022-01-29 11:52:54
  */
 import { Component, EventTouch, _decorator } from "cc";
 import { engine } from "../../core/Engine";
@@ -10,6 +10,7 @@ import { tips } from "../../core/gui/prompt/TipsManager";
 import { ecs } from "../../core/libs/ECS";
 import { Account } from "../account/Account";
 import { SingletonModuleComp } from "../common/ecs/SingletonModuleComp";
+import { RoleAnimatorType, RoleAttributeType } from "../role/model/RoleEnum";
 
 const { ccclass, property } = _decorator;
 
@@ -21,6 +22,30 @@ export class Demo extends Component {
         var account = new Account();
         account.requestLoadPlayer();
         ecs.getSingleton(SingletonModuleComp).account = account;
+    }
+
+    /** 升级 */
+    private btn_level_up(event: EventTouch, data: any) {
+        var role = ecs.getSingleton(SingletonModuleComp).account.entity.AccountModel.role;
+        if (role.entity.RoleModel.lv < 100)
+            role.entity.RoleModel.lv++
+    }
+
+    /** 转职 */
+    private btn_change_job(event: EventTouch, data: any) {
+        var role = ecs.getSingleton(SingletonModuleComp).account.entity.AccountModel.role;
+        role.changeJob(9);
+    }
+
+    /** 攻击 */
+    private btn_attack(event: EventTouch, data: any) {
+        var role = ecs.getSingleton(SingletonModuleComp).account.entity.AccountModel.role;
+
+        // 动态修改数据时，VM框架自动刷新界面数值显示
+        // role.entity.RoleModel.attributes.get(RoleAttributeType.hp).battle++;
+
+        if (role.entity.RoleView)
+            role.entity.RoleView.animator.setTrigger(RoleAnimatorType.Attack);
     }
 
     /** 多语言切换 */

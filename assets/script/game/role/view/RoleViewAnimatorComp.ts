@@ -2,13 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-12-29 11:33:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-26 16:53:40
+ * @LastEditTime: 2022-01-29 11:51:59
  */
 import { sp, _decorator } from "cc";
 import AnimatorSpine from "../../../core/libs/animator/AnimatorSpine";
 import { AnimatorStateLogic } from "../../../core/libs/animator/core/AnimatorStateLogic";
-import { Role } from "../Role";
 import { RoleAnimatorType, WeaponName } from "../model/RoleEnum";
+import { Role } from "../Role";
 import { AnimationEventHandler } from "./animator/AnimationEventHandler";
 import { RoleStateAttack } from "./animator/RoleStateAttack";
 import { RoleStateDead } from "./animator/RoleStateDead";
@@ -28,7 +28,7 @@ export class RoleViewAnimatorComp extends AnimatorSpine {
     onHitActionComplete: Function = null!;
 
     /** 武器动画名 */
-    private weaponAnimName: string = null!; 
+    private weaponAnimName: string = null!;
 
     start() {
         super.start();
@@ -36,14 +36,7 @@ export class RoleViewAnimatorComp extends AnimatorSpine {
         // 动画状态机
         let anim = new AnimationEventHandler();
         let asl: Map<string, AnimatorStateLogic> = new Map();
-        asl.set(RoleAnimatorType.Magic, new RoleStateAttack(this.role, anim));
         asl.set(RoleAnimatorType.Attack, new RoleStateAttack(this.role, anim));
-        asl.set(RoleAnimatorType.AttackSpecial, new RoleStateAttack(this.role, anim));
-        asl.set(RoleAnimatorType.AttackCritical, new RoleStateAttack(this.role, anim));
-
-        asl.set(RoleAnimatorType.Block, new RoleStateHit(this.role, anim));
-        asl.set(RoleAnimatorType.Parry, new RoleStateHit(this.role, anim));
-        asl.set(RoleAnimatorType.Skew, new RoleStateHit(this.role, anim));
         asl.set(RoleAnimatorType.Hurt, new RoleStateHit(this.role, anim));
         asl.set(RoleAnimatorType.Dead, new RoleStateDead(this.role, anim));
         this.initArgs(asl, anim);
@@ -59,9 +52,9 @@ export class RoleViewAnimatorComp extends AnimatorSpine {
         this.node.parent!.setScale(-1, 1, 1);
     }
 
-    /** 设置动作 */
-    setAction(type: RoleAnimatorType) {
-        this.setTrigger(type);
+    /** 当前动作换职业动画 */
+    changeJob() {
+        this.onStateChange(this._ac.curState, this._ac.curState);
     }
 
     /**

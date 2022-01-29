@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-24 10:04:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-26 17:25:59
+ * @LastEditTime: 2022-01-29 10:56:57
  */
 
 import { ecs } from "../../../core/libs/ECS";
@@ -21,6 +21,8 @@ export class RoleJobModelComp extends ecs.Comp {
     private init(id: number) {
         var table = JsonUtil.get(RoleJobModelComp.TableName);
         this.data = table[id];
+
+        console.log(`【职业编号】${id},力量：${this.power},敏捷：${this.agile} `);
 
         this.ent.get(RoleModelComp).attributes.get(RoleAttributeType.power).job = this.power;
         this.ent.get(RoleModelComp).attributes.get(RoleAttributeType.agile).job = this.agile;

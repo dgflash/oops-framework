@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 15:56:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-26 17:17:34
+ * @LastEditTime: 2022-01-29 14:36:49
  */
 
 import { ecs } from "../../../core/libs/ECS";
@@ -27,6 +27,8 @@ export class RoleModelComp extends ecs.Comp {
     /** ----------等级属性---------- */
     /** 当前等级已获取的经验值 */
     exp: number = 0;
+    /** 提供VM组件使用的数据 */
+    vmData: any = {};
 
     /** 等级 */
     private _lv: number = 0;
@@ -34,6 +36,7 @@ export class RoleModelComp extends ecs.Comp {
         return this._lv;
     }
     public set lv(value: number) {
+        this.vmData.lv = value;
         this._lv = value;
         this.attributes.get(RoleAttributeType.hp).level = this.rtlu.hp;
     }
@@ -60,10 +63,9 @@ export class RoleModelComp extends ecs.Comp {
     }
 
     toString() {
-        console.log(this.name, "--------------------------------------------");
+        console.log(`【${this.name}】的属性"--------------------------------------------`);
         this.attributes.forEach((value: RoleNumeric, key: RoleAttributeType) => {
             console.log(key, value.value);
         });
-        console.log(this.name, "--------------------------------------------");
     }
 }

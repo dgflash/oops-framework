@@ -3,7 +3,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:47:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 11:16:08
+ * @LastEditTime: 2022-01-29 11:09:52
  */
 import { Node, Vec3 } from "cc";
 import { ecs } from "../../core/libs/ECS";
@@ -27,7 +27,7 @@ export class RoleEntity extends ecs.Entity {
 /** 
  * 角色实体 
  * 需求
- * 1、角色基础属性的数据结构（唯一标识、名字、等级、经验等）
+ * 1、角色基础属性的数据结构（唯一标识、名字、等级、经验、角色属性等）
  * 2、角色基础属性信息（力量、敏捷、生命等）
  * 3、角色职业信息（职业名、职业属性附加属性）
  * 4、角色需要有一个动画模型
@@ -42,7 +42,7 @@ export class Role {
             RoleBaseModelComp,
             RoleJobModelComp);
 
-        this.entity.get(RoleModelComp).facade = this;
+        this.entity.RoleModel.facade = this;
     }
 
     /** 加载角色显示对象 */
