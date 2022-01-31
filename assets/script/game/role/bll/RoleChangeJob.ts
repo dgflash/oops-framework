@@ -6,7 +6,7 @@
  */
 
 import { ecs } from "../../../core/libs/ECS";
-import { RoleEntity } from "../Role";
+import { Role } from "../Role";
 
 /** 角色转职 */
 @ecs.register('RoleChangeJob')
@@ -24,7 +24,7 @@ export class RoleChangeJobSystem extends ecs.ComblockSystem implements ecs.IEnti
         return ecs.allOf(RoleChangeJobComp);
     }
 
-    entityEnter(entities: RoleEntity[]): void {
+    entityEnter(entities: Role[]): void {
         for (let e of entities) {
             console.log("【转职前】角色属性");
             e.RoleModel.toString();

@@ -17,24 +17,20 @@ import { RoleJobModelComp } from "../role/model/RoleJobModelComp";
 import { RoleTableLevelUp } from "../role/model/RoleTableLevelUp";
 import { LoadingViewComp } from "./view/LoadingViewComp";
 
-export class InitializeEntity extends ecs.Entity {
-    LoadingView!: LoadingViewComp;
-}
-
 /**
  * 游戏进入初始化模块
  * 1、热更新
  * 2、加载默认资源
  * 3、转到帐号模块
  */
-export class Initialize {
-    private entity: InitializeEntity = null!;
+export class Initialize extends ecs.Entity {
+    LoadingView!: LoadingViewComp;
 
     constructor() {
+        super();
+
         // 设置渠道号
         // if (config.query.channelId) SDKPlatform.setChannelId(config.query.channelId);
-
-        this.entity = ecs.createEntityWithComps();
     }
 
     /** 打开初始界面 */
@@ -63,24 +59,22 @@ export class Initialize {
         queue.push((next: NextFunction, params: any, args: any) => {
             resLoader.loadDir("common", next);
         });
+        // 加载自定义静态表
+        queue.push(async (next: NextFunction, params: any, args: any) => {
+            await JsonUtil.loadAsync(RoleJobModelComp.TableName);
+            await JsonUtil.loadAsync(RoleTableLevelUp.TableName);
+            next();
+        });
         // 加载游戏主界面资源
         queue.complete = () => {
-            this.loadDataTable();
-
             var uic: UICallbacks = {
                 onAdded: (node: Node, params: any) => {
                     var comp = node.getComponent(LoadingViewComp) as ecs.Comp;
-                    this.entity.add(comp);
+                    this.add(comp);
                 }
             };
             engine.gui.open(UIID.Loading, null, uic);
         };
         queue.play();
-    }
-
-    /** 加载静态表 */
-    async loadDataTable() {
-        await JsonUtil.loadAsync(RoleJobModelComp.TableName);
-        await JsonUtil.loadAsync(RoleTableLevelUp.TableName);
     }
 }

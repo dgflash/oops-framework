@@ -37,7 +37,8 @@ export class JsonUtil {
         return new Promise((resolve, reject) => {
             if (data.has(name)) {
                 resolve(data.get(name))
-            } else {
+            }
+            else {
                 var url = config.game.getConfigPath(name);
                 resLoader.load(url, JsonAsset, (err: Error | null, content: JsonAsset) => {
                     if (err) {

@@ -16,7 +16,16 @@ import { RoleLevelComp } from "./model/RoleLevelComp";
 import { RoleModelComp } from "./model/RoleModelComp";
 import { RoleViewComp } from "./view/RoleViewComp";
 
-export class RoleEntity extends ecs.Entity {
+/** 
+ * 角色实体 
+ * 需求
+ * 1、角色基础属性的数据结构（唯一标识、名字、等级、经验、角色属性等）
+ * 2、角色基础属性信息（力量、敏捷、生命等）
+ * 3、角色职业信息（职业名、职业属性附加属性）
+ * 4、角色需要有一个动画模型
+ * 5、与玩家互动的玩法（升级、转职、攻击等）
+ */
+export class Role extends ecs.Entity {
     // 数据层
     RoleModel!: RoleModelComp;
     RoleBaseModel!: RoleBaseModelComp;
@@ -28,18 +37,7 @@ export class RoleEntity extends ecs.Entity {
 
     // 视图层
     RoleView!: RoleViewComp;
-}
 
-/** 
- * 角色实体 
- * 需求
- * 1、角色基础属性的数据结构（唯一标识、名字、等级、经验、角色属性等）
- * 2、角色基础属性信息（力量、敏捷、生命等）
- * 3、角色职业信息（职业名、职业属性附加属性）
- * 4、角色需要有一个动画模型
- * 5、与玩家互动的玩法（升级、转职、攻击等）
- */
-export class Role extends RoleEntity {
     constructor() {
         super();
 
