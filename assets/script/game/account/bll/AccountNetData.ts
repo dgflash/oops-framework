@@ -46,24 +46,23 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
 
             /** 离线测试代码 */
             var role = new Role();
-            role.entity.RoleModel.id = 1;
-            role.entity.RoleModel.name = "测试角色";
-            role.entity.RoleLevel.lv = 1;                           // + 5 hp
-            role.entity.RoleJobModel.id = 1;                        // + 2 power, + 10 ad
-
+            role.RoleModel.id = 1;
+            role.RoleModel.name = "测试角色";
+            role.RoleLevel.lv = 1;                           // + 5 hp
+            role.RoleJobModel.id = 1;                        // + 2 power, + 10 ad
             e.AccountModel.role = role;
 
             // 角色基础属性绑定到界面上显示
-            VM.add(role.entity.RoleModel.vm, "role");
+            VM.add(role.RoleModel.vm, "role");
 
-            // 角色信息界面
+            // 角色信息界面显示对象
             var role_attr = ViewUtil.createPrefabNode("game/battle/role_attr");
             role_attr.parent = engine.gui.root;
 
-            // 角色动画
+            // 角色动画显示对象
             role.load();
-            role.entity.RoleView.node.parent = engine.gui.root;
-            role.entity.RoleView.node.setPosition(0, -200, 0);
+            role.RoleView.node.parent = engine.gui.root;
+            role.RoleView.node.setPosition(0, -200, 0);
 
             e.remove(AccountNetDataComp);
         }

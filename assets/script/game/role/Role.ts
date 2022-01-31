@@ -35,32 +35,28 @@ export class RoleEntity extends ecs.Entity {
  * 4、角色需要有一个动画模型
  * 5、与玩家互动的玩法（升级、转职、攻击等）
  */
-export class Role {
-    entity: RoleEntity = null!;
-
+export class Role extends RoleEntity {
     constructor() {
-        this.entity = ecs.createEntityWithComps(
-            RoleModelComp,
-            RoleLevelComp,
-            RoleBaseModelComp,
-            RoleJobModelComp);
-
-        this.entity.RoleModel.facade = this;
+        super();
+        this.add(RoleModelComp);
+        this.add(RoleBaseModelComp);
+        this.add(RoleLevelComp);
+        this.add(RoleJobModelComp);
     }
 
     /** 加载角色显示对象 */
     load(): Node {
         var node = ViewUtil.createPrefabNode("game/battle/role");
         var mv = node.getComponent(RoleViewComp)!;
-        this.entity.add(mv);
+        this.add(mv);
         mv.load();
         return node;
     }
 
     move(target: Vec3) {
-        var move = this.entity.add(MoveToComp);
+        var move = this.add(MoveToComp);
         move.target = target;
-        move.node = this.entity.RoleView.node;
+        move.node = this.RoleView.node;
         move.speed = 100;
     }
 
@@ -71,16 +67,12 @@ export class Role {
 
     /** 转职 */
     changeJob(jobId: number) {
-        var rcj = this.entity.add(RoleChangeJobComp);
+        var rcj = this.add(RoleChangeJobComp);
         rcj.jobId = jobId;
     }
 
     /** 角色升级 */
     upgrade() {
 
-    }
-
-    destroy() {
-        this.entity.destroy();
     }
 }

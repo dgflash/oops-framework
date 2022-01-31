@@ -29,11 +29,11 @@ export class RoleStateDead extends AnimatorStateLogic {
     }
 
     private onDead() {
-        var onHitActionComplete = this.role.entity.RoleView.animator.onHitActionComplete;
+        var onHitActionComplete = this.role.RoleView.animator.onHitActionComplete;
         onHitActionComplete && onHitActionComplete();
 
         // 删除角色显示对象
-        this.role.entity.remove(RoleViewComp);
+        this.role.remove(RoleViewComp);
     }
 
     public onEntry() {

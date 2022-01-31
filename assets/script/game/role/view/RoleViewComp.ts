@@ -29,7 +29,6 @@ export class RoleViewComp extends CCComp {
         this.node.active = false;
 
         this.animator = this.spine!.getComponent(RoleViewAnimatorComp)!;
-        this.animator.role = this.ent.get(RoleModelComp).facade;
     }
 
     load() {

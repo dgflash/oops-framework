@@ -27,8 +27,7 @@ export class Demo extends Component {
     /** 升级 */
     private btn_level_up(event: EventTouch, data: any) {
         var role = ecs.getSingleton(SingletonModuleComp).account.entity.AccountModel.role;
-        if (role.entity.RoleLevel.lv < 100)
-            role.entity.RoleLevel.lv++;
+        if (role.RoleLevel.lv < 100) role.RoleLevel.lv++;
     }
 
     /** 转职弓箭 */
@@ -52,7 +51,7 @@ export class Demo extends Component {
     /** 攻击 */
     private btn_attack(event: EventTouch, data: any) {
         var role = ecs.getSingleton(SingletonModuleComp).account.entity.AccountModel.role;
-        role.entity.RoleView.animator.setTrigger(RoleAnimatorType.Attack);
+        role.RoleView.animator.setTrigger(RoleAnimatorType.Attack);
     }
 
     /** 多语言切换 */

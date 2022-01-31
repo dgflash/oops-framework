@@ -43,10 +43,10 @@ export class Initialize {
         // 加载多语言包
         queue.push((next: NextFunction, params: any, args: any) => {
             // 设置默认语言
-            let lan = engine.storage.get("game_language");
+            let lan = engine.storage.get("language");
             if (lan == null) {
                 // lan = SDKPlatform.getLanguage();
-                engine.storage.set("game_language", lan!);
+                engine.storage.set("language", lan!);
             }
 
             // 设置语言包路径
@@ -63,7 +63,7 @@ export class Initialize {
         queue.push((next: NextFunction, params: any, args: any) => {
             resLoader.loadDir("common", next);
         });
-        // 进入第一个加载游戏主界面资源的界面
+        // 加载游戏主界面资源
         queue.complete = () => {
             this.loadDataTable();
 

@@ -21,7 +21,7 @@ export class RoleStateAttack extends AnimatorStateLogic {
     }
 
     private onAttack() {
-        var onAttackComplete = this.role.entity.RoleView.animator.onAttackComplete;
+        var onAttackComplete = this.role.RoleView.animator.onAttackComplete;
         onAttackComplete && onAttackComplete();
     }
 

@@ -13,6 +13,7 @@ import { AnimationEventHandler } from "./animator/AnimationEventHandler";
 import { RoleStateAttack } from "./animator/RoleStateAttack";
 import { RoleStateDead } from "./animator/RoleStateDead";
 import { RoleStateHit } from "./animator/RoleStateHit";
+import { RoleViewComp } from "./RoleViewComp";
 
 const { ccclass, property, requireComponent, disallowMultiple } = _decorator;
 
@@ -20,8 +21,6 @@ const { ccclass, property, requireComponent, disallowMultiple } = _decorator;
 @disallowMultiple
 @requireComponent(sp.Skeleton)
 export class RoleViewAnimatorComp extends AnimatorSpine {
-    /** 角色对象 */
-    role: Role = null!;
     /** 攻击行为完成 */
     onAttackComplete: Function = null!;
     /** 受击动作完成 */
@@ -29,6 +28,12 @@ export class RoleViewAnimatorComp extends AnimatorSpine {
 
     /** 武器动画名 */
     private weaponAnimName: string = null!;
+    /** 角色对象 */
+    private role: Role = null!;
+
+    onLoad() {
+        this.role = this.node.parent!.parent!.getComponent(RoleViewComp)!.ent as Role;
+    }
 
     start() {
         super.start();
@@ -76,7 +81,7 @@ export class RoleViewAnimatorComp extends AnimatorSpine {
 
     /** 武器动画剪辑名 */
     private getWeaponAnimName() {
-        var job = this.role.entity.RoleJobModel;
+        var job = this.role.RoleJobModel;
         var weaponAnimName1 = WeaponName[job.weaponType[0]];
         var weaponAnimName = weaponAnimName1;
 

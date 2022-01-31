@@ -29,7 +29,7 @@ export class RoleStateHit extends AnimatorStateLogic {
     }
 
     public onExit() {
-        var onHitActionComplete = this.role.entity.RoleView.animator.onHitActionComplete;
+        var onHitActionComplete = this.role.RoleView.animator.onHitActionComplete;
         onHitActionComplete && onHitActionComplete();
     }
 }
