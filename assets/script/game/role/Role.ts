@@ -17,13 +17,17 @@ import { RoleModelComp } from "./model/RoleModelComp";
 import { RoleViewComp } from "./view/RoleViewComp";
 
 export class RoleEntity extends ecs.Entity {
+    // 数据层
     RoleModel!: RoleModelComp;
-    RoleLevel!: RoleLevelComp;
     RoleBaseModel!: RoleBaseModelComp;
     RoleJobModel!: RoleJobModelComp;
-    RoleView!: RoleViewComp;
+    RoleLevel!: RoleLevelComp;
 
+    // 玩法层
     RoleChangeJob!: RoleChangeJobComp;
+
+    // 视图层
+    RoleView!: RoleViewComp;
 }
 
 /** 
@@ -38,10 +42,12 @@ export class RoleEntity extends ecs.Entity {
 export class Role extends RoleEntity {
     constructor() {
         super();
-        this.add(RoleModelComp);
-        this.add(RoleBaseModelComp);
-        this.add(RoleLevelComp);
-        this.add(RoleJobModelComp);
+
+        this.addComponents<ecs.Comp>(
+            RoleModelComp,
+            RoleBaseModelComp,
+            RoleJobModelComp,
+            RoleLevelComp);
     }
 
     /** 加载角色显示对象 */
