@@ -136,6 +136,19 @@ export enum RoleAttributeType {
     replyResult = "replyResult"
 }
 
+/** 角色动作名 */
+export enum RoleAnimatorType {
+    /** 待机 */
+    Idle = "Idle",
+    /** 攻击 */
+    Attack = "Attack",
+    /** 受击 */
+    Hurt = "Hurt",
+    /** 死亡 */
+    Dead = "Dead"
+}
+
+/** 武器名 */
 export var WeaponName: any = {
     0: "Fist",
     1: "Katana",
@@ -154,15 +167,4 @@ export var WeaponName: any = {
     14: "Flag",
     15: "MilitaryFan",
     16: "Shield"
-}
-
-export enum RoleAnimatorType {
-    /** 待机 */
-    Idle = "Idle",
-    /** 攻击 */
-    Attack = "Attack",
-    /** 受击 */
-    Hurt = "Hurt",
-    /** 死亡 */
-    Dead = "Dead"
 }

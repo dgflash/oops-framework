@@ -82,9 +82,7 @@ export class RoleViewAnimatorComp extends AnimatorSpine {
     /** 武器动画剪辑名 */
     private getWeaponAnimName() {
         var job = this.role.RoleJobModel;
-        var weaponAnimName1 = WeaponName[job.weaponType[0]];
-        var weaponAnimName = weaponAnimName1;
-
+        var weaponAnimName = WeaponName[job.weaponType[0]];
         return weaponAnimName;
     }
 }
