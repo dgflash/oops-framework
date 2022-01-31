@@ -42,6 +42,7 @@ export class Initialize extends ecs.Entity {
             let lan = engine.storage.get("language");
             if (lan == null) {
                 // lan = SDKPlatform.getLanguage();
+                lan = "zh";
                 engine.storage.set("language", lan!);
             }
 

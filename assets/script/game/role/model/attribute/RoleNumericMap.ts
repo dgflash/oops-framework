@@ -15,39 +15,13 @@ export class RoleNumericDecorator {
     value: number = 0;
 }
 
-/** 单一类型角色属性集合 */
-export class RoleNumericMapSingle {
-    private attributes: Map<RoleAttributeType, number> = new Map();
-
-    /** 求和 */
-    sum(type: RoleAttributeType, value: number) {
-        var source = this.attributes.get(type);
-        if (source == null) source = 0;
-        this.attributes.set(type, source + value);
-    }
-
-    /** 重置属性值为零 */
-    reset() {
-        this.attributes.forEach((value: number, key: RoleAttributeType, map: Map<RoleAttributeType, number>) => {
-            map.set(key, 0);
-        });
-    }
-
-    /** 清除属性值 */
-    clear() {
-        this.attributes.clear();
-    }
-
-    /** 遍历每个属性执行指定回调函数 */
-    forEach(callbackfn: (value: number, key: RoleAttributeType, map: Map<RoleAttributeType, number>) => void, thisArg?: any): void {
-        this.attributes.forEach(callbackfn, thisArg);
-    }
-}
-
 /** 所有模块角色属性集合 */
 export class RoleNumericMap {
+    /** 角色属性 */
     private attributes: Map<RoleAttributeType, RoleNumeric> = new Map();
+    /** 角色属性修饰器 */
     private decorators: Map<RoleNumericDecorator, number> = new Map();
+    /** ＶＭ组件数据 */
     private vm: any = null!;
 
     constructor(vm: any) {
@@ -95,6 +69,14 @@ export class RoleNumericMap {
 
     forEach(callbackfn: (value: RoleNumeric, key: RoleAttributeType, map: Map<RoleAttributeType, RoleNumeric>) => void, thisArg?: any): void {
         this.attributes.forEach(callbackfn, thisArg);
+    }
+
+    /** 重置属性值为零 */
+    reset() {
+        this.decorators.clear();
+        this.attributes.forEach((value: RoleNumeric, key: RoleAttributeType, map: Map<RoleAttributeType, RoleNumeric>) => {
+            value.reset();
+        });
     }
 }
 

@@ -28,6 +28,16 @@ export class RoleNumeric {
         this.attributes = attributes;
     }
 
+    reset() {
+        this._base = 0;
+        this._job = 0;
+        this._level = 0;
+        this._equip = 0;
+        this._decorator = 0;
+        this._battle = 0;
+        this.update();
+    }
+
     protected _base: number = 0;
     /** 角色基础属性 */
     get base(): number {
