@@ -6,7 +6,6 @@
  */
 
 import { ecs } from "../../../core/libs/ECS";
-import { Role } from "../Role";
 import { RoleNumeric } from "./attribute/RoleNumeric";
 import { RoleNumericMap } from "./attribute/RoleNumericMap";
 import { RoleAttributeType } from "./RoleEnum";
@@ -14,9 +13,6 @@ import { RoleAttributeType } from "./RoleEnum";
 /** 角色当前叠加后的属性数据 */
 @ecs.register('RoleModel')
 export class RoleModelComp extends ecs.Comp {
-    /** 外观接口 */
-    facade: Role = null!;
-
     /** 提供 VM 组件使用的数据 */
     vm: any = {};
 

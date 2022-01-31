@@ -12,6 +12,7 @@ import { ecs } from "../../../core/libs/ECS";
 import { config } from "../../common/config/Config";
 import { CCComp } from "../../common/ecs/CCComp";
 import { RoleModelComp } from "../model/RoleModelComp";
+import { Role } from "../Role";
 import { RoleViewAnimatorComp } from "./RoleViewAnimatorComp";
 
 const { ccclass, property } = _decorator;
@@ -49,7 +50,7 @@ export class RoleViewComp extends CCComp {
     }
 
     private onTouchEnd(event: EventTouch) {
-        var role = this.ent.get(RoleModelComp).facade;
+        var role = this.ent.get(RoleModelComp).ent as Role;
         var uit = this.node.parent!.getComponent(UITransform)!;
         role.move(v3(event.getUILocation().x - uit.contentSize.width / 2, event.getUILocation().y - uit.contentSize.height / 2));
     }
