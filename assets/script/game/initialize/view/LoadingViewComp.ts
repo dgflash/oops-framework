@@ -10,11 +10,13 @@ import { resLoader } from "../../../core/common/loader/ResLoader";
 import { Logger } from "../../../core/common/log/Logger";
 import { engine } from "../../../core/Engine";
 import { ecs } from "../../../core/libs/ECS";
-import { config } from "../../common/config/Config";
-import { UIID } from "../../common/config/GameUIConfig";
+import { JsonUtil } from "../../../core/utils/JsonUtil";
 import { Account } from "../../account/Account";
+import { UIID } from "../../common/config/GameUIConfig";
 import { CCVMParentComp } from "../../common/ecs/CCVMParentComp";
 import { SingletonModuleComp } from "../../common/ecs/SingletonModuleComp";
+import { RoleJobModelComp } from "../../role/model/RoleJobModelComp";
+import { RoleTableLevelUp } from "../../role/model/RoleTableLevelUp";
 
 const { ccclass, property } = _decorator;
 
@@ -36,6 +38,7 @@ export class LoadingViewComp extends CCVMParentComp {
         // 进入游戏主界面
         var module = ecs.getSingleton(SingletonModuleComp);
         module.account = new Account();
+        module.account.requestLoadPlayer();
 
         resLoader.releaseDir("loading");
 
@@ -46,26 +49,23 @@ export class LoadingViewComp extends CCVMParentComp {
         this.loadRes();
     }
 
+    /** 加载资源 */
     private async loadRes() {
         this.data.progress = 0;
-        await this.loadLanguage();
-        await this.loadCommonRes();
+        await this.loadLocalJson();
         this.loadGameRes();
     }
 
-    private loadLanguage() {
-        return new Promise((resolve, reject) => {
-            engine.i18n.setAssetsPath(config.game.languagePathJson, config.game.languagePathTexture);
-            engine.i18n.setLanguage(config.query.lang, resolve);
+    /** 加载游戏本地JSON数据 */
+    private loadLocalJson() {
+        return new Promise(async (resolve, reject) => {
+            await JsonUtil.loadAsync(RoleJobModelComp.TableName);
+            await JsonUtil.loadAsync(RoleTableLevelUp.TableName);
+            resolve(null);
         });
     }
 
-    private loadCommonRes() {
-        return new Promise((resolve, reject) => {
-            resLoader.loadDir("common", resolve);
-        });
-    }
-
+    /** 加载游戏预制、纹理等资源 */
     private loadGameRes() {
         resLoader.loadDir("game", this.onProgressCallback.bind(this), this.onCompleteCallback.bind(this));
     }

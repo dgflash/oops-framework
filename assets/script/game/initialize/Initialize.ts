@@ -36,7 +36,23 @@ export class Initialize extends ecs.Entity {
     /** 打开初始界面 */
     open() {
         var queue: AsyncQueue = new AsyncQueue();
+
         // 加载多语言包
+        this.loadLanguage(queue);
+        // 加载TTF字库（可选项）
+        this.loadFont(queue);
+        // 加载公共资源
+        this.loadCommon(queue);
+        // 加载自定义静态表
+        this.loadCustom(queue);
+        // 加载游戏主界面资源
+        this.onComplete(queue);
+
+        queue.play();
+    }
+
+    /** 加载化语言包 */
+    private loadLanguage(queue: AsyncQueue) {
         queue.push((next: NextFunction, params: any, args: any) => {
             // 设置默认语言
             let lan = engine.storage.get("language");
@@ -52,21 +68,32 @@ export class Initialize extends ecs.Entity {
             // 加载语言包资源
             engine.i18n.setLanguage(lan!, next);
         });
-        // 加载TTF字库（可选项）
+    }
+
+    /** 加载TTF字库（可选项） */
+    private loadFont(queue: AsyncQueue) {
         queue.push((next: NextFunction, params: any, args: any) => {
             resLoader.load("language/font/" + engine.i18n.currentLanguage, next);
         });
-        // 加载公共资源（公用提示、窗口等自定义文件体积交小的资源）
+    }
+
+    /** 加载公共资源（公用提示、窗口等自定义文件体积交小的资源） */
+    private loadCommon(queue: AsyncQueue) {
         queue.push((next: NextFunction, params: any, args: any) => {
             resLoader.loadDir("common", next);
         });
-        // 加载自定义静态表
+    }
+
+    /** 加载自定义静态表 */
+    private loadCustom(queue: AsyncQueue) {
         queue.push(async (next: NextFunction, params: any, args: any) => {
-            await JsonUtil.loadAsync(RoleJobModelComp.TableName);
-            await JsonUtil.loadAsync(RoleTableLevelUp.TableName);
+            
             next();
         });
-        // 加载游戏主界面资源
+    }
+
+    /** 加载完成进入游戏内容加载界面 */
+    private onComplete(queue: AsyncQueue) {
         queue.complete = () => {
             var uic: UICallbacks = {
                 onAdded: (node: Node, params: any) => {
@@ -76,6 +103,5 @@ export class Initialize extends ecs.Entity {
             };
             engine.gui.open(UIID.Loading, null, uic);
         };
-        queue.play();
     }
 }

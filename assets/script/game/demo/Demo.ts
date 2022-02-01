@@ -19,9 +19,7 @@ export class Demo extends Component {
     private lang: boolean = true;
 
     onLoad() {
-        var account = new Account();
-        account.requestLoadPlayer();
-        ecs.getSingleton(SingletonModuleComp).account = account;
+        
     }
 
     /** 升级 */

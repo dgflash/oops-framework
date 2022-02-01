@@ -26,14 +26,14 @@ export class RoleChangeJobSystem extends ecs.ComblockSystem implements ecs.IEnti
 
     entityEnter(entities: Role[]): void {
         for (let e of entities) {
-            console.log("【转职前】角色属性");
-            e.RoleModel.toString();
+            // console.log("【转职前】角色属性");
+            // e.RoleModel.toString();
 
             // 数值更新
             e.RoleJobModel.id = e.RoleChangeJob.jobId;
 
-            console.log("【转职后】角色属性");
-            e.RoleModel.toString();
+            // console.log("【转职后】角色属性");
+            // e.RoleModel.toString();
 
             // 切换职业动画
             e.RoleView.animator.changeJob();
