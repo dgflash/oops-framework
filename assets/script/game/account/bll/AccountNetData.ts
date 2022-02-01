@@ -11,7 +11,7 @@ import { ecs } from "../../../core/libs/ECS";
 import { VM } from "../../../core/libs/model-view/ViewModel";
 import { ViewUtil } from "../../../core/utils/ViewUtil";
 import { Role } from "../../role/Role";
-import { AccountEntity } from "../Account";
+import { Account } from "../Account";
 import { AccountModelComp } from "../model/AccountModelComp";
 
 /** 帐号网络数据请求 */
@@ -26,7 +26,7 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
         return ecs.allOf(AccountNetDataComp, AccountModelComp);
     }
 
-    entityEnter(entities: AccountEntity[]): void {
+    entityEnter(entities: Account[]): void {
         for (let e of entities) {
             // var params: any = {
             //     playerId: netConfig.dbid,

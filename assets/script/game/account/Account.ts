@@ -7,13 +7,8 @@
 
 import { ecs } from "../../core/libs/ECS";
 import { netChannel } from "../common/net/NetChannelManager";
-import { AccountModelComp } from "./model/AccountModelComp";
 import { AccountNetDataComp } from "./bll/AccountNetData";
-
-export class AccountEntity extends ecs.Entity {
-    AccountModel!: AccountModelComp;
-    AccountNetData!: AccountNetDataComp;
-}
+import { AccountModelComp } from "./model/AccountModelComp";
 
 /**
  * 账号模块
@@ -24,15 +19,13 @@ export class AccountEntity extends ecs.Entity {
  * 5、初始化游戏配置数据表
  * 6、初始化游戏初始用到的模块
  */
-export class Account {
-    public entity: AccountEntity = null!;
+export class Account extends ecs.Entity {
+    AccountModel!: AccountModelComp;
+    AccountNetData!: AccountNetDataComp;
 
     constructor() {
-        this.create();
-    }
-
-    create() {
-        this.entity = ecs.createEntityWithComps(AccountModelComp);
+        super();
+        this.addComponents<ecs.Comp>(AccountModelComp);
     }
 
     /** 连接游戏服务器 */
@@ -43,6 +36,6 @@ export class Account {
 
     // 登录游戏
     requestLoadPlayer() {
-        this.entity.add(AccountNetDataComp);
+        this.add(AccountNetDataComp);
     }
 }
