@@ -49,9 +49,9 @@ export class LanguageLabel extends Component {
     }
 
     get string(): string {
-        let _string = engine.i18n.getLangByID(this._dataID);
-        if (engine.i18n.beforeChangeLabel) {
-            engine.i18n.beforeChangeLabel(this, _string, this._dataID);
+        let _string = engine.language.getLangByID(this._dataID);
+        if (engine.language.beforeChangeLabel) {
+            engine.language.beforeChangeLabel(this, _string, this._dataID);
         }
         if (_string && this._params.length > 0) {
             this._params.forEach((item: LangLabelParamsItem) => {
@@ -125,14 +125,14 @@ export class LanguageLabel extends Component {
             if (!this._dataID) {
                 break;
             }
-            
+
             let spcomp = this.getComponent(Label);
             if (!spcomp) {
                 warn("[LanguageLabel], 该节点没有cc.Label组件");
                 break;
             }
 
-            spcomp.fontFamily = this.getLabelFont(engine.i18n.currentLanguage);
+            spcomp.fontFamily = this.getLabelFont(engine.language.current);
             spcomp.string = this.string;
         }
         while (false);

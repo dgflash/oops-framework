@@ -49,15 +49,15 @@ export class Demo extends Component {
 
     /** 多语言切换 */
     private btn_language(event: EventTouch, data: any) {
-        console.log(engine.i18n.getLangByID("notify_show"));
+        console.log(engine.language.getLangByID("notify_show"));
 
         if (this.lang == false) {
             this.lang = true;
-            engine.i18n.setLanguage("zh", () => { });
+            engine.language.setLanguage("zh", () => { });
         }
         else {
             this.lang = false;
-            engine.i18n.setLanguage("en", () => { });
+            engine.language.setLanguage("en", () => { });
         }
     }
 

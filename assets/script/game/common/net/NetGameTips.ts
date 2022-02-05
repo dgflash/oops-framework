@@ -15,11 +15,11 @@ export class NetGameTips implements INetworkTips {
     connectTips(isShow: boolean): void {
         if (isShow) {
             Logger.logNet("游戏服务器正在连接");
-            // tips.netInstableOpen();
+            tips.netInstableOpen();
         }
         else {
             Logger.logNet("游戏服务器连接成功");
-            // tips.netInstableClose();
+            tips.netInstableClose();
             Message.dispatchEvent(GameEvent.GameServerConnected);
         }
     }

@@ -16,27 +16,27 @@ export class LanguageManager extends EventDispatcher {
     /** Label修改之前的回调 */
     public beforeChangeLabel: ((comp: LanguageLabel, content: string, dataID: string) => void) | null = null;
 
-    private _currentLang: string = "";                                    // 当前语言
-    private _supportLanguages: Array<string> = ["zh", "en", "tr"];        // 支持的语言
+    private _current: string = "";                                    // 当前语言
+    private _support: Array<string> = ["zh", "en", "tr"];        // 支持的语言
     private _languagePack: LanguagePack = new LanguagePack();             // 语言包  
 
     /** 设置多语言系统支持哪些语种 */
     public set supportLanguages(supportLanguages: Array<string>) {
-        this._supportLanguages = supportLanguages;
+        this._support = supportLanguages;
     }
 
     /**
      * 获取当前语种
      */
-    public get currentLanguage(): string {
-        return this._currentLang;
+    public get current(): string {
+        return this._current;
     }
 
     /**
      * 获取支持的多语种数组
      */
     public get languages(): string[] {
-        return this._supportLanguages;
+        return this._support;
     }
 
     public isExist(lang: string): boolean {
@@ -48,7 +48,7 @@ export class LanguageManager extends EventDispatcher {
      */
     public getNextLang(): string {
         let supportLangs = this.languages;
-        let index = supportLangs.indexOf(this._currentLang);
+        let index = supportLangs.indexOf(this._current);
         let newLanguage = supportLangs[(index + 1) % supportLangs.length];
         return newLanguage;
     }
@@ -67,7 +67,7 @@ export class LanguageManager extends EventDispatcher {
             warn("当前不支持该语种" + language + " 将自动切换到 zh 语种!");
             language = DEFAULT_LANGUAGE;
         }
-        if (language === this._currentLang) {
+        if (language === this._current) {
             callback(false);
             return;
         }
@@ -80,7 +80,7 @@ export class LanguageManager extends EventDispatcher {
             }
 
             Logger.logConfig(`当前语言为【${language}】`);
-            this._currentLang = language;
+            this._current = language;
             this._languagePack.updateLanguage(language);
             this.dispatchEvent(LanguageEvent.CHANGE, lang);
             callback(true);

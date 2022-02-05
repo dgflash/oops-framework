@@ -1,7 +1,7 @@
 import { Component, Size, Sprite, SpriteFrame, UITransform, _decorator } from "cc";
-import { engine } from "../../Engine";
 import { resLoader } from "../../common/loader/ResLoader";
 import { Logger } from "../../common/log/Logger";
+import { engine } from "../../Engine";
 
 const { ccclass, property, menu } = _decorator;
 
@@ -19,7 +19,7 @@ export class LanguageSprite extends Component {
     private isRawSize: boolean = true;
 
     start() {
-        this.language = engine.i18n.currentLanguage;
+        this.language = engine.language.current;
     }
 
     set language(lang: string) {

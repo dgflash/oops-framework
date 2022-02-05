@@ -6,8 +6,8 @@
 
 /** 网络配置 */
 class NetConfig {
-    public gameIp !: string;
-    public gamePort !: string;
+    public gameIp: string = "192.168.1.150";
+    public gamePort: string = "9587";
     public dbid!: number;
     public sdkUid!: string;
     public serverId!: number;

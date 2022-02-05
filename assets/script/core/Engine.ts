@@ -9,7 +9,7 @@ import { Root } from "./Root";
 
 export class engine {
     /** 多语言模块 */
-    public static i18n: LanguageManager;
+    public static language: LanguageManager;
     /** 游戏时间管理 */
     public static timer: TimerManager;
     /** 游戏音乐管理 */
@@ -25,21 +25,11 @@ export class engine {
 
     /** 在Root.ts中初始化引导模块 */
     private static init(root: Root) {
-        engine.i18n = new LanguageManager()
+        engine.language = new LanguageManager()
         engine.timer = new TimerManager(root);
         engine.audio = AudioManager.instance;
         engine.http = new HttpRequest();
         engine.gui = new LayerManager(root.gui!);
         engine.game = root.addComponent(GameManager)!;
-    }
-
-    /** 修改引擎全局游戏速度 （k-cocos.js） */
-    public static get speed(): number {
-        // @ts-ignore
-        return cc.kGetSpeed();
-    }
-    public static set speed(value: number) {
-        // @ts-ignore
-        cc.kSetSpeed(value);
     }
 }
