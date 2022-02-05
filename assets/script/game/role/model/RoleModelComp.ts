@@ -19,8 +19,17 @@ export class RoleModelComp extends ecs.Comp {
     /** ----------基础属性---------- */
     /** 角色编号 */
     id: number = -1;
+
+    private _name: string = "";
     /** 昵称 */
-    name: string = "";
+    get name(): string {
+        return this._name;
+    }
+    set name(value: string) {
+        this._name = value;
+        this.vm.name = value;
+    }
+
     /** 角色属性 */
     attributes: RoleNumericMap = new RoleNumericMap(this.vm);
 

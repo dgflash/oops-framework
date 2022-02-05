@@ -11,8 +11,8 @@ import { RoleModelComp } from "./RoleModelComp";
 import { RoleTableLevelUp } from "./RoleTableLevelUp";
 
 /** 角色等级数据 */
-@ecs.register('RoleLevel')
-export class RoleLevelComp extends ecs.Comp {
+@ecs.register('RoleLevelModel')
+export class RoleLevelModelComp extends ecs.Comp {
     /** 当前等级已获取的经验值 */
     private _exp: number = 0;
     public get exp(): number {

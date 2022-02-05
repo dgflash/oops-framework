@@ -14,7 +14,7 @@ import { LayerUI } from "./LayerUI";
  * 允许同时弹出多个窗口
  */
 export class LayerPopUp extends LayerUI {
-    private black!: BlockInputEvents;
+    protected black!: BlockInputEvents;
 
     constructor(name: string) {
         super(name);

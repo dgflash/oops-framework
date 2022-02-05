@@ -8,6 +8,7 @@ import { Component, EventTouch, _decorator } from "cc";
 import { engine } from "../../core/Engine";
 import { tips } from "../../core/gui/prompt/TipsManager";
 import { ecs } from "../../core/libs/ECS";
+import { UIID } from "../common/config/GameUIConfig";
 import { SingletonModuleComp } from "../common/ecs/SingletonModuleComp";
 import { RoleAnimatorType } from "../role/model/RoleEnum";
 
@@ -20,7 +21,7 @@ export class Demo extends Component {
     /** 升级 */
     private btn_level_up(event: EventTouch, data: any) {
         var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
-        if (role.RoleLevel.lv < 100) role.RoleLevel.lv++;
+        if (role.RoleLevelModel.lv < 100) role.RoleLevelModel.lv++;
     }
 
     /** 转职弓箭 */
@@ -45,6 +46,11 @@ export class Demo extends Component {
     private btn_attack(event: EventTouch, data: any) {
         var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
         role.RoleView.animator.setTrigger(RoleAnimatorType.Attack);
+    }
+
+    /** 打开角色界面 */
+    private btn_open_role_info(event: EventTouch, data: any) {
+        engine.gui.open(UIID.Demo_Role_Info);
     }
 
     /** 多语言切换 */

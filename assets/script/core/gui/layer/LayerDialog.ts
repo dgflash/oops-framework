@@ -19,6 +19,8 @@ export class LayerDialog extends LayerPopUp {
     private current!: ViewParams;
 
     add(config: UIConfig, params?: any, callbacks?: UICallbacks): string {
+        this.black.enabled = true;
+
         let prefabPath = config.prefab
         var uuid = this.getUuid(prefabPath);
         var viewParams = this.ui_nodes.get(uuid);

@@ -12,7 +12,7 @@ import { MoveToComp } from "../common/ecs/position/MoveTo";
 import { RoleChangeJobComp } from "./bll/RoleChangeJob";
 import { RoleBaseModelComp } from "./model/RoleBaseModelComp";
 import { RoleJobModelComp } from "./model/RoleJobModelComp";
-import { RoleLevelComp } from "./model/RoleLevelComp";
+import { RoleLevelModelComp } from "./model/RoleLevelModelComp";
 import { RoleModelComp } from "./model/RoleModelComp";
 import { RoleViewComp } from "./view/RoleViewComp";
 
@@ -30,7 +30,7 @@ export class Role extends ecs.Entity {
     RoleModel!: RoleModelComp;
     RoleBaseModel!: RoleBaseModelComp;
     RoleJobModel!: RoleJobModelComp;
-    RoleLevel!: RoleLevelComp;
+    RoleLevelModel!: RoleLevelModelComp;
 
     // 玩法层
     RoleChangeJob!: RoleChangeJobComp;
@@ -45,7 +45,7 @@ export class Role extends ecs.Entity {
             RoleModelComp,
             RoleBaseModelComp,
             RoleJobModelComp,
-            RoleLevelComp);
+            RoleLevelModelComp);
     }
 
     /** 加载角色显示对象 */

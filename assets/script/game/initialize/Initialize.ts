@@ -25,20 +25,14 @@ export class Initialize extends ecs.Entity {
     constructor() {
         super();
 
-        // 设置渠道号
-        // if (config.query.channelId) SDKPlatform.setChannelId(config.query.channelId);
-    }
-
-    /** 打开初始界面 */
-    open() {
         var queue: AsyncQueue = new AsyncQueue();
 
+        // 加载自定义资源
+        this.loadCustom(queue);
         // 加载多语言包
         this.loadLanguage(queue);
         // 加载公共资源
         this.loadCommon(queue);
-        // 加载自定义资源
-        this.loadCustom(queue);
         // 加载游戏内容加载进度提示界面
         this.onComplete(queue);
 
@@ -48,6 +42,10 @@ export class Initialize extends ecs.Entity {
     /** 加载自定义内容（可选） */
     private loadCustom(queue: AsyncQueue) {
         queue.push(async (next: NextFunction, params: any, args: any) => {
+            // 设置渠道号
+            // if (config.query.channelId) SDKPlatform.setChannelId(config.query.channelId);
+
+            // 加载多语言对应字体
             resLoader.load("language/font/" + engine.language.current, next);
         });
     }

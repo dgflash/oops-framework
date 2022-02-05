@@ -10,6 +10,7 @@ import { engine } from "../../../core/Engine";
 import { ecs } from "../../../core/libs/ECS";
 import { JsonUtil } from "../../../core/utils/JsonUtil";
 import { Account } from "../../account/Account";
+import { GameEvent } from "../../common/config/GameEvent";
 import { UIID } from "../../common/config/GameUIConfig";
 import { CCVMParentComp } from "../../common/ecs/CCVMParentComp";
 import { SingletonModuleComp } from "../../common/ecs/SingletonModuleComp";
@@ -46,17 +47,26 @@ export class LoadingViewComp extends CCVMParentComp {
         // 释放加载界面资源
         resLoader.releaseDir("loading");
 
-        // 初始化角色模块
-        var module = ecs.getSingleton(SingletonModuleComp);
-        module.account = new Account();
-        module.account.connect();
-
-        // 打开DEMO界面
+        // 打开游戏主界面（自定义逻辑）
         engine.gui.open(UIID.Demo);
     }
 
     start() {
+        this.addEvent();
         this.loadRes();
+    }
+
+    private addEvent() {
+        this.on(GameEvent.LoginSuccess, this.onHandler, this);
+    }
+
+    private onHandler(event: string, args: any) {
+        switch (event) {
+            case GameEvent.LoginSuccess:
+                // 加载流程结束，移除加载提示界面
+                this.ent.remove(LoadingViewComp);
+                break;
+        }
     }
 
     /** 加载资源 */
@@ -100,6 +110,9 @@ export class LoadingViewComp extends CCVMParentComp {
 
     /** 加载完成事件 */
     private onCompleteCallback() {
-        this.ent.remove(LoadingViewComp);
+        // 初始化帐号模块
+        var module = ecs.getSingleton(SingletonModuleComp);
+        module.account = new Account();
+        module.account.connect();
     }
 }

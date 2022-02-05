@@ -5,11 +5,15 @@
  * @LastEditTime: 2022-01-29 18:03:33
  */
 
+import { Message } from "../../../core/common/event/MessageManager";
 import { SqlUtil } from "../../../core/common/storage/SqlUtil";
 import { engine } from "../../../core/Engine";
 import { ecs } from "../../../core/libs/ECS";
 import { VM } from "../../../core/libs/model-view/ViewModel";
 import { ViewUtil } from "../../../core/utils/ViewUtil";
+import { GameEvent } from "../../common/config/GameEvent";
+import { UIID } from "../../common/config/GameUIConfig";
+import { netConfig } from "../../common/net/NetConfig";
 import { Role } from "../../role/Role";
 import { Account } from "../Account";
 import { AccountModelComp } from "../model/AccountModelComp";
@@ -28,64 +32,76 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
 
     entityEnter(entities: Account[]): void {
         for (let e of entities) {
-            // var params: any = {
-            //     playerId: netConfig.dbid,
-            //     sessionKey: netConfig.sessionKey,
-            // }
+            var params: any = {
+                playerId: netConfig.dbid,
+                sessionKey: netConfig.sessionKey,
+            }
 
-            // let onComplete = {
-            //     target: this,
-            //     callback: (data: any) => {
-            //         console.log("帐号数据", data);
-            //         this.setLocalStorage(data.id);
-            //     }
-            // }
+            let onComplete = {
+                target: this,
+                callback: (data: any) => {
+                    // 设置本地存储的用户标识（用于下次登录不输入帐号）
+                    this.setLocalStorage(data.id);
 
-            // // 请求登录游戏获取角色数据
+                    // 创建玩家角色对象
+                    this.createRole(e, data);
+
+                    // 玩家登录成功事件
+                    Message.dispatchEvent(GameEvent.LoginSuccess);
+                }
+            }
+            // 请求登录游戏获取角色数据
             // netChannel.game.req("LoginAction", "loadPlayer", params, onComplete);
 
-            this.test(e);
+            // 离线测试代码开始
+            var data = {
+                id: 1,
+                name: "测试角色",
+                power: 10,
+                agile: 10,
+                physical: 10,
+                lv: 1,
+                jobId: 1
+            }
+            onComplete.callback(data);
+            // 离线测试代码结束
 
             e.remove(AccountNetDataComp);
         }
     }
 
-    /** 离线测试代码（自定义逻辑） */
-    private test(e: Account) {
+    /** 创建角色对象（自定义逻辑） */
+    private createRole(e: Account, data: any) {
         var role = new Role();
 
         // 角色数据
-        role.RoleModel.id = 1;
-        role.RoleModel.name = "测试角色";
+        role.RoleModel.id = data.id;
+        role.RoleModel.name = data.name;
 
         // 角色初始战斗属性
-        role.RoleBaseModel.power = 10;
-        role.RoleBaseModel.agile = 10;
-        role.RoleBaseModel.physical = 10;
+        role.RoleBaseModel.power = data.power;
+        role.RoleBaseModel.agile = data.agile;
+        role.RoleBaseModel.physical = data.physical;
 
         // 角色等级数据
-        role.RoleLevel.lv = 1;                           // + 5 hp
+        role.RoleLevelModel.lv = data.lv;
 
         // 角色职业数据
-        role.RoleJobModel.id = 1;                        // + 2 power, + 10 ad
+        role.RoleJobModel.id = data.jobId;
 
         // 角色基础属性绑定到界面上显示
         VM.add(role.RoleModel.vm, "role");
 
-        // 角色信息界面显示对象
-        var role_attr = ViewUtil.createPrefabNode("game/battle/role_attr");
-        role_attr.parent = engine.gui.root;
-
         // 角色动画显示对象
         role.load();
-        role.RoleView.node.parent = engine.gui.root;
-        role.RoleView.node.setPosition(0, -200, 0);
+        role.RoleView.node.parent = engine.gui.game;
+        role.RoleView.node.setPosition(0, -300, 0);
 
         e.AccountModel.role = role;
     }
 
     /** 设置本地存储的用户标识 */
-    setLocalStorage(uid: number) {
+    private setLocalStorage(uid: number) {
         SqlUtil.setUser(uid);
         SqlUtil.set("account", uid);
     }

@@ -10,6 +10,7 @@ import { ecs } from './core/libs/ECS';
 import { Root } from './core/Root';
 import { SingletonModuleComp } from './game/common/ecs/SingletonModuleComp';
 import { Initialize } from './game/initialize/Initialize';
+
 const { ccclass, property } = _decorator;
 
 @ccclass('Main')
@@ -21,6 +22,5 @@ export class Main extends Root {
     protected run() {
         var module = ecs.getSingleton(SingletonModuleComp);
         module.initialize = new Initialize();
-        module.initialize.open();
     }
 }

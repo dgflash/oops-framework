@@ -14,6 +14,7 @@
     "loading_load_json": "加载游戏本地数据",
     "loading_load_game": "加载游戏内容",
     "loading_load_player": "获取用户信息",
+    "role_name": "名字",
     "role_lv": "等级",
     "role_hp": "生命",
     "role_power": "力量",

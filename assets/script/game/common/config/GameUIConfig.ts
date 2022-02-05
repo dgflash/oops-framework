@@ -16,6 +16,8 @@ export enum UIID {
     Netinstable,
     /** DEMO */
     Demo,
+    /** 角色信息 */
+    Demo_Role_Info
 }
 
 /** 打开界面方式的配置数据 */
@@ -24,4 +26,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Netinstable]: { layer: LayerType.PopUp, prefab: "common/prefab/netinstable" },
     [UIID.Window]: { layer: LayerType.Dialog, prefab: "common/prefab/window" },
     [UIID.Demo]: { layer: LayerType.UI, prefab: "gui/prefab/demo" },
+    [UIID.Demo_Role_Info]: { layer: LayerType.Dialog, prefab: "gui/prefab/role_info" },
 }

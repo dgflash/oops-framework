@@ -7,7 +7,7 @@
 
 import { JsonUtil } from "../../../core/utils/JsonUtil";
 
-/** 角色经验数据 */
+/** 角色经验数据（策划Excel导出的Json静态数据） */
 export class RoleTableLevelUp {
     static TableName: string = "herolvup";
 
