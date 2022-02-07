@@ -63,7 +63,7 @@ export class RoleBaseModelComp extends ecs.Comp {
         this.agile = 0;
 
         for (var key in this.vm) {
-            delete this.vm[key];
+            this.vm[key] = 0;
         }
     }
 }

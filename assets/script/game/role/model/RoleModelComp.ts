@@ -48,7 +48,7 @@ export class RoleModelComp extends ecs.Comp {
         this.name = "";
 
         for (var key in this.vm) {
-            delete this.vm[key];
+            this.vm[key] = 0;
         }
     }
 

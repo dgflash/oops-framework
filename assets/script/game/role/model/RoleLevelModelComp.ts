@@ -6,8 +6,6 @@
  */
 
 import { ecs } from "../../../core/libs/ECS";
-import { RoleAttributeType } from "./RoleEnum";
-import { RoleModelComp } from "./RoleModelComp";
 import { RoleTableLevelUp } from "./RoleTableLevelUp";
 
 /**
@@ -23,46 +21,28 @@ import { RoleTableLevelUp } from "./RoleTableLevelUp";
 @ecs.register('RoleLevelModel')
 export class RoleLevelModelComp extends ecs.Comp {
     /** 提供 VM 组件使用的数据 */
-    vm: any = {};
+    vm: RoleLevelVM = new RoleLevelVM();
+    /** 下个等级配置 */
+    rtluNext: RoleTableLevelUp = new RoleTableLevelUp();
+    /** 当前等级配置 */
+    rtluCurrent: RoleTableLevelUp = new RoleTableLevelUp();
 
-    /** 当前等级已获取的经验值 */
-    private _exp: number = 0;
-    public get exp(): number {
-        return this._exp;
+    reset() {
+        this.vm.reset();
     }
-    public set exp(value: number) {
-        this._exp = value;
-        this.vm.exp = value;
-    }
+}
 
-    private _lv: number = 0;
-    /** 等级 */
-    public get lv(): number {
-        return this._lv;
-    }
-    public set lv(value: number) {
-        this._lv = value;
-        this.vm.lv = value;
-        this.ent.get(RoleModelComp).attributes.get(RoleAttributeType.hp).level = this.rtlu.hp;
-    }
-
-    private _rtlu: RoleTableLevelUp = null!;
-    /** 升级后的变化属性 */
-    get rtlu(): RoleTableLevelUp {
-        if (this._rtlu == null)
-            this._rtlu = new RoleTableLevelUp(this.lv);
-        else if (this._rtlu.key != this.lv)
-            this._rtlu.init(this.lv);
-        return this._rtlu;
-    }
+class RoleLevelVM {
+    /** 当前等级 */
+    lv: number = 0;
+    /** 当前经验 */
+    exp: number = 0;
+    /** 下级经验 */
+    expNext: number = 0;
 
     reset() {
         this.lv = 0;
         this.exp = 0;
-        this._rtlu = null!;
-
-        for (var key in this.vm) {
-            delete this.vm[key];
-        }
+        this.expNext = 0;
     }
 }

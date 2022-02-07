@@ -17,10 +17,21 @@ import { RoleViewComp } from "./RoleViewComp";
 
 const { ccclass, property, requireComponent, disallowMultiple } = _decorator;
 
-@ccclass("RoleViewAnimatorComp")
+/** 
+ * 角色SPINE动画控制
+ * 
+ * 实现功能
+ * 1、控制动作变化
+ * 2、控制武器变化
+ * 3、控制脸的朝向
+ * 
+ * 技术分析
+ * 1、角色动画组件未绑定到ECS实体上，是因为角色显示对象上就有动画组件的引用，直接可通过角色显示对象获取到动画对象 
+ */
+@ccclass("RoleViewAnimator")
 @disallowMultiple
 @requireComponent(sp.Skeleton)
-export class RoleViewAnimatorComp extends AnimatorSpine {
+export class RoleViewAnimator extends AnimatorSpine {
     /** 攻击行为完成 */
     onAttackComplete: Function = null!;
     /** 受击动作完成 */
@@ -59,6 +70,7 @@ export class RoleViewAnimatorComp extends AnimatorSpine {
 
     /** 当前动作换职业动画 */
     changeJob() {
+        // 状态机状态值未变时，不会触发状态变化事件，所以这里直接触发状态变化事件来触发后续流程
         this.onStateChange(this._ac.curState, this._ac.curState);
     }
 

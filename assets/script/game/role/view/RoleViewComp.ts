@@ -13,7 +13,7 @@ import { config } from "../../common/config/Config";
 import { CCComp } from "../../common/ecs/CCComp";
 import { RoleModelComp } from "../model/RoleModelComp";
 import { Role } from "../Role";
-import { RoleViewAnimatorComp } from "./RoleViewAnimatorComp";
+import { RoleViewAnimator } from "./RoleViewAnimator";
 
 const { ccclass, property } = _decorator;
 
@@ -25,11 +25,11 @@ export class RoleViewComp extends CCComp {
     spine: sp.Skeleton | null = null;
 
     /** 动画状态机 */
-    animator: RoleViewAnimatorComp = null!;
+    animator: RoleViewAnimator = null!;
 
     onLoad() {
         this.node.active = false;
-        this.animator = this.spine!.getComponent(RoleViewAnimatorComp)!;
+        this.animator = this.spine!.getComponent(RoleViewAnimator)!;
     }
 
     load() {

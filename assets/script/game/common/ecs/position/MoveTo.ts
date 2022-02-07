@@ -16,7 +16,7 @@ export class MoveToComp extends ecs.Comp {
     node: Node = null!;
     /** 移动方向 */
     velocity: Vec3 = Vec3Util.zero;
-    /** 移动速度 */
+    /** 移动速度（每秒移动的像素距离） */
     speed: number = 0;
     /** 目标实体ECS编号、目标位置 */
     target: Vec3 | Node | null = null;

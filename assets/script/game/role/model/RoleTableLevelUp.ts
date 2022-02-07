@@ -10,10 +10,6 @@ import { JsonUtil } from "../../../core/utils/JsonUtil";
 export class RoleTableLevelUp {
     static TableName: string = "herolvup";
 
-    constructor(key: number) {
-        this.init(key);
-    }
-
     /** 静态表中一条数据 */
     private data: any;
 

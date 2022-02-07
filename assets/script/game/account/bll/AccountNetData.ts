@@ -82,7 +82,8 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
         role.RoleBaseModel.physical = data.physical;
 
         // 角色等级数据
-        role.RoleLevelModel.lv = data.lv;
+        // role.RoleLevelModel.lv = data.lv;
+        role.upgrade(data.lv);
 
         // 角色职业数据
         role.RoleJobModel.id = data.jobId;

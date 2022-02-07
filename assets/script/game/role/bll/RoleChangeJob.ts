@@ -6,6 +6,7 @@
  */
 
 import { ecs } from "../../../core/libs/ECS";
+import { RoleJobModelComp } from "../model/RoleJobModelComp";
 import { Role } from "../Role";
 
 /**
@@ -32,7 +33,7 @@ export class RoleChangeJobComp extends ecs.Comp {
 
 export class RoleChangeJobSystem extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
     filter(): ecs.IMatcher {
-        return ecs.allOf(RoleChangeJobComp);
+        return ecs.allOf(RoleChangeJobComp, RoleJobModelComp);
     }
 
     entityEnter(entities: Role[]): void {

@@ -6,11 +6,13 @@
  */
 import { ecs } from "../../../core/libs/ECS";
 import { RoleChangeJobSystem } from "./RoleChangeJob";
+import { RoleUpgradeSystem } from "./RoleUpgrade";
 
 export class EcsRoleSystem extends ecs.System {
     constructor() {
         super();
 
         this.add(new RoleChangeJobSystem());
+        this.add(new RoleUpgradeSystem());
     }
 }

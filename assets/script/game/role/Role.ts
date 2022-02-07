@@ -10,6 +10,7 @@ import { ecs } from "../../core/libs/ECS";
 import { ViewUtil } from "../../core/utils/ViewUtil";
 import { MoveToComp } from "../common/ecs/position/MoveTo";
 import { RoleChangeJobComp } from "./bll/RoleChangeJob";
+import { RoleUpgradeComp } from "./bll/RoleUpgrade";
 import { RoleBaseModelComp } from "./model/RoleBaseModelComp";
 import { RoleAnimatorType } from "./model/RoleEnum";
 import { RoleJobModelComp } from "./model/RoleJobModelComp";
@@ -34,8 +35,9 @@ export class Role extends ecs.Entity {
     RoleJobModel!: RoleJobModelComp;
     RoleLevelModel!: RoleLevelModelComp;
 
-    // 玩法层
+    // 业务层
     RoleChangeJob!: RoleChangeJobComp;
+    RoleUpgrade!: RoleUpgradeComp;
 
     // 视图层
     RoleView!: RoleViewComp;
@@ -69,7 +71,7 @@ export class Role extends ecs.Entity {
         move.speed = 100;
     }
 
-    /** 攻击 */
+    /** 攻击（DEMO没有战斗逻辑，所以只播放一个动画） */
     attack() {
         this.RoleView.animator.setTrigger(RoleAnimatorType.Attack);
     }
@@ -80,8 +82,9 @@ export class Role extends ecs.Entity {
         rcj.jobId = jobId;
     }
 
-    /** 角色升级 */
-    upgrade() {
-        if (this.RoleLevelModel.lv < 100) this.RoleLevelModel.lv++;
+    /** 角色升级（升级只修改数据，通过MVVM级件自动绑定等级变化后的界面角色生命属性刷新） */
+    upgrade(lv: number = 0) {
+        var ru = this.add(RoleUpgradeComp);
+        ru.lv = lv;
     }
 }
