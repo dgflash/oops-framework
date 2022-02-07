@@ -19,13 +19,13 @@ export class RoleViewInfoComp extends CCComp {
         switch (event.target.name) {
             case "btn_levelup":
                 var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
-                if (role.RoleLevelModel.lv < 100) role.RoleLevelModel.lv++;
+                role.upgrade();
                 break;
             case "btn_close":
                 engine.gui.remove(UIID.Demo_Role_Info);
                 break;
         }
-        
+
         event.propagationStopped = true;
     }
 

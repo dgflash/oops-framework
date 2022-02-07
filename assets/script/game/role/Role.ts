@@ -11,10 +11,12 @@ import { ViewUtil } from "../../core/utils/ViewUtil";
 import { MoveToComp } from "../common/ecs/position/MoveTo";
 import { RoleChangeJobComp } from "./bll/RoleChangeJob";
 import { RoleBaseModelComp } from "./model/RoleBaseModelComp";
+import { RoleAnimatorType } from "./model/RoleEnum";
 import { RoleJobModelComp } from "./model/RoleJobModelComp";
 import { RoleLevelModelComp } from "./model/RoleLevelModelComp";
 import { RoleModelComp } from "./model/RoleModelComp";
 import { RoleViewComp } from "./view/RoleViewComp";
+import { RoleViewInfoComp } from "./view/RoleViewInfoComp";
 
 /** 
  * 角色实体 
@@ -37,10 +39,12 @@ export class Role extends ecs.Entity {
 
     // 视图层
     RoleView!: RoleViewComp;
+    RoleViewInfo!: RoleViewInfoComp;
 
     constructor() {
         super();
 
+        // 初始化实体常住 ECS 组件，定义实体特性
         this.addComponents<ecs.Comp>(
             RoleModelComp,
             RoleBaseModelComp,
@@ -48,7 +52,7 @@ export class Role extends ecs.Entity {
             RoleLevelModelComp);
     }
 
-    /** 加载角色显示对象 */
+    /** 加载角色显示对象（cc.Component在创建后，添加到ECS框架中，使实体上任何一个ECS组件都可以通过 ECS API 获取到视图层对象 */
     load(): Node {
         var node = ViewUtil.createPrefabNode("game/battle/role");
         var mv = node.getComponent(RoleViewComp)!;
@@ -57,6 +61,7 @@ export class Role extends ecs.Entity {
         return node;
     }
 
+    /** 移动（ECS System处理逻辑，分享功能独立的业务代码）  */
     move(target: Vec3) {
         var move = this.add(MoveToComp);
         move.target = target;
@@ -65,11 +70,11 @@ export class Role extends ecs.Entity {
     }
 
     /** 攻击 */
-    attack(target: Role) {
-        // 战斗流程
+    attack() {
+        this.RoleView.animator.setTrigger(RoleAnimatorType.Attack);
     }
 
-    /** 转职 */
+    /** 转职（ECS System处理逻辑，分享功能独立的业务代码） */
     changeJob(jobId: number) {
         var rcj = this.add(RoleChangeJobComp);
         rcj.jobId = jobId;
@@ -77,6 +82,6 @@ export class Role extends ecs.Entity {
 
     /** 角色升级 */
     upgrade() {
-
+        if (this.RoleLevelModel.lv < 100) this.RoleLevelModel.lv++;
     }
 }

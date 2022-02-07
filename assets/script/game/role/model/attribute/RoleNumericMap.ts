@@ -45,14 +45,8 @@ export class RoleNumericMap {
         var attr = this.attributes.get(type);
         if (attr == null) {
             switch (type) {
-                case RoleAttributeType.power:
-                    attr = new RoleNumericPower(type, this);
-                    break;
                 case RoleAttributeType.physical:
                     attr = new RoleNumericPhysical(type, this);
-                    break;
-                case RoleAttributeType.agile:
-                    attr = new RoleNumericAgile(type, this);
                     break;
                 default:
                     attr = new RoleNumeric(type, this);
@@ -80,16 +74,6 @@ export class RoleNumericMap {
     }
 }
 
-/** 力量属性 */
-export class RoleNumericPower extends RoleNumeric {
-    protected update(): void {
-        super.update();
-
-        // 每点力量 = 0.5 攻击力，武器需求力量，如果武器需求力量＞力量，则命中率=0%
-        this.attributes.get(RoleAttributeType.ad).base = this.value * 0.5;
-    }
-}
-
 /** 体质属性 */
 export class RoleNumericPhysical extends RoleNumeric {
     protected update(): void {
@@ -97,15 +81,5 @@ export class RoleNumericPhysical extends RoleNumeric {
 
         // 每点体质 = 0.5 生命
         this.attributes.get(RoleAttributeType.hp).base = Math.floor(this.value * 0.5);
-    }
-}
-
-/** 敏捷属性 */
-export class RoleNumericAgile extends RoleNumeric {
-    protected update(): void {
-        super.update();
-
-        // 每点敏捷 = 1 点偏斜值 
-        this.attributes.get(RoleAttributeType.skew).base = this.value;
     }
 }

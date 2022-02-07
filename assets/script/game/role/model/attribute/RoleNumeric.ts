@@ -14,7 +14,7 @@ import { RoleNumericMap } from "./RoleNumericMap";
  * 2、任意模块的属性值修改时，自动角色属性更新后的数值和
  */
 export class RoleNumeric {
-    /** 值更新事件 */
+    /** 数值更新事件 */
     onUpdate: Function = null!
 
     /** 属性类型 */
@@ -78,16 +78,6 @@ export class RoleNumeric {
         this.update();
     }
 
-    protected _decorator: number = 0;
-    /** 战斗动态效果装饰属性 */
-    get decorator(): number {
-        return this._decorator;
-    }
-    set decorator(value: number) {
-        this._decorator = value;
-        this.update();
-    }
-
     protected _battle: number = 0;
     /** 战斗角色属性 */
     get battle(): number {
@@ -95,6 +85,16 @@ export class RoleNumeric {
     }
     set battle(value: number) {
         this._battle = value;
+        this.update();
+    }
+
+    protected _decorator: number = 0;
+    /** 战斗动态效果装饰属性 */
+    get decorator(): number {
+        return this._decorator;
+    }
+    set decorator(value: number) {
+        this._decorator = value;
         this.update();
     }
 

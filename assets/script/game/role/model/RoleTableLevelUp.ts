@@ -1,10 +1,9 @@
 /*
  * @Author: dgflash
- * @Date: 2021-12-02 11:08:00
- * @LastEditors: luobao
- * @LastEditTime: 2021-12-13 11:30:15
+ * @Date: 2021-11-18 15:56:01
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-01-29 17:25:43
  */
-
 import { JsonUtil } from "../../../core/utils/JsonUtil";
 
 /** 角色经验数据（策划Excel导出的Json静态数据） */

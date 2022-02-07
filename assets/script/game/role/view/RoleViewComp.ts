@@ -24,11 +24,11 @@ export class RoleViewComp extends CCComp {
     @property({ type: sp.Skeleton, tooltip: '角色动画' })
     spine: sp.Skeleton | null = null;
 
+    /** 动画状态机 */
     animator: RoleViewAnimatorComp = null!;
 
     onLoad() {
         this.node.active = false;
-
         this.animator = this.spine!.getComponent(RoleViewAnimatorComp)!;
     }
 
@@ -50,9 +50,17 @@ export class RoleViewComp extends CCComp {
     }
 
     private onTouchEnd(event: EventTouch) {
+        // 注：角色移动控制代码在RPG类游戏中，应该设计到地图模块监听触摸事件。因为测试代码只有一个角色，为了简少DEMO代码量，只表达程序设计思想
         var role = this.ent.get(RoleModelComp).ent as Role;
         var uit = this.node.parent!.getComponent(UITransform)!;
-        role.move(v3(event.getUILocation().x - uit.contentSize.width / 2, event.getUILocation().y - uit.contentSize.height / 2));
+        var x = event.getUILocation().x - uit.contentSize.width / 2;
+        var y = event.getUILocation().y - uit.contentSize.height / 2;
+        role.move(v3(x, y));
+
+        if (x < role.RoleView.node.position.x)
+            role.RoleView.animator.left();
+        else
+            role.RoleView.animator.right();
     }
 
     reset() {

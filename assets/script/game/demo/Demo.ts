@@ -4,13 +4,14 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-01-29 18:04:58
  */
-import { Component, EventTouch, _decorator } from "cc";
+import { Component, EventTouch, Prefab, _decorator } from "cc";
+import { resLoader } from "../../core/common/loader/ResLoader";
 import { engine } from "../../core/Engine";
 import { tips } from "../../core/gui/prompt/TipsManager";
 import { ecs } from "../../core/libs/ECS";
+import { ViewUtil } from "../../core/utils/ViewUtil";
 import { UIID } from "../common/config/GameUIConfig";
 import { SingletonModuleComp } from "../common/ecs/SingletonModuleComp";
-import { RoleAnimatorType } from "../role/model/RoleEnum";
 
 const { ccclass, property } = _decorator;
 
@@ -18,10 +19,18 @@ const { ccclass, property } = _decorator;
 export class Demo extends Component {
     private lang: boolean = true;
 
+    // onLoad() {
+    //     var path = "gui/prefab/role_info_base";
+    //     resLoader.load(path, Prefab, () => {
+    //         var node = ViewUtil.createPrefabNode(path);
+    //         node.parent = this.node;
+    //     });
+    // }
+
     /** 升级 */
     private btn_level_up(event: EventTouch, data: any) {
         var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
-        if (role.RoleLevelModel.lv < 100) role.RoleLevelModel.lv++;
+        role.upgrade();
     }
 
     /** 转职弓箭 */
@@ -45,7 +54,7 @@ export class Demo extends Component {
     /** 攻击 */
     private btn_attack(event: EventTouch, data: any) {
         var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
-        role.RoleView.animator.setTrigger(RoleAnimatorType.Attack);
+        role.attack();
     }
 
     /** 打开角色界面 */

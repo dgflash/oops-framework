@@ -10,9 +10,7 @@ import { SqlUtil } from "../../../core/common/storage/SqlUtil";
 import { engine } from "../../../core/Engine";
 import { ecs } from "../../../core/libs/ECS";
 import { VM } from "../../../core/libs/model-view/ViewModel";
-import { ViewUtil } from "../../../core/utils/ViewUtil";
 import { GameEvent } from "../../common/config/GameEvent";
-import { UIID } from "../../common/config/GameUIConfig";
 import { netConfig } from "../../common/net/NetConfig";
 import { Role } from "../../role/Role";
 import { Account } from "../Account";
@@ -90,7 +88,11 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
         role.RoleJobModel.id = data.jobId;
 
         // 角色基础属性绑定到界面上显示
-        VM.add(role.RoleModel.vm, "role");
+        VM.add(role.RoleModel.vm, "Role");
+        // 角色等级属性绑定到界面上显示
+        VM.add(role.RoleLevelModel.vm, "RoleLevel");
+        // 角色初始基础属性绑定到界面上显示
+        VM.add(role.RoleBaseModel.vm, "RoleBase");
 
         // 角色动画显示对象
         role.load();

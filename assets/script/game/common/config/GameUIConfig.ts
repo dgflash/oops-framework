@@ -26,5 +26,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Netinstable]: { layer: LayerType.PopUp, prefab: "common/prefab/netinstable" },
     [UIID.Window]: { layer: LayerType.Dialog, prefab: "common/prefab/window" },
     [UIID.Demo]: { layer: LayerType.UI, prefab: "gui/prefab/demo" },
-    [UIID.Demo_Role_Info]: { layer: LayerType.Dialog, prefab: "gui/prefab/role_info" },
+    [UIID.Demo_Role_Info]: { layer: LayerType.UI, prefab: "gui/prefab/role_info" },
 }

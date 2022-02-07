@@ -10,7 +10,13 @@ import { JsonUtil } from "../../../core/utils/JsonUtil";
 import { RoleAttributeType } from "./RoleEnum";
 import { RoleModelComp } from "./RoleModelComp";
 
-/** 角色职业数据 */
+/** 
+ * 角色职业数据 
+ * 
+ * 实现功能
+ * 1、影响角色力量、敏捷战斗属性
+ * 2、影响角色动画武器
+ */
 @ecs.register('RoleJobModel')
 export class RoleJobModelComp extends ecs.Comp {
     static TableName: string = "arms";
@@ -24,8 +30,9 @@ export class RoleJobModelComp extends ecs.Comp {
 
         console.log(`【职业编号】${id},力量：${this.power},敏捷：${this.agile} `);
 
-        this.ent.get(RoleModelComp).attributes.get(RoleAttributeType.power).job = this.power;
-        this.ent.get(RoleModelComp).attributes.get(RoleAttributeType.agile).job = this.agile;
+        var attributes = this.ent.get(RoleModelComp).attributes;
+        attributes.get(RoleAttributeType.power).job = this.power;
+        attributes.get(RoleAttributeType.agile).job = this.agile;
     }
 
     /** 职业编号编号 */
@@ -37,7 +44,6 @@ export class RoleJobModelComp extends ecs.Comp {
         this.init(value);
         this._id = value;
     }
-
     /** 职业名 */
     get armsName(): string {
         return this.data.armsName;

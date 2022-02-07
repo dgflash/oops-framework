@@ -63,7 +63,6 @@ export class MoveToSystem extends ecs.ComblockSystem<ecs.Entity> implements ecs.
         return ecs.allOf(MoveToComp);
     }
 
-
     entityEnter(entities: ecs.Entity[]): void {
         for (let e of entities) {
             e.add(VariableMoveToComponent);
