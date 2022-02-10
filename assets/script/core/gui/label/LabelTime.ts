@@ -1,6 +1,6 @@
 import { Label, _decorator } from "cc";
 import { EDITOR } from "cc/env";
-import { engine } from "../../Engine";
+import { oops } from "../../Oops";
 
 const { ccclass, property, menu } = _decorator;
 
@@ -116,12 +116,12 @@ export default class LabelTime extends Label {
     start() {
         this.format();
         if (!EDITOR)
-            this.timeId = engine.timer.registerObject(this, "countDown", this.onSecond, this.onComplete);
+            this.timeId = oops.timer.registerObject(this, "countDown", this.onSecond, this.onComplete);
     }
 
     onDestroy() {
         if (!EDITOR)
-            engine.timer.unRegisterObject(this.timeId);
+            oops.timer.unRegisterObject(this.timeId);
     }
 
     private onSecond() {

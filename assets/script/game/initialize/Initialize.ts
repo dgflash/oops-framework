@@ -7,7 +7,7 @@
 import { Node } from "cc";
 import { resLoader } from "../../core/common/loader/ResLoader";
 import { AsyncQueue, NextFunction } from "../../core/common/queue/AsyncQueue";
-import { engine } from "../../core/Engine";
+import { oops } from "../../core/Oops";
 import { UICallbacks } from "../../core/gui/layer/Defines";
 import { ecs } from "../../core/libs/ECS";
 import { config } from "../common/config/Config";
@@ -46,7 +46,7 @@ export class Initialize extends ecs.Entity {
             // if (config.query.channelId) SDKPlatform.setChannelId(config.query.channelId);
 
             // 加载多语言对应字体
-            resLoader.load("language/font/" + engine.language.current, next);
+            resLoader.load("language/font/" + oops.language.current, next);
         });
     }
 
@@ -54,18 +54,18 @@ export class Initialize extends ecs.Entity {
     private loadLanguage(queue: AsyncQueue) {
         queue.push((next: NextFunction, params: any, args: any) => {
             // 设置默认语言
-            let lan = engine.storage.get("language");
+            let lan = oops.storage.get("language");
             if (lan == null) {
                 // lan = SDKPlatform.getLanguage();
                 lan = "zh";
-                engine.storage.set("language", lan!);
+                oops.storage.set("language", lan!);
             }
 
             // 设置语言包路径
-            engine.language.setAssetsPath(config.game.languagePathJson, config.game.languagePathTexture);
+            oops.language.setAssetsPath(config.game.languagePathJson, config.game.languagePathTexture);
 
             // 加载语言包资源
-            engine.language.setLanguage(lan!, next);
+            oops.language.setLanguage(lan!, next);
         });
     }
 
@@ -87,7 +87,7 @@ export class Initialize extends ecs.Entity {
             };
 
             // 界面管理 - 打开游戏内容资源加载进度提示界面
-            engine.gui.open(UIID.Loading, null, uic);
+            oops.gui.open(UIID.Loading, null, uic);
         };
     }
 }

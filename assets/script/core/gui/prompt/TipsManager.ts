@@ -7,7 +7,7 @@
 
 import { Node, tween, Vec3 } from "cc";
 import { UIID } from "../../../game/common/config/GameUIConfig";
-import { engine } from "../../Engine";
+import { oops } from "../../Oops";
 import { PopViewParams } from "../layer/Defines";
 
 class TipsManager {
@@ -15,26 +15,26 @@ class TipsManager {
     /** 网络恢复 */
     public networkRecovery() {
         if (this._timeId) {
-            engine.timer.unschedule(this._timeId);
+            oops.timer.unschedule(this._timeId);
             this._timeId = "";
         }
-        engine.gui.remove(UIID.Netinstable);
+        oops.gui.remove(UIID.Netinstable);
     }
     /** 打开网络不稳定提示 */
     public netInstableOpen() {
-        if (!engine.gui.has(UIID.Netinstable)) {
-            engine.gui.open(UIID.Netinstable);
+        if (!oops.gui.has(UIID.Netinstable)) {
+            oops.gui.open(UIID.Netinstable);
         }
     }
     public netInstableClose() {
-        engine.gui.remove(UIID.Netinstable);
+        oops.gui.remove(UIID.Netinstable);
     }
     /** 网络延时 */
     public networkLatency(time: number) {
         if (this._timeId) {
-            engine.timer.unschedule(this._timeId);
+            oops.timer.unschedule(this._timeId);
         }
-        this._timeId = engine.timer.scheduleOnce(this.netInstableOpen, time);
+        this._timeId = oops.timer.scheduleOnce(this.netInstableOpen, time);
     }
 
     public test(callback?: Function) {
@@ -51,7 +51,7 @@ class TipsManager {
             },
             needCancel: true
         };
-        engine.gui.open(UIID.Window, operate, this.getPopCommonEffect());
+        oops.gui.open(UIID.Window, operate, this.getPopCommonEffect());
     }
 
     public alert(content: string, cb?: Function, title?: string, okWord?: string) {
@@ -64,7 +64,7 @@ class TipsManager {
             },
             needCancel: false
         };
-        engine.gui.open(UIID.Window, operate, tips.getPopCommonEffect());
+        oops.gui.open(UIID.Window, operate, tips.getPopCommonEffect());
     }
 
     public confirm(content: string, cb: Function, okWord: string = "common_prompt_ok") {
@@ -81,7 +81,7 @@ class TipsManager {
             },
             needCancel: true
         };
-        engine.gui.open(UIID.Window, operate, tips.getPopCommonEffect());
+        oops.gui.open(UIID.Window, operate, tips.getPopCommonEffect());
     }
 
     /** 弹窗动画 */

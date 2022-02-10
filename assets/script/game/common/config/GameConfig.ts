@@ -59,6 +59,7 @@ export class GameConfig {
     get languagePathTexture(): string {
         return this._data.language.path.texture || "language/texture";
     }
+    
 
     private _data: any = null;
     constructor(config: any) {

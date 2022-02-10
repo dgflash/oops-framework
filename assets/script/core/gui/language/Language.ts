@@ -1,8 +1,8 @@
 import { error, warn } from "cc";
 import { EventDispatcher } from "../../common/event/EventDispatcher";
 import { Logger } from "../../common/log/Logger";
-import { LanguageLabel } from "./LanguageLabel";
-import LanguagePack from "./LanguagePack";
+import { LanguageData } from "./LanguageData";
+import { LanguagePack } from "./LanguagePack";
 
 export enum LanguageEvent {
     /** 语种变化事件 */
@@ -13,12 +13,8 @@ export enum LanguageEvent {
 const DEFAULT_LANGUAGE = "zh";
 
 export class LanguageManager extends EventDispatcher {
-    /** Label修改之前的回调 */
-    public beforeChangeLabel: ((comp: LanguageLabel, content: string, dataID: string) => void) | null = null;
-
-    private _current: string = "";                                    // 当前语言
     private _support: Array<string> = ["zh", "en", "tr"];        // 支持的语言
-    private _languagePack: LanguagePack = new LanguagePack();             // 语言包  
+    private _languagePack: LanguagePack = new LanguagePack();    // 语言包  
 
     /** 设置多语言系统支持哪些语种 */
     public set supportLanguages(supportLanguages: Array<string>) {
@@ -29,7 +25,7 @@ export class LanguageManager extends EventDispatcher {
      * 获取当前语种
      */
     public get current(): string {
-        return this._current;
+        return LanguageData.current;
     }
 
     /**
@@ -48,7 +44,7 @@ export class LanguageManager extends EventDispatcher {
      */
     public getNextLang(): string {
         let supportLangs = this.languages;
-        let index = supportLangs.indexOf(this._current);
+        let index = supportLangs.indexOf(LanguageData.current);
         let newLanguage = supportLangs[(index + 1) % supportLangs.length];
         return newLanguage;
     }
@@ -67,7 +63,7 @@ export class LanguageManager extends EventDispatcher {
             warn("当前不支持该语种" + language + " 将自动切换到 zh 语种!");
             language = DEFAULT_LANGUAGE;
         }
-        if (language === this._current) {
+        if (language === LanguageData.current) {
             callback(false);
             return;
         }
@@ -80,7 +76,7 @@ export class LanguageManager extends EventDispatcher {
             }
 
             Logger.logConfig(`当前语言为【${language}】`);
-            this._current = language;
+            LanguageData.current = language;
             this._languagePack.updateLanguage(language);
             this.dispatchEvent(LanguageEvent.CHANGE, lang);
             callback(true);
@@ -102,7 +98,7 @@ export class LanguageManager extends EventDispatcher {
      * @param arr 
      */
     public getLangByID(labId: string): string {
-        return this._languagePack.getLangByID(labId);
+        return LanguageData.getLangByID(labId);
     }
 
     /**

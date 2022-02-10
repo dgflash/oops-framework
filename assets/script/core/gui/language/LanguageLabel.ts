@@ -1,6 +1,6 @@
 import { CCString, Component, error, Label, warn, _decorator } from "cc";
 import { EDITOR } from "cc/env";
-import { engine } from "../../Engine";
+import { LanguageData } from "./LanguageData";
 
 const { ccclass, property, menu } = _decorator;
 
@@ -49,10 +49,7 @@ export class LanguageLabel extends Component {
     }
 
     get string(): string {
-        let _string = engine.language.getLangByID(this._dataID);
-        if (engine.language.beforeChangeLabel) {
-            engine.language.beforeChangeLabel(this, _string, this._dataID);
-        }
+        let _string = LanguageData.getLangByID(this._dataID);
         if (_string && this._params.length > 0) {
             this._params.forEach((item: LangLabelParamsItem) => {
                 _string = _string.replace(`%{${item.key}}`, item.value)
@@ -132,7 +129,7 @@ export class LanguageLabel extends Component {
                 break;
             }
 
-            spcomp.fontFamily = this.getLabelFont(engine.language.current);
+            spcomp.fontFamily = this.getLabelFont(LanguageData.current);
             spcomp.string = this.string;
         }
         while (false);

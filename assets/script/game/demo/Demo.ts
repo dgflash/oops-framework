@@ -6,7 +6,7 @@
  */
 import { Component, EventTouch, Prefab, _decorator } from "cc";
 import { resLoader } from "../../core/common/loader/ResLoader";
-import { engine } from "../../core/Engine";
+import { oops } from "../../core/Oops";
 import { tips } from "../../core/gui/prompt/TipsManager";
 import { ecs } from "../../core/libs/ECS";
 import { ViewUtil } from "../../core/utils/ViewUtil";
@@ -59,20 +59,20 @@ export class Demo extends Component {
 
     /** 打开角色界面 */
     private btn_open_role_info(event: EventTouch, data: any) {
-        engine.gui.open(UIID.Demo_Role_Info);
+        oops.gui.open(UIID.Demo_Role_Info);
     }
 
     /** 多语言切换 */
     private btn_language(event: EventTouch, data: any) {
-        console.log(engine.language.getLangByID("notify_show"));
+        console.log(oops.language.getLangByID("notify_show"));
 
         if (this.lang == false) {
             this.lang = true;
-            engine.language.setLanguage("zh", () => { });
+            oops.language.setLanguage("zh", () => { });
         }
         else {
             this.lang = false;
-            engine.language.setLanguage("en", () => { });
+            oops.language.setLanguage("en", () => { });
         }
     }
 
@@ -88,7 +88,7 @@ export class Demo extends Component {
 
     /** 漂浮提示框 */
     private btn_notify_show(event: EventTouch, data: any) {
-        engine.gui.toast("common_prompt_content");
+        oops.gui.toast("common_prompt_content");
     }
 
     /** 加载提示 */
@@ -101,12 +101,12 @@ export class Demo extends Component {
 
     /** 背景音乐 */
     private btn_audio_open1(event: EventTouch, data: any) {
-        engine.audio.musicVolume = 0.5;
-        engine.audio.playMusic("audios/nocturne");
+        oops.audio.musicVolume = 0.5;
+        oops.audio.playMusic("audios/nocturne");
     }
 
     /** 背景音效 */
     private btn_audio_open2(event: EventTouch, data: any) {
-        engine.audio.playEffect("audios/Gravel");
+        oops.audio.playEffect("audios/Gravel");
     }
 }

@@ -7,7 +7,7 @@ import { PREVIEW } from "cc/env";
 import { EncryptUtil } from "./EncryptUtil";
 import { md5 } from "./Md5";
 
-export module SqlUtil {
+export module storage {
     let _key: string | null = null;
     let _iv: string | null = null;
     let _id: number = -1;

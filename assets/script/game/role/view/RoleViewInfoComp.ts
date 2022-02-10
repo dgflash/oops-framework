@@ -1,5 +1,5 @@
 import { EventTouch, Node, _decorator } from "cc";
-import { engine } from "../../../core/Engine";
+import { oops } from "../../../core/Oops";
 import { ecs } from "../../../core/libs/ECS";
 import { UIID } from "../../common/config/GameUIConfig";
 import { CCComp } from "../../common/ecs/CCComp";
@@ -22,7 +22,7 @@ export class RoleViewInfoComp extends CCComp {
                 role.upgrade();
                 break;
             case "btn_close":
-                engine.gui.remove(UIID.Demo_Role_Info);
+                oops.gui.remove(UIID.Demo_Role_Info);
                 break;
         }
 

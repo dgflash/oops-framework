@@ -13,7 +13,6 @@
 
 import { AnimatorStateLogic } from "../../../../core/libs/animator/core/AnimatorStateLogic";
 import { Role } from "../../Role";
-import { RoleViewComp } from "../RoleViewComp";
 import { AnimationEventHandler } from "./AnimationEventHandler";
 
 /** 受击状态逻辑 */
@@ -31,9 +30,6 @@ export class RoleStateDead extends AnimatorStateLogic {
     private onDead() {
         var onHitActionComplete = this.role.RoleView.animator.onHitActionComplete;
         onHitActionComplete && onHitActionComplete();
-
-        // 删除角色显示对象
-        this.role.remove(RoleViewComp);
     }
 
     public onEntry() {

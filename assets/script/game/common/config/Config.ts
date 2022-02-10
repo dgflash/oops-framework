@@ -7,7 +7,7 @@
 
 import { game, JsonAsset } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
-import { engine } from "../../../core/Engine";
+import { oops } from "../../../core/Oops";
 import { BuildTimeConstants } from "./BuildTimeConstants";
 import { GameConfig } from "./GameConfig";
 import { GameQueryConfig } from "./GameQueryConfig";
@@ -35,13 +35,13 @@ export class Config {
             // 初始化每秒传输帧数
             game.frameRate = this.game.frameRate;
             // Http 服务器地址
-            engine.http.server = this.game.httpServer;
+            oops.http.server = this.game.httpServer;
             //  Http 请求超时时间
-            engine.http.timeout = this.game.httpTimeout;
+            oops.http.timeout = this.game.httpTimeout;
             // 初始化本地存储加密
-            engine.storage.init(this.game.localDataKey, this.game.localDataIv);
+            oops.storage.init(this.game.localDataKey, this.game.localDataIv);
             // 初始化界面窗口配置
-            engine.gui.init(UIConfigData);
+            oops.gui.init(UIConfigData);
 
             callback();
         })

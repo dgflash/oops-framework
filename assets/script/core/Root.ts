@@ -9,7 +9,7 @@ import { RootSystem } from "../game/common/ecs/RootSystem";
 import { config } from "../game/common/config/Config";
 import { EngineMessage } from "./common/event/EngineMessage";
 import { Message } from "./common/event/MessageManager";
-import { engine } from "./Engine";
+import { oops } from "./Oops";
 import { GUI } from "./gui/GUI";
 
 const { ccclass, property } = _decorator;
@@ -34,7 +34,7 @@ export class Root extends Component {
         this.init();
 
         //@ts-ignore
-        engine.init(this);
+        oops.init(this);
 
         // 加载游戏配置
         config.init(this.run.bind(this));
@@ -58,8 +58,8 @@ export class Root extends Component {
         // 游戏显示事件
         game.on(Game.EVENT_SHOW, () => {
             log("Game.EVENT_SHOW");
-            engine.timer.load();     // 平台不需要在退出时精准计算时间，直接暂时游戏时间
-            engine.audio.resumeAll();
+            oops.timer.load();     // 平台不需要在退出时精准计算时间，直接暂时游戏时间
+            oops.audio.resumeAll();
             director.resume();
             game.resume();
             Message.dispatchEvent(EngineMessage.GAME_ENTER);
@@ -68,8 +68,8 @@ export class Root extends Component {
         // 游戏隐藏事件
         game.on(Game.EVENT_HIDE, () => {
             log("Game.EVENT_HIDE");
-            engine.timer.save();     // 平台不需要在退出时精准计算时间，直接暂时游戏时间
-            engine.audio.pauseAll();
+            oops.timer.save();     // 平台不需要在退出时精准计算时间，直接暂时游戏时间
+            oops.audio.pauseAll();
             director.pause();
             game.pause();
             Message.dispatchEvent(EngineMessage.GAME_EXIT);

@@ -6,8 +6,8 @@
  */
 
 import { Message } from "../../../core/common/event/MessageManager";
-import { SqlUtil } from "../../../core/common/storage/SqlUtil";
-import { engine } from "../../../core/Engine";
+import { storage } from "../../../core/common/storage/SqlUtil";
+import { oops } from "../../../core/Oops";
 import { ecs } from "../../../core/libs/ECS";
 import { VM } from "../../../core/libs/model-view/ViewModel";
 import { GameEvent } from "../../common/config/GameEvent";
@@ -96,7 +96,7 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
 
         // 角色动画显示对象
         role.load();
-        role.RoleView.node.parent = engine.gui.game;
+        role.RoleView.node.parent = oops.gui.game;
         role.RoleView.node.setPosition(0, -300, 0);
 
         e.AccountModel.role = role;
@@ -104,7 +104,7 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
 
     /** 设置本地存储的用户标识 */
     private setLocalStorage(uid: number) {
-        SqlUtil.setUser(uid);
-        SqlUtil.set("account", uid);
+        storage.setUser(uid);
+        storage.set("account", uid);
     }
 }

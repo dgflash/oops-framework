@@ -7,7 +7,7 @@
 
 import { EventTouch, Node, sp, UITransform, v3, _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
-import { engine } from "../../../core/Engine";
+import { oops } from "../../../core/Oops";
 import { ecs } from "../../../core/libs/ECS";
 import { config } from "../../common/config/Config";
 import { CCComp } from "../../common/ecs/CCComp";
@@ -30,6 +30,7 @@ export class RoleViewComp extends CCComp {
     onLoad() {
         this.node.active = false;
         this.animator = this.spine!.getComponent(RoleViewAnimator)!;
+        this.animator.role = this.ent as Role;
     }
 
     load() {
@@ -45,7 +46,7 @@ export class RoleViewComp extends CCComp {
             this.node.active = true;
 
             // 移动控制
-            engine.gui.root.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
+            oops.gui.root.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
         });
     }
 

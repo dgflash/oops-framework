@@ -13,7 +13,6 @@ import { AnimationEventHandler } from "./animator/AnimationEventHandler";
 import { RoleStateAttack } from "./animator/RoleStateAttack";
 import { RoleStateDead } from "./animator/RoleStateDead";
 import { RoleStateHit } from "./animator/RoleStateHit";
-import { RoleViewComp } from "./RoleViewComp";
 
 const { ccclass, property, requireComponent, disallowMultiple } = _decorator;
 
@@ -36,15 +35,11 @@ export class RoleViewAnimator extends AnimatorSpine {
     onAttackComplete: Function = null!;
     /** 受击动作完成 */
     onHitActionComplete: Function = null!;
+    /** 角色对象 */
+    role: Role = null!;
 
     /** 武器动画名 */
     private weaponAnimName: string = null!;
-    /** 角色对象 */
-    private role: Role = null!;
-
-    onLoad() {
-        this.role = this.node.parent!.parent!.getComponent(RoleViewComp)!.ent as Role;
-    }
 
     start() {
         super.start();
