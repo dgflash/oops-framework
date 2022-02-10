@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-01-21 09:33:44
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 16:52:49
+ * @LastEditTime: 2022-02-09 12:16:28
  */
 import { RoleAttributeType } from "../RoleEnum";
 import { RoleNumeric } from "./RoleNumeric";
@@ -31,13 +31,15 @@ export class RoleNumericMap {
     /** 添加属性修饰器 */
     addDecorator(rnd: RoleNumericDecorator) {
         this.decorators.set(rnd, rnd.value);
-        this.get(rnd.attribute).decorator += rnd.value;
+        var rn = this.get(rnd.attribute);
+        rn.decorator += rnd.value;
     }
 
     /** 移除属性修饰器 */
     removeDecorator(rnd: RoleNumericDecorator) {
         this.decorators.delete(rnd);
-        this.get(rnd.attribute).decorator -= rnd.value;
+        var rn = this.get(rnd.attribute);
+        rn.decorator -= rnd.value;
     }
 
     /** 获取角色属性 */

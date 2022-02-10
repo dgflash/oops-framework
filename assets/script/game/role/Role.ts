@@ -9,8 +9,8 @@ import { Node, Vec3 } from "cc";
 import { ecs } from "../../core/libs/ECS";
 import { ViewUtil } from "../../core/utils/ViewUtil";
 import { MoveToComp } from "../common/ecs/position/MoveTo";
-import { RoleChangeJobComp } from "./bll/RoleChangeJob";
-import { RoleUpgradeComp } from "./bll/RoleUpgrade";
+import { RoleChangeJobComp, RoleChangeJobSystem } from "./bll/RoleChangeJob";
+import { RoleUpgradeComp, RoleUpgradeSystem } from "./bll/RoleUpgrade";
 import { RoleBaseModelComp } from "./model/RoleBaseModelComp";
 import { RoleAnimatorType } from "./model/RoleEnum";
 import { RoleJobModelComp } from "./model/RoleJobModelComp";
@@ -86,5 +86,14 @@ export class Role extends ecs.Entity {
     upgrade(lv: number = 0) {
         var ru = this.add(RoleUpgradeComp);
         ru.lv = lv;
+    }
+}
+
+export class EcsRoleSystem extends ecs.System {
+    constructor() {
+        super();
+
+        this.add(new RoleChangeJobSystem());
+        this.add(new RoleUpgradeSystem());
     }
 }

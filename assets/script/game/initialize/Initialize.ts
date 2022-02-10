@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-11 17:45:23
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 09:59:26
+ * @LastEditTime: 2022-02-09 18:16:53
  */
 import { Node } from "cc";
 import { resLoader } from "../../core/common/loader/ResLoader";

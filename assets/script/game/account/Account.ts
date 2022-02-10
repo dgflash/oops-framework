@@ -2,13 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-11-11 17:45:23
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-24 15:04:19
+ * @LastEditTime: 2022-02-09 15:20:50
  */
 
 import { Message } from "../../core/common/event/MessageManager";
 import { ecs } from "../../core/libs/ECS";
 import { GameEvent } from "../common/config/GameEvent";
-import { AccountNetDataComp } from "./bll/AccountNetData";
+import { AccountNetDataComp, AccountNetDataSystem } from "./bll/AccountNetData";
 import { AccountModelComp } from "./model/AccountModelComp";
 
 /**
@@ -63,5 +63,13 @@ export class Account extends ecs.Entity {
     /** 获取玩家信息 */
     getPlayer() {
         this.add(AccountNetDataComp);
+    }
+}
+
+export class EcsAccountSystem extends ecs.System {
+    constructor() {
+        super();
+
+        this.add(new AccountNetDataSystem());
     }
 }

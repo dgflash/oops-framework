@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-24 16:12:49
+ * @LastEditTime: 2022-02-10 10:03:33
  */
 import { _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
@@ -72,12 +72,12 @@ export class LoadingViewComp extends CCVMParentComp {
     /** 加载资源 */
     private async loadRes() {
         this.data.progress = 0;
-        await this.loadLocalJson();
+        await this.loadCustom();
         this.loadGameRes();
     }
 
     /** 加载游戏本地JSON数据（自定义内容） */
-    private loadLocalJson() {
+    private loadCustom() {
         // 加载游戏本地JSON数据的多语言提示文本
         this.data.prompt = engine.language.getLangByID("loading_load_json");
 

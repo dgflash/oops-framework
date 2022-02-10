@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 15:56:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 15:49:07
+ * @LastEditTime: 2022-02-09 18:21:21
  */
 
 import { ecs } from "../../../core/libs/ECS";
@@ -46,6 +46,7 @@ export class RoleBaseModelComp extends ecs.Comp {
         this.ent.get(RoleModelComp).attributes.get(RoleAttributeType.physical).base = value;
         this.vm[RoleAttributeType.physical] = value;
     }
+
     /** 敏捷 */
     private _agile: number = 0;
     public get agile(): number {

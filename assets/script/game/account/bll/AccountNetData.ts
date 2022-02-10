@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-23 15:51:15
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 18:03:33
+ * @LastEditTime: 2022-02-10 10:01:34
  */
 
 import { Message } from "../../../core/common/event/MessageManager";
@@ -54,7 +54,7 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
             // 离线测试代码开始
             var data = {
                 id: 1,
-                name: "测试角色",
+                name: "Oops",
                 power: 10,
                 agile: 10,
                 physical: 10,
@@ -82,7 +82,6 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
         role.RoleBaseModel.physical = data.physical;
 
         // 角色等级数据
-        // role.RoleLevelModel.lv = data.lv;
         role.upgrade(data.lv);
 
         // 角色职业数据
