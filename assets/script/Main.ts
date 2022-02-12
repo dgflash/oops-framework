@@ -21,6 +21,6 @@ export class Main extends Root {
 
     protected run() {
         var module = ecs.getSingleton(SingletonModuleComp);
-        module.initialize = new Initialize();
+        module.initialize = new Initialize(); 
     }
 }
