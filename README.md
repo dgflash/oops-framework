@@ -1,14 +1,9 @@
 # oops-framework
-
-#### 学习交流QQ群：798575969
-
-#### 注：
-打开项目请用Cocos Creator v3.4.0 以上版本
-
 #### 介绍
 oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
-1. 提供游戏开发常用的工具库，提高开发效率
-2. 提供模块开发模板，使多人协作开发代码风格统一，减小管理成本
+1. 提供游戏常用功能库，提高开发效率
+2. 提供业务模块开发的模板，降低程序设计难度
+3. 框架内置模块低耦合，可自行删除不需要的模块
 
 #### 基础功能
 1. 资源管理
@@ -46,3 +41,11 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 7. behavior-tree 行为树
 8. 本地存储库数据加密
 9. MD5、RSA、Crypto
+
+#### [源码下载地址](https://gitee.com/dgflash/oops-framework)
+#### [应用框架实现的解决方案演示](https://dgflash.gitee.io/oops-framework-demo/)
+
+#### 注：
+打开项目请用Cocos Creator v3.4.1 以上版本
+
+#### 学习交流QQ群：798575969

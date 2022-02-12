@@ -3,7 +3,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:47:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 11:09:52
+ * @LastEditTime: 2022-02-10 17:51:49
  */
 import { Node, Vec3 } from "cc";
 import { ecs } from "../../core/libs/ECS";
@@ -38,6 +38,7 @@ export class Role extends ecs.Entity {
     // 业务层
     RoleChangeJob!: RoleChangeJobComp;
     RoleUpgrade!: RoleUpgradeComp;
+    RoleMoveTo!: MoveToComp;
 
     // 视图层
     RoleView!: RoleViewComp;
