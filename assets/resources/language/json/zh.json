@@ -5,6 +5,7 @@
     "common_prompt_content": "系统提示内容",
     "common_prompt": "公共弹窗",
     "notify_show": "信息显示",
+    "btn_rich_text": "富文本",
     "btn_demo_lang": "中文",
     "btn_common_prompt": "公共弹窗",
     "btn_notify_show": "提示信息",

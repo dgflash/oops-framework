@@ -1,4 +1,4 @@
-import { CCString, Component, error, Label, warn, _decorator } from "cc";
+import { CCString, Component, error, Label, RichText, warn, _decorator } from "cc";
 import { EDITOR } from "cc/env";
 import { LanguageData } from "./LanguageData";
 
@@ -70,8 +70,18 @@ export class LanguageLabel extends Component {
 
     onLoad() {
         this._needUpdate = true;
-        if (!this.getComponent(Label)) error(this.node.name, this._dataID);
-        this.initFontSize = this.getComponent(Label)!.fontSize;
+        if (!this.getComponent(Label) && !this.getComponent(RichText)) {
+            error(this.node.name, this._dataID);
+            return;
+        }
+
+        if (this.getComponent(RichText)) {
+            this.initFontSize = this.getComponent(RichText)!.fontSize;
+        }
+
+        if (this.getComponent(Label)) {
+            this.initFontSize = this.getComponent(Label)!.fontSize;
+        }
     }
 
     /**
@@ -123,13 +133,15 @@ export class LanguageLabel extends Component {
                 break;
             }
 
-            let spcomp = this.getComponent(Label);
+            let spcomp: any = this.getComponent(Label);
             if (!spcomp) {
-                warn("[LanguageLabel], 该节点没有cc.Label组件");
-                break;
+                spcomp = this.getComponent(RichText);
+                if (!spcomp) {
+                    warn("[LanguageLabel], 该节点没有cc.Label || cc.RichText组件");
+                    break;
+                }
             }
 
-            spcomp.fontFamily = this.getLabelFont(LanguageData.current);
             spcomp.string = this.string;
         }
         while (false);

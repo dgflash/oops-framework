@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-08 20:14:30
+ * @LastEditTime: 2022-02-12 19:05:54
  */
 import { setDisplayStats, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
@@ -21,6 +21,6 @@ export class Main extends Root {
 
     protected run() {
         var module = ecs.getSingleton(SingletonModuleComp);
-        module.initialize = new Initialize(); 
+        module.initialize = new Initialize();
     }
 }
