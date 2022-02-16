@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2022-02-10 09:50:41
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-16 14:13:26
+ * @LastEditTime: 2022-02-16 14:15:26
  */
 import { game, Game, Node } from 'cc';
 
-var timeScale = 0.1;
+var timeScale = 1;
 
 /** 游戏世界管理 */
 export class GameManager {
