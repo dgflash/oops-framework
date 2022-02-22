@@ -148,6 +148,23 @@ export module ecs {
      */
     let eid = 1;
 
+    /** 扩展：获取带 eid 自增量的实体（继承Entity方式的编码风格，可减少一定代码量） */
+    export function getEntity<T extends Entity>(ctor: any): T {
+        let entity: any = entityPool.pop();
+        if (!entity) {
+            entity = new ctor();
+            entity.eid = eid++; // 实体id也是有限的资源
+        }
+
+        if (entity.init)
+            entity.init();
+        else
+            console.error(`${ctor.name} 实体缺少 init 方法初始化默认组件`);
+
+        eid2Entity.set(entity.eid, entity);
+        return entity as T;
+    }
+
     /**
      * 创建实体
      */
@@ -592,7 +609,7 @@ export module ecs {
         }
 
         /**
-         * 销毁实体，实体会被回收到实体缓存池中。
+         * 销毁实体，实体会被回收到实体缓存池中。 扩展：isClearData参数
          * @param isClearData 是否清除组件上的数据
          */
         destroy(isClearData: boolean = true) {

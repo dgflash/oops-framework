@@ -26,7 +26,7 @@ export class TimerManager extends EventDispatcher {
     constructor(component: Component) {
         super();
         this.component = component;
-        this.schedule(this.onUpdate, 1);
+        this.schedule(this.onUpdate.bind(this), 1);
     }
     /**
      * 设置服务器时间与本地时间间隔
@@ -154,7 +154,7 @@ export class TimerManager extends EventDispatcher {
     /** 触发倒计时完成事件 */
     private timerComplete(data: any) {
         if (data.onComplete) data.onComplete.call(data.object);
-        if (data.event) this.dispatchEvent(data.event); 
+        if (data.event) this.dispatchEvent(data.event);
     }
 
     /** 注册指定对象的倒计时属性更新 */

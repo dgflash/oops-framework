@@ -44,9 +44,7 @@ export class Role extends ecs.Entity {
     RoleView!: RoleViewComp;
     RoleViewInfo!: RoleViewInfoComp;
 
-    constructor() {
-        super();
-
+    protected init() {
         // 初始化实体常住 ECS 组件，定义实体特性
         this.addComponents<ecs.Comp>(
             RoleModelComp,

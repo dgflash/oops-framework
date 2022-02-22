@@ -343,9 +343,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -508,9 +506,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -715,9 +711,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -880,9 +874,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1087,9 +1079,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1252,9 +1242,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1459,9 +1447,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1624,9 +1610,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1831,9 +1815,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1996,9 +1978,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2203,9 +2183,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2368,9 +2346,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2480,9 +2456,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2632,9 +2606,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2768,9 +2740,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3023,9 +2993,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3188,9 +3156,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3373,9 +3339,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3538,9 +3502,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3723,9 +3685,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3888,9 +3848,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -4073,9 +4031,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -4238,9 +4194,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -4423,9 +4377,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -4588,9 +4540,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -4773,9 +4723,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -4938,9 +4886,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -5050,9 +4996,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -5139,9 +5083,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },

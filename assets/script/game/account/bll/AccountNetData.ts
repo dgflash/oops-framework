@@ -7,9 +7,9 @@
 
 import { Message } from "../../../core/common/event/MessageManager";
 import { storage } from "../../../core/common/storage/SqlUtil";
-import { oops } from "../../../core/Oops";
 import { ecs } from "../../../core/libs/ECS";
 import { VM } from "../../../core/libs/model-view/ViewModel";
+import { oops } from "../../../core/Oops";
 import { GameEvent } from "../../common/config/GameEvent";
 import { netConfig } from "../../common/net/NetConfig";
 import { Role } from "../../role/Role";
@@ -70,7 +70,7 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
 
     /** 创建角色对象（自定义逻辑） */
     private createRole(e: Account, data: any) {
-        var role = new Role();
+        var role = ecs.getEntity<Role>(Role);
 
         // 角色数据
         role.RoleModel.id = data.id;

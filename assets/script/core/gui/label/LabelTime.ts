@@ -130,6 +130,7 @@ export default class LabelTime extends Label {
     }
 
     private onComplete() {
+        this.format();
         if (this.complete) this.complete(this.node);
     }
 }
