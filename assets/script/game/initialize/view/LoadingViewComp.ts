@@ -2,12 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-10 10:03:33
+ * @LastEditTime: 2022-02-24 15:10:26
  */
 import { _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
-import { oops } from "../../../core/Oops";
 import { ecs } from "../../../core/libs/ECS";
+import { oops } from "../../../core/Oops";
 import { JsonUtil } from "../../../core/utils/JsonUtil";
 import { Account } from "../../account/Account";
 import { GameEvent } from "../../common/config/GameEvent";
@@ -112,7 +112,7 @@ export class LoadingViewComp extends CCVMParentComp {
     private onCompleteCallback() {
         // 初始化帐号模块
         var module = ecs.getSingleton(SingletonModuleComp);
-        module.account = new Account();
+        module.account = ecs.getEntity<Account>(Account);
         module.account.connect();
     }
 }
