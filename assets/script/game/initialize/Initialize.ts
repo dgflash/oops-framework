@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-11 17:45:23
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-12 19:06:02
+ * @LastEditTime: 2022-02-24 16:47:45
  */
 import { Node } from "cc";
 import { resLoader } from "../../core/common/loader/ResLoader";
@@ -22,9 +22,7 @@ import { LoadingViewComp } from "./view/LoadingViewComp";
 export class Initialize extends ecs.Entity {
     LoadingView!: LoadingViewComp;
 
-    constructor() {
-        super();
-
+    protected init() {
         var queue: AsyncQueue = new AsyncQueue();
 
         // 加载自定义资源
@@ -38,6 +36,7 @@ export class Initialize extends ecs.Entity {
 
         queue.play();
     }
+
 
     /** 加载自定义内容（可选） */
     private loadCustom(queue: AsyncQueue) {
