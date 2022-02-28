@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-11 17:45:23
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-09 15:20:50
+ * @LastEditTime: 2022-02-28 14:29:06
  */
 
 import { Message } from "../../core/common/event/MessageManager";
@@ -21,10 +21,8 @@ export class Account extends ecs.Entity {
     AccountModel!: AccountModelComp;
     AccountNetData!: AccountNetDataComp;
 
-    constructor() {
-        super();
+    protected init() {
         this.addComponents<ecs.Comp>(AccountModelComp);
-
         this.addEvent();
     }
 

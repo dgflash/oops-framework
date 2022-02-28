@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 15:56:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-09 18:21:21
+ * @LastEditTime: 2022-02-28 14:29:50
  */
 
 import { ecs } from "../../../core/libs/ECS";
@@ -59,10 +59,6 @@ export class RoleBaseModelComp extends ecs.Comp {
     }
 
     reset() {
-        this.power = 0;
-        this.physical = 0;
-        this.agile = 0;
-
         for (var key in this.vm) {
             this.vm[key] = 0;
         }

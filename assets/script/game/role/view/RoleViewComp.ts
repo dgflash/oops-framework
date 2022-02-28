@@ -2,13 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 11:09:41
+ * @LastEditTime: 2022-02-28 14:31:54
  */
 
 import { EventTouch, Node, sp, UITransform, v3, _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
-import { oops } from "../../../core/Oops";
 import { ecs } from "../../../core/libs/ECS";
+import { oops } from "../../../core/Oops";
 import { config } from "../../common/config/Config";
 import { CCComp } from "../../common/ecs/CCComp";
 import { RoleModelComp } from "../model/RoleModelComp";
@@ -27,6 +27,8 @@ export class RoleViewComp extends CCComp {
     /** 动画状态机 */
     animator: RoleViewAnimator = null!;
 
+    private path: string = '';
+
     onLoad() {
         this.node.active = false;
         this.animator = this.spine!.getComponent(RoleViewAnimator)!;
@@ -35,10 +37,10 @@ export class RoleViewComp extends CCComp {
 
     load() {
         var name = "model1";
-        var path = config.game.getRolePath(name);
-        resLoader.load(path, sp.SkeletonData, (err, sd: sp.SkeletonData) => {
+        this.path = config.game.getRolePath(name);
+        resLoader.load(this.path, sp.SkeletonData, (err: Error | null, sd: sp.SkeletonData) => {
             if (err) {
-                console.error(`动画名为【${path}】的角色资源不存在`);
+                console.error(`动画名为【${this.path}】的角色资源不存在`);
                 return;
             }
 
@@ -66,5 +68,6 @@ export class RoleViewComp extends CCComp {
 
     reset() {
         this.node.destroy();
+        resLoader.release(this.path);
     }
 }

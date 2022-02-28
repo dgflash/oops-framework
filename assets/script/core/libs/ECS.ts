@@ -13,6 +13,10 @@ export module ecs {
         compName: string;
     }
 
+    export interface EntityCtor<T> {
+        new(): T;
+    }
+
     /**
      * 组件里面只放数据可能在实际写代码的时候比较麻烦。如果是单纯对组件内的数据操作可以在组件里面写方法。
      */
@@ -129,7 +133,7 @@ export module ecs {
     /**
      * 实体对象缓存池
      */
-    let entityPool: Entity[] = [];
+    let entityPool: Map<string, Entity[]> = new Map();
 
     /**
      * 通过实体id查找实体对象
@@ -149,8 +153,9 @@ export module ecs {
     let eid = 1;
 
     /** 扩展：获取带 eid 自增量的实体（继承Entity方式的编码风格，可减少一定代码量） */
-    export function getEntity<T extends Entity>(ctor: any): T {
-        let entity: any = entityPool.pop();
+    export function getEntity<T extends Entity>(ctor: EntityCtor<T>): T {
+        var entitys = entityPool.get(ctor.name) || [];
+        let entity: any = entitys.pop();
         if (!entity) {
             entity = new ctor();
             entity.eid = eid++; // 实体id也是有限的资源
@@ -168,13 +173,9 @@ export module ecs {
     /**
      * 创建实体
      */
-    export function createEntity<E extends Entity = Entity>(): E {
-        let entity = entityPool.pop();
-        if (!entity) {
-            entity = new Entity();
-            // @ts-ignore
-            entity.eid = eid++; // 实体id也是有限的资源
-        }
+    function createEntity<E extends Entity = Entity>(): E {
+        let entity = new Entity();
+        entity.eid = eid++;                     // 实体id也是有限的资源
         eid2Entity.set(entity.eid, entity);
         return entity as E;
     }
@@ -195,20 +196,20 @@ export module ecs {
      * 指定一个组件创建实体，返回组件对象。
      * @param ctor 
      */
-    export function createEntityWithComp<T extends IComp>(ctor: CompCtor<T>): T {
+    function createEntityWithComp<T extends IComp>(ctor: CompCtor<T>): T {
         let entity = createEntity();
         return entity.add(ctor);
     }
 
-    /**
-     * 指定多个组件创建实体，返回实体对象。
-     * @param ctors 
-     */
-    export function createEntityWithComps<E extends Entity = Entity>(...ctors: CompType<IComp>[]): E {
-        let entity = createEntity();
-        entity.addComponents(...ctors);
-        return entity as E;
-    }
+    // /**
+    //  * 指定多个组件创建实体，返回实体对象。
+    //  * @param ctors 
+    //  */
+    // function createEntityWithComps<E extends Entity = Entity>(...ctors: CompType<IComp>[]): E {
+    //     let entity = createEntity();
+    //     entity.addComponents(...ctors);
+    //     return entity as E;
+    // }
 
     /**
      * 销毁实体。
@@ -218,7 +219,12 @@ export module ecs {
      */
     function destroyEntity(entity: Entity) {
         if (eid2Entity.has(entity.eid)) {
-            entityPool.push(entity);
+            var entitys = entityPool.get(entity.constructor.name);
+            if (entitys == null) {
+                entitys = [];
+                entityPool.set(entity.constructor.name, entitys);
+            }
+            entitys.push(entity);
             eid2Entity.delete(entity.eid);
         }
         else {
