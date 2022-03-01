@@ -40,10 +40,12 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 6. 资源打包zip加载 [原创者代码地址](https://github.com/Stuk/jszip)
 7. behavior-tree 行为树
 8. 本地存储库数据加密
-9. MD5、RSA、Crypto
+9. MD5、Crypto
 
 #### [源码下载地址](https://gitee.com/dgflash/oops-framework)
-#### [应用框架实现的解决方案演示](https://dgflash.gitee.io/oops-framework-demo/)
+#### [框架部分功能演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/)
+#### [框架实现的解决方案演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/)
+#### [联机游戏框架 oops-mgobe](https://store.cocos.com/app/detail/3574)
 
 #### 注：
 打开项目请用Cocos Creator v3.4.1 以上版本
