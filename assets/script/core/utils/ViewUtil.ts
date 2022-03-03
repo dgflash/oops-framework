@@ -4,7 +4,7 @@
  * @LastEditors: H.Joeson
  * @LastEditTime: 2021-10-27 11:16:29
  */
-import { Animation, AnimationClip, AnimationState, EventTouch, instantiate, Node, Prefab, Size, UITransform, v3, Vec3 } from "cc";
+import { Animation, AnimationClip, EventTouch, instantiate, Node, Prefab, Size, UITransform, v3, Vec3 } from "cc";
 import { resLoader } from "../common/loader/ResLoader";
 
 export class ViewUtil {
@@ -74,7 +74,7 @@ export class ViewUtil {
 
     /** 创建预制节点 */
     public static createPrefabNode(name: string): Node {
-        var p = resLoader.get(name, Prefab)!;
+        var p: Prefab = resLoader.get(name, Prefab)!;
         var n = instantiate(p);
         return n;
     }
@@ -84,11 +84,13 @@ export class ViewUtil {
         if (!node || !node.isValid) {
             return;
         }
+
         var anim = node.getComponent(Animation);
         if (anim == null) {
             anim = node.addComponent(Animation);
         }
-        let clip = resLoader.get(name, AnimationClip);
+
+        var clip = resLoader.get(name, AnimationClip) as AnimationClip;
         if (!clip) {
             return;
         }
