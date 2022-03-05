@@ -64,7 +64,7 @@ export class RoleViewAnimator extends AnimatorSpine {
     }
 
     /** 当前动作换职业动画 */
-    changeJob() {
+    refresh() {
         // 状态机状态值未变时，不会触发状态变化事件，所以这里直接触发状态变化事件来触发后续流程
         this.onStateChange(this._ac.curState, this._ac.curState);
     }

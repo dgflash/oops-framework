@@ -13,6 +13,7 @@ import { config } from "../../common/config/Config";
 import { CCComp } from "../../common/ecs/CCComp";
 import { RoleModelComp } from "../model/RoleModelComp";
 import { Role } from "../Role";
+import { RoleEvent } from "../RoleEvent";
 import { RoleViewAnimator } from "./RoleViewAnimator";
 
 const { ccclass, property } = _decorator;
@@ -33,6 +34,23 @@ export class RoleViewComp extends CCComp {
         this.node.active = false;
         this.animator = this.spine!.getComponent(RoleViewAnimator)!;
         this.animator.role = this.ent as Role;
+
+        this.on(RoleEvent.ChangeJob, this.onHandler, this);
+    }
+
+    /** 全局事件处理器 */
+    private onHandler(event: string, args: any) {
+        switch (event) {
+            case RoleEvent.ChangeJob:
+                this.changeJob();
+                break;
+        }
+    }
+
+    /** 演示业务层通过事件控制视图层逻辑，避免两层代码直接偶合 */
+    private changeJob() {
+        // 切换职业动画
+        this.animator.refresh();
     }
 
     load() {

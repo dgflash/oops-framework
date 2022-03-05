@@ -5,9 +5,11 @@
  * @LastEditTime: 2022-01-29 11:46:38
  */
 
+import { Message } from "../../../core/common/event/MessageManager";
 import { ecs } from "../../../core/libs/ECS";
 import { RoleJobModelComp } from "../model/RoleJobModelComp";
 import { Role } from "../Role";
+import { RoleEvent } from "../RoleEvent";
 
 /**
  * 角色转职
@@ -38,17 +40,12 @@ export class RoleChangeJobSystem extends ecs.ComblockSystem implements ecs.IEnti
 
     entityEnter(entities: Role[]): void {
         for (let e of entities) {
-            // console.log("【转职前】角色属性");
-            // e.RoleModel.toString();
-
             // 数值更新
             e.RoleJobModel.id = e.RoleChangeJob.jobId;
 
-            // console.log("【转职后】角色属性");
-            // e.RoleModel.toString();
+            // 转职事件
+            Message.dispatchEvent(RoleEvent.ChangeJob);
 
-            // 切换职业动画
-            e.RoleView.animator.changeJob();
             e.remove(RoleChangeJobComp);
         }
     }
