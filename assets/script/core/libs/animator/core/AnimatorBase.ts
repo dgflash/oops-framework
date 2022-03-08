@@ -141,8 +141,10 @@ export default class AnimatorBase extends Component {
      * 动画结束的回调
      */
     protected onAnimFinished() {
-        this._ac.onAnimationComplete();
-        this._animationPlayer?.onFinishedCallback(this);
+        if (this._ac) {
+            this._ac.onAnimationComplete();
+            this._animationPlayer?.onFinishedCallback(this);
+        }
     }
 
     /**

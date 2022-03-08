@@ -2,14 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 18:04:58
+ * @LastEditTime: 2022-03-08 15:02:23
  */
-import { Component, EventTouch, Prefab, _decorator } from "cc";
-import { resLoader } from "../../core/common/loader/ResLoader";
-import { oops } from "../../core/Oops";
+import { Component, EventTouch, _decorator } from "cc";
 import { tips } from "../../core/gui/prompt/TipsManager";
 import { ecs } from "../../core/libs/ECS";
-import { ViewUtil } from "../../core/utils/ViewUtil";
+import { oops } from "../../core/Oops";
 import { UIID } from "../common/config/GameUIConfig";
 import { SingletonModuleComp } from "../common/ecs/SingletonModuleComp";
 
@@ -31,6 +29,55 @@ export class Demo extends Component {
     private btn_level_up(event: EventTouch, data: any) {
         var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
         role.upgrade();
+        // role.destroy();
+        // resLoader.releaseDir("content/role");
+    }
+
+    /** 攻击 */
+    private btn_attack(event: EventTouch, data: any) {
+        var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
+        role.attack();
+
+        // var data: any = {
+        //     id: 1,
+        //     name: "Oops",
+        //     power: 10,
+        //     agile: 10,
+        //     physical: 10,
+        //     lv: 1,
+        //     jobId: 1
+        // }
+
+        // var role = ecs.getEntity<Role>(Role);
+
+        // // 角色数据
+        // role.RoleModel.id = data.id;
+        // role.RoleModel.name = data.name;
+
+        // // 角色初始战斗属性
+        // role.RoleBaseModel.power = data.power;
+        // role.RoleBaseModel.agile = data.agile;
+        // role.RoleBaseModel.physical = data.physical;
+
+        // // 角色等级数据
+        // role.upgrade(data.lv);
+
+        // // 角色职业数据
+        // role.RoleJobModel.id = data.jobId;
+
+        // // 角色基础属性绑定到界面上显示
+        // // VM.add(role.RoleModel.vm, "Role");
+        // // // 角色等级属性绑定到界面上显示
+        // // VM.add(role.RoleLevelModel.vm, "RoleLevel");
+        // // // 角色初始基础属性绑定到界面上显示
+        // // VM.add(role.RoleBaseModel.vm, "RoleBase");
+
+        // // 角色动画显示对象
+        // role.load();
+        // role.RoleView.node.parent = oops.gui.game;
+        // role.RoleView.node.setPosition(0, -300, 0);
+
+        // ecs.getSingleton(SingletonModuleComp).account.AccountModel.role = role;
     }
 
     /** 转职弓箭 */
@@ -49,12 +96,6 @@ export class Demo extends Component {
     private btn_change_job1(event: EventTouch, data: any) {
         var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
         role.changeJob(1);
-    }
-
-    /** 攻击 */
-    private btn_attack(event: EventTouch, data: any) {
-        var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
-        role.attack();
     }
 
     /** 打开角色界面 */

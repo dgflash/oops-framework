@@ -165,7 +165,8 @@ export default class ResLoader {
         var bundle: AssetManager.Bundle | null = assetManager.getBundle(bundleName);
         var infos = bundle?.getDirWithPath(path);
         infos?.map(function (info) {
-            bundle?.release(info.path);
+            var asset = assetManager.assets.get(info.uuid)!;
+            assetManager.releaseAsset(asset);
         });
 
         if (path == "" && bundleName != "resources" && bundle) {

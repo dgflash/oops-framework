@@ -2,10 +2,10 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-28 14:31:54
+ * @LastEditTime: 2022-03-08 14:57:40
  */
 
-import { EventTouch, Node, sp, UITransform, v3, _decorator } from "cc";
+import { assetManager, EventTouch, Node, sp, UITransform, v3, _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
 import { ecs } from "../../../core/libs/ECS";
 import { oops } from "../../../core/Oops";
@@ -45,6 +45,8 @@ export class RoleViewComp extends CCComp {
             }
 
             this.spine!.skeletonData = sd;
+            // this.spine!.skeletonData.addRef();
+
             this.node.active = true;
 
             // 移动控制
@@ -67,7 +69,7 @@ export class RoleViewComp extends CCComp {
     }
 
     reset() {
+        // this.spine!.skeletonData.decRef();
         this.node.destroy();
-        resLoader.release(this.path);
     }
 }
