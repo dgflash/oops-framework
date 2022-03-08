@@ -92,7 +92,7 @@ export module ecs {
                     compPools.set(ctor.tid, []);
                 }
                 else {
-                    compCtors.push(null);
+                    compCtors.push(null!);
                 }
                 compAddOrRemove.set(ctor.tid, []);
             }
@@ -185,10 +185,12 @@ export module ecs {
      * @param ctor
      */
     function createComp<T extends IComp>(ctor: CompCtor<T>): T {
-        if (!compCtors[ctor.tid]) {
+        var cct = compCtors[ctor.tid];
+        if (!cct) {
             throw Error(`没有找到该组件的构造函数，检查${ctor.compName}是否为不可构造的组件`);
         }
-        let component = compPools.get(ctor.tid)!.pop() || new (compCtors[ctor.tid] as CompCtor<T>);
+        let comps = compPools.get(ctor.tid)!;
+        let component = comps.pop() || new (cct as CompCtor<T>);
         return component as T;
     }
 
@@ -427,6 +429,7 @@ export module ecs {
             }
         }
     }
+
     export class Entity {
         /**
          * 实体唯一标识，不要手动修改。
@@ -439,7 +442,9 @@ export module ecs {
          * 当前实体身上附加的组件构造函数
          */
         private compTid2Ctor: Map<number, CompType<IComp>> = new Map();
-
+        /**
+         * 配合 entity.remove(Comp, false)， 记录组件实例上的缓存数据，在添加时恢复原数据
+         */
         private compTid2Obj: Map<number, IComp> = new Map();
 
         constructor() { }
@@ -610,20 +615,11 @@ export module ecs {
             this.remove(comp, false);
         }
 
-        private _remove_release(comp: CompType<IComp>) {
-            this.remove(comp, true);
-        }
-
         /**
-         * 销毁实体，实体会被回收到实体缓存池中。 扩展：isClearData参数
-         * @param isClearData 是否清除组件上的数据
+         * 销毁实体，实体会被回收到实体缓存池中。
          */
-        destroy(isClearData: boolean = true) {
-            if (isClearData)
-                this.compTid2Ctor.forEach(this._remove_release, this);
-            else
-                this.compTid2Ctor.forEach(this._remove, this);
-
+        destroy() {
+            this.compTid2Ctor.forEach(this._remove, this);
             destroyEntity(this);
             this.compTid2Obj.clear();
         }
@@ -775,7 +771,6 @@ export module ecs {
      * 不包含指定的任意一个组件
      */
     class ExcludeOf extends BaseOf {
-
         public getKey(): string {
             return 'excludeOf:' + this.toString();
         }

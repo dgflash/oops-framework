@@ -26,9 +26,9 @@ export class Account extends ecs.Entity {
         this.addEvent();
     }
 
-    destroy(isClearData?: boolean): void {
+    destroy(): void {
         this.removeEvent();
-        super.destroy(isClearData);
+        super.destroy();
     }
 
     /** 添加全局消息事件 */

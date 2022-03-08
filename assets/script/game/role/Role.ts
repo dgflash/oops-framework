@@ -3,7 +3,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:47:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-10 17:51:49
+ * @LastEditTime: 2022-03-08 16:58:18
  */
 import { Node, Vec3 } from "cc";
 import { ecs } from "../../core/libs/ECS";
@@ -51,6 +51,12 @@ export class Role extends ecs.Entity {
             RoleBaseModelComp,
             RoleJobModelComp,
             RoleLevelModelComp);
+    }
+
+    destroy(): void {
+        // 如果该组件对象是由ecs系统外部创建的，则不可回收，需要用户自己手动进行回收。
+        this.remove(RoleViewComp);
+        super.destroy();
     }
 
     /** 加载角色显示对象（cc.Component在创建后，添加到ECS框架中，使实体上任何一个ECS组件都可以通过 ECS API 获取到视图层对象 */
