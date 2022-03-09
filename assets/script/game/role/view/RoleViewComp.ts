@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-09 14:29:43
+ * @LastEditTime: 2022-03-09 14:32:28
  */
 
 import { sp, _decorator } from "cc";
@@ -23,7 +23,7 @@ export class RoleViewComp extends CCComp {
     @property({ type: sp.Skeleton, tooltip: '角色动画' })
     spine: sp.Skeleton = null!;
 
-    /** --- 演示显示层业务逻辑分离 --- */
+    /** --- 演示视图层业务逻辑分离 --- */
 
     /** 资源加载管理 */
     loader: RoleViewLoader = null!;
