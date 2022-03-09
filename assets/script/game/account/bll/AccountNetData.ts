@@ -2,9 +2,10 @@
  * @Author: dgflash
  * @Date: 2021-11-23 15:51:15
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-10 10:01:34
+ * @LastEditTime: 2022-03-09 15:09:43
  */
 
+import { v3 } from "cc";
 import { Message } from "../../../core/common/event/MessageManager";
 import { storage } from "../../../core/common/storage/SqlUtil";
 import { ecs } from "../../../core/libs/ECS";
@@ -95,9 +96,7 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
         VM.add(role.RoleBaseModel.vm, "RoleBase");
 
         // 角色动画显示对象
-        role.load();
-        role.RoleView.node.parent = oops.gui.game;
-        role.RoleView.node.setPosition(0, -300, 0);
+        role.load(oops.gui.game, v3(0, -300, 0));
 
         e.AccountModel.role = role;
     }

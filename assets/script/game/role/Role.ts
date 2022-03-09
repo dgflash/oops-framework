@@ -3,7 +3,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:47:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-08 16:58:18
+ * @LastEditTime: 2022-03-09 16:36:35
  */
 import { Node, Vec3 } from "cc";
 import { ecs } from "../../core/libs/ECS";
@@ -31,18 +31,18 @@ import { RoleViewInfoComp } from "./view/RoleViewInfoComp";
 export class Role extends ecs.Entity {
     // 数据层
     RoleModel!: RoleModelComp;
-    RoleBaseModel!: RoleBaseModelComp;
-    RoleJobModel!: RoleJobModelComp;
+    RoleBaseModel!: RoleBaseModelComp;          // 角色初始资质
+    RoleJobModel!: RoleJobModelComp;        
     RoleLevelModel!: RoleLevelModelComp;
 
     // 业务层
-    RoleChangeJob!: RoleChangeJobComp;
-    RoleUpgrade!: RoleUpgradeComp;
-    RoleMoveTo!: MoveToComp;
+    RoleChangeJob!: RoleChangeJobComp;          // 转职
+    RoleUpgrade!: RoleUpgradeComp;              // 升级
+    RoleMoveTo!: MoveToComp;                    // 移动
 
     // 视图层
-    RoleView!: RoleViewComp;
-    RoleViewInfo!: RoleViewInfoComp;
+    RoleView!: RoleViewComp;                    // 动画
+    RoleViewInfo!: RoleViewInfoComp;            // 属性界面
 
     protected init() {
         // 初始化实体常住 ECS 组件，定义实体特性
@@ -51,34 +51,6 @@ export class Role extends ecs.Entity {
             RoleBaseModelComp,
             RoleJobModelComp,
             RoleLevelModelComp);
-    }
-
-    destroy(): void {
-        // 如果该组件对象是由ecs系统外部创建的，则不可回收，需要用户自己手动进行回收。
-        this.remove(RoleViewComp);
-        super.destroy();
-    }
-
-    /** 加载角色显示对象（cc.Component在创建后，添加到ECS框架中，使实体上任何一个ECS组件都可以通过 ECS API 获取到视图层对象 */
-    load(): Node {
-        var node = ViewUtil.createPrefabNode("game/battle/role");
-        var mv = node.getComponent(RoleViewComp)!;
-        this.add(mv);
-        mv.load();
-        return node;
-    }
-
-    /** 移动（ECS System处理逻辑，分享功能独立的业务代码）  */
-    move(target: Vec3) {
-        var move = this.add(MoveToComp);
-        move.target = target;
-        move.node = this.RoleView.node;
-        move.speed = 100;
-    }
-
-    /** 攻击（DEMO没有战斗逻辑，所以只播放一个动画） */
-    attack() {
-        this.RoleView.animator.setTrigger(RoleAnimatorType.Attack);
     }
 
     /** 转职（ECS System处理逻辑，分享功能独立的业务代码） */
@@ -91,6 +63,35 @@ export class Role extends ecs.Entity {
     upgrade(lv: number = 0) {
         var ru = this.add(RoleUpgradeComp);
         ru.lv = lv;
+    }
+
+    /** 移动（ECS System处理逻辑，分享功能独立的业务代码）  */
+    move(target: Vec3) {
+        var move = this.add(MoveToComp);
+        move.target = target;
+        move.node = this.RoleView.node;
+        move.speed = 100;
+    }
+
+    destroy(): void {
+        // 如果该组件对象是由ecs系统外部创建的，则不可回收，需要用户自己手动进行回收。
+        this.remove(RoleViewComp);
+        super.destroy();
+    }
+
+    /** 加载角色显示对象（cc.Component在创建后，添加到ECS框架中，使实体上任何一个ECS组件都可以通过 ECS API 获取到视图层对象 */
+    load(parent: Node, pos: Vec3 = Vec3.ZERO) {
+        var node = ViewUtil.createPrefabNode("game/battle/role");
+        var mv = node.getComponent(RoleViewComp)!;
+        this.add(mv);
+
+        node.parent = parent;
+        node.setPosition(pos);
+    }
+
+    /** 攻击（DEMO没有战斗逻辑，所以只播放一个动画） */
+    attack() {
+        this.RoleView.animator.setTrigger(RoleAnimatorType.Attack);
     }
 }
 

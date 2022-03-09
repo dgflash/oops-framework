@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 15:56:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-10 10:05:30
+ * @LastEditTime: 2022-03-09 15:02:39
  */
 
 import { ecs } from "../../../core/libs/ECS";
@@ -39,6 +39,9 @@ export class RoleModelComp extends ecs.Comp {
         this._name = value;
         this.vm.name = value;
     }
+
+    /** 动画名资源 */
+    anim: string = "model1";
 
     /** 角色属性 */
     attributes: RoleNumericMap = new RoleNumericMap(this.vm);
