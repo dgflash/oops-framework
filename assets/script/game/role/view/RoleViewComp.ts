@@ -10,9 +10,9 @@ import { ecs } from "../../../core/libs/ECS";
 import { CCComp } from "../../common/ecs/CCComp";
 import { Role } from "../Role";
 import { RoleEvent } from "../RoleEvent";
-import { RoleViewAnimator } from "./component/RoleViewAnimator";
-import { RoleViewController } from "./component/RoleViewController";
-import { RoleViewLoader } from "./component/RoleViewLoader";
+import { RoleViewAnimator } from "./RoleViewAnimator";
+import { RoleViewController } from "./RoleViewController";
+import { RoleViewLoader } from "./RoleViewLoader";
 
 const { ccclass, property } = _decorator;
 

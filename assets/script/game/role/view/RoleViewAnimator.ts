@@ -2,17 +2,17 @@
  * @Author: dgflash
  * @Date: 2021-12-29 11:33:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-09 14:11:48
+ * @LastEditTime: 2022-03-09 18:03:20
  */
 import { sp, _decorator } from "cc";
-import AnimatorSpine from "../../../../core/libs/animator/AnimatorSpine";
-import { AnimatorStateLogic } from "../../../../core/libs/animator/core/AnimatorStateLogic";
-import { RoleAnimatorType, WeaponName } from "../../model/RoleEnum";
-import { Role } from "../../Role";
-import { AnimationEventHandler } from "../animator/AnimationEventHandler";
-import { RoleStateAttack } from "../animator/RoleStateAttack";
-import { RoleStateDead } from "../animator/RoleStateDead";
-import { RoleStateHit } from "../animator/RoleStateHit";
+import AnimatorSpine from "../../../core/libs/animator/AnimatorSpine";
+import { AnimatorStateLogic } from "../../../core/libs/animator/core/AnimatorStateLogic";
+import { RoleAnimatorType, WeaponName } from "../model/RoleEnum";
+import { Role } from "../Role";
+import { AnimationEventHandler } from "./animator/AnimationEventHandler";
+import { RoleStateAttack } from "./animator/RoleStateAttack";
+import { RoleStateDead } from "./animator/RoleStateDead";
+import { RoleStateHit } from "./animator/RoleStateHit";
 
 const { ccclass, property, requireComponent, disallowMultiple } = _decorator;
 
@@ -23,9 +23,6 @@ const { ccclass, property, requireComponent, disallowMultiple } = _decorator;
  * 1、控制动作变化
  * 2、控制武器变化
  * 3、控制脸的朝向
- * 
- * 技术分析
- * 1、角色动画组件未绑定到ECS实体上，是因为角色显示对象上就有动画组件的引用，直接可通过角色显示对象获取到动画对象 
  */
 @ccclass("RoleViewAnimator")
 @disallowMultiple

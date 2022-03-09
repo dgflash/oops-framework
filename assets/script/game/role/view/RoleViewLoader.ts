@@ -2,13 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-09 14:11:19
+ * @LastEditTime: 2022-03-09 18:01:33
  */
 
 import { Component, sp, _decorator } from "cc";
-import { resLoader } from "../../../../core/common/loader/ResLoader";
-import { config } from "../../../common/config/Config";
-import { RoleViewComp } from "../RoleViewComp";
+import { resLoader } from "../../../core/common/loader/ResLoader";
+import { config } from "../../common/config/Config";
+import { RoleViewComp } from "./RoleViewComp";
 
 const { ccclass, property } = _decorator;
 
