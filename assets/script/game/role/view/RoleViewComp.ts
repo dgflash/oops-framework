@@ -2,92 +2,62 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-08 14:57:40
+ * @LastEditTime: 2022-03-09 14:29:43
  */
 
-import { assetManager, EventTouch, Node, sp, UITransform, v3, _decorator } from "cc";
-import { resLoader } from "../../../core/common/loader/ResLoader";
+import { sp, _decorator } from "cc";
 import { ecs } from "../../../core/libs/ECS";
-import { oops } from "../../../core/Oops";
-import { config } from "../../common/config/Config";
 import { CCComp } from "../../common/ecs/CCComp";
-import { RoleModelComp } from "../model/RoleModelComp";
 import { Role } from "../Role";
 import { RoleEvent } from "../RoleEvent";
-import { RoleViewAnimator } from "./RoleViewAnimator";
+import { RoleViewAnimator } from "./component/RoleViewAnimator";
+import { RoleViewController } from "./component/RoleViewController";
+import { RoleViewLoader } from "./component/RoleViewLoader";
 
 const { ccclass, property } = _decorator;
 
-/** 角色显示组件 */
+/** 角色显示组件 - 管理业务功能方法的定义与模块之间交互处理 */
 @ccclass('RoleViewComp')
 @ecs.register('RoleView', false)
 export class RoleViewComp extends CCComp {
     @property({ type: sp.Skeleton, tooltip: '角色动画' })
-    spine: sp.Skeleton | null = null;
+    spine: sp.Skeleton = null!;
 
+    /** --- 演示显示层业务逻辑分离 --- */
+
+    /** 资源加载管理 */
+    loader: RoleViewLoader = null!;
     /** 动画状态机 */
     animator: RoleViewAnimator = null!;
-
-    private path: string = '';
+    /** 角色控制器 */
+    controller: RoleViewController = null!;
 
     onLoad() {
-        this.node.active = false;
-        this.animator = this.spine!.getComponent(RoleViewAnimator)!;
-        this.animator.role = this.ent as Role;
-
         this.on(RoleEvent.ChangeJob, this.onHandler, this);
     }
 
-    /** 全局事件处理器 */
+    /** 全局事件处理器 - 模块之间解耦合 */
     private onHandler(event: string, args: any) {
         switch (event) {
             case RoleEvent.ChangeJob:
-                this.changeJob();
+                // 切换职业动画 - 演示业务层通过事件控制视图层逻辑，避免两层代码直接偶合
+                this.animator.refresh();
                 break;
         }
     }
 
-    /** 演示业务层通过事件控制视图层逻辑，避免两层代码直接偶合 */
-    private changeJob() {
-        // 切换职业动画
-        this.animator.refresh();
-    }
-
     load() {
-        var name = "model1";
-        this.path = config.game.getRolePath(name);
-        resLoader.load(this.path, sp.SkeletonData, (err: Error | null, sd: sp.SkeletonData) => {
-            if (err) {
-                console.error(`动画名为【${this.path}】的角色资源不存在`);
-                return;
-            }
+        this.loader = this.node.addComponent(RoleViewLoader);
+        this.loader.load("model1");
 
-            this.spine!.skeletonData = sd;
-            // this.spine!.skeletonData.addRef();
+        this.animator = this.spine.getComponent(RoleViewAnimator)!;
+        this.animator.role = this.ent as Role;
 
-            this.node.active = true;
-
-            // 移动控制
-            oops.gui.root.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
-        });
-    }
-
-    private onTouchEnd(event: EventTouch) {
-        // 注：角色移动控制代码在RPG类游戏中，应该设计到地图模块监听触摸事件。因为测试代码只有一个角色，为了简少DEMO代码量，只表达程序设计思想
-        var role = this.ent.get(RoleModelComp).ent as Role;
-        var uit = this.node.parent!.getComponent(UITransform)!;
-        var x = event.getUILocation().x - uit.contentSize.width / 2;
-        var y = event.getUILocation().y - uit.contentSize.height / 2;
-        role.move(v3(x, y));
-
-        if (x < role.RoleView.node.position.x)
-            role.RoleView.animator.left();
-        else
-            role.RoleView.animator.right();
+        this.controller = this.node.addComponent(RoleViewController);
+        this.controller.role = this.ent as Role;
     }
 
     reset() {
-        // this.spine!.skeletonData.decRef();
         this.node.destroy();
     }
 }

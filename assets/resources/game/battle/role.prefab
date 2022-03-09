@@ -8,8 +8,8 @@
       "__id__": 1
     },
     "optimizationPolicy": 0,
-    "asyncLoadAssets": false,
-    "persistent": false
+    "persistent": false,
+    "asyncLoadAssets": false
   },
   {
     "__type__": "cc.Node",
@@ -214,7 +214,6 @@
       "a": 255
     },
     "loop": false,
-    "_premultipliedAlpha": false,
     "_timeScale": 1,
     "_useTint": false,
     "_preCacheMode": 0,
@@ -223,6 +222,7 @@
     "_debugBones": false,
     "_debugSlots": false,
     "_skeletonData": null,
+    "_premultipliedAlpha": false,
     "defaultSkin": "",
     "defaultAnimation": "",
     "_sockets": [],
@@ -234,7 +234,7 @@
     "fileId": "75PJPRcM5F2ai9GB8vX0Ni"
   },
   {
-    "__type__": "100adZTIqRBJqNLcy81+N4b",
+    "__type__": "7bdcbRIIHlC34xmnaLT+Ef/",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -254,7 +254,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "908ZWdysNJzqq4N39wqa7Q"
+    "fileId": "cfSE2lA5ROKpxObYgShpZb"
   },
   {
     "__type__": "cc.PrefabInfo",

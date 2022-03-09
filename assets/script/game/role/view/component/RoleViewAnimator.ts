@@ -2,17 +2,17 @@
  * @Author: dgflash
  * @Date: 2021-12-29 11:33:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 11:51:59
+ * @LastEditTime: 2022-03-09 14:11:48
  */
 import { sp, _decorator } from "cc";
-import AnimatorSpine from "../../../core/libs/animator/AnimatorSpine";
-import { AnimatorStateLogic } from "../../../core/libs/animator/core/AnimatorStateLogic";
-import { RoleAnimatorType, WeaponName } from "../model/RoleEnum";
-import { Role } from "../Role";
-import { AnimationEventHandler } from "./animator/AnimationEventHandler";
-import { RoleStateAttack } from "./animator/RoleStateAttack";
-import { RoleStateDead } from "./animator/RoleStateDead";
-import { RoleStateHit } from "./animator/RoleStateHit";
+import AnimatorSpine from "../../../../core/libs/animator/AnimatorSpine";
+import { AnimatorStateLogic } from "../../../../core/libs/animator/core/AnimatorStateLogic";
+import { RoleAnimatorType, WeaponName } from "../../model/RoleEnum";
+import { Role } from "../../Role";
+import { AnimationEventHandler } from "../animator/AnimationEventHandler";
+import { RoleStateAttack } from "../animator/RoleStateAttack";
+import { RoleStateDead } from "../animator/RoleStateDead";
+import { RoleStateHit } from "../animator/RoleStateHit";
 
 const { ccclass, property, requireComponent, disallowMultiple } = _decorator;
 
