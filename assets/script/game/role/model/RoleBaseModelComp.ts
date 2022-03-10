@@ -2,10 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-11-18 15:56:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-28 14:29:50
+ * @LastEditTime: 2022-03-10 10:23:41
  */
 
 import { ecs } from "../../../core/libs/ECS";
+import { VM } from "../../../core/libs/model-view/ViewModel";
 import { RoleAttributeType } from "./RoleEnum";
 import { RoleModelComp } from "./RoleModelComp";
 
@@ -23,7 +24,7 @@ import { RoleModelComp } from "./RoleModelComp";
 @ecs.register('RoleBaseModel')
 export class RoleBaseModelComp extends ecs.Comp {
     /** 提供 VM 组件使用的数据 */
-    vm: any = {};
+    private vm: any = {};
 
     /** 力量 */
     private _power: number = 0;
@@ -58,7 +59,17 @@ export class RoleBaseModelComp extends ecs.Comp {
         this.vm[RoleAttributeType.agile] = value;
     }
 
+    vmAdd() {
+        VM.add(this.vm, "RoleBase");
+    }
+
+    vmRemove() {
+        VM.remove("RoleBase");
+    }
+
     reset() {
+        this.vmRemove();
+
         for (var key in this.vm) {
             this.vm[key] = 0;
         }

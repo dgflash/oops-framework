@@ -2,14 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-11-23 15:51:15
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-09 15:09:43
+ * @LastEditTime: 2022-03-10 10:21:27
  */
 
 import { v3 } from "cc";
 import { Message } from "../../../core/common/event/MessageManager";
 import { storage } from "../../../core/common/storage/SqlUtil";
 import { ecs } from "../../../core/libs/ECS";
-import { VM } from "../../../core/libs/model-view/ViewModel";
 import { oops } from "../../../core/Oops";
 import { GameEvent } from "../../common/config/GameEvent";
 import { netConfig } from "../../common/net/NetConfig";
@@ -89,11 +88,11 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
         role.RoleJobModel.id = data.jobId;
 
         // 角色基础属性绑定到界面上显示
-        VM.add(role.RoleModel.vm, "Role");
+        role.RoleModel.vmAdd();
         // 角色等级属性绑定到界面上显示
-        VM.add(role.RoleLevelModel.vm, "RoleLevel");
+        role.RoleLevelModel.vmAdd();
         // 角色初始基础属性绑定到界面上显示
-        VM.add(role.RoleBaseModel.vm, "RoleBase");
+        role.RoleBaseModel.vmAdd();
 
         // 角色动画显示对象
         role.load(oops.gui.game, v3(0, -300, 0));

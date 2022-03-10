@@ -2,10 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-11-18 15:56:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-09 15:02:39
+ * @LastEditTime: 2022-03-10 10:25:15
  */
 
 import { ecs } from "../../../core/libs/ECS";
+import { VM } from "../../../core/libs/model-view/ViewModel";
 import { RoleNumeric } from "./attribute/RoleNumeric";
 import { RoleNumericMap } from "./attribute/RoleNumericMap";
 import { RoleAttributeType } from "./RoleEnum";
@@ -23,10 +24,6 @@ import { RoleAttributeType } from "./RoleEnum";
  */
 @ecs.register('RoleModel')
 export class RoleModelComp extends ecs.Comp {
-    /** 提供 VM 组件使用的数据 */
-    vm: any = {};
-
-    /** ----------基础属性---------- */
     /** 角色编号 */
     id: number = -1;
 
@@ -44,9 +41,27 @@ export class RoleModelComp extends ecs.Comp {
     anim: string = "model1";
 
     /** 角色属性 */
-    attributes: RoleNumericMap = new RoleNumericMap(this.vm);
+    attributes: RoleNumericMap = null!;
+
+    constructor() {
+        super();
+        this.attributes = new RoleNumericMap(this.vm);
+    }
+
+    /** 提供 VM 组件使用的数据 */
+    private vm: any = {};
+
+    vmAdd() {
+        VM.add(this.vm, "Role");
+    }
+
+    vmRemove() {
+        VM.remove("Role");
+    }
 
     reset() {
+        this.vmRemove();
+
         this.id = -1;
         this.name = "";
 
