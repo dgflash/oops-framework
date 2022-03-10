@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 15:56:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-10 10:24:12
+ * @LastEditTime: 2022-03-10 11:38:31
  */
 
 import { ecs } from "../../../core/libs/ECS";
@@ -27,7 +27,7 @@ export class RoleLevelModelComp extends ecs.Comp {
     rtluCurrent: RoleTableLevelUp = new RoleTableLevelUp();
 
     /** 提供 VM 组件使用的数据 */
-    private vm: RoleLevelVM = new RoleLevelVM();
+    vm: RoleLevelVM = new RoleLevelVM();
 
     vmAdd() {
         VM.add(this.vm, "RoleLevel");
