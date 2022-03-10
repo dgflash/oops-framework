@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-09 15:10:54
+ * @LastEditTime: 2022-03-10 13:40:21
  */
 
 import { sp, _decorator } from "cc";
@@ -17,8 +17,8 @@ import { RoleViewLoader } from "./RoleViewLoader";
 const { ccclass, property } = _decorator;
 
 /** 角色显示组件 */
-@ccclass('RoleViewComp')
-@ecs.register('RoleView', false)
+@ccclass('RoleViewComp')                   // 定义为 Cocos Creator 组件
+@ecs.register('RoleView', false)           // 定义为 ECS 组件
 export class RoleViewComp extends CCComp {
     @property({ type: sp.Skeleton, tooltip: '角色动画' })
     spine: sp.Skeleton = null!;
@@ -30,6 +30,7 @@ export class RoleViewComp extends CCComp {
     /** 角色控制器 */
     controller: RoleViewController = null!;
 
+    /** 视图层逻辑代码分离演示 */
     onLoad() {
         var role = this.ent as Role;
 
@@ -45,6 +46,7 @@ export class RoleViewComp extends CCComp {
         this.on(RoleEvent.ChangeJob, this.onHandler, this);
     }
 
+    /** 业务层全局消息通知视图层逻辑处理，两层之间逻辑解耦合演示 */
     private onHandler(event: string, args: any) {
         switch (event) {
             case RoleEvent.ChangeJob:
