@@ -2596,7 +2596,7 @@
     "__prefab": {
       "__id__": 118
     },
-    "path": "image",
+    "_dataID": "image",
     "isRawSize": false,
     "_id": ""
   },

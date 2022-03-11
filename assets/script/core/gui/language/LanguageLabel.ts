@@ -62,7 +62,8 @@ export class LanguageLabel extends Component {
         return _string;
     }
 
-    set language(lang: string) {
+    /** 更新语言 */
+    language() {
         this._needUpdate = true;
     }
 

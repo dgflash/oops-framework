@@ -1,3 +1,9 @@
+/*
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:13:17
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-03-11 17:10:39
+ */
 import { director, error, JsonAsset, warn } from "cc";
 import { resLoader } from "../../common/loader/ResLoader";
 import { Logger } from "../../common/log/Logger";
@@ -29,7 +35,7 @@ export class LanguagePack {
      * @param lang 
      */
     public updateLanguage(lang: string) {
-        let lanjson = resLoader.get(`${this._langjsonPath}/${lang}`, JsonAsset);
+        let lanjson: any = resLoader.get(`${this._langjsonPath}/${lang}`, JsonAsset);
         if (lanjson && lanjson.json) {
             LanguageData.data = lanjson.json;
             let rootNodes = director.getScene()!.children;
@@ -37,12 +43,12 @@ export class LanguagePack {
                 // 更新所有的LanguageLabel节点
                 let languagelabels = rootNodes[i].getComponentsInChildren(LanguageLabel);
                 for (let j = 0; j < languagelabels.length; j++) {
-                    languagelabels[j].language = lang;
+                    languagelabels[j].language();
                 }
                 // 更新所有的LanguageSprite节点
                 let languagesprites = rootNodes[i].getComponentsInChildren(LanguageSprite);
                 for (let j = 0; j < languagesprites.length; j++) {
-                    languagesprites[j].language = lang;
+                    languagesprites[j].language();
                 }
             }
         }
