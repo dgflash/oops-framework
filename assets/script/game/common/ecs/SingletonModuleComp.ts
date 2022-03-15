@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 14:20:46
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-26 16:41:24
+ * @LastEditTime: 2022-03-15 10:36:13
  */
 
 import { ecs } from "../../../core/libs/ECS";
@@ -19,3 +19,5 @@ export class SingletonModuleComp extends ecs.Comp {
 
     reset() { }
 }
+
+export var smc: SingletonModuleComp = ecs.getSingleton(SingletonModuleComp);

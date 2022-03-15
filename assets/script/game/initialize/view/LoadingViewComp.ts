@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-08 14:53:17
+ * @LastEditTime: 2022-03-15 10:35:25
  */
 import { _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
@@ -13,7 +13,7 @@ import { Account } from "../../account/Account";
 import { GameEvent } from "../../common/config/GameEvent";
 import { UIID } from "../../common/config/GameUIConfig";
 import { CCVMParentComp } from "../../common/ecs/CCVMParentComp";
-import { SingletonModuleComp } from "../../common/ecs/SingletonModuleComp";
+import { smc } from "../../common/ecs/SingletonModuleComp";
 import { RoleJobModelComp } from "../../role/model/RoleJobModelComp";
 import { RoleTableLevelUp } from "../../role/model/RoleTableLevelUp";
 
@@ -111,8 +111,7 @@ export class LoadingViewComp extends CCVMParentComp {
     /** 加载完成事件 */
     private onCompleteCallback() {
         // 初始化帐号模块
-        var module = ecs.getSingleton(SingletonModuleComp);
-        module.account = ecs.getEntity<Account>(Account);
-        module.account.connect();
+        smc.account = ecs.getEntity<Account>(Account);
+        smc.account.connect();
     }
 }

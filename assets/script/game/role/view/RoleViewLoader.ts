@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-09 18:01:33
+ * @LastEditTime: 2022-03-14 16:40:32
  */
 
 import { Component, sp, _decorator } from "cc";
@@ -16,6 +16,14 @@ const { ccclass, property } = _decorator;
 @ccclass('RoleViewLoader')
 export class RoleViewLoader extends Component {
     spine: sp.Skeleton = null!;
+
+    // onLoad() {
+    //     this.node.on("load", this.onEmitLoad, this);
+    // }
+
+    // private onEmitLoad(role: Role) {
+    //     this.load(role.RoleModel.anim);
+    // }
 
     load(name: string) {
         this.node.active = false;

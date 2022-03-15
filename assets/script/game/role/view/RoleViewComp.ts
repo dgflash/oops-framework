@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-10 13:40:21
+ * @LastEditTime: 2022-03-14 16:39:08
  */
 
 import { sp, _decorator } from "cc";
@@ -36,6 +36,7 @@ export class RoleViewComp extends CCComp {
 
         this.loader = this.node.addComponent(RoleViewLoader);
         this.loader.load(role.RoleModel.anim);
+        // this.node.emit("load", this.ent);
 
         this.animator = this.spine.getComponent(RoleViewAnimator)!;
         this.animator.role = role;

@@ -2,13 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-10 17:37:45
+ * @LastEditTime: 2022-03-14 16:45:30
  */
 import { setDisplayStats, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
 import { ecs } from './core/libs/ECS';
 import { Root } from './core/Root';
-import { SingletonModuleComp } from './game/common/ecs/SingletonModuleComp';
+import { smc } from './game/common/ecs/SingletonModuleComp';
 import { Initialize } from './game/initialize/Initialize';
 
 const { ccclass, property } = _decorator;
@@ -20,7 +20,6 @@ export class Main extends Root {
     }
 
     protected run() {
-        var module = ecs.getSingleton(SingletonModuleComp);
-        module.initialize = ecs.getEntity<Initialize>(Initialize);
+        smc.initialize = ecs.getEntity<Initialize>(Initialize);
     }
 }

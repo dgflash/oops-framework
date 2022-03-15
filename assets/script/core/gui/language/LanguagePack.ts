@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-11 17:10:39
+ * @LastEditTime: 2022-03-11 17:15:42
  */
 import { director, error, JsonAsset, warn } from "cc";
 import { resLoader } from "../../common/loader/ResLoader";
@@ -72,7 +72,7 @@ export class LanguagePack {
                 return;
             }
             Logger.logConfig(lang_texture_path, "下载语言包 textures 资源");
-            resLoader.load(lang_json_path, JsonAsset, (err) => {
+            resLoader.load(lang_json_path, JsonAsset, (err: Error | null) => {
                 if (err) {
                     error(err);
                     callback(err);

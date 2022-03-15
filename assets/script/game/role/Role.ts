@@ -3,7 +3,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:47:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-09 16:36:35
+ * @LastEditTime: 2022-03-14 11:39:12
  */
 import { Node, Vec3 } from "cc";
 import { ecs } from "../../core/libs/ECS";
@@ -32,7 +32,7 @@ export class Role extends ecs.Entity {
     // 数据层
     RoleModel!: RoleModelComp;
     RoleBaseModel!: RoleBaseModelComp;          // 角色初始资质
-    RoleJobModel!: RoleJobModelComp;        
+    RoleJobModel!: RoleJobModelComp;
     RoleLevelModel!: RoleLevelModelComp;
 
     // 业务层
@@ -67,7 +67,7 @@ export class Role extends ecs.Entity {
 
     /** 移动（ECS System处理逻辑，分享功能独立的业务代码）  */
     move(target: Vec3) {
-        var move = this.add(MoveToComp);
+        var move = this.get(MoveToComp) || this.add(MoveToComp);
         move.target = target;
         move.node = this.RoleView.node;
         move.speed = 100;

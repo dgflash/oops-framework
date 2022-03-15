@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-08 16:56:32
+ * @LastEditTime: 2022-03-14 12:13:30
  */
 import { Component, EventTouch, _decorator } from "cc";
 import { tips } from "../../core/gui/prompt/TipsManager";
@@ -17,13 +17,13 @@ const { ccclass, property } = _decorator;
 export class Demo extends Component {
     private lang: boolean = true;
 
-    // onLoad() {
-    //     var path = "gui/prefab/role_info_base";
-    //     resLoader.load(path, Prefab, () => {
-    //         var node = ViewUtil.createPrefabNode(path);
-    //         node.parent = this.node;
-    //     });
-    // }
+    onLoad() {
+        // var path = "gui/prefab/role_info_base";
+        // resLoader.load(path, Prefab, () => {
+        //     var node = ViewUtil.createPrefabNode(path);
+        //     node.parent = this.node;
+        // });
+    }
 
     /** 升级 */
     private btn_level_up(event: EventTouch, data: any) {

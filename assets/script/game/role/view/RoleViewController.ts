@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-09 18:01:25
+ * @LastEditTime: 2022-03-14 16:25:59
  */
 
 import { Component, EventTouch, Node, UITransform, v3, _decorator } from "cc";
@@ -18,7 +18,7 @@ export class RoleViewController extends Component {
     role: Role = null!;
 
     onLoad() {
-        oops.gui.root.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        oops.gui.game.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
     }
 
     private onTouchEnd(event: EventTouch) {
@@ -35,6 +35,6 @@ export class RoleViewController extends Component {
     }
 
     onDestroy() {
-        oops.gui.root.off(Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        oops.gui.game.off(Node.EventType.TOUCH_END, this.onTouchEnd, this);
     }
 }
