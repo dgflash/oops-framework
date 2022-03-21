@@ -17,15 +17,15 @@ import { RoleModelComp } from "./RoleModelComp";
  * 1、影响角色力量、敏捷战斗属性
  * 2、影响角色动画武器
  */
-@ecs.register('RoleJobModel')
-export class RoleJobModelComp extends ecs.Comp {
+@ecs.register('RoleModelJob')
+export class RoleModelJobComp extends ecs.Comp {
     static TableName: string = "arms";
 
     /** 静态表中一条数据 */
     private data: any;
 
     private init(id: number) {
-        var table = JsonUtil.get(RoleJobModelComp.TableName);
+        var table = JsonUtil.get(RoleModelJobComp.TableName);
         this.data = table[id];
 
         console.log(`【职业编号】${id},力量：${this.power},敏捷：${this.agile} `);

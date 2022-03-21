@@ -7,7 +7,7 @@
 
 import { Message } from "../../../core/common/event/MessageManager";
 import { ecs } from "../../../core/libs/ECS";
-import { RoleJobModelComp } from "../model/RoleJobModelComp";
+import { RoleModelJobComp } from "../model/RoleModelJobComp";
 import { Role } from "../Role";
 import { RoleEvent } from "../RoleEvent";
 
@@ -35,13 +35,13 @@ export class RoleChangeJobComp extends ecs.Comp {
 
 export class RoleChangeJobSystem extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
     filter(): ecs.IMatcher {
-        return ecs.allOf(RoleChangeJobComp, RoleJobModelComp);
+        return ecs.allOf(RoleChangeJobComp, RoleModelJobComp);
     }
 
     entityEnter(entities: Role[]): void {
         for (let e of entities) {
             // 数值更新
-            e.RoleJobModel.id = e.RoleChangeJob.jobId;
+            e.RoleModelJob.id = e.RoleChangeJob.jobId;
 
             // 转职事件，通知视图层逻辑刷新界面效果，实现两层逻辑分离
             Message.dispatchEvent(RoleEvent.ChangeJob);

@@ -19,8 +19,8 @@ import { RoleTableLevelUp } from "./RoleTableLevelUp";
  * 1、等级模块直接通过数据访问层的API获取到本地等级配置表数据，通过当前等级匹配到配置表中的等级配置数据
  * 2、获取到的等级配置数据中的生命附加值，叠加到角色战斗属性的等级模块附加值上
  */
-@ecs.register('RoleLevelModel')
-export class RoleLevelModelComp extends ecs.Comp {
+@ecs.register('RoleModelLevel')
+export class RoleModelLevelComp extends ecs.Comp {
     /** 下个等级配置 */
     rtluNext: RoleTableLevelUp = new RoleTableLevelUp();
     /** 当前等级配置 */

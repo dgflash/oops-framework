@@ -21,8 +21,8 @@ import { RoleModelComp } from "./RoleModelComp";
  * 1、RoleModelComp.attributes 中设计了可扩展的角色战斗属性对象，这里分出来一个基础属性对象，是为了生成 VM 组件需要的数据格式，辅助视图层的显示逻辑
  * 2、这样设计用意是不在 RoleModelComp 对象中插入一个针对基础属性的 VM 数据。这里表达在新增需求时，尽量通过增量开发，不影响原有功能。在项目代码越来越多时，不容易因忽略某个点导致出现新问题。
  */
-@ecs.register('RoleBaseModel')
-export class RoleBaseModelComp extends ecs.Comp {
+@ecs.register('RoleModelBase')
+export class RoleModelBaseComp extends ecs.Comp {
     /** 提供 VM 组件使用的数据 */
     private vm: any = {};
 

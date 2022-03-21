@@ -11,11 +11,11 @@ import { ViewUtil } from "../../core/utils/ViewUtil";
 import { MoveToComp } from "../common/ecs/position/MoveTo";
 import { RoleChangeJobComp, RoleChangeJobSystem } from "./bll/RoleChangeJob";
 import { RoleUpgradeComp, RoleUpgradeSystem } from "./bll/RoleUpgrade";
-import { RoleBaseModelComp } from "./model/RoleBaseModelComp";
 import { RoleAnimatorType } from "./model/RoleEnum";
-import { RoleJobModelComp } from "./model/RoleJobModelComp";
-import { RoleLevelModelComp } from "./model/RoleLevelModelComp";
+import { RoleModelBaseComp } from "./model/RoleModelBaseComp";
 import { RoleModelComp } from "./model/RoleModelComp";
+import { RoleModelJobComp } from "./model/RoleModelJobComp";
+import { RoleModelLevelComp } from "./model/RoleModelLevelComp";
 import { RoleViewComp } from "./view/RoleViewComp";
 import { RoleViewInfoComp } from "./view/RoleViewInfoComp";
 
@@ -31,9 +31,9 @@ import { RoleViewInfoComp } from "./view/RoleViewInfoComp";
 export class Role extends ecs.Entity {
     // 数据层
     RoleModel!: RoleModelComp;
-    RoleBaseModel!: RoleBaseModelComp;          // 角色初始资质
-    RoleJobModel!: RoleJobModelComp;
-    RoleLevelModel!: RoleLevelModelComp;
+    RoleModelBase!: RoleModelBaseComp;          // 角色初始资质
+    RoleModelJob!: RoleModelJobComp;
+    RoleModelLevel!: RoleModelLevelComp;
 
     // 业务层
     RoleChangeJob!: RoleChangeJobComp;          // 转职
@@ -48,9 +48,9 @@ export class Role extends ecs.Entity {
         // 初始化实体常住 ECS 组件，定义实体特性
         this.addComponents<ecs.Comp>(
             RoleModelComp,
-            RoleBaseModelComp,
-            RoleJobModelComp,
-            RoleLevelModelComp);
+            RoleModelBaseComp,
+            RoleModelJobComp,
+            RoleModelLevelComp);
     }
 
     /** 转职（ECS System处理逻辑，分享功能独立的业务代码） */

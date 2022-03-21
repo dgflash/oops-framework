@@ -1,6 +1,6 @@
 import { ecs } from "../../../core/libs/ECS";
 import { RoleAttributeType } from "../model/RoleEnum";
-import { RoleLevelModelComp } from "../model/RoleLevelModelComp";
+import { RoleModelLevelComp } from "../model/RoleModelLevelComp";
 import { Role } from "../Role";
 
 /**
@@ -18,13 +18,13 @@ export class RoleUpgradeComp extends ecs.Comp {
 
 export class RoleUpgradeSystem extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
     filter(): ecs.IMatcher {
-        return ecs.allOf(RoleUpgradeComp, RoleLevelModelComp);
+        return ecs.allOf(RoleUpgradeComp, RoleModelLevelComp);
     }
 
     entityEnter(entities: Role[]): void {
         for (let e of entities) {
             let rm = e.RoleModel;
-            let rlm = e.RoleLevelModel;
+            let rlm = e.RoleModelLevel;
             let ru = e.RoleUpgrade;
 
             if (ru.lv == 0)
