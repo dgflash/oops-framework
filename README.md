@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:12:43
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-22 14:34:36
+ * @LastEditTime: 2022-03-22 14:40:18
 -->
 # oops-framework
 #### 介绍
@@ -48,7 +48,6 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 8. 本地存储库数据加密
 9. MD5、Crypto
 
-#### [源码下载地址](https://gitee.com/dgflash/oops-framework)
 #### [框架部分功能演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/)
 #### [框架实现的解决方案演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/)
 #### [新手引导组件 oops-guide 演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-guide/)
