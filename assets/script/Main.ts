@@ -6,7 +6,6 @@
  */
 import { setDisplayStats, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
-import ky from 'ky';
 import { ecs } from './core/libs/ECS';
 import { Root } from './core/Root';
 import { smc } from './game/common/ecs/SingletonModuleComp';
@@ -22,11 +21,5 @@ export class Main extends Root {
 
     protected async run() {
         smc.initialize = ecs.getEntity<Initialize>(Initialize);
-
-        var url = "http://zggmapi.tankwan.com/index.php?c=conf&a=getConf&channel_id=102&version=1"
-        const json = await ky.get(url).json();
-
-        console.log(json);
     }
-    
 }
