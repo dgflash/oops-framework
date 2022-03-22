@@ -1,3 +1,9 @@
+<!--
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:12:43
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-03-22 14:34:36
+-->
 # oops-framework
 #### 介绍
 oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
@@ -45,9 +51,10 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 #### [源码下载地址](https://gitee.com/dgflash/oops-framework)
 #### [框架部分功能演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/)
 #### [框架实现的解决方案演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/)
+#### [新手引导组件 oops-guide 演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-guide/)
 #### [联机游戏框架 oops-mgobe](https://store.cocos.com/app/detail/3574)
 
 #### 注：
-打开项目请用Cocos Creator v3.4.1 以上版本
+打开项目请用Cocos Creator v3.4.2 以上版本
 
 #### 学习交流QQ群：798575969

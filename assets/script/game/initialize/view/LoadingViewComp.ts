@@ -112,6 +112,6 @@ export class LoadingViewComp extends CCVMParentComp {
     private onCompleteCallback() {
         // 初始化帐号模块
         smc.account = ecs.getEntity<Account>(Account);
-        smc.account.connect();
+        smc.account.connect(); 
     }
 }
