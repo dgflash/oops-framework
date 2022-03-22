@@ -1,7 +1,3 @@
-/**
- * @file SqlUtil.ts
- * @description 本地化存储方案
- */
 import { sys } from "cc";
 import { PREVIEW } from "cc/env";
 import { EncryptUtil } from "./EncryptUtil";

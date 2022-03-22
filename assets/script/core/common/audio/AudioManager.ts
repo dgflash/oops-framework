@@ -1,5 +1,5 @@
 import { Component, game, Node } from "cc";
-import { storage } from "../storage/SqlUtil";
+import { storage } from "../storage/StorageManager";
 import { AudioEffect } from "./AudioEffect";
 import { AudioMusic } from "./AudioMusic";
 

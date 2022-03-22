@@ -6,7 +6,7 @@
  */
 import { AudioManager } from "./common/audio/AudioManager";
 import { TimerManager } from "./common/manager/TimerManager";
-import { storage } from "./common/storage/SqlUtil";
+import { storage } from "./common/storage/StorageManager";
 import { GameManager } from "./game/GameManager";
 import { LanguageManager } from "./gui/language/Language";
 import { LayerManager } from "./gui/layer/LayerManager";

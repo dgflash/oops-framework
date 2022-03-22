@@ -7,7 +7,7 @@
 
 import { v3 } from "cc";
 import { Message } from "../../../core/common/event/MessageManager";
-import { storage } from "../../../core/common/storage/SqlUtil";
+import { storage } from "../../../core/common/storage/StorageManager";
 import { ecs } from "../../../core/libs/ECS";
 import { oops } from "../../../core/Oops";
 import { GameEvent } from "../../common/config/GameEvent";

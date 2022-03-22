@@ -1,9 +1,3 @@
-<!--
- * @Author: dgflash
- * @Date: 2021-07-03 16:12:43
- * @LastEditors: dgflash
- * @LastEditTime: 2022-03-22 14:40:18
--->
 # oops-framework
 #### 介绍
 oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
@@ -11,31 +5,39 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 2. 提供业务模块开发的模板，降低程序设计难度
 3. 框架内置模块低耦合，可自行删除不需要的模块
 
-#### 基础功能
-1. 资源管理
-2. 音乐管理
-3. 界面管理
-    - 屏幕自适应
-    - 主界层
-    - 弹窗层
-    - 模式弹窗层
-    - 系统消息层
-    - 数据驱动加载界面
-4. 多语言管理
-    - 文本多语言组件
-    - 图片多语言组件
-5. 网络模块
-    - HttpRequest
-6. 全局消息管理
-7. 随机数生成器
-8. 定时器管理
 
-#### 工具库
-1. 异步队列
-2. 日志管理 
-3. 字符串处理
-4. 基础数学库
-5. 常用UI组件
+#### 技术分类
+1. 基础类
+    - 界面管理 - LayerManager.ts
+    - 资源管理 - ResLoader.ts
+    - 时间管理 - TimerManager.ts
+    - 音效管理 - AudioManager.ts
+    - 消息管理 - MessageManager.ts
+    - 屏幕适应 - GUI.ts.ts
+    - 本地存储 - StorageManager.ts
+2. 界面类 
+    - 常用UI组件
+        - 按钮类 - gui/button
+        - 标签类 - gui/label
+        - 语言类 - gui/language
+    - MVVM组件库 - core/libs/model-view
+3. 网络类
+    - Http - core/network/HttpRequest.ts
+    - WebSocket - core/network/NetManager.ts
+4. 框架类
+    - ECS（Entity-Component-System）- core/libs/ECS.ts
+    - BehaviorTree 行为树 - core/libs/behavior-tree
+    - 可视化动画状态机 - core/libs/animator
+5. 工具类
+    - 异步队列 - AsyncQueue.ts
+    - 日志管理 - Logger.ts
+    - 随机数生成器 - RandomManager.ts
+    - 各种辅助方法库
+    - 加密工具 - core/utils
+6. 渲染纹理 
+    - 三维摄像机内容显示到模型上 - RtToModel
+    - 三维模型显示到二维精灵上 - RtToSprite
+
 
 #### 集成优秀的第三方库
 1. WebSocket 框架（原创者设计灵活，易扩展自定义协议）[原创者代码地址](https://github.com/wyb10a10/cocos_creator_framework)
@@ -52,6 +54,7 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 #### [框架实现的解决方案演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/)
 #### [新手引导组件 oops-guide 演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-guide/)
 #### [联机游戏框架 oops-mgobe](https://store.cocos.com/app/detail/3574)
+#### [源码下载地址](https://gitee.com/dgflash/oops-framework)
 
 #### 注：
 打开项目请用Cocos Creator v3.4.2 以上版本
