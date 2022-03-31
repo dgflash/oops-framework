@@ -24,6 +24,7 @@ export default class AnimatorController {
     /** 当前运行的状态 */
     public get curState(): AnimatorState { return this._curState; }
     public get params(): AnimatorParams { return this._params; }
+    public get states(): Map<string, AnimatorState> { return this._states }
 
     constructor(player: AnimatorBase, json: any) {
         this._animator = player;

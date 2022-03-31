@@ -65,6 +65,11 @@ export default class AnimatorBase extends Component {
         return this._ac.curState.motion;
     }
 
+    /** 获取指定状态 */
+    public getState(name: string): AnimatorState | undefined {
+        return this._ac.states.get(name);
+    }
+
     /**
      * 手动初始化状态机，可传入0-3个参数，类型如下
      * - onStateChangeCall 状态切换时的回调
@@ -141,10 +146,8 @@ export default class AnimatorBase extends Component {
      * 动画结束的回调
      */
     protected onAnimFinished() {
-        if (this._ac) {
-            this._ac.onAnimationComplete();
-            this._animationPlayer?.onFinishedCallback(this);
-        }
+        this._ac.onAnimationComplete();
+        this._animationPlayer?.onFinishedCallback(this);
     }
 
     /**

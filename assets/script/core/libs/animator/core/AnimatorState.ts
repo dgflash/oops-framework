@@ -20,10 +20,11 @@ export default class AnimatorState {
     public get motion() { return this._motion; }
     /** 动画是否循环播放 */
     public get loop() { return this._loop; }
-    /** 动画播放速度 */
-    public get speed() { return this._speed; }
     /** 动画播放速度的混合参数 */
     public get multi() { return this._multi; }
+    /** 动画播放速度 */
+    public get speed() { return this._speed; }
+    public set speed(value: number) { this._speed = value; }
 
     constructor(data: any, ac: AnimatorController) {
         this._name = data.state;
