@@ -5,10 +5,20 @@
     "common_prompt_content": "系统提示内容",
     "common_prompt": "公共弹窗",
     "notify_show": "信息显示",
+    "btn_rich_text": "富文本",
     "btn_demo_lang": "中文",
     "btn_common_prompt": "公共弹窗",
     "btn_notify_show": "提示信息",
     "netInstableOpen": "等待动画",
     "btn_audio_open1": "音乐播放",
-    "btn_audio_open2": "音效播放"
+    "btn_audio_open2": "音效播放",
+    "loading_load_json": "加载游戏本地数据",
+    "loading_load_game": "加载游戏内容",
+    "loading_load_player": "获取用户信息",
+    "role_name": "名字",
+    "role_lv": "等级",
+    "role_hp": "生命",
+    "role_power": "力量",
+    "role_physical": "体质",
+    "role_agile": "敏捷"
 }

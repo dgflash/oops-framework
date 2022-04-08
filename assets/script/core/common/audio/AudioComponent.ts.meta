@@ -1,12 +1,11 @@
 {
-  "ver": "4.0.22",
+  "ver": "4.0.23",
   "importer": "typescript",
   "imported": true,
   "uuid": "98f16974-9ec5-430e-8494-6ff96bf8616e",
   "files": [],
   "subMetas": {},
   "userData": {
-    "importAsPlugin": false,
     "moduleId": "project:///assets/script/core/game/audio/AudioComponent.js",
     "importerSettings": 4,
     "simulateGlobals": []

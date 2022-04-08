@@ -1,12 +1,11 @@
 {
-  "ver": "4.0.22",
+  "ver": "4.0.23",
   "importer": "typescript",
   "imported": true,
   "uuid": "6c841994-fb82-4dbe-ac07-cb9b49b09874",
   "files": [],
   "subMetas": {},
   "userData": {
-    "importAsPlugin": false,
     "moduleId": "project:///assets/script/core/game/camera/FreeFlightCamera.js",
     "importerSettings": 4,
     "simulateGlobals": []

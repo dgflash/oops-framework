@@ -1,6 +1,6 @@
-import { CCString, Component, error, Label, warn, _decorator } from "cc";
+import { CCString, Component, error, Label, RichText, warn, _decorator } from "cc";
 import { EDITOR } from "cc/env";
-import { engine } from "../../Engine";
+import { LanguageData } from "./LanguageData";
 
 const { ccclass, property, menu } = _decorator;
 
@@ -49,10 +49,7 @@ export class LanguageLabel extends Component {
     }
 
     get string(): string {
-        let _string = engine.i18n.getLangByID(this._dataID);
-        if (engine.i18n.beforeChangeLabel) {
-            engine.i18n.beforeChangeLabel(this, _string, this._dataID);
-        }
+        let _string = LanguageData.getLangByID(this._dataID);
         if (_string && this._params.length > 0) {
             this._params.forEach((item: LangLabelParamsItem) => {
                 _string = _string.replace(`%{${item.key}}`, item.value)
@@ -65,7 +62,8 @@ export class LanguageLabel extends Component {
         return _string;
     }
 
-    set language(lang: string) {
+    /** 更新语言 */
+    language() {
         this._needUpdate = true;
     }
 
@@ -73,8 +71,18 @@ export class LanguageLabel extends Component {
 
     onLoad() {
         this._needUpdate = true;
-        if (!this.getComponent(Label)) error(this.node.name, this._dataID);
-        this.initFontSize = this.getComponent(Label)!.fontSize;
+        if (!this.getComponent(Label) && !this.getComponent(RichText)) {
+            error(this.node.name, this._dataID);
+            return;
+        }
+
+        if (this.getComponent(RichText)) {
+            this.initFontSize = this.getComponent(RichText)!.fontSize;
+        }
+
+        if (this.getComponent(Label)) {
+            this.initFontSize = this.getComponent(Label)!.fontSize;
+        }
     }
 
     /**
@@ -125,14 +133,16 @@ export class LanguageLabel extends Component {
             if (!this._dataID) {
                 break;
             }
-            
-            let spcomp = this.getComponent(Label);
+
+            let spcomp: any = this.getComponent(Label);
             if (!spcomp) {
-                warn("[LanguageLabel], 该节点没有cc.Label组件");
-                break;
+                spcomp = this.getComponent(RichText);
+                if (!spcomp) {
+                    warn("[LanguageLabel], 该节点没有cc.Label || cc.RichText组件");
+                    break;
+                }
             }
 
-            spcomp.fontFamily = this.getLabelFont(engine.i18n.currentLanguage);
             spcomp.string = this.string;
         }
         while (false);

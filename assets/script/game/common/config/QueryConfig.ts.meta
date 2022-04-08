@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "1f8651a4-0870-4475-ae85-d7e8b93c53b4",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/game/config/QueryConfig.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

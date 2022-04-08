@@ -1,46 +1,25 @@
-import { game, setDisplayStats, _decorator } from 'cc';
+/*
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:13:17
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-03-22 14:36:22
+ */
+import { setDisplayStats, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
-import { engine } from './core/Engine';
-import { LayerType, UIConfig } from './core/gui/layer/LayerManager';
+import { ecs } from './core/libs/ECS';
 import { Root } from './core/Root';
-import { RootSystem } from './ecs/RootSystem';
+import { smc } from './game/common/ecs/SingletonModuleComp';
+import { Initialize } from './game/initialize/Initialize';
 
-const { ccclass } = _decorator;
-
-export enum UIID {
-    UILoading = 0,
-    Window = 1,
-    UILoading_Prompt = 2,
-    Demo = 3,
-}
-
-export var UICF: { [key: number]: UIConfig } = {
-    [UIID.UILoading]: { layer: LayerType.UI, prefab: "loading/prefab/loading" },
-    [UIID.UILoading_Prompt]: { layer: LayerType.PopUp, prefab: "common/prefab/netinstable" },
-    [UIID.Window]: { layer: LayerType.Dialog, prefab: "common/prefab/window" },
-    [UIID.Demo]: { layer: LayerType.UI, prefab: "gui/prefab/demo" },
-}
+const { ccclass, property } = _decorator;
 
 @ccclass('Main')
 export class Main extends Root {
-    rootSystem!: RootSystem;
-
     start() {
-        if (DEBUG)
-            setDisplayStats(true);
-
-        game.setFrameRate(60);
-
-        this.rootSystem = new RootSystem();
-        this.rootSystem.init();
+        if (DEBUG) setDisplayStats(true);
     }
 
-    protected run() {
-        engine.gui.init(UICF);
-        engine.gui.open(UIID.UILoading);
-    }
-
-    update(dt: number) {
-        this.rootSystem.execute(dt);
+    protected async run() {
+        smc.initialize = ecs.getEntity<Initialize>(Initialize);
     }
 }

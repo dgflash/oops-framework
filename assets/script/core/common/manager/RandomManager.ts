@@ -4,6 +4,14 @@
 
 /** 随机管理 */
 export class RandomManager {
+    private static _instance: RandomManager;
+    public static get instance(): RandomManager {
+        if (this._instance == null) {
+            this._instance = new RandomManager();
+        }
+        return this._instance;
+    }
+
     // constructor() {
     //     this.setSeed(1);
 
@@ -27,7 +35,7 @@ export class RandomManager {
     private getRandom(): number {
         if (this.seedrandom)
             return this.seedrandom.quick();
-          
+
         return Math.random();
     }
 

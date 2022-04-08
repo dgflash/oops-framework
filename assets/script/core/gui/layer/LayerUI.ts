@@ -11,9 +11,10 @@
  * clear        : 清除所有Node节点，队列当中未创建的任务也会被清除。
  */
 import { error, instantiate, isValid, Node, Prefab, warn, Widget } from "cc";
-import { resLoader } from "../../utils/ResLoader";
+import { resLoader } from "../../common/loader/ResLoader";
 import { UICallbacks, ViewParams } from "./Defines";
 import { DelegateComponent } from "./DelegateComponent";
+import { UIConfig } from "./LayerManager";
 
 export class LayerUI extends Node {
     protected ui_nodes: Map<string, ViewParams> = new Map<string, ViewParams>();
@@ -45,7 +46,8 @@ export class LayerUI extends Node {
      * @param params     自定义参数
      * @param callbacks  回调函数对象，可选
      */
-    add(prefabPath: string, params?: any, callbacks?: UICallbacks): string {
+    add(config: UIConfig, params?: any, callbacks?: UICallbacks): string {
+        let prefabPath = config.prefab
         var uuid = this.getUuid(prefabPath);
         var viewParams = this.ui_nodes.get(uuid);
 

@@ -1,12 +1,11 @@
 {
-  "ver": "4.0.22",
+  "ver": "4.0.23",
   "importer": "typescript",
   "imported": true,
   "uuid": "6ace47f5-502c-428e-a7b2-bdfbc4260c8d",
   "files": [],
   "subMetas": {},
   "userData": {
-    "importAsPlugin": false,
     "moduleId": "project:///assets/script/core/event/MessageManager.js",
     "importerSettings": 4,
     "simulateGlobals": []

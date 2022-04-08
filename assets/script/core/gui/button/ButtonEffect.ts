@@ -1,5 +1,5 @@
 import { Animation, AnimationClip, EventTouch, _decorator } from "cc";
-import { resLoader } from "../../utils/ResLoader";
+import { resLoader } from "../../common/loader/ResLoader";
 import ButtonSimple from "./ButtonSimple";
 
 const { ccclass, property, menu } = _decorator;

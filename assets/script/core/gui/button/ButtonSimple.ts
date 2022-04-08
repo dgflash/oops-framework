@@ -1,4 +1,4 @@
-import { Component, director, EventTouch, Node, _decorator } from "cc";
+import { Component, EventTouch, game, Node, _decorator } from "cc";
 
 const { ccclass, property, menu } = _decorator;
 
@@ -38,11 +38,11 @@ export default class ButtonSimple extends Component {
         }
 
         // 防连点500毫秒出发一次事件
-        if (this.touchtEndTime && director.getTotalTime() - this.touchtEndTime < this.interval) {
+        if (this.touchtEndTime && game.totalTime - this.touchtEndTime < this.interval) {
             event.propagationStopped = true;
         }
         else {
-            this.touchtEndTime = director.getTotalTime();
+            this.touchtEndTime = game.totalTime;
         }
     }
 

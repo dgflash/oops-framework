@@ -1,12 +1,11 @@
 {
-  "ver": "4.0.22",
+  "ver": "4.0.23",
   "importer": "typescript",
   "imported": true,
   "uuid": "584504f2-1372-41d3-af4a-3bc3f9fa1978",
   "files": [],
   "subMetas": {},
   "userData": {
-    "importAsPlugin": false,
     "moduleId": "project:///assets/script/core/libs/behavior-tree/IControl.js",
     "importerSettings": 4,
     "simulateGlobals": []

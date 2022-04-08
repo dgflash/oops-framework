@@ -28,7 +28,7 @@ export interface AnimationPlayer {
 export default class AnimatorBase extends Component {
     /** ---------- 后续扩展代码 开始 ---------- */
 
-    /** 动画帧自定义事件 */
+    /** 三维骨骼动画动画帧自定义事件 */
     private onFrameEvent(param: string) {
         this._animationPlayer?.onFrameEventCallback(param, this);
     }
@@ -63,6 +63,11 @@ export default class AnimatorBase extends Component {
     /** 当前动画名 */
     public get curStateMotion(): string {
         return this._ac.curState.motion;
+    }
+
+    /** 获取指定状态 */
+    public getState(name: string): AnimatorState | undefined {
+        return this._ac.states.get(name);
     }
 
     /**

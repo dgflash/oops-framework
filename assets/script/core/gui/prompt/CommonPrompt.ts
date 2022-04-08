@@ -1,5 +1,5 @@
 import { Component, EventTouch, _decorator } from "cc";
-import { engine } from "../../Engine";
+import { oops } from "../../Oops";
 import { LanguageLabel } from "../language/LanguageLabel";
 
 const { ccclass, property, menu } = _decorator;
@@ -92,7 +92,7 @@ export default class CommonPrompt extends Component {
     }
 
     private close() {
-        engine.gui.removeByNode(this.node);
+        oops.gui.removeByNode(this.node);
     }
 
     onDestroy() {

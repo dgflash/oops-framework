@@ -1,12 +1,17 @@
-import { director, error, JsonAsset, resources, warn } from "cc";
-import { Logger } from "../../utils/Logger";
-import { resLoader } from "../../utils/ResLoader";
+/*
+ * @Author: dgflash
+ * @Date: 2021-07-03 16:13:17
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-03-11 17:15:42
+ */
+import { director, error, JsonAsset, warn } from "cc";
+import { resLoader } from "../../common/loader/ResLoader";
+import { Logger } from "../../common/log/Logger";
+import { LanguageData } from "./LanguageData";
 import { LanguageLabel } from "./LanguageLabel";
 import { LanguageSprite } from "./LanguageSprite";
 
-export default class LanguagePack {
-    private _languageLabels: any = {};
-
+export class LanguagePack {
     // 默认资源文件目录
     private _langjsonPath: string = "lang_json";
     private _langTexturePath: string = "lang_texture";
@@ -30,34 +35,26 @@ export default class LanguagePack {
      * @param lang 
      */
     public updateLanguage(lang: string) {
-        let lanjson = resLoader.get(`${this._langjsonPath}/${lang}`, JsonAsset);
+        let lanjson: any = resLoader.get(`${this._langjsonPath}/${lang}`, JsonAsset);
         if (lanjson && lanjson.json) {
-            this._languageLabels = lanjson.json;
+            LanguageData.data = lanjson.json;
             let rootNodes = director.getScene()!.children;
             for (let i = 0; i < rootNodes.length; ++i) {
                 // 更新所有的LanguageLabel节点
                 let languagelabels = rootNodes[i].getComponentsInChildren(LanguageLabel);
                 for (let j = 0; j < languagelabels.length; j++) {
-                    languagelabels[j].language = lang;
+                    languagelabels[j].language();
                 }
                 // 更新所有的LanguageSprite节点
                 let languagesprites = rootNodes[i].getComponentsInChildren(LanguageSprite);
                 for (let j = 0; j < languagesprites.length; j++) {
-                    languagesprites[j].language = lang;
+                    languagesprites[j].language();
                 }
             }
         }
         else {
             warn("没有找到指定语言内容配置", lang);
         }
-    }
-
-    /**
-     * 根据dataID，获取对应语言的字符
-     * @param uuid 
-     */
-    public getLangByID(labId: string): string {
-        return this._languageLabels[labId] || "";
     }
 
     /**
@@ -74,14 +71,14 @@ export default class LanguagePack {
                 callback(err);
                 return;
             }
-            Logger.logBusiness(lang_texture_path, "下载语言包 textures 资源");
-            resLoader.load(lang_json_path, JsonAsset, (err) => {
+            Logger.logConfig(lang_texture_path, "下载语言包 textures 资源");
+            resLoader.load(lang_json_path, JsonAsset, (err: Error | null) => {
                 if (err) {
                     error(err);
                     callback(err);
                     return;
                 }
-                Logger.trace(lang_json_path, "下载语言包 json 资源");
+                Logger.logConfig(lang_json_path, "下载语言包 json 资源");
                 callback(err, lang);
             })
         })

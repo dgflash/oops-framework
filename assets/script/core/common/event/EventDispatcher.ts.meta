@@ -1,12 +1,11 @@
 {
-  "ver": "4.0.22",
+  "ver": "4.0.23",
   "importer": "typescript",
   "imported": true,
   "uuid": "e718e259-c64b-49fb-b01f-9b2a2f2b0e6c",
   "files": [],
   "subMetas": {},
   "userData": {
-    "importAsPlugin": false,
     "moduleId": "project:///assets/script/core/event/EventDispatcher.js",
     "importerSettings": 4,
     "simulateGlobals": []

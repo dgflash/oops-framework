@@ -9,8 +9,8 @@
  * 6、只支持PC上使用
  */
 
-import { CCFloat, Component, EventTouch, game, macro, math, systemEvent, SystemEvent, _decorator } from 'cc';
-const { ccclass, property,menu } = _decorator;
+import { CCFloat, Component, EventTouch, game, KeyCode, macro, math, systemEvent, SystemEvent, _decorator } from 'cc';
+const { ccclass, property, menu } = _decorator;
 
 const { Vec2, Vec3, Quat } = math;
 const v2_1 = new Vec2();
@@ -25,7 +25,7 @@ const KEYCODE = {
     D: 'D'.charCodeAt(0),
     Q: 'Q'.charCodeAt(0),
     E: 'E'.charCodeAt(0),
-    SHIFT: macro.KEY.shift,
+    SHIFT: KeyCode.SHIFT_LEFT,
 };
 
 @ccclass("FreeFlightCamera")
