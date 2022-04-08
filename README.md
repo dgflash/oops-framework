@@ -1,9 +1,15 @@
+<!--
+ * @Author: dgflash
+ * @Date: 2022-04-08 10:31:29
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-04-08 10:32:47
+-->
 # oops-framework
 
 #### 介绍
 Cocos Creato 3.x 版本的游戏框架，框架中集成一些优秀的第三方库，基本游戏开发常用的功能都支持
 
-#### 基础功能
+#### 基础功能 
 1. 资源管理
 2. 音乐管理
 3. 界面管理
