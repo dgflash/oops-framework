@@ -5,7 +5,6 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 2. 提供业务模块开发的模板，降低程序设计难度
 3. 框架内置模块低耦合，可自行删除不需要的模块
 
-
 #### 技术分类
 1. 基础类
     - 界面管理 - LayerManager.ts
@@ -52,9 +51,11 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 
 #### [框架部分功能演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/)
 #### [框架实现的解决方案演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/)
-#### [新手引导组件 oops-guide 演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-guide/)
+#### [游戏地图模块 oops-rpg-2d](https://store.cocos.com/app/detail/3675)
+#### [新手引导模块 oops-guide](https://store.cocos.com/app/detail/3653)
 #### [联机游戏框架 oops-mgobe](https://store.cocos.com/app/detail/3574)
-#### [源码下载地址](https://gitee.com/dgflash/oops-framework)
+#### [开源框架 oops-framework gitee](https://gitee.com/dgflash/oops-framework)
+#### [开源框架 oops-framework github](https://github.com/dgflash/oops-framework)
 
 #### 注：
 打开项目请用Cocos Creator v3.4.2 以上版本
