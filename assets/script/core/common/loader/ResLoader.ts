@@ -1,8 +1,8 @@
 import { Asset, AssetManager, assetManager, Constructor, error, js, resources, __private } from "cc";
 
-export type ProgressCallback = __private.cocos_core_asset_manager_shared_ProgressCallback;
-export type CompleteCallback<T = any> = __private.cocos_core_asset_manager_shared_CompleteCallbackWithData;
-export type IRemoteOptions = __private.cocos_core_asset_manager_shared_IRemoteOptions;
+export type ProgressCallback = __private._cocos_core_asset_manager_shared__ProgressCallback;
+export type CompleteCallback<T = any> = __private._cocos_core_asset_manager_shared__CompleteCallbackWithData;
+export type IRemoteOptions = __private._cocos_core_asset_manager_shared__IRemoteOptions;
 export type AssetType<T = Asset> = Constructor<T>;
 
 interface ILoadResArgs<T extends Asset> {
@@ -174,7 +174,7 @@ export default class ResLoader {
         }
     }
 
-    public get<T extends Asset>(path: string, type?: __private.cocos_core_asset_manager_shared_AssetType<T> | null, bundleName: string = "resources"): T | null {
+    public get<T extends Asset>(path: string, type?: __private._cocos_core_asset_manager_shared__AssetType<T> | null, bundleName: string = "resources"): T | null {
         var bundle: AssetManager.Bundle | null = assetManager.getBundle(bundleName);
         return bundle!.get(path, type);
     }
