@@ -1,7 +1,14 @@
+/*
+ * @Author: dgflash
+ * @Date: 2022-04-14 17:08:01
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-04-14 18:23:46
+ */
 import { error, Label, _decorator } from "cc";
 
 const { ccclass, property, menu } = _decorator;
 
+/** 只能显示数字的标签组件 */
 @ccclass("LabelNumber")
 @menu('ui/label/LabelNumber')
 export default class LabelNumber extends Label {

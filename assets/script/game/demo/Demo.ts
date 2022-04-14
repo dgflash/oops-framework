@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-14 12:13:30
+ * @LastEditTime: 2022-04-14 18:16:20
  */
 import { Component, EventTouch, _decorator } from "cc";
 import { tips } from "../../core/gui/prompt/TipsManager";
@@ -23,6 +23,10 @@ export class Demo extends Component {
         //     var node = ViewUtil.createPrefabNode(path);
         //     node.parent = this.node;
         // });
+    }
+
+    private btn_long(event: EventTouch, data: any) {
+        oops.gui.toast(data);
     }
 
     /** 升级 */

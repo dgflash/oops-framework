@@ -1,4 +1,10 @@
-import { EventTouch, _decorator } from "cc";
+/*
+ * @Author: dgflash
+ * @Date: 2022-04-14 17:08:01
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-04-14 18:15:42
+ */
+import { EventHandler, EventTouch, _decorator } from "cc";
 import ButtonEffect from "./ButtonEffect";
 
 const { ccclass, property, menu } = _decorator;
@@ -11,10 +17,15 @@ export class ButtonTouchLong extends ButtonEffect {
     })
     time: number = 1;
 
+    @property({
+        type: [EventHandler],
+        tooltip: "长按时间（秒）"
+    })
+    clickEvents: EventHandler[] = [];
+
     protected _passTime = 0;
     protected _isTouchLong: boolean = true;
     protected _event: EventTouch | null = null;
-    public onLongTouchCallback!: Function | null;
 
     onLoad() {
         this._isTouchLong = false;
@@ -52,8 +63,9 @@ export class ButtonTouchLong extends ButtonEffect {
 
             if (this._passTime >= this.time) {
                 this._isTouchLong = true;
-                if (this.onLongTouchCallback)
-                    this.onLongTouchCallback(this._event);
+                this.clickEvents.forEach(event => {
+                    event.emit([event.customEventData])
+                });
                 this.removeTouchLong();
             }
         }

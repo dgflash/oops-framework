@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-24 15:06:38
+ * @LastEditTime: 2022-04-14 18:27:49
  */
 
 import { Node, tween, Vec3 } from "cc";
@@ -10,6 +10,7 @@ import { UIID } from "../../../game/common/config/GameUIConfig";
 import { oops } from "../../Oops";
 import { PopViewParams } from "../layer/Defines";
 
+/** 提示窗口管理 */
 class TipsManager {
     private _timeId = ""
     /** 网络恢复 */

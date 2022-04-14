@@ -1,8 +1,15 @@
+/*
+ * @Author: dgflash
+ * @Date: 2022-04-14 17:08:01
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-04-14 18:26:24
+ */
 import { _decorator } from "cc";
 import LabelNumber from "./LabelNumber";
 
 const { ccclass, property, menu } = _decorator;
 
+/** 数值变化动画标签组件 */
 @ccclass("LabelChange")
 @menu('ui/label/LabelChange')
 export class LabelChange extends LabelNumber {
