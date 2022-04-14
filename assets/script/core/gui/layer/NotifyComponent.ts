@@ -1,11 +1,16 @@
-import { Animation, Label, _decorator } from "cc";
-import { GameComponent } from "../../common/component/GameComponent";
+/*
+ * @Author: dgflash
+ * @Date: 2022-04-14 17:08:01
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-04-14 19:06:34
+ */
+import { Animation, Component, Label, _decorator } from "cc";
 import { LanguageLabel } from "../language/LanguageLabel";
 
 const { ccclass, property } = _decorator;
 
 @ccclass('NotifyComponent')
-export class NotifyComponent extends GameComponent {
+export class NotifyComponent extends Component {
     @property(Label)
     private lab_content: Label | null = null;
 

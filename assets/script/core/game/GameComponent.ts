@@ -1,5 +1,11 @@
+/*
+ * @Author: dgflash
+ * @Date: 2022-04-14 17:08:01
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-04-14 19:07:39
+ */
 import { Component, _decorator } from "cc";
-import { EventDispatcher } from "../event/EventDispatcher";
+import { EventDispatcher } from "../common/event/EventDispatcher";
 
 const { ccclass } = _decorator;
 

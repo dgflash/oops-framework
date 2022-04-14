@@ -1,12 +1,16 @@
+/*
+ * @Author: dgflash
+ * @Date: 2022-02-10 09:50:41
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-04-08 17:22:27
+ */
 
 import { Component, gfx, macro, Material, MeshRenderer, utils, Vec3, _decorator } from 'cc';
 const { ccclass, property } = _decorator;
 
+/** 绘制扇形网格 */
 @ccclass('DrawSectorMesh')
-/** 
- * 绘制扇形网格
- */
-export class DrawSectorMesh extends Component {
+export class DrawMeshSector extends Component {
     @property({ type: Material })
     public mat: Material | null = null;
 
