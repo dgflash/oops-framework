@@ -1,7 +1,7 @@
 import { sys } from "cc";
 import { PREVIEW } from "cc/env";
+import { md5 } from "../../libs/security/Md5";
 import { EncryptUtil } from "./EncryptUtil";
-import { md5 } from "./Md5";
 
 export module storage {
     let _key: string | null = null;
