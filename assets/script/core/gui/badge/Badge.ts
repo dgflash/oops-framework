@@ -1,4 +1,4 @@
-import { CCInteger, CCString, color, Component, Label, Layers, Mask, math, Node, Overflow, Sprite, SpriteFrame, UITransform, Vec3, _decorator } from 'cc';
+import { CCInteger, color, Component, Enum, Label, Layers, Mask, math, Node, Overflow, Sprite, SpriteFrame, UITransform, Vec3, _decorator } from 'cc';
 import { RoundRectMask } from './RoundRectMask';
 
 const { ccclass, property } = _decorator;
@@ -10,6 +10,8 @@ export enum Position {
     // 右上角
     TOP_RIGHT = 1,
 }
+
+Enum(Position);
 
 @ccclass('Badge')
 export class Badge extends Component {
@@ -23,7 +25,7 @@ export class Badge extends Component {
     height: number = 26;
     @property({ type: CCInteger, tooltip: '圆角' })
     radius: number = 6;
-    @property({ type: CCInteger, tooltip: '位置\n 0: 左上角 \n 1: 右上角' })
+    @property({ type: Position, tooltip: '位置\n 0: 左上角 \n 1: 右上角' })
     position: Position = Position.TOP_LEFT;
     // 徽标位置
     public static POSITION: Position;
@@ -116,9 +118,12 @@ export class Badge extends Component {
         _label.getComponent(UITransform)?.setContentSize(this.width, this.height);
         _label.string = this.text;
         _label.color = this.textColor;
-        _label.fontSize = 14;
+        _label.fontSize = 18;
+        _label.isBold = true;
+        _label.horizontalAlign = Label.HorizontalAlign.CENTER;
+        _label.verticalAlign = Label.VerticalAlign.CENTER;
         _label.lineHeight = 0;
-        _label.overflow = Overflow.SHRINK;
+        _label.overflow = Overflow.NONE;
         _label.enableWrapText = false;
 
         // 添加节点
