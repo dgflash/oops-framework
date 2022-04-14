@@ -1,3 +1,9 @@
+<!--
+ * @Author: dgflash
+ * @Date: 2022-04-14 17:08:00
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-04-14 19:15:30
+-->
 # oops-framework
 #### 介绍
 oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
@@ -38,6 +44,7 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
         - 标签类 - gui/label
         - 语言类 - gui/language
     - MVVM组件库 - core/libs/model-view
+    - 特效管理 - core/game/effect
 3. 网络类
     - Http - core/network/HttpRequest.ts
     - WebSocket - core/network/NetManager.ts
