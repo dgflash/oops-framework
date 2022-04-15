@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-01-25 17:49:26
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-10 13:47:35
+ * @LastEditTime: 2022-04-15 09:37:39
  */
 
 import { Message } from "../../../core/common/event/MessageManager";
@@ -38,15 +38,13 @@ export class RoleChangeJobSystem extends ecs.ComblockSystem implements ecs.IEnti
         return ecs.allOf(RoleChangeJobComp, RoleModelJobComp);
     }
 
-    entityEnter(entities: Role[]): void {
-        for (let e of entities) {
-            // 数值更新
-            e.RoleModelJob.id = e.RoleChangeJob.jobId;
+    entityEnter(e: Role): void {
+        // 数值更新
+        e.RoleModelJob.id = e.RoleChangeJob.jobId;
 
-            // 转职事件，通知视图层逻辑刷新界面效果，实现两层逻辑分离
-            Message.dispatchEvent(RoleEvent.ChangeJob);
+        // 转职事件，通知视图层逻辑刷新界面效果，实现两层逻辑分离
+        Message.dispatchEvent(RoleEvent.ChangeJob);
 
-            e.remove(RoleChangeJobComp);
-        }
+        e.remove(RoleChangeJobComp);
     }
 }
