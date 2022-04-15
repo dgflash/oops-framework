@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-08-11 16:41:12
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-15 10:01:35
+ * @LastEditTime: 2022-04-15 11:36:40
  */
 import { Node, Vec3 } from "cc";
 import { Timer } from "../../../../core/common/manager/TimerManager";
@@ -58,7 +58,7 @@ class VariableMoveToComponent extends ecs.Comp {
 }
 
 /** 跟踪移动到目标位置 */
-export class MoveToSystem extends ecs.ComblockSystem<ecs.Entity> implements ecs.IEntityEnterSystem, ecs.IEntityRemoveSystem {
+export class MoveToSystem extends ecs.ComblockSystem<ecs.Entity> implements ecs.IEntityEnterSystem, ecs.IEntityRemoveSystem, ecs.ISystemUpdate {
     filter(): ecs.IMatcher {
         return ecs.allOf(MoveToComp);
     }

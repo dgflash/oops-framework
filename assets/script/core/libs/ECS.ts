@@ -962,11 +962,12 @@ export module ecs {
         protected group: Group<E>;
         protected dt: number = 0;
 
-        private enteredEntities: Map<number, E> | null = null;
-        private removedEntities: Map<number, E> | null = null;
+        private enteredEntities: Map<number, E> = null!;
+        private removedEntities: Map<number, E> = null!;
 
         private hasEntityEnter: boolean = false;
         private hasEntityRemove: boolean = false;
+        private hasUpdate: boolean = false;
 
         private tmpExecute: ((dt: number) => void) | null = null;
         private execute!: (dt: number) => void;
@@ -977,9 +978,11 @@ export module ecs {
             let hasEntityEnter = hasOwnProperty.call(prototype, 'entityEnter');
             let hasEntityRemove = hasOwnProperty.call(prototype, 'entityRemove');
             let hasFirstUpdate = hasOwnProperty.call(prototype, 'firstUpdate');
+            let hasUpdate = hasOwnProperty.call(prototype, 'update');
 
             this.hasEntityEnter = hasEntityEnter;
             this.hasEntityRemove = hasEntityRemove;
+            this.hasUpdate = hasUpdate;
 
             if (hasEntityEnter || hasEntityRemove) {
                 this.enteredEntities = new Map<number, E>();
@@ -1025,12 +1028,12 @@ export module ecs {
             this.dt = dt;
 
             // 处理刚进来的实体
-            if (this.enteredEntities!.size > 0) {
-                var entities = this.enteredEntities!.values();
+            if (this.enteredEntities.size > 0) {
+                var entities = this.enteredEntities.values();
                 for (let entity of entities) {
                     (this as unknown as IEntityEnterSystem).entityEnter(entity);
                 }
-                this.enteredEntities!.clear();
+                this.enteredEntities.clear();
             }
 
             // 只执行firstUpdate
@@ -1054,8 +1057,10 @@ export module ecs {
             this.dt = dt;
 
             // 执行update
-            for (let entity of this.group.matchEntities) {
-                this.update(entity);
+            if (this.hasUpdate) {
+                for (let entity of this.group.matchEntities) {
+                    (this as unknown as ISystemUpdate).update(entity);
+                }
             }
         }
 
@@ -1065,14 +1070,14 @@ export module ecs {
          * @returns 
          */
         private execute1(dt: number): void {
-            if (this.removedEntities!.size > 0) {
+            if (this.removedEntities.size > 0) {
                 if (this.hasEntityRemove) {
-                    var entities = this.removedEntities!.values();
+                    var entities = this.removedEntities.values();
                     for (let entity of entities) {
                         (this as unknown as IEntityRemoveSystem).entityRemove(entity);
                     }
                 }
-                this.removedEntities!.clear();
+                this.removedEntities.clear();
             }
 
             if (this.group.count === 0) return;
@@ -1091,8 +1096,10 @@ export module ecs {
             }
 
             // 执行update
-            for (let entity of this.group.matchEntities) {
-                this.update(entity);
+            if (this.hasUpdate) {
+                for (let entity of this.group.matchEntities) {
+                    (this as unknown as ISystemUpdate).update(entity);
+                }
             }
         }
 
@@ -1102,8 +1109,6 @@ export module ecs {
          * 根据提供的组件过滤实体。
          */
         abstract filter(): IMatcher;
-
-        update(entity: E) { };      // 避免不需要用update时写一些多余的代码
     }
 
     /**
