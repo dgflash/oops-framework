@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-04-14 17:08:00
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-15 10:48:23
+ * @LastEditTime: 2022-04-15 13:37:04
 -->
 # oops-framework
 #### 介绍
@@ -64,16 +64,22 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
     - 三维模型显示到二维精灵上 - RtToSprite
 
 
-#### 集成优秀的第三方库
-1. WebSocket 框架（原创者设计灵活，易扩展自定义协议）[原创者代码地址](https://github.com/wyb10a10/cocos_creator_framework)
-2. animator 可视化动画状态机（与Untiy3D的Animator使用体验类似，扩展三维骨骼动画支持） [原创者代码地址](https://github.com/LeeYip/cocos-animator)
-3. model-view MVVM组件库（原库为cc2.x版本，本人升级到cc3.x） [原创者代码地址](https://github.com/wsssheep/cocos_creator_mvvm_tools)
-4. seedrandom 带随机种子的随机数库 [原创者代码地址](https://www.npmjs.com/package/seedrandom)
-5. ECS 框架 [原创者代码地址](https://github.com/shangdibaozi/ECS)
-6. 资源打包zip加载 [原创者代码地址](https://github.com/Stuk/jszip)
-7. behavior-tree 行为树
-8. 本地存储库数据加密
-9. MD5、Crypto
+#### 第三方库源码库
+| 库名          | 介绍                                                                  | 原创链接                                                               |
+| ------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| WebSocket     | 原创者设计灵活，易扩展自定义协议                                      | [原创者代码地址](https://github.com/wyb10a10/cocos_creator_framework)  |
+| animator      | 可视化动画状态机，与Untiy3D的Animator使用体验类似，扩展3D骨骼动画支持 | [原创者代码地址](https://github.com/LeeYip/cocos-animator)             |
+| model-view    | MVVM组件库，原库为cc2.x版本，本人升级到cc3.x                          | [原创者代码地址](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
+| ECS Framework | Entity-Component-System，原码升级优化过                               | [原创者代码地址](https://github.com/shangdibaozi/ECS)                  |
+| behavior-tree | 行为树                                                                | 无                                                                     |
+
+#### 第三方 NPM 库
+| 库名       | 介绍                               | 安装                      | 原创链接                                                   |
+| ---------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------- |
+| Nano ID    | 生成唯一标识                       | npm install --save nanoid | [原创者代码地址](https://github.com/ai/nanoid)             |
+| seedrandom | 生成随机数                         | npm install seedrandom    | [原创者代码地址](https://www.npmjs.com/package/seedrandom) |
+| ky         | Fetch API 的小巧优雅的 HTTP 客户端 | npm install ky            | [原创者代码地址](https://github.com/sindresorhus/ky)       |
+
 
 #### [框架部分功能演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/)
 #### [框架实现的解决方案演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/)

@@ -2,10 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-22 14:36:22
+ * @LastEditTime: 2022-04-15 12:38:05
  */
 import { setDisplayStats, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
+import { nanoid } from 'nanoid';
+import { RandomManager } from './core/common/manager/RandomManager';
 import { ecs } from './core/libs/ECS';
 import { Root } from './core/Root';
 import { smc } from './game/common/ecs/SingletonModuleComp';
@@ -21,5 +23,8 @@ export class Main extends Root {
 
     protected async run() {
         smc.initialize = ecs.getEntity<Initialize>(Initialize);
+
+        console.log(RandomManager.instance.getRandomInt(1, 10));
+
     }
 }
