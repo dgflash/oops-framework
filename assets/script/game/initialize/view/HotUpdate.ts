@@ -39,6 +39,7 @@ export class HotUpdate extends Component {
             // 进度条
             this.lv.data.finished = event.getDownloadedFiles();
             this.lv.data.total = event.getTotalFiles();
+            this.lv.data.progress = (event.getPercent() * 100).toFixed(2);
 
             // 进度提示字
             let pc = event.getPercent();
@@ -99,6 +100,7 @@ export class HotUpdate extends Component {
             this.hot.checkUpdate();
         };
         options.onUpdateSucceed = () => {
+            this.lv.data.progress = 100;
             this.lv.data.prompt = oops.language.getLangByID("update_tips_update_success");
 
             setTimeout(() => {
