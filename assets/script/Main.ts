@@ -6,6 +6,8 @@
  */
 import { setDisplayStats, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';
+import { nanoid } from 'nanoid';
+import { RandomManager } from './core/common/manager/RandomManager';
 import { ecs } from './core/libs/ECS';
 import { Root } from './core/Root';
 import { smc } from './game/common/ecs/SingletonModuleComp';
@@ -21,5 +23,8 @@ export class Main extends Root {
 
     protected async run() {
         smc.initialize = ecs.getEntity<Initialize>(Initialize);
+
+        console.log(RandomManager.instance.getRandomInt(1, 10));
+
     }
 }
