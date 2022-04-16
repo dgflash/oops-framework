@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-08-11 16:41:12
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 11:33:31
+ * @LastEditTime: 2022-04-15 11:36:40
  */
 import { Node, Vec3 } from "cc";
 import { Timer } from "../../../../core/common/manager/TimerManager";
@@ -58,78 +58,72 @@ class VariableMoveToComponent extends ecs.Comp {
 }
 
 /** 跟踪移动到目标位置 */
-export class MoveToSystem extends ecs.ComblockSystem<ecs.Entity> implements ecs.IEntityEnterSystem, ecs.IEntityRemoveSystem {
+export class MoveToSystem extends ecs.ComblockSystem<ecs.Entity> implements ecs.IEntityEnterSystem, ecs.IEntityRemoveSystem, ecs.ISystemUpdate {
     filter(): ecs.IMatcher {
         return ecs.allOf(MoveToComp);
     }
 
-    entityEnter(entities: ecs.Entity[]): void {
-        for (let e of entities) {
-            e.add(VariableMoveToComponent);
-        }
+    entityEnter(e: ecs.Entity): void {
+        e.add(VariableMoveToComponent);
     }
 
-    entityRemove(entities: ecs.Entity[]): void {
-        for (let e of entities) {
-            e.remove(VariableMoveToComponent);
-        }
+    entityRemove(e: ecs.Entity): void {
+        e.remove(VariableMoveToComponent);
     }
 
-    update(entities: ecs.Entity[]) {
-        for (let e of entities) {
-            let move = e.get(MoveToComp);
-            let mtv = e.get(VariableMoveToComponent);
-            let end: Vec3;
+    update(e: ecs.Entity) {
+        let move = e.get(MoveToComp);
+        let mtv = e.get(VariableMoveToComponent);
+        let end: Vec3;
 
-            console.assert(move.speed > 0, "移动速度必须要大于零");
+        console.assert(move.speed > 0, "移动速度必须要大于零");
 
-            if (move.target instanceof Node) {
-                end = move.ns == Node.NodeSpace.WORLD ? move.target.worldPosition : move.target.position;
-            }
-            else {
-                end = move.target as Vec3;
-            }
+        if (move.target instanceof Node) {
+            end = move.ns == Node.NodeSpace.WORLD ? move.target.worldPosition : move.target.position;
+        }
+        else {
+            end = move.target as Vec3;
+        }
 
-            // 目标移动后，重计算移动方向与移动到目标点的速度
-            if (mtv.end == null || !mtv.end.strictEquals(end)) {
-                let target = end.clone();
-                if (move.offsetVector) {
-                    target = target.add(move.offsetVector);           // 这里的问题
-                }
-
-                // 移动方向与移动数度
-                let start = move.ns == Node.NodeSpace.WORLD ? move.node.worldPosition : move.node.position;
-                move.velocity = Vec3Util.sub(target, start).normalize();
-
-                // 移动时间与目标偏位置计算
-                let distance = Vec3.distance(start, target) - move.offset;
-
-                move.onChange?.call(this);
-
-                if (distance - move.offset <= 0) {
-                    this.exit(e);
-                }
-                else {
-                    mtv.timer.step = distance / move.speed;
-                    mtv.end = end.clone();
-                    mtv.target = move.velocity.clone().multiplyScalar(distance).add(start);
-                }
+        // 目标移动后，重计算移动方向与移动到目标点的速度
+        if (mtv.end == null || !mtv.end.strictEquals(end)) {
+            let target = end.clone();
+            if (move.offsetVector) {
+                target = target.add(move.offsetVector);           // 这里的问题
             }
 
-            if (move.speed > 0) {
-                let trans = Vec3Util.mul(move.velocity, move.speed * this.dt);
-                move.node.translate(trans, Node.NodeSpace.LOCAL);
-            }
+            // 移动方向与移动数度
+            let start = move.ns == Node.NodeSpace.WORLD ? move.node.worldPosition : move.node.position;
+            move.velocity = Vec3Util.sub(target, start).normalize();
 
-            // 移动完成事件
-            if (mtv.timer.update(this.dt)) {
-                if (move.ns == Node.NodeSpace.WORLD)
-                    move.node.worldPosition = mtv.target;
-                else
-                    move.node.position = mtv.target;
+            // 移动时间与目标偏位置计算
+            let distance = Vec3.distance(start, target) - move.offset;
 
+            move.onChange?.call(this);
+
+            if (distance - move.offset <= 0) {
                 this.exit(e);
             }
+            else {
+                mtv.timer.step = distance / move.speed;
+                mtv.end = end.clone();
+                mtv.target = move.velocity.clone().multiplyScalar(distance).add(start);
+            }
+        }
+
+        if (move.speed > 0) {
+            let trans = Vec3Util.mul(move.velocity, move.speed * this.dt);
+            move.node.translate(trans, Node.NodeSpace.LOCAL);
+        }
+
+        // 移动完成事件
+        if (mtv.timer.update(this.dt)) {
+            if (move.ns == Node.NodeSpace.WORLD)
+                move.node.worldPosition = mtv.target;
+            else
+                move.node.position = mtv.target;
+
+            this.exit(e);
         }
     }
 

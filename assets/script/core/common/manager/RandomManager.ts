@@ -1,7 +1,5 @@
 /** 引擎 utils.ts 中有一些基础数学方法 */
 
-
-
 /** 随机管理 */
 export class RandomManager {
     private static _instance: RandomManager;

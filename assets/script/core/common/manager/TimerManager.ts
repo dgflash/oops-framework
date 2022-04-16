@@ -1,7 +1,7 @@
 import { Component } from "cc";
 import { EventDispatcher } from "../event/EventDispatcher";
 
-const guid = function () {
+export const guid = function () {
     let guid: string = "";
     for (let i = 1; i <= 32; i++) {
         let n = Math.floor(Math.random() * 16.0).toString(16);

@@ -50,9 +50,7 @@ export class Badge extends Component {
     // 初始化badge，插入节点等操作
     initBadge() {
         const badgeNode = this.createBadge();
-
         this.node.addChild(badgeNode);
-        console.log('badgeNode:', badgeNode);
     }
 
     // 设置位置

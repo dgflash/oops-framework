@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-15 10:35:25
+ * @LastEditTime: 2022-04-15 20:12:33
  */
-import { _decorator } from "cc";
+import { sys, _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
 import { ecs } from "../../../core/libs/ECS";
 import { oops } from "../../../core/Oops";
@@ -52,6 +52,12 @@ export class LoadingViewComp extends CCVMParentComp {
     }
 
     start() {
+        if (!sys.isNative) {
+            this.enter();
+        }
+    }
+
+    enter() {
         this.addEvent();
         this.loadRes();
     }
@@ -112,6 +118,6 @@ export class LoadingViewComp extends CCVMParentComp {
     private onCompleteCallback() {
         // 初始化帐号模块
         smc.account = ecs.getEntity<Account>(Account);
-        smc.account.connect(); 
+        smc.account.connect();
     }
 }

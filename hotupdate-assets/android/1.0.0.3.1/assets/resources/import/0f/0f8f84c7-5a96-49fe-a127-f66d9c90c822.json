@@ -1,0 +1,1 @@
+[1,0,0,[["cc.JsonAsset",["_name","json"],1]],[[0,0,1,3]],[[0,"config",{"config":{"version":"1.0.0","package":"com.oops.game","localDataKey":"oops","localDataIv":"framework","httpServer":"http://192.168.0.150/main/","httpTimeout":10000,"frameRate":60},"language":{"type":["zh","en"],"path":{"json":"language/json","texture":"language/texture"}}}]],0,0,[],[],[]]
