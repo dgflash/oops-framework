@@ -62,7 +62,10 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 6. 渲染纹理 
     - 三维摄像机内容显示到模型上 - RtToModel
     - 三维模型显示到二维精灵上 - RtToSprite
-
+7. 热更新
+    - 热更控制脚本 game/initialize/view/HotUpdate.ts
+    - 本地热更配置 resources/project.manifes
+    - 本地热更配置 resources/version.manifes
 
 #### 第三方库源码库
 | 库名          | 介绍                                                                  | 原创链接                                                               |
