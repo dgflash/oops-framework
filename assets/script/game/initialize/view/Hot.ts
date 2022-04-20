@@ -91,12 +91,16 @@ export class Hot {
 
             // 设置验证回调，如果验证通过，则返回true，否则返回false
             this.assetsMgr.setVerifyCallback((path: string, asset: jsb.ManifestAsset) => {
-                if (asset.compressed) {
-                    return true;
-                }
-                else {
-                    return true;
-                }
+                // 压缩资源时，我们不需要检查其md5，因为zip文件已被删除
+                var compressed = asset.compressed;
+                // 检索正确的md5值
+                var expectedMD5 = asset.md5;
+                // 资源路径是相对路径，路径是绝对路径
+                var relativePath = asset.path;
+                // 资源文件的大小，但此值可能不存在
+                var size = asset.size;
+
+                return true;
             });
 
             var localManifest = this.assetsMgr.getLocalManifest();
@@ -118,7 +122,7 @@ export class Hot {
     // 检查更新
     checkUpdate() {
         if (!this.assetsMgr) {
-            log('【热更新】请先初始化')
+            console.log('【热更新】请先初始化')
             return;
         }
 
@@ -127,7 +131,7 @@ export class Hot {
             return;
         }
         if (!this.assetsMgr.getLocalManifest().isLoaded()) {
-            log('【热更新】加载本地 manifest 失败 ...');
+            console.log('【热更新】加载本地 manifest 失败 ...');
             return;
         }
         this.assetsMgr.setEventCallback(this.onHotUpdateCallBack.bind(this));
@@ -139,7 +143,7 @@ export class Hot {
     /** 开始更热 */
     hotUpdate() {
         if (!this.assetsMgr) {
-            log('【热更新】请先初始化')
+            console.log('【热更新】请先初始化')
             return
         }
         this.assetsMgr.setEventCallback(this.onHotUpdateCallBack.bind(this));
