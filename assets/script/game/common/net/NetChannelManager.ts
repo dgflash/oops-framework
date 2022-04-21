@@ -1,10 +1,11 @@
 /*
  * @Date: 2021-08-12 09:33:37
- * @LastEditors: H.Joeson
- * @LastEditTime: 2021-11-25 15:49:50
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-04-21 14:08:46
  */
-import { DefStringProtocol, NetData } from "../../../core/network/NetInterface";
+import { NetData } from "../../../core/network/NetInterface";
 import { NetManager } from "../../../core/network/NetManager";
+import { NetProtocolPako } from "../../../core/network/NetProtocolPako";
 import { WebSock } from "../../../core/network/WebSock";
 import { netConfig } from "./NetConfig";
 import { NetGameTips } from "./NetGameTips";
@@ -16,7 +17,7 @@ export enum NetChannelType {
 }
 
 /** 游戏服务器心跳协议 */
-class GameProtocol extends DefStringProtocol {
+class GameProtocol extends NetProtocolPako { 
     /** 心跳协议 */
     getHearbeat(): NetData {
         return `{"action":"LoginAction","method":"heart","data":"null","isCompress":false,"channelid":${netConfig.channelid},"callback":"LoginAction_heart"}`;
@@ -49,4 +50,3 @@ export class NetChannelManager {
 }
 
 export var netChannel = new NetChannelManager();
-

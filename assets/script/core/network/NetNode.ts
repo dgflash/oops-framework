@@ -182,6 +182,7 @@ export class NetNode {
         this.resetHearbeatTimer();
         // 触发消息执行
         let rspCmd = this._protocolHelper!.getPackageId(json);
+
         Logger.logNet(`接受到命令【${rspCmd}】的消息`);
         // 优先触发request队列
         if (this._requests.length > 0) {
@@ -290,7 +291,6 @@ export class NetNode {
     /** 发起请求，并进入缓存列表 */
     public request(reqProtocol: IRequestProtocol, rspObject: CallbackObject, showTips: boolean = true, force: boolean = false) {
         var rspCmd = this._protocolHelper!.handlerRequestPackage(reqProtocol);
-
         this.base_request(reqProtocol, rspCmd, rspObject, showTips, force);
     }
 
@@ -315,7 +315,9 @@ export class NetNode {
         if (this._state == NetNodeState.Working || force) {
             this._socket!.send(buf);
         }
+
         Logger.logNet(`队列命令为【${rspCmd}】的请求，等待请求数据的回调`);
+
         // 进入发送缓存列表
         this._requests.push({
             buffer: buf, rspCmd, rspObject

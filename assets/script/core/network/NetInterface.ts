@@ -1,4 +1,3 @@
-
 /*
  * 网络相关接口定义
  */
@@ -21,12 +20,16 @@ export interface IRequestProtocol {
     data?: any;
 }
 
-/** 相应协议 */
+/** 响应协议 */
 export interface IResponseProtocol {
+    /** 响应协议状态码 */
     code: number,
+    /** 数据是否压缩 */
+    isCompress: boolean,
+    /** 协议数据 */
     data?: any,
-    callback?: string,
-    isCompress: boolean
+    /** 协议回调方法名 */
+    callback?: string
 }
 
 /** 回调对象 */
@@ -44,71 +47,20 @@ export interface RequestObject {
 
 /** 协议辅助接口 */
 export interface IProtocolHelper {
-    getHeadlen(): number;                                               // 返回包头长度
-    getHearbeat(): NetData;                                             // 返回一个心跳包
-    getPackageLen(msg: NetData): number;                                // 返回整个包的长度
-    checkResponsePackage(msg: IResponseProtocol): boolean;              // 检查包数据是否合法（避免客户端报错崩溃）
-    handlerRequestPackage(reqProtocol: IRequestProtocol): string;       // 处理请求包数据
-    handlerResponsePackage(respProtocol: IResponseProtocol): boolean;   // 处理响应包数据
-    getPackageId(msg: IResponseProtocol): string;                       // 返回包的id或协议类型
-}
-
-var unzip = function (str: string) {
-    let charData = str.split('').map(function (x) {
-        return x.charCodeAt(0);
-    });
-    let binData = new Uint8Array(charData);
-    //@ts-ignore
-    let data = pako.inflate(binData, { to: 'string' });
-    return data;
-}
-
-var zip = function (str: string) {
-    //@ts-ignore
-    let binaryString = pako.gzip(str, { to: 'string' });
-    return binaryString;
-}
-
-/** 默认字符串协议对象 */
-export class DefStringProtocol implements IProtocolHelper {
-    getHeadlen(): number {
-        return 0;
-    }
-    getHearbeat(): NetData {
-        return "";
-    }
-    getPackageLen(msg: NetData): number {
-        return msg.toString().length;
-    }
-    checkResponsePackage(respProtocol: IResponseProtocol): boolean {
-        return true;
-    }
-
-    handlerResponsePackage(respProtocol: IResponseProtocol): boolean {
-        if (respProtocol.code == 1) {
-            if (respProtocol.isCompress) {
-                respProtocol.data = unzip(respProtocol.data);
-            }
-            respProtocol.data = JSON.parse(respProtocol.data);
-
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    handlerRequestPackage(reqProtocol: IRequestProtocol): string {
-        var rspCmd = reqProtocol.action + "_" + reqProtocol.method;;
-        reqProtocol.callback = rspCmd;
-        if (reqProtocol.isCompress) {
-            reqProtocol.data = zip(reqProtocol.data);
-        }
-        return rspCmd;
-    }
-    getPackageId(respProtocol: IResponseProtocol): string {
-        return respProtocol.callback!;
-    }
+    /** 返回包头长度 */
+    getHeadlen(): number;
+    /** 返回一个心跳包 */
+    getHearbeat(): NetData;
+    /** 返回整个包的长度 */
+    getPackageLen(msg: NetData): number;
+    /** 检查包数据是否合法（避免客户端报错崩溃） */
+    checkResponsePackage(msg: IResponseProtocol): boolean;
+    /** 处理请求包数据 */
+    handlerRequestPackage(reqProtocol: IRequestProtocol): string;
+    /** 处理响应包数据 */
+    handlerResponsePackage(respProtocol: IResponseProtocol): boolean;
+    /** 返回包的id或协议类型 */
+    getPackageId(msg: IResponseProtocol): string;
 }
 
 export type SocketFunc = (event: any) => void;
