@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-04-14 17:08:00
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-25 14:52:21
+ * @LastEditTime: 2022-04-25 14:59:49
 -->
 # oops-framework
 #### 介绍
@@ -66,8 +66,9 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
     - 热更控制脚本 game/initialize/view/HotUpdate.ts
     - 本地热更配置 resources/project.manifes
     - 本地热更配置 resources/version.manifes
-8. Cocos Creator 3.5 版本新功能代码模板
+8. Cocos Creator 3.5 版本新功能业务框架模板
     ![](./doc/imgs/module.png)
+
 #### 第三方库源码库
 | 库名          | 介绍                                                                  | 原创链接                                                               |
 | ------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------- |
