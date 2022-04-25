@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-02-10 09:50:41
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-16 14:15:26
+ * @LastEditTime: 2022-04-21 17:58:20
  */
 import { game, Game, Node } from 'cc';
 
@@ -18,7 +18,7 @@ export class GameManager {
         this.gameTimeScaleExtend();
     }
 
-    /** 设置游戏动画速度 */
+    /** 设置游戏动画速度（不支持 Native 模式） */
     setTimeScale(scale: number) {
         timeScale = scale;
     }
