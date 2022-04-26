@@ -1,4 +1,11 @@
+<!--
+ * @Author: dgflash
+ * @Date: 2022-04-18 11:45:05
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-04-26 12:07:23
+-->
 # oops-framework
+
 #### 介绍
 oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 1. 提供游戏常用功能库，提高开发效率
@@ -79,6 +86,13 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 | seedrandom | 生成随机数                         | npm install seedrandom    | [原创者代码地址](https://www.npmjs.com/package/seedrandom) |
 | ky         | Fetch API 的小巧优雅的 HTTP 客户端 | npm install ky            | [原创者代码地址](https://github.com/sindresorhus/ky)       |
 
+#### 贡献榜
+| 时间       | 开发者   | 贡献内容                                                                                    |
+| ---------- | -------- | ------------------------------------------------------------------------------------------- |
+| 2022-04-15 | Hess     | 建议优化 ecs 框架所有生命周期事件在处理多实体时，将批处理逻辑移到框架层实现，减小业务代码量 |
+| 2021-10-13 | laret    | 修复 Dialog 类型的 UI 不能连续触发                                                          |
+| 2021-10-20 | dogegg   | 支持添加 cc.Component 到 ecs 实体对象中                                                     |
+| 2022-02-18 | 匿名好友 | 修复 TimerManager 时间管理对象，在游戏最小化切到最大化时，定时间器不触发完成事件的问题      |
 
 #### [框架部分功能演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/)
 #### [框架实现的解决方案演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/)
@@ -88,16 +102,7 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 #### [开源框架 oops-framework gitee](https://gitee.com/dgflash/oops-framework)
 #### [开源框架 oops-framework github](https://github.com/dgflash/oops-framework)
 
+#### 学习交流 QQ 群：798575969
+
 #### 注：
-打开项目请用Cocos Creator v3.4.2 以上版本
-
-#### 学习交流QQ群：798575969
-
-#### 贡献榜
-| 时间       | 开发者   | 贡献内容                                                                                    |
-| ---------- | -------- | ------------------------------------------------------------------------------------------- |
-| 2022-04-15 | Hess     | 建议优化 ecs 框架所有生命周期事件在处理多实体时，将批处理逻辑移到框架层实现，减小业务代码量 |
-| 2021-10-13 | laret    | 修复 Dialog 类型的 UI 不能连续触发                                                          |
-| 2021-10-20 | dogegg   | 支持添加 cc.Component 到 ecs 实体对象中                                                     |
-| 2022-02-18 | 匿名好友 | 修复 TimerManager 时间管理对象，在游戏最小化切到最大化时，定时间器不触发完成事件的问题      |
-
+Cocos Creator 3.x 不同版本的框架，可在分支中下载
