@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-25 14:44:17
+ * @LastEditTime: 2022-04-25 19:24:44
  */
 import { setDisplayStats, _decorator } from 'cc';
 import { DEBUG } from 'cc/env';

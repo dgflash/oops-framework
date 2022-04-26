@@ -1,6 +1,6 @@
 {
   "creator": {
-    "version": "3.5.0"
+    "version": "3.4.2"
   },
   "dependencies": {
     "ky": "^0.30.0",
@@ -14,5 +14,5 @@
   "name": "oops-framework",
   "type": "3d",
   "uuid": "c30b28da-749e-479b-bcb6-cecd8d7be9e3",
-  "version": "3.5.0"
+  "version": "3.4.2"
 }
