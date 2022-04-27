@@ -22,7 +22,7 @@ export class Main extends Root {
 
     protected async run() {
         smc.initialize = ecs.getEntity<Initialize>(Initialize);
-
+        
         // console.log(protobuf);
     }
 }
