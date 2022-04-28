@@ -36,11 +36,6 @@ export class HotUpdate extends Component {
             // console.log(`【热更新界面】本地版本:${data.local},远程版本:${data.server}`);
         };
         options.onUpdateProgress = (event: jsb.EventAssetsManager) => {
-            // 进度条
-            this.lv.data.finished = event.getDownloadedFiles();
-            this.lv.data.total = event.getTotalFiles();
-            this.lv.data.progress = (event.getPercent() * 100).toFixed(2);
-
             // 进度提示字
             let pc = event.getPercent();
             let _total = event.getTotalBytes();
@@ -70,6 +65,13 @@ export class HotUpdate extends Component {
             }
             else {
                 this.lv.data.prompt = oops.language.getLangByID("update_tips_update") + have + '/' + total + ' (' + parseInt(pc * 100 + "") + '%)';
+            }
+
+            // 进度条
+            if (!isNaN(event.getPercent())) {
+                this.lv.data.finished = event.getDownloadedFiles();
+                this.lv.data.total = event.getTotalFiles();
+                this.lv.data.progress = (event.getPercent() * 100).toFixed(2);
             }
         };
         options.onNeedToUpdate = (data: any, totalBytes: number) => {

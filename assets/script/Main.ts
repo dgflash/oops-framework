@@ -5,12 +5,12 @@
  * @LastEditTime: 2022-04-25 14:44:17
  */
 import { setDisplayStats, _decorator } from 'cc';
-import { DEBUG } from 'cc/env';
+import { DEBUG, JSB } from 'cc/env';
 import { ecs } from './core/libs/ECS';
+import { oops } from './core/Oops';
 import { Root } from './core/Root';
 import { smc } from './game/common/ecs/SingletonModuleComp';
 import { Initialize } from './game/initialize/Initialize';
-import * as protobuf from 'protobufjs';
 
 const { ccclass, property } = _decorator;
 
@@ -22,7 +22,11 @@ export class Main extends Root {
 
     protected async run() {
         smc.initialize = ecs.getEntity<Initialize>(Initialize);
-        
+
+        if (JSB) {
+            oops.gui.toast("热更新后新程序的提示");
+        }
+
         // console.log(protobuf);
     }
 }

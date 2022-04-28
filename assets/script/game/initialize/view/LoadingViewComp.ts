@@ -30,7 +30,7 @@ export class LoadingViewComp extends CCVMParentComp {
         /** 加载资源最大进度 */
         total: 0,
         /** 加载资源进度比例值 */
-        progress: "",
+        progress: "0",
         /** 加载流程中提示文本 */
         prompt: ""
     };

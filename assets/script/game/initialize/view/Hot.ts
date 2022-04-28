@@ -66,7 +66,7 @@ export class Hot {
             this.showSearchPath();
 
             this.manifest = res.nativeUrl;
-            this.storagePath = `${jsb.fileUtils.getWritablePath()}/hotupdate_storage`;
+            this.storagePath = `${jsb.fileUtils.getWritablePath()}/oops_framework_remote`;
             this.assetsMgr = new jsb.AssetsManager(this.manifest, this.storagePath, (versionA, versionB) => {
                 console.log("【热更新】客户端版本: " + versionA + ', 当前最新版本: ' + versionB);
                 this.options?.onVersionInfo && this.options.onVersionInfo({ local: versionA, server: versionB });

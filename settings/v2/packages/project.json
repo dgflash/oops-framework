@@ -1,18 +1,11 @@
 {
   "__version__": "1.0.2",
-  "script": {
-    "useDefineForClassFields": false,
-    "allowDeclareFields": false
-  },
   "general": {
     "designResolution": {
       "width": 1280,
-      "height": 720
-    }
-  },
-  "fbx": {
-    "legacyFbxImporter": {
-      "visible": true
+      "height": 750,
+      "fitWidth": false,
+      "fitHeight": true
     }
   }
 }
