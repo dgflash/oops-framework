@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "inlineSourceMap": false,
+        "outDir": "./dist",
+        "rootDir": "./source",
+        "allowJs": true,
+        "lib": ["dom", "es7"],
+        "esModuleInterop": true
+    },
+    "exclude": ["./dist"],
+    "include": ["./source"]
+  }
