@@ -8,7 +8,6 @@
 import { Component, sp, _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
 import { config } from "../../common/config/Config";
-import { RoleViewComp } from "./RoleViewComp";
 
 const { ccclass, property } = _decorator;
 
@@ -27,7 +26,6 @@ export class RoleViewLoader extends Component {
 
     load(name: string) {
         this.node.active = false;
-        this.spine = this.getComponent(RoleViewComp)!.spine!;
 
         var path = config.game.getRolePath(name);
         resLoader.load(path, sp.SkeletonData, (err: Error | null, sd: sp.SkeletonData) => {
