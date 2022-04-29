@@ -14,8 +14,8 @@ import { GameEvent } from "../../common/config/GameEvent";
 import { UIID } from "../../common/config/GameUIConfig";
 import { CCVMParentComp } from "../../common/ecs/CCVMParentComp";
 import { smc } from "../../common/ecs/SingletonModuleComp";
-import { RoleModelJobComp } from "../../role/model/RoleModelJobComp";
-import { RoleTableLevelUp } from "../../role/model/RoleTableLevelUp";
+import { TableRoleJob } from "../../common/table/TableRoleJob";
+import { TableRoleLevelUp } from "../../common/table/TableRoleLevelUp";
 
 const { ccclass, property } = _decorator;
 
@@ -88,8 +88,8 @@ export class LoadingViewComp extends CCVMParentComp {
         this.data.prompt = oops.language.getLangByID("loading_load_json");
 
         return new Promise(async (resolve, reject) => {
-            await JsonUtil.loadAsync(RoleModelJobComp.TableName);
-            await JsonUtil.loadAsync(RoleTableLevelUp.TableName);
+            await JsonUtil.loadAsync(TableRoleJob.TableName);
+            await JsonUtil.loadAsync(TableRoleLevelUp.TableName);
             resolve(null);
         });
     }

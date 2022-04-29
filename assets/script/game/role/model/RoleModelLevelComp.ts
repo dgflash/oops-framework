@@ -7,7 +7,7 @@
 
 import { ecs } from "../../../core/libs/ECS";
 import { VM } from "../../../core/libs/model-view/ViewModel";
-import { RoleTableLevelUp } from "./RoleTableLevelUp";
+import { TableRoleLevelUp } from "../../common/table/TableRoleLevelUp";
 
 /**
  * 角色等级数据
@@ -22,9 +22,9 @@ import { RoleTableLevelUp } from "./RoleTableLevelUp";
 @ecs.register('RoleModelLevel')
 export class RoleModelLevelComp extends ecs.Comp {
     /** 下个等级配置 */
-    rtluNext: RoleTableLevelUp = new RoleTableLevelUp();
+    rtluNext: TableRoleLevelUp = new TableRoleLevelUp();
     /** 当前等级配置 */
-    rtluCurrent: RoleTableLevelUp = new RoleTableLevelUp();
+    rtluCurrent: TableRoleLevelUp = new TableRoleLevelUp();
 
     /** 提供 VM 组件使用的数据 */
     vm: RoleLevelVM = new RoleLevelVM();
