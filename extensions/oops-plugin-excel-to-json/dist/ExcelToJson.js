@@ -77,27 +77,28 @@ async function convert(src, dst, name, isClient) {
             }
         });
         // 生成数据（多主键）
-        if (rowNumber > 6) {
+        if (rowNumber > 5) {
             let temp = null;
             for (var i = 0; i < primary.length; i++) {
                 let k = primary[i];
                 let id = data[k];
                 delete data[k]; // 主键数据删除
-                if (temp == null) {
-                    if (i == primary.length - 1) {
-                        r[id] = data;
-                    }
-                    else {
-                        r[id] = {};
-                        temp = r[id];
-                    }
+                if (primary.length == 1) {
+                    r[id] = data;
                 }
                 else {
                     if (i == primary.length - 1) {
                         temp[id] = data;
                     }
+                    else if (i == 0) {
+                        if (r[id] == undefined) {
+                            r[id] = {};
+                        }
+                        temp = r[id];
+                    }
                     else {
                         temp[id] = {};
+                        temp = temp[id];
                     }
                 }
             }

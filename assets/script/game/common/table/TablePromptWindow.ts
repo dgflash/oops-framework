@@ -6,13 +6,13 @@ export class TablePromptWindow {
 
     private data: any;
 
-    init(id: number, id_double: number) {
+    init(id: number, id1: number, id2: number) {
         var table = JsonUtil.get(TablePromptWindow.TableName);
-        this.data = table[id][id_double];
-        this.id = id;        this.id_double = id_double;
+        this.data = table[id][id1][id2];
+        this.id = id;        this.id1 = id1;        this.id2 = id2;
     }
 
-    id: number = 0;    id_double: number = 0;
+    id: number = 0;    id1: number = 0;    id2: number = 0;
 
     get title(): string {
         return this.data.title;
