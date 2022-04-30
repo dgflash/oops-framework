@@ -26,7 +26,5 @@ export class Main extends Root {
         if (JSB) {
             oops.gui.toast("热更新后新程序的提示");
         }
-
-        // console.log(protobuf);
     }
 }

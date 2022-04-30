@@ -152,8 +152,17 @@ export default class ResLoader {
 
     public loadRemote<T extends Asset>(url: string, options: IRemoteOptions | null, onComplete?: CompleteCallback<T> | null): void;
     public loadRemote<T extends Asset>(url: string, onComplete?: CompleteCallback<T> | null): void;
-    public loadRemote(url: string, ...args: any): void {
-        assetManager.loadRemote(url, args);
+    public loadRemote<T extends Asset>(url: string, ...args: any): void {
+        var options: IRemoteOptions | null = null;
+        var onComplete: CompleteCallback<T> | null = null;
+        if (args.length == 2) {
+            options = args[0];
+            onComplete = args[1];
+        }
+        else {
+            onComplete = args[0];
+        }
+        assetManager.loadRemote<T>(url, options, onComplete);
     }
 
     public release(path: string, bundleName: string = "resources") {
