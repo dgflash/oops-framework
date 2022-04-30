@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.methods = exports.unload = exports.load = void 0;
+exports.methods = exports.config = exports.unload = exports.load = void 0;
 const ExcelToJson_1 = require("./ExcelToJson");
 /**
  * @en Hooks triggered after extension loading is complete
@@ -20,19 +20,19 @@ exports.unload = unload;
  */
 exports.methods = {
     async excelToJson() {
-        var config = await Editor.Profile.getProject("oops-plugin-excel-to-json");
-        if (config.PathExcel == null) {
+        exports.config = await Editor.Profile.getProject("oops-plugin-excel-to-json");
+        if (exports.config.PathExcel == null) {
             console.warn("项目->项目设置->Excel To Json->PathExcel 配置路径");
             return;
         }
-        if (config.PathJson == null) {
+        if (exports.config.PathJson == null) {
             console.warn("项目->项目设置->Excel To Json->PathJson 配置路径");
             return;
         }
-        if (config.PathTs == null) {
+        if (exports.config.PathTs == null) {
             console.warn("项目->项目设置->Excel To Json->PathTs 配置路径");
             return;
         }
-        (0, ExcelToJson_1.run)(config.PathExcel, config.PathJson, config.PathTs);
+        (0, ExcelToJson_1.run)();
     }
 };

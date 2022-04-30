@@ -12,13 +12,15 @@ export function load() { }
  */
 export function unload() { }
 
+export var config: any;
+
 /**
  * @en 
  * @zh 为扩展的主进程的注册方法
  */
 export const methods: { [key: string]: (...any: any) => any } = {
     async excelToJson() {
-        var config = await Editor.Profile.getProject("oops-plugin-excel-to-json");
+        config = await Editor.Profile.getProject("oops-plugin-excel-to-json");
         if (config.PathExcel == null) {
             console.warn("项目->项目设置->Excel To Json->PathExcel 配置路径");
             return;
@@ -34,7 +36,6 @@ export const methods: { [key: string]: (...any: any) => any } = {
             return;
         }
 
-
-        run(config.PathExcel, config.PathJson, config.PathTs);
+        run();
     }
 };
