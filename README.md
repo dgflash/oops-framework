@@ -75,20 +75,20 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 2. 热更新组件配套生成热更数据插件 [【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124483993?spm=1001.2014.3001.5502)
 
 #### 第三方源码库
-| 库名          | 介绍                                                                  | 原创链接                                                               |
-| ------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| WebSocket     | 原创者设计灵活，易扩展自定义协议                                      | [原创者代码地址](https://github.com/wyb10a10/cocos_creator_framework)  |
-| animator      | 可视化动画状态机，与Untiy3D的Animator使用体验类似，扩展3D骨骼动画支持 | [原创者代码地址](https://github.com/LeeYip/cocos-animator)             |
-| model-view    | MVVM组件库，原库为cc2.x版本，本人升级到cc3.x                          | [原创者代码地址](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
-| ECS Framework | Entity-Component-System，原码升级优化过                               | [原创者代码地址](https://github.com/shangdibaozi/ECS)                  |
-| behavior-tree | 行为树                                                                | 无                                                                     |
+| 库名          | 介绍                                                                  | 原创                                                         |
+| ------------- | --------------------------------------------------------------------- | ------------------------------------------------------------ |
+| WebSocket     | 原创者设计灵活，易扩展自定义协议                                      | [原创](https://github.com/wyb10a10/cocos_creator_framework)  |
+| animator      | 可视化动画状态机，与Untiy的Animator使用体验类似，扩展3D骨骼动画支持 | [原创](https://github.com/LeeYip/cocos-animator)             |
+| model-view    | MVVM组件库，原库为cc2.x版本，本人升级到cc3.x                          | [原创](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
+| ECS           | Entity-Component-System，原码升级优化过                               | [原创](https://github.com/shangdibaozi/ECS)                  |
+| behavior-tree | 行为树                                                                | 无                                                           |
 
 #### 第三方 NPM 库
-| 库名       | 介绍                               | 安装                      | 原创链接                                                   |
-| ---------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------- |
-| Nano ID    | 生成唯一标识                       | npm install --save nanoid | [原创者代码地址](https://github.com/ai/nanoid)             |
-| seedrandom | 生成随机数                         | npm install seedrandom    | [原创者代码地址](https://www.npmjs.com/package/seedrandom) |
-| ky         | Fetch API 的小巧优雅的 HTTP 客户端 | npm install ky            | [原创者代码地址](https://github.com/sindresorhus/ky)       |
+| 库名       | 介绍                               | 安装                      | 原创                                             |
+| ---------- | ---------------------------------- | ------------------------- | ------------------------------------------------ |
+| Nano ID    | 生成唯一标识                       | npm install --save nanoid | [原创](https://github.com/ai/nanoid)             |
+| seedrandom | 生成随机数                         | npm install seedrandom    | [原创](https://www.npmjs.com/package/seedrandom) |
+| ky         | Fetch API 的小巧优雅的 HTTP 客户端 | npm install ky            | [原创](https://github.com/sindresorhus/ky)       |
 
 #### 贡献榜
 | 时间       | 开发者   | 贡献内容                                                                                    |

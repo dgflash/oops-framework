@@ -35,9 +35,7 @@ export class RoleViewComp extends CCComp {
         var role = this.ent as Role;
 
         this.loader = this.node.addComponent(RoleViewLoader);
-        this.loader.spine = this.spine;
-        this.loader.load(role.RoleModel.anim);
-        // this.node.emit("load", this.ent);
+        this.node.emit("load", role);
 
         this.animator = this.spine.getComponent(RoleViewAnimator)!;
         this.animator.role = role;

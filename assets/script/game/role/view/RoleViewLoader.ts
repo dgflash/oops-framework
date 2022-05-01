@@ -8,6 +8,7 @@
 import { Component, sp, _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
 import { config } from "../../common/config/Config";
+import { Role } from "../Role";
 
 const { ccclass, property } = _decorator;
 
@@ -16,15 +17,16 @@ const { ccclass, property } = _decorator;
 export class RoleViewLoader extends Component {
     spine: sp.Skeleton = null!;
 
-    // onLoad() {
-    //     this.node.on("load", this.onEmitLoad, this);
-    // }
+    onLoad() {
+        this.node.on("load", this.onEmitLoad, this);
+    }
 
-    // private onEmitLoad(role: Role) {
-    //     this.load(role.RoleModel.anim);
-    // }
+    private onEmitLoad(role: Role) {
+        this.spine = role.RoleView.spine;
+        this.load(role.RoleModel.anim);
+    }
 
-    load(name: string) {
+    private load(name: string) {
         this.node.active = false;
 
         var path = config.game.getRolePath(name);
