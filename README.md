@@ -25,10 +25,10 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 
 2. 有项目经验开发者的阅读建议
     - 阅读 script/game 中作者提供的一个 DEMO，这个 DEMO 作者表达的是基于 oops-framework 设计的业务框架
-    - 理解供模块三层架构设计思路，辅助需求分析
-    - 理解代码模板，辅助业务模块开发
+    - 理解模块三层架构设计思路，辅助需求分析
+    - 理解模块代码模板，辅助业务模块开发
     - 理解模块之间代码分离，保持业务思路清晰
-    - 理解模块之间低耦合，减小需求修改时影响范围
+    - 理解模块之间低耦合，降低模块之间的依赖度
 
 #### 技术分类
 1. 基础类
@@ -81,7 +81,6 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 | animator      | 可视化动画状态机，与Untiy的Animator使用体验类似，扩展3D骨骼动画支持 | [原创](https://github.com/LeeYip/cocos-animator)             |
 | model-view    | MVVM组件库，原库为cc2.x版本，本人升级到cc3.x                          | [原创](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
 | ECS           | Entity-Component-System，原码升级优化过                               | [原创](https://github.com/shangdibaozi/ECS)                  |
-| behavior-tree | 行为树                                                                | 无                                                           |
 
 #### 第三方 NPM 库
 | 库名       | 介绍                               | 安装                      | 原创                                             |

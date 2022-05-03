@@ -28,6 +28,7 @@ export class NetProtocolProtobuf implements IProtocolHelper {
         if (respProtocol.code == 1) {
             if (respProtocol.isCompress) {
                 // respProtocol.data
+                // const p = Person.decode(msg);
             }
             respProtocol.data = JSON.parse(respProtocol.data);
 
@@ -43,6 +44,7 @@ export class NetProtocolProtobuf implements IProtocolHelper {
         reqProtocol.callback = rspCmd;
         if (reqProtocol.isCompress) {
             // reqProtocol.data
+            // const msg = Person.encode({ name: "dgflash", id: 1 }).finish();
         }
         return rspCmd;
     }

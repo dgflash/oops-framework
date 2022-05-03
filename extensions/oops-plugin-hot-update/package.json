@@ -3,7 +3,7 @@
     "title": "oops-plugin-hot-update",
     "package_version": 2,
     "version": "1.0.0",
-    "author": "董刚",
+    "author": "dgflash",
     "description": "i18n:oops-plugin-hot-update.description",
     "contributions": {
         "builder": "./dist/builder.js"

@@ -4,7 +4,7 @@
     "name": "oops-plugin-excel-to-json",
     "description": "i18n:oops-plugin-excel-to-json.description",
     "main": "./dist/main.js",
-    "author": "董刚",
+    "author": "dgflash",
     "dependencies": {
         "fs-extra": "^10.0.0"
     },

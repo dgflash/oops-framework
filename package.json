@@ -2,17 +2,13 @@
   "creator": {
     "version": "3.5.0"
   },
+  "uuid": "c30b28da-749e-479b-bcb6-cecd8d7be9e3",
+  "name": "oops-framework",
+  "description": "oops-framework",
   "dependencies": {
-    "ky": "^0.30.0",
-    "nanoid": "^3.3.2",
-    "seedrandom": "^3.0.5",
-    "ts-proto": "^1.110.4"
+    "seedrandom": "^3.0.5"
   },
   "devDependencies": {
     "@types/node": "^17.0.25"
-  },
-  "name": "oops-framework",
-  "type": "3d",
-  "uuid": "c30b28da-749e-479b-bcb6-cecd8d7be9e3",
-  "version": "3.5.0"
+  }
 }

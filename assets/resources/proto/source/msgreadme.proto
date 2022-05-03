@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+// A very simple protobuf message.
+message Person {
+    string name = 1;
+    uint64 id = 2;
+}
