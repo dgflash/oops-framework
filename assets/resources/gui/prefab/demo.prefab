@@ -3190,6 +3190,7 @@
     "_lineHeight": 40,
     "_string": "<color=#00ff00>Rich</color><color=#0fffff>Text</color>",
     "_horizontalAlign": 0,
+    "_verticalAlign": 0,
     "_fontSize": 40,
     "_maxWidth": 0,
     "_fontFamily": "Arial",
@@ -5517,7 +5518,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1280,
-      "height": 720
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",

@@ -2,11 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-16 14:12:28
+ * @LastEditTime: 2022-02-16 13:38:33
  */
 import { Component, director, game, Game, log, Node, view, _decorator } from "cc";
-import { config } from "../game/common/config/Config";
-import { RootSystem } from "../game/common/ecs/RootSystem";
 import { AudioManager } from "./common/audio/AudioManager";
 import { EngineMessage } from "./common/event/EngineMessage";
 import { Message } from "./common/event/MessageManager";
@@ -20,7 +18,6 @@ import { oops } from "./Oops";
 
 const { ccclass, property } = _decorator;
 
-@ccclass('Root')
 export class Root extends Component {
     @property({
         type: Node,
@@ -34,13 +31,8 @@ export class Root extends Component {
     })
     gui: Node | null = null;
 
-    private ecs!: RootSystem;
-
     onLoad() {
         this.init();
-
-        // 加载游戏配置
-        config.init(this.run.bind(this));
     }
 
     protected init() {
@@ -50,10 +42,6 @@ export class Root extends Component {
         oops.http = new HttpRequest();
         oops.gui = new LayerManager(this.gui!);
         oops.game = new GameManager(this.game!);
-
-        // ECS系统初始化
-        this.ecs = new RootSystem();
-        this.ecs.init();
 
         // 游戏显示事件
         game.on(Game.EVENT_SHOW, () => {
@@ -81,14 +69,5 @@ export class Root extends Component {
             c_gui.resize();
             Message.dispatchEvent(EngineMessage.GAME_RESIZE);
         });
-    }
-
-    update(dt: number) {
-        this.ecs.execute(dt);
-    }
-
-    /** 加载完引擎配置文件后执行 */
-    protected run() {
-
     }
 }

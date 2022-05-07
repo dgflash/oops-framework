@@ -8,14 +8,14 @@ import { setDisplayStats, _decorator } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
 import { ecs } from './core/libs/ECS';
 import { oops } from './core/Oops';
-import { Root } from './core/Root';
+import { CommonEnter } from './game/common/ecs/CommonEnter';
 import { smc } from './game/common/ecs/SingletonModuleComp';
 import { Initialize } from './game/initialize/Initialize';
 
 const { ccclass, property } = _decorator;
 
 @ccclass('Main')
-export class Main extends Root {
+export class Main extends CommonEnter {
     start() {
         if (DEBUG) setDisplayStats(true);
     }
