@@ -7,9 +7,6 @@ import { createGroup, ECSComblockSystem, ECSRootSystem, ECSSystem } from "./ECSS
 export module ecs {
     export type Entity = ECSEntity;
     export type Comp = ECSComp;
-    export type RootSystem = ECSRootSystem;
-    export type ComblockSystem = ECSComblockSystem;
-    export type System = ECSSystem;
 
     export const Entity = ECSEntity;
     export const Comp = ECSComp;
