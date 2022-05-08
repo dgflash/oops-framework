@@ -1,4 +1,4 @@
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { RoleAttributeType } from "../model/RoleEnum";
 import { RoleModelLevelComp } from "../model/RoleModelLevelComp";
 import { Role } from "../Role";

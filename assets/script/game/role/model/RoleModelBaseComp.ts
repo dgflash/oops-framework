@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-03-10 10:23:41
  */
 
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { VM } from "../../../core/libs/model-view/ViewModel";
 import { RoleAttributeType } from "./RoleEnum";
 import { RoleModelComp } from "./RoleModelComp";

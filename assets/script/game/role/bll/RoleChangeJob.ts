@@ -6,7 +6,7 @@
  */
 
 import { Message } from "../../../core/common/event/MessageManager";
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { RoleModelJobComp } from "../model/RoleModelJobComp";
 import { Role } from "../Role";
 import { RoleEvent } from "../RoleEvent";

@@ -6,7 +6,7 @@
  */
 import { setDisplayStats, _decorator } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
-import { ecs } from './core/libs/ECS';
+import { ecs } from './core/libs/ecs/ECS';
 import { oops } from './core/Oops';
 import { CommonEnter } from './game/common/ecs/CommonEnter';
 import { smc } from './game/common/ecs/SingletonModuleComp';

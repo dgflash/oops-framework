@@ -6,7 +6,7 @@
  */
 import { sys, _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { oops } from "../../../core/Oops";
 import { JsonUtil } from "../../../core/utils/JsonUtil";
 import { Account } from "../../account/Account";

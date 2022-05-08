@@ -1,6 +1,6 @@
 import { EventTouch, Node, _decorator } from "cc";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { oops } from "../../../core/Oops";
-import { ecs } from "../../../core/libs/ECS";
 import { UIID } from "../../common/config/GameUIConfig";
 import { CCComp } from "../../common/ecs/CCComp";
 import { SingletonModuleComp } from "../../common/ecs/SingletonModuleComp";

@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-03-15 10:36:13
  */
 
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { Account } from "../../account/Account";
 import { Initialize } from "../../initialize/Initialize";
 

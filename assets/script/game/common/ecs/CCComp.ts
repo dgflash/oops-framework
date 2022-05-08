@@ -7,7 +7,7 @@
 
 import { Component, Node, _decorator } from 'cc';
 import { EventDispatcher } from '../../../core/common/event/EventDispatcher';
-import { ecs } from '../../../core/libs/ECS';
+import { ecs } from '../../../core/libs/ecs/ECS';
 import { ViewUtil } from '../../../core/utils/ViewUtil';
 
 const { ccclass, property } = _decorator;

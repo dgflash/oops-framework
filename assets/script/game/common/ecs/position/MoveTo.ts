@@ -6,7 +6,7 @@
  */
 import { Node, Vec3 } from "cc";
 import { Timer } from "../../../../core/common/manager/TimerManager";
-import { ecs } from "../../../../core/libs/ECS";
+import { ecs } from "../../../../core/libs/ecs/ECS";
 import { Vec3Util } from "../../../../core/utils/Vec3Util";
 
 /** 向目标移动，移动过程中目标位置变化会自动修正移动目标点，直到未修正前移动到目标点停止 */

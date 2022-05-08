@@ -7,8 +7,8 @@
 import { Node } from "cc";
 import { resLoader } from "../../core/common/loader/ResLoader";
 import { AsyncQueue, NextFunction } from "../../core/common/queue/AsyncQueue";
+import { ecs } from "../../core/libs/ecs/ECS";
 import { UICallbacks } from "../../core/gui/layer/Defines";
-import { ecs } from "../../core/libs/ECS";
 import { oops } from "../../core/Oops";
 import { config } from "../common/config/Config";
 import { UIID } from "../common/config/GameUIConfig";

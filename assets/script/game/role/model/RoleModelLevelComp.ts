@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-03-10 11:38:31
  */
 
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { VM } from "../../../core/libs/model-view/ViewModel";
 import { TableRoleLevelUp } from "../../common/table/TableRoleLevelUp";
 

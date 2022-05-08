@@ -7,7 +7,7 @@
 
 import { Node, _decorator } from 'cc';
 import { EventDispatcher } from "../../../core/common/event/EventDispatcher";
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from '../../../core/libs/ecs/ECS';
 import VMParent from "../../../core/libs/model-view/VMParent";
 import { ViewUtil } from "../../../core/utils/ViewUtil";
 

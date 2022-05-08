@@ -4,7 +4,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-02-25 09:49:22
  */
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { EcsAccountSystem } from "../../account/Account";
 import { EcsRoleSystem } from "../../role/Role";
 import { EcsPositionSystem } from "./position/EcsPositionSystem";

@@ -6,7 +6,7 @@
  */
 
 import { Message } from "../../core/common/event/MessageManager";
-import { ecs } from "../../core/libs/ECS";
+import { ecs } from "../../core/libs/ecs/ECS";
 import { GameEvent } from "../common/config/GameEvent";
 import { AccountNetDataComp, AccountNetDataSystem } from "./bll/AccountNetData";
 import { AccountModelComp } from "./model/AccountModelComp";

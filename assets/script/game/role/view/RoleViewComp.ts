@@ -6,7 +6,7 @@
  */
 
 import { sp, _decorator } from "cc";
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { CCComp } from "../../common/ecs/CCComp";
 import { Role } from "../Role";
 import { RoleEvent } from "../RoleEvent";

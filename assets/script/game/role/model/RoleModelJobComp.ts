@@ -4,7 +4,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-01-29 10:56:57
  */
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { TableRoleJob } from "../../common/table/TableRoleJob";
 import { RoleAttributeType } from "./RoleEnum";
 import { RoleModelComp } from "./RoleModelComp";

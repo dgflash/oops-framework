@@ -6,7 +6,7 @@
  * @LastEditTime: 2022-04-25 12:02:10
  */
 import { Node, Vec3 } from "cc";
-import { ecs } from "../../core/libs/ECS";
+import { ecs } from "../../core/libs/ecs/ECS";
 import { ViewUtil } from "../../core/utils/ViewUtil";
 import { MoveToComp } from "../common/ecs/position/MoveTo";
 import { RoleChangeJobComp, RoleChangeJobSystem } from "./bll/RoleChangeJob";

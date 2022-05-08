@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-04-14 18:16:20
  */
 import { Component, EventTouch, _decorator } from "cc";
+import { ecs } from "../../core/libs/ecs/ECS";
 import { tips } from "../../core/gui/prompt/TipsManager";
-import { ecs } from "../../core/libs/ECS";
 import { oops } from "../../core/Oops";
 import { UIID } from "../common/config/GameUIConfig";
 import { SingletonModuleComp } from "../common/ecs/SingletonModuleComp";

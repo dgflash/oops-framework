@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-27 11:07:05
  */
 
-import { ecs } from "../../../core/libs/ECS";
+import { ecs } from "../../../core/libs/ecs/ECS";
 import { Role } from "../../role/Role";
 
 /** 
