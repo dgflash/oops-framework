@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-15 20:12:33
+ * @LastEditTime: 2022-05-09 18:34:16
  */
 import { sys, _decorator } from "cc";
 import { resLoader } from "../../../core/common/loader/ResLoader";
@@ -52,9 +52,9 @@ export class LoadingViewComp extends CCVMParentComp {
     }
 
     start() {
-        if (!sys.isNative) {
+        // if (!sys.isNative) {
             this.enter();
-        }
+        // }
     }
 
     enter() {

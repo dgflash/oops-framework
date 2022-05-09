@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-04-15 14:44:04
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-15 20:25:02
+ * @LastEditTime: 2022-05-09 18:32:44
  */
 import { Component, game, sys, _decorator } from "cc";
 import { tips } from "../../../core/gui/prompt/TipsManager";
@@ -22,11 +22,11 @@ export class HotUpdate extends Component {
     private lv: LoadingViewComp = null!;
 
     onLoad() {
-        if (sys.isNative) {
-            this.lv = this.getComponent(LoadingViewComp)!;
-            this.lv.data.prompt = oops.language.getLangByID("update_tips_check_update");
-            this.startHotUpdate();
-        }
+        // if (sys.isNative) {
+        //     this.lv = this.getComponent(LoadingViewComp)!;
+        //     this.lv.data.prompt = oops.language.getLangByID("update_tips_check_update");
+        //     this.startHotUpdate();
+        // }
     }
 
     /** 开始热更新 */

@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 11:25:15
+ * @LastEditTime: 2022-05-09 19:34:22
  */
-import { Camera, Component, ResolutionPolicy, screen, UITransform, view, _decorator } from "cc";
+import { Camera, Component, math, ResolutionPolicy, screen, UITransform, view, _decorator } from "cc";
 import { Logger } from "../common/log/Logger";
 
 const { ccclass, menu } = _decorator;
@@ -13,11 +13,16 @@ const { ccclass, menu } = _decorator;
 @ccclass('GUI')
 export class GUI extends Component {
     /** 界面层矩形信息组件 */
-    public transform!: UITransform;
+    transform!: UITransform;
     /** 游戏二维摄像机 */
-    public camera!: Camera;
+    camera!: Camera;
     /** 是否为竖屏显示 */
-    public portrait!: boolean;
+    portrait!: boolean;
+
+    /** 竖屏设计尺寸 */
+    private portraitDrz: math.Size = null!;
+    /** 横屏设计尺寸 */
+    private landscapeDrz: math.Size = null!;
 
     onLoad() {
         this.init();
@@ -27,12 +32,29 @@ export class GUI extends Component {
     protected init() {
         this.transform = this.getComponent(UITransform)!;
         this.camera = this.getComponentInChildren(Camera)!;
+
+        if (view.getDesignResolutionSize().width > view.getDesignResolutionSize().height) {
+            this.landscapeDrz = view.getDesignResolutionSize();
+            this.portraitDrz = new math.Size(this.landscapeDrz.height, this.landscapeDrz.width);
+        }
+        else {
+            this.portraitDrz = view.getDesignResolutionSize();
+            this.landscapeDrz = new math.Size(this.portraitDrz.height, this.portraitDrz.width);
+        }
+
         this.resize();
     }
 
-    public resize() {
-        let dr = view.getDesignResolutionSize();
-        var s = screen.windowSize; 
+    resize() {
+        let dr;
+        if (view.getDesignResolutionSize().width > view.getDesignResolutionSize().height) {
+            dr = this.landscapeDrz;
+        }
+        else {
+            dr = this.portraitDrz
+        }
+
+        var s = screen.windowSize;
         var rw = s.width;
         var rh = s.height;
         var finalW = rw;

@@ -32,7 +32,7 @@
   {
     "__type__": "cc.Node",
     "_name": "root",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": {
       "__id__": 1
     },
@@ -82,7 +82,7 @@
   {
     "__type__": "cc.Node",
     "_name": "game",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": {
       "__id__": 2
     },
@@ -121,7 +121,7 @@
   {
     "__type__": "cc.Node",
     "_name": "gui",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": {
       "__id__": 2
     },
@@ -174,7 +174,7 @@
   {
     "__type__": "cc.Node",
     "_name": "UICamera",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": {
       "__id__": 4
     },
