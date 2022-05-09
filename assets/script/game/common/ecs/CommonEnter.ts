@@ -2,19 +2,20 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-12 18:38:08
+ * @LastEditTime: 2022-05-09 09:46:22
  */
+import { ECSRootSystem } from '../../../core/libs/ecs/ECSSystem';
+import { oops } from '../../../core/Oops';
 import { Root } from '../../../core/Root';
 import { config } from '../config/Config';
 import { CommonSystem } from './CommonSystem';
 
 /** 游戏业务入口 */
 export class CommonEnter extends Root {
-    private ecs!: CommonSystem;
-
     onLoad() {
-        this.ecs = new CommonSystem();
-        this.ecs.init();
+        oops.ecs = new ECSRootSystem();
+        oops.ecs.add(new CommonSystem())
+        oops.ecs.init();
 
         // 加载游戏配置
         config.init(this.run.bind(this));
@@ -28,6 +29,6 @@ export class CommonEnter extends Root {
     }
 
     update(dt: number) {
-        this.ecs.execute(dt);
+        oops.ecs.execute(dt);
     }
 }
