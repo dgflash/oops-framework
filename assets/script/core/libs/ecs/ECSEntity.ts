@@ -87,7 +87,6 @@ export class ECSEntity {
     add<T extends ecs.IComp>(ctor: ecs.CompCtor<T>, isReAdd?: boolean): T;
     add<T extends ecs.IComp>(ctor: ecs.CompType<T>, isReAdd?: boolean): T;
     add<T extends ecs.IComp>(ctor: ecs.CompType<T> | T, isReAdd: boolean = false): T | ECSEntity {
-        // console.log('typeof: ', typeof ctor);
         if (typeof ctor === 'function') {
             let compTid = ctor.tid;
             if (ctor.tid === -1) {
@@ -146,6 +145,7 @@ export class ECSEntity {
             //@ts-ignore
             ctor.canRecycle = false;
             broadcastCompAddOrRemove(this, compTid);
+
             return this;
         }
     }
