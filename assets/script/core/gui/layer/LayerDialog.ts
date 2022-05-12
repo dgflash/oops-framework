@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-24 14:24:04
+ * @LastEditTime: 2022-05-12 16:06:43
  */
 
 import { Node } from "cc";
@@ -53,6 +53,10 @@ export class LayerDialog extends LayerPopUp {
         }
 
         return uuid;
+    }
+
+    protected setBlackDisable() {
+        if (this.queue.length == 0) this.black.enabled = false;
     }
 
     private next() {
