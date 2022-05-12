@@ -12,22 +12,31 @@ import { LayerPopUp } from "./LayerPopup";
 import { LayerUI } from "./LayerUI";
 import { UIMap } from "./UIMap";
 
+/** 界面层类型 */
 export enum LayerType {
+    /** 游戏层 */
     Game = "LayerGame",
+    /** 主界层 */
     UI = "LayerUI",
+    /** 弹窗层 */
     PopUp = "LayerPopUp",
+    /** 模式窗口层 */
     Dialog = "LayerDialog",
+    /** 弹窗层 */
     Alert = "LayerAlert",
+    /** 通知信息层 */
     Notify = "LayerNotify",
+    /** 新手引导层 */
     Guide = "LayerGuide"
 }
 
 /** UI配置结构体 */
 export interface UIConfig {
     bundle?: string;
+    /** 窗口层级 */
     layer: LayerType;
+    /** 预制资源 */
     prefab: string;
-    animation?: number;
 }
 
 export class LayerManager {

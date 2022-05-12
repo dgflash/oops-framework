@@ -47,7 +47,7 @@ export class LayerUI extends Node {
      * @param callbacks  回调函数对象，可选
      */
     add(config: UIConfig, params?: any, callbacks?: UICallbacks): string {
-        let prefabPath = config.prefab
+        let prefabPath = config.prefab;
         var uuid = this.getUuid(prefabPath);
         var viewParams = this.ui_nodes.get(uuid);
 
@@ -66,19 +66,25 @@ export class LayerUI extends Node {
             this.ui_nodes.set(viewParams.uuid, viewParams);
         }
 
-        this.load(viewParams)
+        this.load(viewParams, config.bundle)
 
         return uuid;
     }
 
-    protected load(viewParams: ViewParams) {
+    /**
+     * 加载界面资源
+     * @param viewParams 显示参数
+     * @param bundle     远程资源包名，如果为空就是默认本地资源包
+     */
+    protected load(viewParams: ViewParams, bundle?: string) {
         var vp: ViewParams = this.ui_nodes.get(viewParams.uuid)!;
         if (vp && vp.node) {
             this.createNode(null, vp);
         }
         else {
             // 获取预制件资源
-            resLoader.load(viewParams.prefabPath, (err: Error | null, res: Prefab) => {
+            bundle = bundle || "resources";
+            resLoader.load(bundle, viewParams.prefabPath, (err: Error | null, res: Prefab) => {
                 if (err) {
                     error(err);
                 }

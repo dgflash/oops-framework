@@ -13,6 +13,9 @@ import { LayerManager } from "./gui/layer/LayerManager";
 import { ECSRootSystem } from "./libs/ecs/ECSSystem";
 import { HttpRequest } from "./network/HttpRequest";
 
+/** 框架版本 */
+export var version: string = "1.0.5";
+
 export class oops {
     /** ECS */
     static ecs: ECSRootSystem;
