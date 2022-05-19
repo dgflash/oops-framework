@@ -31,6 +31,7 @@ export class AudioMusic extends AudioSource {
             }
 
             if (this.playing) {
+                this._isPlay = false;
                 this.stop();
                 resLoader.release(this._url!);
             }

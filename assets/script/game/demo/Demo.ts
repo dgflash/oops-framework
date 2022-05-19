@@ -109,7 +109,12 @@ export class Demo extends Component {
     /** 背景音乐 */
     private btn_audio_open1(event: EventTouch, data: any) {
         oops.audio.musicVolume = 0.5;
-        oops.audio.playMusic("audios/nocturne");
+
+        oops.audio.playMusic("audios/Gravel", () => {
+            oops.audio.playMusic("audios/nocturne", () => {
+
+            });
+        });
     }
 
     /** 背景音效 */
