@@ -1,19 +1,20 @@
 import { ecs } from "./ECS";
 import { ECSEntity } from "./ECSEntity";
 import { ECSGroup } from "./ECSGroup";
+import { ECSModel } from "./ECSModel";
 
 /**
  * 创建group，每个group只关心对应组件的添加和删除
  * @param matcher 实体筛选器
  */
- export function createGroup<E extends ECSEntity = ECSEntity>(matcher: ecs.IMatcher): ECSGroup<E> {
-    let group = ecs.model.groups.get(matcher.mid);
+export function createGroup<E extends ECSEntity = ECSEntity>(matcher: ecs.IMatcher): ECSGroup<E> {
+    let group = ECSModel.groups.get(matcher.mid);
     if (!group) {
         group = new ECSGroup(matcher);
-        ecs.model.groups.set(matcher.mid, group);
+        ECSModel.groups.set(matcher.mid, group);
         let careComponentTypeIds = matcher.indices;
         for (let i = 0; i < careComponentTypeIds.length; i++) {
-            ecs.model.compAddOrRemove.get(careComponentTypeIds[i])!.push(group.onComponentAddOrRemove.bind(group));
+            ECSModel.compAddOrRemove.get(careComponentTypeIds[i])!.push(group.onComponentAddOrRemove.bind(group));
         }
     }
     return group as unknown as ECSGroup<E>;

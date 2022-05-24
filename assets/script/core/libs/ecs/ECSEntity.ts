@@ -1,5 +1,6 @@
 import { ecs } from "./ECS";
 import { ECSMask } from "./ECSMask";
+import { ECSModel } from "./ECSModel";
 
 //#region 辅助方法
 
@@ -9,13 +10,13 @@ import { ECSMask } from "./ECSMask";
  * @param componentTypeId 组件类型id
  */
 function broadcastCompAddOrRemove(entity: ECSEntity, componentTypeId: number) {
-    let events = ecs.model.compAddOrRemove.get(componentTypeId);
+    let events = ECSModel.compAddOrRemove.get(componentTypeId);
     for (let i = events!.length - 1; i >= 0; i--) {
         events![i](entity);
     }
     // 判断是不是删了单例组件
-    if (ecs.model.tid2comp.has(componentTypeId)) {
-        ecs.model.tid2comp.delete(componentTypeId);
+    if (ECSModel.tid2comp.has(componentTypeId)) {
+        ECSModel.tid2comp.delete(componentTypeId);
     }
 }
 
@@ -24,11 +25,11 @@ function broadcastCompAddOrRemove(entity: ECSEntity, componentTypeId: number) {
  * @param ctor
  */
 function createComp<T extends ecs.IComp>(ctor: ecs.CompCtor<T>): T {
-    var cct = ecs.model.compCtors[ctor.tid];
+    var cct = ECSModel.compCtors[ctor.tid];
     if (!cct) {
         throw Error(`没有找到该组件的构造函数，检查${ctor.compName}是否为不可构造的组件`);
     }
-    let comps = ecs.model.compPools.get(ctor.tid)!;
+    let comps = ECSModel.compPools.get(ctor.tid)!;
     let component = comps.pop() || new (cct as ecs.CompCtor<T>);
     return component as T;
 }
@@ -40,14 +41,14 @@ function createComp<T extends ecs.IComp>(ctor: ecs.CompCtor<T>): T {
  * @param entity 
  */
 function destroyEntity(entity: ECSEntity) {
-    if (ecs.model.eid2Entity.has(entity.eid)) {
-        var entitys = ecs.model.entityPool.get(entity.constructor.name);
+    if (ECSModel.eid2Entity.has(entity.eid)) {
+        var entitys = ECSModel.entityPool.get(entity.constructor.name);
         if (entitys == null) {
             entitys = [];
-            ecs.model.entityPool.set(entity.constructor.name, entitys);
+            ECSModel.entityPool.set(entity.constructor.name, entitys);
         }
         entitys.push(entity);
-        ecs.model.eid2Entity.delete(entity.eid);
+        ECSModel.eid2Entity.delete(entity.eid);
     }
     else {
         console.warn('试图销毁不存在的实体');
@@ -195,7 +196,7 @@ export class ECSEntity {
             if (isRecycle) {
                 comp.reset();
                 if (comp.canRecycle) {
-                    ecs.model.compPools.get(componentTypeId)!.push(comp);
+                    ECSModel.compPools.get(componentTypeId)!.push(comp);
                 }
             }
             else {

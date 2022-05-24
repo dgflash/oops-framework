@@ -17,9 +17,6 @@ export module ecs {
     export const RootSystem = ECSRootSystem;
     export const ComblockSystem = ECSComblockSystem;
 
-    /** 注：不要尝试修改此对象数据，非对外使用 */
-    export const model = new ECSModel();
-
     export type CompAddOrRemove = (entity: Entity) => void;
     export type CompType<T> = CompCtor<T> | number;
 
@@ -82,16 +79,16 @@ export module ecs {
     export function register<T>(compName: string, canNew: boolean = true) {
         return function (ctor: CompCtor<T>) {
             if (ctor.tid === -1) {
-                ctor.tid = model.compTid++;
+                ctor.tid = ECSModel.compTid++;
                 ctor.compName = compName;
                 if (canNew) {
-                    model.compCtors.push(ctor);
-                    model.compPools.set(ctor.tid, []);
+                    ECSModel.compCtors.push(ctor);
+                    ECSModel.compPools.set(ctor.tid, []);
                 }
                 else {
-                    model.compCtors.push(null!);
+                    ECSModel.compCtors.push(null!);
                 }
-                model.compAddOrRemove.set(ctor.tid, []);
+                ECSModel.compAddOrRemove.set(ctor.tid, []);
             }
             else {
                 throw new Error(`重复注册组件： ${compName}.`);
@@ -101,11 +98,11 @@ export module ecs {
 
     /** 扩展：获取带 eid 自增量的实体（继承Entity方式的编码风格，可减少一定代码量） */
     export function getEntity<T extends Entity>(ctor: EntityCtor<T>): T {
-        var entitys = model.entityPool.get(ctor.name) || [];
+        var entitys = ECSModel.entityPool.get(ctor.name) || [];
         let entity: any = entitys.pop();
         if (!entity) {
             entity = new ctor();
-            entity.eid = model.eid++; // 实体id也是有限的资源
+            entity.eid = ECSModel.eid++; // 实体id也是有限的资源
         }
 
         if (entity.init)
@@ -113,7 +110,7 @@ export module ecs {
         else
             console.error(`${ctor.name} 实体缺少 init 方法初始化默认组件`);
 
-        model.eid2Entity.set(entity.eid, entity);
+        ECSModel.eid2Entity.set(entity.eid, entity);
         return entity as T;
     }
 
@@ -123,27 +120,27 @@ export module ecs {
      * @returns 
      */
     export function query<E extends Entity = Entity>(matcher: IMatcher): E[] {
-        let group = model.groups.get(matcher.mid);
+        let group = ECSModel.groups.get(matcher.mid);
         if (!group) {
             group = createGroup(matcher);
-            model.eid2Entity.forEach(group.onComponentAddOrRemove, group);
+            ECSModel.eid2Entity.forEach(group.onComponentAddOrRemove, group);
         }
         return group.matchEntities as E[];
     }
 
     /** 清理所有的实体 */
     export function clear() {
-        model.eid2Entity.forEach((entity) => {
+        ECSModel.eid2Entity.forEach((entity) => {
             entity.destroy();
         });
-        model.groups.forEach((group) => {
+        ECSModel.groups.forEach((group) => {
             group.clear();
         });
-        model.compAddOrRemove.forEach(callbackLst => {
+        ECSModel.compAddOrRemove.forEach(callbackLst => {
             callbackLst.length = 0;
         });
-        model.eid2Entity.clear();
-        model.groups.clear();
+        ECSModel.eid2Entity.clear();
+        ECSModel.groups.clear();
     }
 
     /**
@@ -151,19 +148,19 @@ export module ecs {
      * @param eid 
      */
     export function getEntityByEid<E extends Entity = Entity>(eid: number): E {
-        return model.eid2Entity.get(eid) as E;
+        return ECSModel.eid2Entity.get(eid) as E;
     }
 
     /** 当前活动中的实体数量 */
     export function activeEntityCount() {
-        return model.eid2Entity.size;
+        return ECSModel.eid2Entity.size;
     }
 
     /** 创建实体 */
     function createEntity<E extends Entity = Entity>(): E {
         let entity = new Entity();
-        entity.eid = model.eid++;                     // 实体id也是有限的资源
-        model.eid2Entity.set(entity.eid, entity);
+        entity.eid = ECSModel.eid++;                     // 实体id也是有限的资源
+        ECSModel.eid2Entity.set(entity.eid, entity);
         return entity as E;
     }
 
@@ -223,11 +220,11 @@ export module ecs {
      * @param ctor 组件类
      */
     export function getSingleton<T extends IComp>(ctor: CompCtor<T>) {
-        if (!model.tid2comp.has(ctor.tid)) {
+        if (!ECSModel.tid2comp.has(ctor.tid)) {
             let comp = createEntityWithComp(ctor) as T;
-            model.tid2comp.set(ctor.tid, comp);
+            ECSModel.tid2comp.set(ctor.tid, comp);
         }
-        return model.tid2comp.get(ctor.tid) as T;
+        return ECSModel.tid2comp.get(ctor.tid) as T;
     }
 
     /**
@@ -236,8 +233,8 @@ export module ecs {
      */
     export function addSingleton(obj: IComp) {
         let tid = (obj.constructor as CompCtor<IComp>).tid;
-        if (!model.tid2comp.has(tid)) {
-            model.tid2comp.set(tid, obj);
+        if (!ECSModel.tid2comp.has(tid)) {
+            ECSModel.tid2comp.set(tid, obj);
         }
     }
 

@@ -1,6 +1,7 @@
 import { ecs } from "./ECS";
 import { ECSEntity } from "./ECSEntity";
 import { ECSMask } from "./ECSMask";
+import { ECSModel } from "./ECSModel";
 
 let macherId: number = 1;
 
@@ -76,7 +77,7 @@ export class ECSMatcher implements ecs.IMatcher {
     onlyOf(...args: ecs.CompType<ecs.IComp>[]): ECSMatcher {
         this.rules.push(new AllOf(...args));
         let otherTids: ecs.CompType<ecs.IComp>[] = [];
-        for (let ctor of ecs.model.compCtors) {
+        for (let ctor of ECSModel.compCtors) {
             if (args.indexOf(ctor) < 0) {
                 otherTids.push(ctor);
             }
