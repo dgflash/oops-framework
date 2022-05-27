@@ -71,6 +71,17 @@ export class LayerUI extends Node {
         return uuid;
     }
 
+    // async addAsync(config: UIConfig, params?: any): Promise<Node> {
+    //     return new Promise<Node>((resolve, reject) => {
+    //         var uic: UICallbacks = {
+    //             onAdded: (node: Node, params: any) => {
+    //                 resolve(node)
+    //             }
+    //         };
+    //         this.add(config, params, uic);
+    //     });
+    // }
+
     /**
      * 加载界面资源
      * @param viewParams 显示参数

@@ -103,6 +103,13 @@ export class LayerManager {
         this.uiMap.init(this, data);
     }
 
+    /**
+     * 同步打开一个窗口
+     * @param uiId          窗口唯一编号
+     * @param uiArgs        窗口参数
+     * @param callbacks     回调对象
+     * @returns 
+     */
     public open(uiId: number, uiArgs: any = null, callbacks?: UICallbacks): void {
         var config = this.configs[uiId];
         if (config == null) {
@@ -124,6 +131,23 @@ export class LayerManager {
                 this.alert.add(config, uiArgs, callbacks);
                 break;
         }
+    }
+
+    /**
+     * 异步打开一个窗口
+     * @param uiId          窗口唯一编号
+     * @param uiArgs        窗口参数
+     * @returns 
+     */
+    public async openAsync(uiId: number, uiArgs: any = null): Promise<Node | null> {
+        return new Promise<Node | null>((resolve, reject) => {
+            var callbacks: UICallbacks = {
+                onAdded: (node: Node, params: any) => {
+                    resolve(node)
+                }
+            };
+            this.open(uiId, uiArgs, callbacks);
+        });
     }
 
     public has(uiId: number) {
