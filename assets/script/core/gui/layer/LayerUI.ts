@@ -262,7 +262,7 @@ export class LayerUI extends Node {
         });
         this.ui_nodes.clear();
 
-        // 清楚缓存中的界面
+        // 清除缓存中的界面
         if (isDestroy) {
             this.ui_cache.forEach((value: ViewParams, prefabPath: string) => {
                 this.removeCache(prefabPath);
