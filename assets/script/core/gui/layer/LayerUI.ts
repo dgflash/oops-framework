@@ -17,7 +17,10 @@ import { DelegateComponent } from "./DelegateComponent";
 import { UIConfig } from "./LayerManager";
 
 export class LayerUI extends Node {
-    protected ui_nodes: Map<string, ViewParams> = new Map<string, ViewParams>();
+    /** 界面节点集合 */
+    protected ui_nodes = new Map<string, ViewParams>();
+    /** 被移除的界面缓存数据 */
+    protected ui_cache = new Map<string, ViewParams>();
 
     /**
      * UI基础层，允许添加多个预制件节点
@@ -116,37 +119,61 @@ export class LayerUI extends Node {
     }
 
     /**
+     * 根据预制件路径删除，预制件如在队列中也会被删除，如果该预制件存在多个也会一起删除。
+     * @param prefabPath 
+     */
+    remove(prefabPath: string, isDestroy: boolean): void {
+        // 验证是否删除后台缓存界面
+        if (isDestroy) this.removeCache(prefabPath);
+
+        // 界面移出舞台
+        let children = this.__nodes();
+        for (let i = 0; i < children.length; i++) {
+            let viewParams = children[i].viewParams!;
+            if (viewParams.prefabPath === prefabPath) {
+                if (isDestroy) {
+                    // 直接释放界面
+                    this.ui_nodes.delete(viewParams.uuid);
+                }
+                else {
+                    // 不释放界面，缓存起来待下次使用
+                    this.ui_cache.set(viewParams.prefabPath, viewParams);
+                }
+
+                children[i].remove(isDestroy);
+                viewParams.valid = false;
+            }
+        }
+    }
+
+    /**
      * 根据uuid删除节点，如果节点还在队列中也会被删除
      * 注意。删除节点请直接调用 `this.node.destroy()`或 `gui.delete(node)`;
      * @param uuid 
      */
-    removeByUuid(uuid: string, isDestroy: boolean): void {
+    protected removeByUuid(uuid: string, isDestroy: boolean): void {
         var viewParams = this.ui_nodes.get(uuid);
         if (viewParams) {
             if (isDestroy)
                 this.ui_nodes.delete(viewParams.uuid);
 
             var childNode = viewParams.node;
-            var comp = childNode?.getComponent(DelegateComponent)!;
+            var comp = childNode!.getComponent(DelegateComponent)!;
             comp.remove(isDestroy);
         }
     }
 
-    /**
-     * 根据预制件路径删除，预制件如在队列中也会被删除，如果该预制件存在多个也会一起删除。
-     * @param prefabPath 
+    /** 
+     * 删除缓存的界面
+     * 注：当缓存界面被移除舞台时，可通过此方法删除缓存界面
      */
-    remove(prefabPath: string, isDestroy: boolean): void {
-        let children = this.__nodes();
-        for (let i = 0; i < children.length; i++) {
-            let viewParams = children[i].viewParams!;
-            if (viewParams.prefabPath === prefabPath) {
-                if (isDestroy)
-                    this.ui_nodes.delete(viewParams.uuid);
-
-                children[i].remove(isDestroy);
-                viewParams.valid = false;
-            }
+    private removeCache(prefabPath: string) {
+        let viewParams = this.ui_cache.get(prefabPath);
+        if (viewParams && viewParams.valid == false) {
+            var childNode = viewParams.node;
+            childNode!.getComponent(DelegateComponent)!.remove(true);
+            this.ui_nodes.delete(viewParams.uuid);
+            this.ui_cache.delete(prefabPath);
         }
     }
 
@@ -208,6 +235,7 @@ export class LayerUI extends Node {
         return arr;
     }
 
+    /** 获取当前层所有窗口事件触发组件 */
     protected __nodes(): Array<DelegateComponent> {
         let result: Array<DelegateComponent> = [];
         let children = this.children;
@@ -227,10 +255,18 @@ export class LayerUI extends Node {
 
     /** 清除所有节点，队列当中的也删除 */
     clear(isDestroy: boolean): void {
+        // 清除所有显示的界面
         this.ui_nodes.forEach((value: ViewParams, key: string) => {
             this.removeByUuid(value.uuid, isDestroy);
             value.valid = false;
         });
         this.ui_nodes.clear();
+
+        // 清楚缓存中的界面
+        if (isDestroy) {
+            this.ui_cache.forEach((value: ViewParams, prefabPath: string) => {
+                this.removeCache(prefabPath);
+            });
+        }
     }
 }

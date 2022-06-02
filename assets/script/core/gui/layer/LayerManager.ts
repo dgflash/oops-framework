@@ -203,6 +203,7 @@ export class LayerManager {
         if (node instanceof Node) {
             let comp = node.getComponent(DelegateComponent);
             if (comp && comp.viewParams) {
+                // @ts-ignore 注：不对外使用
                 (node.parent as LayerUI).removeByUuid(comp.viewParams.uuid, isDestroy);
             }
             else {

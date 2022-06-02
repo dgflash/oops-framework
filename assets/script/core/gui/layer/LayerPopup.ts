@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-11-24 16:08:36
  * @LastEditors: dgflash
- * @LastEditTime: 2022-05-12 16:06:36
+ * @LastEditTime: 2022-06-02 10:52:52
  */
 
 import { BlockInputEvents, Layers } from "cc";
@@ -43,7 +43,7 @@ export class LayerPopUp extends LayerUI {
         this.setBlackDisable();
     }
 
-    removeByUuid(prefabPath: string, isDestroy: boolean): void {
+    protected removeByUuid(prefabPath: string, isDestroy: boolean): void {
         super.removeByUuid(prefabPath, isDestroy);
         this.setBlackDisable();
     }
