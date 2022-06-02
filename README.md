@@ -76,12 +76,12 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 2. 热更新组件配套生成热更数据插件 [【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124483993?spm=1001.2014.3001.5502)
 
 #### 第三方源码库
-| 库名          | 介绍                                                                  | 原创                                                         |
-| ------------- | --------------------------------------------------------------------- | ------------------------------------------------------------ |
-| WebSocket     | 原创者设计灵活，易扩展自定义协议                                      | [原创](https://github.com/wyb10a10/cocos_creator_framework)  |
-| animator      | 可视化动画状态机，与Untiy的Animator使用体验类似，扩展3D骨骼动画支持 | [原创](https://github.com/LeeYip/cocos-animator)             |
-| model-view    | MVVM组件库，原库为cc2.x版本，本人升级到cc3.x                          | [原创](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
-| ECS           | Entity-Component-System，原码升级优化过                               | [原创](https://github.com/shangdibaozi/ECS)                  |
+| 库名       | 介绍                                                                | 原创                                                         |
+| ---------- | ------------------------------------------------------------------- | ------------------------------------------------------------ |
+| WebSocket  | 原创者设计灵活，易扩展自定义协议                                    | [原创](https://github.com/wyb10a10/cocos_creator_framework)  |
+| animator   | 可视化动画状态机，与Untiy的Animator使用体验类似，扩展3D骨骼动画支持 | [原创](https://github.com/LeeYip/cocos-animator)             |
+| model-view | MVVM组件库，原库为cc2.x版本，本人升级到cc3.x                        | [原创](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
+| ECS        | Entity-Component-System，原码升级优化过                             | [原创](https://github.com/shangdibaozi/ECS)                  |
 
 #### 第三方 NPM 库
 | 库名       | 介绍                               | 安装                      | 原创                                             |
@@ -93,6 +93,7 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 #### 贡献榜
 | 时间       | 开发者   | 贡献内容                                                                                    |
 | ---------- | -------- | ------------------------------------------------------------------------------------------- |
+| 2022-06-02 | 羽毛先生 | 修复 UI 框架中界面无法不销毁移除的问题 |
 | 2022-04-15 | Hess     | 建议优化 ecs 框架所有生命周期事件在处理多实体时，将批处理逻辑移到框架层实现，减小业务代码量 |
 | 2021-10-13 | laret    | 修复 Dialog 类型的 UI 不能连续触发                                                          |
 | 2021-10-20 | dogegg   | 支持添加 cc.Component 到 ecs 实体对象中                                                     |

@@ -71,17 +71,6 @@ export class LayerUI extends Node {
         return uuid;
     }
 
-    // async addAsync(config: UIConfig, params?: any): Promise<Node> {
-    //     return new Promise<Node>((resolve, reject) => {
-    //         var uic: UICallbacks = {
-    //             onAdded: (node: Node, params: any) => {
-    //                 resolve(node)
-    //             }
-    //         };
-    //         this.add(config, params, uic);
-    //     });
-    // }
-
     /**
      * 加载界面资源
      * @param viewParams 显示参数
@@ -155,7 +144,6 @@ export class LayerUI extends Node {
                 if (isDestroy)
                     this.ui_nodes.delete(viewParams.uuid);
 
-                this.ui_nodes.delete(viewParams.uuid);
                 children[i].remove(isDestroy);
                 viewParams.valid = false;
             }
