@@ -7,10 +7,13 @@ var storage = "oops_framework_remote";
 var crypto = require("crypto");
 var fs = require("fs");
 var path = require("path");
-var folder = {
-    "3.4.2": "assets",
-    "3.5.0": "data"
-};
+var folder = null;
+if (Editor.App.version.indexOf('3.5') > -1) {
+    folder = "data";
+}
+else {
+    folder = "assets";
+}
 class HotUpdate {
     create(options) {
         if (!this.isEnable(options))
@@ -29,7 +32,7 @@ class HotUpdate {
     mainJs(options) {
         var projectPath = Editor.Project.path;
         var buildPath = `${options.buildPath.replace('project:/', projectPath)}/${options.outputName}`;
-        var mainScriptPath = path.resolve(`${buildPath}/${folder[Editor.App.version]}/main.js`);
+        var mainScriptPath = path.resolve(`${buildPath}/${folder}/main.js`);
         var mainScript = fs.readFileSync(mainScriptPath).toString('utf-8');
         mainScript =
             `// ---- 扩展注入热更新脚本开始 ----
@@ -63,7 +66,7 @@ class HotUpdate {
     init(options) {
         var projectPath = Editor.Project.path;
         var buildPath = `${options.buildPath.replace('project:/', projectPath)}/${options.outputName}`;
-        var assetsRootPath = path.resolve(`${buildPath}/${folder[Editor.App.version]}`);
+        var assetsRootPath = path.resolve(`${buildPath}/${folder}`);
         var projectManifestName = 'project.manifest';
         var destManifestPath = path.join(assetsRootPath, projectManifestName);
         fs.writeFileSync(destManifestPath, JSON.stringify({}));
@@ -80,7 +83,7 @@ class HotUpdate {
         var hotUpdateVersion = `${packageOptions.hotUpdateVersion.trim()}.${hotUpdateBuildNum.toFixed()}`;
         var projectPath = Editor.Project.path;
         var buildPath = `${options.buildPath.replace('project:/', projectPath)}/${options.outputName}`;
-        var assetsRootPath = path.resolve(`${buildPath}/${folder[Editor.App.version]}`);
+        var assetsRootPath = path.resolve(`${buildPath}/${folder}`);
         var projectManifestName = 'project.manifest';
         var versionManifestName = 'version.manifest';
         var destManifestPath = path.join(assetsRootPath, projectManifestName);
