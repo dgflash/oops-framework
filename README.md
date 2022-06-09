@@ -10,8 +10,8 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 注：
 1. [源库链接更新效率更高](https://gitee.com/dgflash/oops-framework)（好用记得给作者一个Star）
 2. Cocos Creato 3.x 不同版的框架在源库分支中下载，master分支为最新引擎版本
-3. 学习交流 QQ 群：798575969
-    ![](./doc/imgs/qq.png)
+3. 学习交流 QQ 群：798575969 与扫码加入
+![](./doc/imgs/qq.jpg)
 
 #### 框架使用说明
 框架里的技术内容是较多，每项技术作者都用到项目中测试过，所以单项技术的稳定性是相对有保证的。开发者拿到框架按自己当前需求了解需要的技术即可。
@@ -21,7 +21,7 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
     - 理解如何建立一个游戏模块
     - 理解游戏初始化流程做了哪些事
     - 理解资源加载界面是如何通过界面管理（oops.gui.open）的API启动预制界面
-    - 理解后举一反三，通过预制拼好界面，尝试调用通过 Cocos Creator 节点组件开发模式制作界面，在通过 oops-framework 的 API 管理界面的打开与关闭
+    - 理解后举一反三，通过预制拼好界面，尝试调用通过 Cocos Creator 节点组件开发模式制作界面，在通过 oops-framework 的API 管理界面的打开与关闭
     - 然后做一些 DEMO 小程序练习加深技术使用熟练度，在转入到第二阶段
 
 2. 有项目经验开发者的阅读建议
@@ -76,12 +76,12 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 2. 热更新组件配套生成热更数据插件 [【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124483993?spm=1001.2014.3001.5502)
 
 #### 第三方源码库
-| 库名       | 介绍                                                                | 原创                                                         |
-| ---------- | ------------------------------------------------------------------- | ------------------------------------------------------------ |
-| WebSocket  | 原创者设计灵活，易扩展自定义协议                                    | [原创](https://github.com/wyb10a10/cocos_creator_framework)  |
-| animator   | 可视化动画状态机，与Untiy的Animator使用体验类似，扩展3D骨骼动画支持 | [原创](https://github.com/LeeYip/cocos-animator)             |
-| model-view | MVVM组件库，原库为cc2.x版本，本人升级到cc3.x                        | [原创](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
-| ECS        | Entity-Component-System，原码升级优化过                             | [原创](https://github.com/shangdibaozi/ECS)                  |
+| 库名          | 介绍                                                                  | 原创                                                         |
+| ------------- | --------------------------------------------------------------------- | ------------------------------------------------------------ |
+| WebSocket     | 原创者设计灵活，易扩展自定义协议                                      | [原创](https://github.com/wyb10a10/cocos_creator_framework)  |
+| animator      | 可视化动画状态机，与Untiy的Animator使用体验类似，扩展3D骨骼动画支持 | [原创](https://github.com/LeeYip/cocos-animator)             |
+| model-view    | MVVM组件库，原库为cc2.x版本，本人升级到cc3.x                          | [原创](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
+| ECS           | Entity-Component-System，原码升级优化过                               | [原创](https://github.com/shangdibaozi/ECS)                  |
 
 #### 第三方 NPM 库
 | 库名       | 介绍                               | 安装                      | 原创                                             |
@@ -93,7 +93,6 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 #### 贡献榜
 | 时间       | 开发者   | 贡献内容                                                                                    |
 | ---------- | -------- | ------------------------------------------------------------------------------------------- |
-| 2022-06-02 | 羽毛先生 | 修复 UI 框架中界面无法不销毁移除的问题; 修复UI框架中从缓存获取界面时，传递新参数不更新问题  |
 | 2022-04-15 | Hess     | 建议优化 ecs 框架所有生命周期事件在处理多实体时，将批处理逻辑移到框架层实现，减小业务代码量 |
 | 2021-10-13 | laret    | 修复 Dialog 类型的 UI 不能连续触发                                                          |
 | 2021-10-20 | dogegg   | 支持添加 cc.Component 到 ecs 实体对象中                                                     |
@@ -101,6 +100,7 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 
 #### [框架部分功能演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/)
 #### [框架实现的解决方案演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/)
+#### [全栈解决方案 oops-moba](https://store.cocos.com/app/detail/3814)
 #### [游戏地图模块 oops-rpg-2d](https://store.cocos.com/app/detail/3675)
 #### [新手引导模块 oops-guide](https://store.cocos.com/app/detail/3653)
 #### [联机游戏框架 oops-mgobe](https://store.cocos.com/app/detail/3574)
