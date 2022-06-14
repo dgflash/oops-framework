@@ -1,5 +1,11 @@
+/*
+ * @Author: dgflash
+ * @Date: 2022-06-02 09:38:48
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-06-14 17:55:36
+ */
 
-import { JsonUtil } from "../../../core/utils/JsonUtil";
+import { JsonUtil } from "../../../../../extensions/oops-framework/assets/core/utils/JsonUtil";
 
 export class TableRoleLevelUp {
     static TableName: string = "RoleLevelUp";
@@ -14,10 +20,10 @@ export class TableRoleLevelUp {
 
     id: number = 0;
 
-    get needexp(): string {
+    get needexp(): number {
         return this.data.needexp;
     }
-    get hp(): string {
+    get hp(): number {
         return this.data.hp;
     }
 }

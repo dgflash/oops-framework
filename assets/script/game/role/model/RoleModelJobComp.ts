@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-11-24 10:04:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-29 10:56:57
+ * @LastEditTime: 2022-06-14 19:54:52
  */
-import { ecs } from "../../../core/libs/ecs/ECS";
+import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { TableRoleJob } from "../../common/table/TableRoleJob";
 import { RoleAttributeType } from "./RoleEnum";
 import { RoleModelComp } from "./RoleModelComp";

@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2022-01-25 17:49:26
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-15 09:37:39
+ * @LastEditTime: 2022-06-14 19:55:10
  */
 
-import { Message } from "../../../core/common/event/MessageManager";
-import { ecs } from "../../../core/libs/ecs/ECS";
+import { Message } from "../../../../../extensions/oops-framework/assets/core/common/event/MessageManager";
+import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { RoleModelJobComp } from "../model/RoleModelJobComp";
 import { Role } from "../Role";
 import { RoleEvent } from "../RoleEvent";

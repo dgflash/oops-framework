@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-05-10 11:36:35
+ * @LastEditTime: 2022-06-14 19:53:52
  */
-import { ECSRootSystem } from '../../../core/libs/ecs/ECSSystem';
-import { oops } from '../../../core/Oops';
-import { Root } from '../../../core/Root';
+import { oops } from '../../../../../extensions/oops-framework/assets/core/Oops';
+import { Root } from '../../../../../extensions/oops-framework/assets/core/Root';
+import { ECSRootSystem } from '../../../../../extensions/oops-framework/assets/libs/ecs/ECSSystem';
 import { config } from '../config/Config';
 import { CommonSystem } from './CommonSystem';
 

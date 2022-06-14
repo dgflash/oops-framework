@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "9808f578-f57d-4f9e-8f24-e4036e2fcebc",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/utils/TimerManager.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

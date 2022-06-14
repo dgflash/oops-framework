@@ -2,10 +2,10 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-26 13:40:19
+ * @LastEditTime: 2022-06-14 18:42:53
  */
 
-import { Logger } from "../../../core/common/log/Logger";
+import { Logger } from "../../../../../extensions/oops-framework/assets/core/common/log/Logger";
 
 /*
  * 游戏配置解析，对应 resources/config/config.json 配置

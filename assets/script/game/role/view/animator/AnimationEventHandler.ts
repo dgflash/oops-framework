@@ -2,9 +2,10 @@
  * @Author: dgflash
  * @Date: 2021-09-22 16:42:25
  * @LastEditors: dgflash
- * @LastEditTime: 2021-09-27 16:25:20
+ * @LastEditTime: 2022-06-14 19:55:59
  */
-import AnimatorBase, { AnimationPlayer } from '../../../../core/libs/animator/core/AnimatorBase';
+
+import AnimatorBase, { AnimationPlayer } from "../../../../../../extensions/oops-framework/assets/libs/animator/core/AnimatorBase";
 
 class FrameEventData {
     public callback!: Function;

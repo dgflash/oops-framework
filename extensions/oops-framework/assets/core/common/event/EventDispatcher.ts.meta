@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "c680a7f9-88f3-4a78-83b8-700adfffdd26",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/event/EventDispatcher.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

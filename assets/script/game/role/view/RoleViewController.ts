@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-14 16:25:59
+ * @LastEditTime: 2022-06-14 17:57:33
  */
 
 import { Component, EventTouch, Node, UITransform, v3, _decorator } from "cc";
-import { oops } from "../../../core/Oops";
+import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
 import { Role } from "../Role";
 
 const { ccclass, property } = _decorator;

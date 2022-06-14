@@ -1,12 +1,12 @@
 /*
  * @Date: 2021-08-12 09:33:37
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-26 14:07:18
+ * @LastEditTime: 2022-06-14 17:52:37
  */
-import { Message } from "../../../core/common/event/MessageManager";
-import { Logger } from "../../../core/common/log/Logger";
-import { tips } from "../../../core/gui/prompt/TipsManager";
-import { INetworkTips } from "../../../core/network/NetInterface";
+import { Message } from "../../../../../extensions/oops-framework/assets/core/common/event/MessageManager";
+import { Logger } from "../../../../../extensions/oops-framework/assets/core/common/log/Logger";
+import { tips } from "../prompt/TipsManager";
+import { INetworkTips } from "../../../../../extensions/oops-framework/assets/core/network/NetInterface";
 import { GameEvent } from "../config/GameEvent";
 
 /** 游戏服务器提示 */

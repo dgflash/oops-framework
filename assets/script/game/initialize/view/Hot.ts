@@ -1,5 +1,5 @@
 import { error, log, sys } from "cc";
-import { resLoader } from "../../../core/common/loader/ResLoader";
+import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
 
 /** 热更参数 */
 export class HotOptions {

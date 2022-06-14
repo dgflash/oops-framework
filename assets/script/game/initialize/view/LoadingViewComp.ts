@@ -2,13 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-05-09 18:34:16
+ * @LastEditTime: 2022-06-14 19:55:31
  */
-import { sys, _decorator } from "cc";
-import { resLoader } from "../../../core/common/loader/ResLoader";
-import { ecs } from "../../../core/libs/ecs/ECS";
-import { oops } from "../../../core/Oops";
-import { JsonUtil } from "../../../core/utils/JsonUtil";
+import { _decorator } from "cc";
+import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
+import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
+import { JsonUtil } from "../../../../../extensions/oops-framework/assets/core/utils/JsonUtil";
+import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { Account } from "../../account/Account";
 import { GameEvent } from "../../common/config/GameEvent";
 import { UIID } from "../../common/config/GameUIConfig";

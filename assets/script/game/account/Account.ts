@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-11-11 17:45:23
  * @LastEditors: dgflash
- * @LastEditTime: 2022-02-28 14:29:06
+ * @LastEditTime: 2022-06-14 19:52:24
  */
 
-import { Message } from "../../core/common/event/MessageManager";
-import { ecs } from "../../core/libs/ecs/ECS";
+import { Message } from "../../../../extensions/oops-framework/assets/core/common/event/MessageManager";
+import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { GameEvent } from "../common/config/GameEvent";
 import { AccountNetDataComp, AccountNetDataSystem } from "./bll/AccountNetData";
 import { AccountModelComp } from "./model/AccountModelComp";

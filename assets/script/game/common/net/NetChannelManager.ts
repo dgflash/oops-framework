@@ -1,12 +1,12 @@
 /*
  * @Date: 2021-08-12 09:33:37
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-21 14:08:46
+ * @LastEditTime: 2022-06-14 17:53:02
  */
-import { NetData } from "../../../core/network/NetInterface";
-import { NetManager } from "../../../core/network/NetManager";
-import { NetProtocolPako } from "../../../core/network/NetProtocolPako";
-import { WebSock } from "../../../core/network/WebSock";
+import { NetData } from "../../../../../extensions/oops-framework/assets/core/network/NetInterface";
+import { NetManager } from "../../../../../extensions/oops-framework/assets/core/network/NetManager";
+import { NetProtocolPako } from "../../../../../extensions/oops-framework/assets/core/network/NetProtocolPako";
+import { WebSock } from "../../../../../extensions/oops-framework/assets/core/network/WebSock";
 import { netConfig } from "./NetConfig";
 import { NetGameTips } from "./NetGameTips";
 import { NetNodeGame } from "./NetNodeGame";

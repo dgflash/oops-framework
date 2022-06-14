@@ -2,12 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-08-11 16:41:12
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-15 11:36:40
+ * @LastEditTime: 2022-06-14 19:52:51
  */
 import { Node, Vec3 } from "cc";
-import { Timer } from "../../../../core/common/manager/TimerManager";
-import { ecs } from "../../../../core/libs/ecs/ECS";
-import { Vec3Util } from "../../../../core/utils/Vec3Util";
+import { Timer } from "../../../../../../extensions/oops-framework/assets/core/common/manager/TimerManager";
+import { Vec3Util } from "../../../../../../extensions/oops-framework/assets/core/utils/Vec3Util";
+import { ecs } from "../../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 
 /** 向目标移动，移动过程中目标位置变化会自动修正移动目标点，直到未修正前移动到目标点停止 */
 @ecs.register('MoveTo')

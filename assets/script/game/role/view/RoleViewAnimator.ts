@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-12-29 11:33:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-09 18:03:20
+ * @LastEditTime: 2022-06-14 19:56:45
  */
 import { sp, _decorator } from "cc";
-import AnimatorSpine from "../../../core/libs/animator/AnimatorSpine";
-import { AnimatorStateLogic } from "../../../core/libs/animator/core/AnimatorStateLogic";
+import AnimatorSpine from "../../../../../extensions/oops-framework/assets/libs/animator/AnimatorSpine";
+import { AnimatorStateLogic } from "../../../../../extensions/oops-framework/assets/libs/animator/core/AnimatorStateLogic";
 import { RoleAnimatorType, WeaponName } from "../model/RoleEnum";
 import { Role } from "../Role";
 import { AnimationEventHandler } from "./animator/AnimationEventHandler";

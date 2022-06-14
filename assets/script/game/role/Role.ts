@@ -3,11 +3,11 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:47:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-25 12:02:10
+ * @LastEditTime: 2022-06-14 19:54:23
  */
 import { Node, Vec3 } from "cc";
-import { ecs } from "../../core/libs/ecs/ECS";
-import { ViewUtil } from "../../core/utils/ViewUtil";
+import { ViewUtil } from "../../../../extensions/oops-framework/assets/core/utils/ViewUtil";
+import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { MoveToComp } from "../common/ecs/position/MoveTo";
 import { RoleChangeJobComp, RoleChangeJobSystem } from "./bll/RoleChangeJob";
 import { RoleUpgradeComp, RoleUpgradeSystem } from "./bll/RoleUpgrade";

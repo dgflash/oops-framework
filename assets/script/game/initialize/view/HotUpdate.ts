@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2022-04-15 14:44:04
  * @LastEditors: dgflash
- * @LastEditTime: 2022-05-09 18:32:44
+ * @LastEditTime: 2022-06-14 17:48:27
  */
 import { Component, game, sys, _decorator } from "cc";
-import { tips } from "../../../core/gui/prompt/TipsManager";
-import { oops } from "../../../core/Oops";
+import { tips } from "../../common/prompt/TipsManager";
+import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
 import { UIID } from "../../common/config/GameUIConfig";
 import { Hot, HotOptions } from "./Hot";
 import { LoadingViewComp } from "./LoadingViewComp";

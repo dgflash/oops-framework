@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "22741f7e-110c-4c23-bed0-c155c37ec968",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/script/core/event/EngineMessage.js",
+    "importerSettings": 4,
+    "simulateGlobals": []
+  }
+}

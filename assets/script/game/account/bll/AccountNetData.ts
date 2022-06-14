@@ -2,14 +2,14 @@
  * @Author: dgflash
  * @Date: 2021-11-23 15:51:15
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-15 09:47:36
+ * @LastEditTime: 2022-06-14 19:51:28
  */
 
 import { v3 } from "cc";
-import { Message } from "../../../core/common/event/MessageManager";
-import { storage } from "../../../core/common/storage/StorageManager";
-import { ecs } from "../../../core/libs/ecs/ECS";
-import { oops } from "../../../core/Oops";
+import { Message } from "../../../../../extensions/oops-framework/assets/core/common/event/MessageManager";
+import { storage } from "../../../../../extensions/oops-framework/assets/core/common/storage/StorageManager";
+import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
+import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { GameEvent } from "../../common/config/GameEvent";
 import { netConfig } from "../../common/net/NetConfig";
 import { Role } from "../../role/Role";

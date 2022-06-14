@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2022-06-02 09:38:48
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-02 11:30:57
+ * @LastEditTime: 2022-06-14 19:57:00
  */
 import { EventTouch, Node, _decorator } from "cc";
-import { ecs } from "../../../core/libs/ecs/ECS";
-import { oops } from "../../../core/Oops";
+import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
+import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { UIID } from "../../common/config/GameUIConfig";
 import { CCComp } from "../../common/ecs/CCComp";
 import { SingletonModuleComp } from "../../common/ecs/SingletonModuleComp";

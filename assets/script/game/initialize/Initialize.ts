@@ -2,12 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-11-11 17:45:23
  * @LastEditors: dgflash
- * @LastEditTime: 2022-05-27 13:57:33
+ * @LastEditTime: 2022-06-14 19:55:36
  */
-import { resLoader } from "../../core/common/loader/ResLoader";
-import { AsyncQueue, NextFunction } from "../../core/common/queue/AsyncQueue";
-import { ecs } from "../../core/libs/ecs/ECS";
-import { oops } from "../../core/Oops";
+import { resLoader } from "../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
+import { AsyncQueue, NextFunction } from "../../../../extensions/oops-framework/assets/core/common/queue/AsyncQueue";
+import { oops } from "../../../../extensions/oops-framework/assets/core/Oops";
+import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { config } from "../common/config/Config";
 import { UIID } from "../common/config/GameUIConfig";
 import { LoadingViewComp } from "./view/LoadingViewComp";

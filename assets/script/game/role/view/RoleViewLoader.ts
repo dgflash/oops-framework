@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-14 16:40:32
+ * @LastEditTime: 2022-06-14 17:57:48
  */
 
 import { Component, sp, _decorator } from "cc";
-import { resLoader } from "../../../core/common/loader/ResLoader";
+import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
 import { config } from "../../common/config/Config";
 import { Role } from "../Role";
 

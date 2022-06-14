@@ -10,8 +10,9 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 注：
 1. [源库链接更新效率更高](https://gitee.com/dgflash/oops-framework)（好用记得给作者一个Star）
 2. Cocos Creato 3.x 不同版的框架在源库分支中下载，master分支为最新引擎版本
-3. 学习交流 QQ 群：798575969 与扫码加入
-![](./doc/imgs/qq.png)
+3. 学习交流 QQ 群：798575969
+
+![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/qq.png)
 
 #### 框架使用说明
 框架里的技术内容是较多，每项技术作者都用到项目中测试过，所以单项技术的稳定性是相对有保证的。开发者拿到框架按自己当前需求了解需要的技术即可。
@@ -69,7 +70,8 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
     - 本地热更配置 resources/project.manifes
     - 本地热更配置 resources/version.manifes
 8. Cocos Creator 3.5 版本新功能业务框架模板
-    ![](./doc/imgs/module.png)
+ 
+![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/module.png)
 
 #### 插件分类
 1. 静态配置表Excel转Json数据与对应的数据结构TS脚本插件[【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124484273?spm=1001.2014.3001.5502)
@@ -93,6 +95,7 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 #### 贡献榜
 | 时间       | 开发者   | 贡献内容                                                                                    |
 | ---------- | -------- | ------------------------------------------------------------------------------------------- |
+| 2022-06-02 | 羽毛先生 | 修复 UI 框架中界面无法不销毁移除的问题; 修复UI框架中从缓存获取界面时，传递新参数不更新问题  |
 | 2022-04-15 | Hess     | 建议优化 ecs 框架所有生命周期事件在处理多实体时，将批处理逻辑移到框架层实现，减小业务代码量 |
 | 2021-10-13 | laret    | 修复 Dialog 类型的 UI 不能连续触发                                                          |
 | 2021-10-20 | dogegg   | 支持添加 cc.Component 到 ecs 实体对象中                                                     |

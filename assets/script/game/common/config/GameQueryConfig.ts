@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2022-04-14 17:08:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-15 17:02:20
+ * @LastEditTime: 2022-06-14 18:43:04
  */
 import { warn } from "cc";
-import { Logger } from "../../../core/common/log/Logger";
-import { guid } from "../../../core/common/manager/TimerManager";
+import { Logger } from "../../../../../extensions/oops-framework/assets/core/common/log/Logger";
+import { guid } from "../../../../../extensions/oops-framework/assets/core/common/manager/TimerManager";
 import { UrlParse } from "./UrlParse";
 
 /*

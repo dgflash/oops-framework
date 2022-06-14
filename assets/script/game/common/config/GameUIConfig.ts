@@ -1,10 +1,10 @@
 /*
  * @Date: 2021-08-12 09:33:37
  * @LastEditors: dgflash
- * @LastEditTime: 2022-05-12 12:21:46
+ * @LastEditTime: 2022-06-14 18:42:43
  */
 
-import { LayerType, UIConfig } from '../../../core/gui/layer/LayerManager';
+import { LayerType, UIConfig } from "../../../../../extensions/oops-framework/assets/core/gui/layer/LayerManager";
 
 /** 界面唯一标识（方便服务器通过编号数据触发界面打开） */
 export enum UIID {

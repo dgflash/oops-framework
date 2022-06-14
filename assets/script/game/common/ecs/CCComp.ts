@@ -2,13 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-11-11 19:05:32
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-26 16:48:03
+ * @LastEditTime: 2022-06-14 19:53:02
  */
 
 import { Component, Node, _decorator } from 'cc';
-import { EventDispatcher } from '../../../core/common/event/EventDispatcher';
-import { ecs } from '../../../core/libs/ecs/ECS';
-import { ViewUtil } from '../../../core/utils/ViewUtil';
+import { EventDispatcher } from '../../../../../extensions/oops-framework/assets/core/common/event/EventDispatcher';
+import { ViewUtil } from '../../../../../extensions/oops-framework/assets/core/utils/ViewUtil';
+import { ecs } from '../../../../../extensions/oops-framework/assets/libs/ecs/ECS';
 
 const { ccclass, property } = _decorator;
 

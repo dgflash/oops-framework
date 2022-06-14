@@ -2,14 +2,14 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-14 18:16:20
+ * @LastEditTime: 2022-06-14 19:55:22
  */
 import { Component, EventTouch, _decorator } from "cc";
-import { ecs } from "../../core/libs/ecs/ECS";
-import { tips } from "../../core/gui/prompt/TipsManager";
-import { oops } from "../../core/Oops";
+import { tips } from "../common/prompt/TipsManager";
+import { oops } from "../../../../extensions/oops-framework/assets/core/Oops";
 import { UIID } from "../common/config/GameUIConfig";
 import { SingletonModuleComp } from "../common/ecs/SingletonModuleComp";
+import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 
 const { ccclass, property } = _decorator;
 // 视图层实体是空的

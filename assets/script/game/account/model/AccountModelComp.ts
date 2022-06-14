@@ -4,10 +4,10 @@
  * @Author: dgflash
  * @Date: 2021-11-12 10:02:31
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 11:07:05
+ * @LastEditTime: 2022-06-14 17:42:26
  */
 
-import { ecs } from "../../../core/libs/ecs/ECS";
+import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { Role } from "../../role/Role";
 
 /** 
