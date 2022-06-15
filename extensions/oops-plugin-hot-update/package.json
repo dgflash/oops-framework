@@ -1,7 +1,7 @@
 {
+    "package_version": 2,
     "name": "oops-plugin-hot-update",
     "title": "oops-plugin-hot-update",
-    "package_version": 2,
     "version": "1.0.0",
     "author": "dgflash",
     "description": "i18n:oops-plugin-hot-update.description",
