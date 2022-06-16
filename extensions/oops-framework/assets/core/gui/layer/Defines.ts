@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-11-18 11:21:32
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-24 14:24:07
+ * @LastEditTime: 2022-06-16 10:04:08
  */
-/*
- * Gui模块常用类型定义
- */
+
+/* GUI模块常用类型定义 */
+
 import { Node } from "cc";
 
 /*** 回调参数对象定义 */

@@ -1,17 +1,16 @@
-/*
- * 消息提示层，类似以前Toast
- * 请直接调用 show方法来显示提示
- */
-
 import { error, instantiate, Node, Prefab } from "cc";
 import { resLoader } from "../../common/loader/ResLoader";
 import { ViewParams } from "./Defines";
 import { DelegateComponent } from "./DelegateComponent";
 import { LayerUI } from "./LayerUI";
-import { NotifyComponent } from "./NotifyComponent";
+import { Notify } from "../prompt/Notify";
 
 const ToastPrefabPath: string = 'common/prefab/notify';
 
+/*
+ * 消息提示层
+ * 1、直接调用 show 方法来显示提示
+ */
 export class LayerNotify extends LayerUI {
     /**
      * 显示toast
@@ -49,7 +48,7 @@ export class LayerNotify extends LayerUI {
 
     protected createNode(prefab: Prefab, viewParams: ViewParams) {
         let childNode: Node = super.createNode(prefab, viewParams);
-        let toastCom = childNode.getComponent(NotifyComponent)!;
+        let toastCom = childNode.getComponent(Notify)!;
         childNode.active = true;
         toastCom.toast(viewParams.params.content, viewParams.params.useI18n);
         return childNode;

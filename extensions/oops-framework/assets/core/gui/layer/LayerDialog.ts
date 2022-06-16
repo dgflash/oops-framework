@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-05-12 16:06:43
+ * @LastEditTime: 2022-06-16 10:03:47
  */
 
 import { Node } from "cc";
@@ -11,7 +11,7 @@ import { UIConfig } from "./LayerManager";
 import { LayerPopUp } from "./LayerPopup";
 
 /*
- * Dialog 层
+ * 模式弹窗层
  * 该层的节点将一次只显示一个，删除以后会自动从队列当中取一个弹窗，直到队列为空
  */
 export class LayerDialog extends LayerPopUp {

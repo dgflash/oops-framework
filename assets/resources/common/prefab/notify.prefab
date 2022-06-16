@@ -8,13 +8,14 @@
       "__id__": 1
     },
     "optimizationPolicy": 0,
-    "asyncLoadAssets": false,
-    "persistent": false
+    "persistent": false,
+    "asyncLoadAssets": false
   },
   {
     "__type__": "cc.Node",
     "_name": "notify",
     "_objFlags": 0,
+    "__editorExtras__": {},
     "_parent": null,
     "_children": [
       {
@@ -178,6 +179,7 @@
     "_enableWrapText": true,
     "_font": null,
     "_isSystemFontUsed": true,
+    "_spacingX": 0,
     "_isItalic": false,
     "_isBold": false,
     "_isUnderline": false,
@@ -319,7 +321,7 @@
     "fileId": "49S2DJCTxMnLx+UXQk11q0"
   },
   {
-    "__type__": "de1daMgSoJNGqNHLZHoRzt1",
+    "__type__": "01391Mp6X1Gn554rkzavN4K",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -339,7 +341,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "6d8moNIJ9OcKegqd010dKC"
+    "fileId": "965Ml9gPBIqJ2+GUadTe+K"
   },
   {
     "__type__": "cc.PrefabInfo",

@@ -4,6 +4,7 @@ import { LanguageLabel } from "../language/LanguageLabel";
 
 const { ccclass, property, menu } = _decorator;
 
+/** 公共提示框 */
 @ccclass("CommonPrompt")
 export default class CommonPrompt extends Component {
     @property(LanguageLabel)

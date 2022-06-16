@@ -1,7 +1,3 @@
-/*
- * 入口文件
- */
-
 import { Camera, Layers, Node, warn, Widget } from "cc";
 import { GUI } from "../GUI";
 import { UICallbacks } from "./Defines";

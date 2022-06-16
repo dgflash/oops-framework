@@ -1,3 +1,9 @@
+/*
+ * @Author: dgflash
+ * @Date: 2022-06-14 19:35:16
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-06-16 09:58:01
+ */
 import { LayerManager } from "./LayerManager";
 
 /** 界面关系树节点 */
@@ -17,8 +23,9 @@ class TreeNode {
 
 /** 用于树形结构两节点之间的寻路功能 */
 export class UIMap {
+    /** UI层级管理器 */
     private manager!: LayerManager;
-
+    /** 界面节点树 */
     private nodes: Map<number, TreeNode> = new Map<number, TreeNode>();
 
     /** 创建UI关系树 */
@@ -65,7 +72,7 @@ export class UIMap {
 
     /** 向上寻找子节点直到根节点停止，并返回节点路径数组 */
     private findUp(start: TreeNode): TreeNode[] {
-        var paths = [];
+        var paths: TreeNode[] = [];
         var current: TreeNode = start;
         while (current.parent != null) {        // 父级为空时为根节点
             paths.push(current);

@@ -2,15 +2,15 @@
  * @Author: dgflash
  * @Date: 2022-04-14 17:08:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-14 19:06:34
+ * @LastEditTime: 2022-06-16 10:05:54
  */
 import { Animation, Component, Label, _decorator } from "cc";
 import { LanguageLabel } from "../language/LanguageLabel";
 
 const { ccclass, property } = _decorator;
 
-@ccclass('NotifyComponent')
-export class NotifyComponent extends Component {
+@ccclass('Notify')
+export class Notify extends Component {
     @property(Label)
     private lab_content: Label | null = null;
 
@@ -29,10 +29,9 @@ export class NotifyComponent extends Component {
     /**
      * 显示提示
      * @param msg       文本
-     * @param useI18n   多语言标签
-     * @param callback  提示动画播放完成回调
+     * @param useI18n   设置为 true 时，使用多语言功能 msg 参数为多语言 key
      */
-    public toast(msg: string, useI18n: boolean) {
+    toast(msg: string, useI18n: boolean) {
         let label = this.lab_content?.getComponent(LanguageLabel)!;
         if (useI18n) {
             label.dataID = msg;
