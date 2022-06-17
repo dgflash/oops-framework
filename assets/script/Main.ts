@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 19:57:20
+ * @LastEditTime: 2022-06-17 14:04:12
  */
-import { setDisplayStats, _decorator } from 'cc';
+import { dynamicAtlasManager, macro, setDisplayStats, _decorator } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
 import { oops } from '../../extensions/oops-framework/assets/core/Oops';
 import { ecs } from '../../extensions/oops-framework/assets/libs/ecs/ECS';
@@ -14,7 +14,10 @@ import { Initialize } from './game/initialize/Initialize';
 
 const { ccclass, property } = _decorator;
 
-/** NPM 可选模块 */
+macro.CLEANUP_IMAGE_CACHE = false;
+dynamicAtlasManager.enabled = true;
+dynamicAtlasManager.maxFrameSize = 512;
+
 @ccclass('Main')
 export class Main extends CommonEnter {
     start() {

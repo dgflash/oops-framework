@@ -2,15 +2,15 @@
  * @Author: dgflash
  * @Date: 2022-02-11 09:32:47
  * @LastEditors: dgflash
- * @LastEditTime: 2022-05-09 09:42:22
+ * @LastEditTime: 2022-06-17 11:20:20
  */
+import { ECSRootSystem } from "../libs/ecs/ECSSystem";
 import { AudioManager } from "./common/audio/AudioManager";
 import { TimerManager } from "./common/manager/TimerManager";
 import { storage } from "./common/storage/StorageManager";
 import { GameManager } from "./game/GameManager";
 import { LanguageManager } from "./gui/language/Language";
 import { LayerManager } from "./gui/layer/LayerManager";
-import { ECSRootSystem } from "./libs/ecs/ECSSystem";
 import { HttpRequest } from "./network/HttpRequest";
 
 /** 框架版本 */
