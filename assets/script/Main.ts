@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-17 14:04:12
+ * @LastEditTime: 2022-06-17 16:21:14
  */
 import { dynamicAtlasManager, macro, setDisplayStats, _decorator } from 'cc';
 import { DEBUG, JSB } from 'cc/env';

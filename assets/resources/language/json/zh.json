@@ -15,7 +15,7 @@
     "update_tips_update_fail": "更新失败",
     "update_tips_update_fail_click_retry": "更新失败，点击重试",
     "update_tips_update_success": "更新成功",
-    "btn_rich_text": "富文本",
+    "btn_rich_text": "<color=#00ff00>富</color><color=#0fffff>文本</color>",
     "btn_demo_lang": "中文",
     "btn_common_prompt": "公共弹窗",
     "btn_notify_show": "提示信息",

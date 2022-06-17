@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 19:55:22
+ * @LastEditTime: 2022-06-17 16:32:26
  */
-import { Component, EventTouch, _decorator } from "cc";
+import { Component, dynamicAtlasManager, EventTouch, _decorator } from "cc";
 import { tips } from "../common/prompt/TipsManager";
 import { oops } from "../../../../extensions/oops-framework/assets/core/Oops";
 import { UIID } from "../common/config/GameUIConfig";
@@ -23,6 +23,14 @@ export class Demo extends Component {
         //     var node = ViewUtil.createPrefabNode(path);
         //     node.parent = this.node;
         // });
+    }
+
+    start() {
+        console.log("当前图集数量", dynamicAtlasManager.atlasCount);
+        console.log("可以创建的最大图集数量", dynamicAtlasManager.maxAtlasCount);
+        console.log("创建的图集的宽高", dynamicAtlasManager.textureSize);
+        console.log("可以添加进图集的图片的最大尺寸", dynamicAtlasManager.maxFrameSize);
+        console.log("可以添加进图集的图片的最大尺寸", dynamicAtlasManager.maxFrameSize);
     }
 
     private btn_long(event: EventTouch, data: any) {
