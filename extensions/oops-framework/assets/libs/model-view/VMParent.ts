@@ -1,4 +1,5 @@
 import { Component, _decorator } from 'cc';
+import { GameComponent } from '../../core/game/GameComponent';
 import { VM } from './ViewModel';
 
 const { ccclass, help, executionOrder } = _decorator;
@@ -13,7 +14,7 @@ const { ccclass, help, executionOrder } = _decorator;
 @ccclass
 @executionOrder(-1)
 @help('https://github.com/wsssheep/cocos_creator_mvvm_tools/blob/master/docs/VMParent.md')
-export default class VMParent extends Component {
+export default class VMParent extends GameComponent {
     /** 绑定的标签，可以通过这个tag 获取 当前的 vm 实例 */
     protected tag: string = '_temp';
 
@@ -33,7 +34,7 @@ export default class VMParent extends Component {
      *   ``` 
      * 
      */
-    protected onLoad() {
+    onLoad() {
         if (this.data == null) return;
         this.tag = '_temp' + '<' + this.node.uuid.replace('.', '') + '>';
         VM.add(this.data, this.tag);
@@ -48,6 +49,8 @@ export default class VMParent extends Component {
         // console.groupEnd()
 
         this.onBind();
+
+        super.onLoad();
     }
 
     /**在 onLoad 完成 和 start() 之前调用，你可以在这里进行初始化数据等操作 */
@@ -111,8 +114,11 @@ export default class VMParent extends Component {
      */
     protected onDestroy() {
         this.onUnBind();
-        //解除全部引用
+
+        // 解除全部引用
         VM.remove(this.tag);
         this.data = null;
+
+        super.onDestroy();
     }
 }

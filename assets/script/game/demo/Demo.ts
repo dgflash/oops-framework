@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-17 16:32:26
+ * @LastEditTime: 2022-06-21 15:31:05
  */
 import { Component, dynamicAtlasManager, EventTouch, _decorator } from "cc";
 import { tips } from "../common/prompt/TipsManager";
@@ -10,6 +10,7 @@ import { oops } from "../../../../extensions/oops-framework/assets/core/Oops";
 import { UIID } from "../common/config/GameUIConfig";
 import { SingletonModuleComp } from "../common/ecs/SingletonModuleComp";
 import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { resLoader } from "../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
 
 const { ccclass, property } = _decorator;
 // 视图层实体是空的
@@ -26,6 +27,10 @@ export class Demo extends Component {
     }
 
     start() {
+        // 释放加载界面资源
+        console.log("内存中现有资源");
+        resLoader.dump();
+
         console.log("当前图集数量", dynamicAtlasManager.atlasCount);
         console.log("可以创建的最大图集数量", dynamicAtlasManager.maxAtlasCount);
         console.log("创建的图集的宽高", dynamicAtlasManager.textureSize);

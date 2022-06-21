@@ -1,4 +1,4 @@
-import { Asset, AssetManager, assetManager, Constructor, error, js, resources, __private } from "cc";
+import { Asset, AssetManager, assetManager, Constructor, error, js, Prefab, resources, __private } from "cc";
 
 export type ProgressCallback = __private._cocos_core_asset_manager_shared__ProgressCallback;
 export type CompleteCallback<T = any> = __private._cocos_core_asset_manager_shared__CompleteCallbackWithData;
@@ -165,17 +165,23 @@ export default class ResLoader {
         assetManager.loadRemote<T>(url, options, onComplete);
     }
 
+    /** 通过资源相对路径释放资源 */
     public release(path: string, bundleName: string = "resources") {
         var bundle = assetManager.getBundle(bundleName);
-        bundle?.release(path);
+        if (bundle) {
+            var asset = bundle.get(path);
+            if (asset) {
+                this.releasePrefabtDepsRecursively(asset._uuid);
+            }
+        }
     }
 
+    /** 通过相对文件夹路径删除所有文件夹中资源 */
     public releaseDir(path: string, bundleName: string = "resources") {
         var bundle: AssetManager.Bundle | null = assetManager.getBundle(bundleName);
         var infos = bundle?.getDirWithPath(path);
-        infos?.map(function (info) {
-            var asset = assetManager.assets.get(info.uuid)!;
-            assetManager.releaseAsset(asset);
+        infos?.map((info) => {
+            this.releasePrefabtDepsRecursively(info.uuid);
         });
 
         if (path == "" && bundleName != "resources" && bundle) {
@@ -183,6 +189,19 @@ export default class ResLoader {
         }
     }
 
+    /** 释放预制依赖资源 */
+    private releasePrefabtDepsRecursively(uuid: string) {
+        var asset = assetManager.assets.get(uuid)!;
+        if (asset instanceof Prefab) {
+            var uuids: string[] = assetManager.dependUtil.getDepsRecursively(uuid)!;
+            uuids.forEach(uuid => {
+                assetManager.assets.get(uuid)!.decRef();
+            });
+        }
+        assetManager.releaseAsset(asset);
+    }
+
+    /** 获取资源 */
     public get<T extends Asset>(path: string, type?: __private._cocos_core_asset_manager_shared__AssetType<T> | null, bundleName: string = "resources"): T | null {
         var bundle: AssetManager.Bundle | null = assetManager.getBundle(bundleName);
         return bundle!.get(path, type);
@@ -190,7 +209,7 @@ export default class ResLoader {
 
     public dump() {
         assetManager.assets.forEach((value: Asset, key: string) => {
-            console.log(key);
+            console.log(assetManager.assets.get(key));
         })
         console.log(`当前资源总数:${assetManager.assets.count}`);
     }

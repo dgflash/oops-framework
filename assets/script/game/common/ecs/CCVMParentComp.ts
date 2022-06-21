@@ -2,12 +2,10 @@
  * @Author: dgflash
  * @Date: 2021-11-11 19:05:32
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 19:53:11
+ * @LastEditTime: 2022-06-21 12:17:51
  */
 
-import { Node, _decorator } from 'cc';
-import { EventDispatcher } from '../../../../../extensions/oops-framework/assets/core/common/event/EventDispatcher';
-import { ViewUtil } from '../../../../../extensions/oops-framework/assets/core/utils/ViewUtil';
+import { _decorator } from 'cc';
 import { ecs } from '../../../../../extensions/oops-framework/assets/libs/ecs/ECS';
 import VMParent from '../../../../../extensions/oops-framework/assets/libs/model-view/VMParent';
 
@@ -30,95 +28,4 @@ export abstract class CCVMParentComp extends VMParent implements ecs.IComp {
     ent!: ecs.Entity;
 
     abstract reset(): void;
-
-    private nodes: Map<string, Node> = new Map();
-
-    /** 通过节点名获取预制上的节点，整个预制不能有重名节点 */
-    get(name: string): Node | undefined {
-        return this.nodes.get(name);
-    }
-
-    onLoad() {
-        ViewUtil.nodeTreeInfoLite(this.node, this.nodes);
-        super.onLoad();
-    }
-
-    //#region 全局事件管理
-    private _eventDispatcher: EventDispatcher | null = null;
-
-    public get eventDispatcher(): EventDispatcher {
-        if (!this._eventDispatcher) {
-            this._eventDispatcher = new EventDispatcher();
-        }
-        return this._eventDispatcher;
-    }
-
-    // 事件是否绑定node的active
-    private _isBindMessageActive: boolean = false;
-
-    /** 绑定node active属性，即只有active为true才会响应事件 */
-    public bindMessageActive() {
-        this._isBindMessageActive = true;
-    }
-
-    /** 解绑node active属性，无论node是否可见都会响应事件 */
-    public unbindMessageActive() {
-        this._isBindMessageActive = false;
-    }
-
-    /**
-     * 注册全局事件
-     * @param event(string)      事件名
-     * @param listener(function) 处理事件的侦听器函数
-     * @param thisObj(object)    侦听函数绑定的this对象
-     */
-    public on(event: string, listener: Function, thisObj: any) {
-        this.eventDispatcher.on(event, (event, args) => {
-            if (!this.isValid) {
-                if (this._eventDispatcher) {
-                    this._eventDispatcher.destroy();
-                    this._eventDispatcher = null;
-                }
-                return;
-            }
-
-            if (this._isBindMessageActive) {
-                if (this.node.active) {
-                    listener.call(thisObj, event, args);
-                }
-            }
-            else {
-                listener.call(thisObj, event, args);
-            }
-        }, thisObj);
-    }
-
-    /**
-     * 移除全局事件
-     * @param event(string)      事件名
-     */
-    public off(event: string) {
-        if (this._eventDispatcher) {
-            this._eventDispatcher.off(event);
-        }
-    }
-
-    /** 
-     * 触发全局事件 
-     * @param event(string)      事件名
-     * @param arg(Array)         事件参数
-     */
-    public dispatchEvent(event: string, arg: any = null) {
-        this.eventDispatcher.dispatchEvent(event, arg);
-    }
-
-    onDestroy() {
-        if (this._eventDispatcher) {
-            this._eventDispatcher.destroy();
-            this._eventDispatcher = null;
-        }
-
-        this.nodes.clear();
-    }
-    //#endregion
 }

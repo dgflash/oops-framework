@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 19:55:31
+ * @LastEditTime: 2022-06-21 15:30:55
  */
 import { _decorator } from "cc";
 import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
@@ -44,16 +44,13 @@ export class LoadingViewComp extends CCVMParentComp {
         // 关闭加载界面
         oops.gui.remove(UIID.Loading);
 
-        // 释放加载界面资源
-        resLoader.releaseDir("loading");
-
         // 打开游戏主界面（自定义逻辑）
         oops.gui.open(UIID.Demo);
     }
 
     start() {
         // if (!sys.isNative) {
-            this.enter();
+        this.enter();
         // }
     }
 

@@ -1,4 +1,5 @@
 import { Component, Node, _decorator } from "cc";
+import { resLoader } from "../../common/loader/ResLoader";
 import { ViewParams } from "./Defines";
 
 const { ccclass } = _decorator;
@@ -48,10 +49,15 @@ export class DelegateComponent extends Component {
             viewParams.callbacks!.onRemoved(this.node, viewParams.params);
         }
 
-        if (isDestroy)
+        if (isDestroy) {
             this.node.destroy();
-        else
+
+            // 释放界面相关资源
+            resLoader.release(viewParams.prefabPath);
+        }
+        else {
             this.node.removeFromParent();
+        }
     }
 
     onDestroy() {
