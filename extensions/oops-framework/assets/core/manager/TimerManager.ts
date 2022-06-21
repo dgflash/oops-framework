@@ -1,5 +1,5 @@
 import { Component } from "cc";
-import { EventDispatcher } from "../event/EventDispatcher";
+import { EventDispatcher } from "../common/event/EventDispatcher";
 
 export const guid = function () {
     let guid: string = "";
