@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-06-30 13:56:26
  * @LastEditors: dgflash
- * @LastEditTime: 2021-11-04 10:46:00
+ * @LastEditTime: 2022-06-22 09:29:52
  */
 
 import { CCFloat, game, SkeletalAnimation, _decorator } from 'cc';
@@ -54,6 +54,7 @@ export class AnimatorSkeletal extends AnimatorAnimation {
         if (!this._wrapModeMap.has(this._animState)) {
             this._wrapModeMap.set(this._animState, this._animState.wrapMode);
         }
-        this._animState.wrapMode = loop ? 2 : this._wrapModeMap.get(this._animState)!;
+        // this._animState.wrapMode = loop ? 2 : this._wrapModeMap.get(this._animState)!;
+        this._animState.wrapMode = loop ? 2 : 1;   // 2为循环播放，1为单次播放
     }
 }
