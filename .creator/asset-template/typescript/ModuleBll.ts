@@ -10,7 +10,7 @@ export class <%Name%>Comp extends ecs.Comp {
 }
 
 /** 业务层业务逻辑处理对象 */
-export class RoleChangeJobSystem extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
+export class <%Name%>System extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
     filter(): ecs.IMatcher {
         return ecs.allOf(<%Name%>Comp);
     }
