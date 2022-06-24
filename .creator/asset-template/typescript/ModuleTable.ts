@@ -1,3 +1,5 @@
+import { JsonUtil } from "../../../../../extensions/oops-framework/assets/core/utils/JsonUtil";
+
 /** 策划 Excel 导出的 Json 静态数据 */
 export class <%Name%> {
     static TableName: string = "配置表文件名";

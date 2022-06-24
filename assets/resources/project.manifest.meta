@@ -4,8 +4,8 @@
   "imported": true,
   "uuid": "acbe03ba-4e92-43cf-a521-c5337c12e38b",
   "files": [
-    ".manifest",
-    ".json"
+    ".json",
+    ".manifest"
   ],
   "subMetas": {},
   "userData": {}

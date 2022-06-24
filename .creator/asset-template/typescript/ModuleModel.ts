@@ -1,3 +1,6 @@
+import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { VM } from "../../../../../extensions/oops-framework/assets/libs/model-view/ViewModel";
+
 /** 数据层对象 */
 @ecs.register('<%Name%>')
 export class <%Name%>Comp extends ecs.Comp {

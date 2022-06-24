@@ -1,3 +1,5 @@
+import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+
 /** <%Name%> 模块 */
 export class <%Name%> extends ecs.Entity {
     /** ---------- 数据层 ---------- */
