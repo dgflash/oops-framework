@@ -73,7 +73,7 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
  
 ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/module.png)
 
-9. 框架以插件方式提供，与项目代码分享，方便后续平滑升级
+9. 框架以插件方式提供，与项目代码分离，方便不同版本平滑升级
 ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/oops-plug-in1.jpg)
 ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/oops-plug-in2.jpg)
 
