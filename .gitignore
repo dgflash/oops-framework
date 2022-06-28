@@ -6,7 +6,7 @@ oops_framework_remote/
 library/
 temp/
 local/
-build/
+# build/
 profiles/
 native
 #//////////////////////////
