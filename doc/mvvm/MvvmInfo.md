@@ -1,5 +1,4 @@
-### 框架原作者文档链接
-使用文档: https://github.com/wsssheep/cocos_creator_mvvm_tools/tree/master/docs
+### 原创作者上有2.x的DEMO
 Github 地址: https://github.com/wsssheep/cocos_creator_mvvm_tools
 
 ### 项目结构
@@ -14,7 +13,6 @@ Github 地址: https://github.com/wsssheep/cocos_creator_mvvm_tools
 ****
 
 ### 组件简介
-
 
 - `VMCustom` — 挂载VMCustom，然后会自动识别当前节点的组件(也可以自行设置)。填上你的数值路径，大功告成。
 - `VMLabel` —  挂在VMLabel ，不用担心你的数值是整是零，使用模板语法 {{0:int}}自动格式化，解决文本数据显示的问题
