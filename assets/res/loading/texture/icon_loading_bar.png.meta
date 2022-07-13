@@ -1,5 +1,5 @@
 {
-  "ver": "1.0.23",
+  "ver": "1.0.24",
   "importer": "image",
   "imported": true,
   "uuid": "1ac049d7-c899-492a-89a7-4e8d85ce4cb1",
@@ -14,7 +14,7 @@
       "displayName": "icon_loading_bar",
       "id": "6c48a",
       "name": "texture",
-      "ver": "1.0.21",
+      "ver": "1.0.22",
       "imported": true,
       "files": [
         ".json"
@@ -29,7 +29,8 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "1ac049d7-c899-492a-89a7-4e8d85ce4cb1"
+        "imageUuidOrDatabaseUri": "1ac049d7-c899-492a-89a7-4e8d85ce4cb1",
+        "visible": false
       }
     },
     "f9941": {
@@ -38,7 +39,7 @@
       "displayName": "icon_loading_bar",
       "id": "f9941",
       "name": "spriteFrame",
-      "ver": "1.0.9",
+      "ver": "1.0.11",
       "imported": true,
       "files": [
         ".json"
@@ -63,7 +64,65 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "1ac049d7-c899-492a-89a7-4e8d85ce4cb1@6c48a",
         "atlasUuid": "",
-        "packable": true
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [
+            -274.5,
+            -23.5,
+            0,
+            274.5,
+            -23.5,
+            0,
+            -274.5,
+            23.5,
+            0,
+            274.5,
+            23.5,
+            0
+          ],
+          "indexes": [
+            0,
+            1,
+            2,
+            2,
+            1,
+            3
+          ],
+          "uv": [
+            0,
+            47,
+            549,
+            47,
+            0,
+            0,
+            549,
+            0
+          ],
+          "nuv": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "minPos": [
+            -274.5,
+            -23.5,
+            0
+          ],
+          "maxPos": [
+            274.5,
+            23.5,
+            0
+          ]
+        }
       }
     }
   },
