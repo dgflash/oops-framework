@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-07 17:17:55
+ * @LastEditTime: 2022-07-13 14:55:08
  */
-import { dynamicAtlasManager, macro, setDisplayStats, _decorator } from 'cc';
+import { dynamicAtlasManager, macro, profiler, _decorator } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
 import { oops } from '../../extensions/oops-framework/assets/core/Oops';
 import { ecs } from '../../extensions/oops-framework/assets/libs/ecs/ECS';
@@ -21,7 +21,7 @@ dynamicAtlasManager.maxFrameSize = 512;
 @ccclass('Main')
 export class Main extends CommonEnter {
     start() {
-        if (DEBUG) setDisplayStats(true);
+        if (DEBUG) profiler.showStats();
     }
 
     protected async run() {
