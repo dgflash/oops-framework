@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-21 15:31:05
+ * @LastEditTime: 2022-07-14 18:18:09
  */
 import { Component, dynamicAtlasManager, EventTouch, _decorator } from "cc";
 import { tips } from "../common/prompt/TipsManager";
@@ -123,11 +123,10 @@ export class Demo extends Component {
     private btn_audio_open1(event: EventTouch, data: any) {
         oops.audio.musicVolume = 0.5;
 
-        oops.audio.playMusic("audios/Gravel", () => {
-            oops.audio.playMusic("audios/nocturne", () => {
-
-            });
+        oops.audio.setMusicComplete(() => {
+            oops.audio.playMusic("audios/nocturne");
         });
+        oops.audio.playMusic("audios/Gravel");
     }
 
     /** 背景音效 */
