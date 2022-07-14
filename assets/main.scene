@@ -227,7 +227,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 422.44224422442244,
+    "_orthoHeight": 403.5536294691224,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -459,7 +459,8 @@
     "_diffuseMapHDR": null,
     "_diffuseMapLDR": null,
     "_enabled": false,
-    "_useHDR": false
+    "_useHDR": false,
+    "_editableMaterial": null
   },
   {
     "__type__": "cc.FogInfo",

@@ -19,7 +19,7 @@ export module storage {
     }
 
     /**
-     * 设置用户标识
+     * 设置用户唯一标识
      * @param id 
      */
     export function setUser(id: number) {

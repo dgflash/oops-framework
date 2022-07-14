@@ -1,4 +1,4 @@
-import { Component, game, Node } from "cc";
+import { Component, director, Node } from "cc";
 import { storage } from "../storage/StorageManager";
 import { AudioEffect } from "./AudioEffect";
 import { AudioMusic } from "./AudioMusic";
@@ -10,9 +10,9 @@ export class AudioManager extends Component {
     public static get instance(): AudioManager {
         if (this._instance == null) {
             var node = new Node("UIAudioManager");
-            game.addPersistRootNode(node);
+            director.addPersistRootNode(node);
             this._instance = node.addComponent(AudioManager);
-            this._instance.init();
+            this._instance.load();
 
             var music = new Node("UIMusic");
             music.parent = node;
@@ -34,36 +34,18 @@ export class AudioManager extends Component {
     private _volume_effect: number = 1;
     private _switch_music: boolean = true;
     private _switch_effect: boolean = true;
-    private _uuid: string = "10000";                // 玩家唯一标识，一般为玩家数据库唯一编号
-    private _localStorageTag: string = "";          // 本地存储标签名
 
-    private init() {
-        let data = storage.get(this._localStorageTag);
-        if (data) {
-            try {
-                this.local_data = JSON.parse(data);
-                this._volume_music = this.local_data.volume_music;
-                this._volume_effect = this.local_data.volume_effect;
-                this._switch_music = this.local_data.switch_music;
-                this._switch_effect = this.local_data.switch_effect;
-            }
-            catch (e) {
-                this.local_data = {};
-                this._volume_music = 1;
-                this._volume_effect = 1;
-                this._switch_music = true;
-                this._switch_effect = true;
-            }
-
-            this.music.volume = this._volume_music;
-            this.effect.volume = this._volume_effect;
-        }
+    /** 获取音乐播放进度 */
+    get progressMusic(): number {
+        return this.music.progress;
+    }
+    set progressMusic(value: number) {
+        this.music.progress = value;
     }
 
-    /** 设置玩家唯一标识 */
-    public setUuid(value: string) {
-        this._uuid = value;
-        this._localStorageTag = `${LOCAL_STORE_KEY}_${this._uuid}`;
+    /** 音乐播放完成回调 */
+    setMusicComplete(callback: Function | null = null) {
+        this.music.onComplete = callback;
     }
 
     /**
@@ -71,10 +53,9 @@ export class AudioManager extends Component {
      * @param url        资源地址
      * @param callback   音乐播放完成事件
      */
-    playMusic(url: string, callback: Function | null = null) {
+    playMusic(url: string, callback?: Function) {
         if (this._switch_music) {
-            this.music.load(url);
-            this.music.onComplete = callback;
+            this.music.load(url, callback);
         }
     }
 
@@ -118,43 +99,66 @@ export class AudioManager extends Component {
     }
 
     /** 音效开关 */
-    public getSwitchEffect(): boolean {
+    getSwitchEffect(): boolean {
         return this._switch_effect;
     }
-    public setSwitchEffect(value: boolean) {
+    setSwitchEffect(value: boolean) {
         this._switch_effect = value;
         if (value == false)
             this.effect.stop();
     }
 
-    public resumeAll() {
+    resumeAll() {
         if (this.music) {
             this.music.play();
             this.effect.play();
         }
     }
 
-    public pauseAll() {
+    pauseAll() {
         if (this.music) {
             this.music.pause();
             this.effect.pause();
         }
     }
 
-    public stopAll() {
+    stopAll() {
         if (this.music) {
             this.music.stop();
             this.effect.stop();
         }
     }
 
-    public save() {
+    save() {
         this.local_data.volume_music = this._volume_music;
         this.local_data.volume_effect = this._volume_effect;
         this.local_data.switch_music = this._switch_music;
         this.local_data.switch_effect = this._switch_effect;
 
         let data = JSON.stringify(this.local_data);
-        storage.set(this._localStorageTag, data);
+        storage.set(LOCAL_STORE_KEY, data);
+    }
+
+    load() {
+        let data = storage.get(LOCAL_STORE_KEY);
+        if (data) {
+            try {
+                this.local_data = JSON.parse(data);
+                this._volume_music = this.local_data.volume_music;
+                this._volume_effect = this.local_data.volume_effect;
+                this._switch_music = this.local_data.switch_music;
+                this._switch_effect = this.local_data.switch_effect;
+            }
+            catch (e) {
+                this.local_data = {};
+                this._volume_music = 1;
+                this._volume_effect = 1;
+                this._switch_music = true;
+                this._switch_effect = true;
+            }
+
+            this.music.volume = this._volume_music;
+            this.effect.volume = this._volume_effect;
+        }
     }
 }
