@@ -1,4 +1,4 @@
-import { Camera, Component, EventTouch, gfx, Node, RenderTexture, Sprite, SpriteFrame, SystemEventType, UITransform, Vec3, _decorator } from 'cc';
+import { Camera, Component, EventTouch, gfx, Node, RenderTexture, Sprite, SpriteFrame, UITransform, Vec3, _decorator } from 'cc';
 const { ccclass, property } = _decorator;
 
 /** 三维模型显示到二维精灵上 */
@@ -39,10 +39,10 @@ export class RtToSprite extends Component {
         this.refreshRenderTexture(size.width, size.height);
 
         if (this.rotation) {
-            this.sprite!.node.on(SystemEventType.TOUCH_START, this.onTouchStart, this);
-            this.sprite!.node.on(SystemEventType.TOUCH_MOVE, this.onTouchMove, this);
-            this.sprite!.node.on(SystemEventType.TOUCH_END, this.onTouchEnd, this);
-            this.sprite!.node.on(SystemEventType.TOUCH_CANCEL, this.onTouchEnd, this);
+            this.sprite!.node.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
+            this.sprite!.node.on(Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+            this.sprite!.node.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
+            this.sprite!.node.on(Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
         }
     }
 
@@ -95,10 +95,10 @@ export class RtToSprite extends Component {
 
     onDestroy() {
         if (this.rotation) {
-            this.sprite!.node.off(SystemEventType.TOUCH_START, this.onTouchStart, this);
-            this.sprite!.node.off(SystemEventType.TOUCH_MOVE, this.onTouchMove, this);
-            this.sprite!.node.off(SystemEventType.TOUCH_END, this.onTouchEnd, this);
-            this.sprite!.node.off(SystemEventType.TOUCH_CANCEL, this.onTouchEnd, this);
+            this.sprite!.node.off(Node.EventType.TOUCH_START, this.onTouchStart, this);
+            this.sprite!.node.off(Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+            this.sprite!.node.off(Node.EventType.TOUCH_END, this.onTouchEnd, this);
+            this.sprite!.node.off(Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
         }
         this.rt.destroy();
     }

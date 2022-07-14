@@ -1,6 +1,6 @@
 import { _decorator } from "cc";
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
-import { CCComp } from "../../common/ecs/view/CCComp";
+import { CCComp } from "../../common/ecs/CCComp";
 
 const { ccclass, property } = _decorator;
 
