@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-02-11 09:32:47
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-17 11:20:20
+ * @LastEditTime: 2022-07-14 10:00:41
  */
 import { ECSRootSystem } from "../libs/ecs/ECSSystem";
 import { AudioManager } from "./common/audio/AudioManager";
@@ -14,7 +14,7 @@ import { LayerManager } from "./gui/layer/LayerManager";
 import { HttpRequest } from "./network/HttpRequest";
 
 /** 框架版本 */
-export var version: string = "1.0.5";
+export var version: string = "1.0.6";
 
 export class oops {
     /** ECS */
