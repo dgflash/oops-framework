@@ -157,8 +157,8 @@ export class AudioManager extends Component {
                 this._switch_effect = true;
             }
 
-            this.music.volume = this._volume_music;
-            this.effect.volume = this._volume_effect;
+            if (this.music) this.music.volume = this._volume_music;
+            if (this.effect) this.effect.volume = this._volume_effect;
         }
     }
 }
