@@ -1,8 +1,8 @@
 /*
  * @Author: dgflash
  * @Date: 2021-08-16 09:34:56
- * @LastEditors: H.Joeson
- * @LastEditTime: 2021-10-27 11:16:29
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-07-15 18:51:00
  */
 import { Animation, AnimationClip, EventTouch, instantiate, Node, Prefab, Size, UITransform, v3, Vec3 } from "cc";
 import { resLoader } from "../common/loader/ResLoader";
@@ -77,6 +77,21 @@ export class ViewUtil {
         var p: Prefab = resLoader.get(name, Prefab)!;
         var n = instantiate(p);
         return n;
+    }
+
+    /** 加载预制并创建预制节点 */
+    public static createPrefabNodeAsync(path: string): Promise<Node> {
+        return new Promise(async (resolve, reject) => {
+            resLoader.load(path, Prefab, (err: Error | null, content: Prefab) => {
+                if (err) {
+                    console.error(`名为【${path}】的资源加载失败`);
+                    return;
+                }
+
+                var node = this.createPrefabNode(path);
+                resolve(node);
+            });
+        });
     }
 
     /** 添加节点动画 */
