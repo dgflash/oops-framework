@@ -70,12 +70,11 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
     - 本地热更配置 resources/project.manifes
     - 本地热更配置 resources/version.manifes
 8. Cocos Creator 3.5 版本新功能业务框架模板
- 
-![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/module.png)
+    ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/module.png)
 
 9. 框架以插件方式提供，与项目代码分离，方便不同版本平滑升级
-![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/oops-plug-in1.jpg)
-![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/oops-plug-in2.jpg)
+    ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/oops-plug-in1.jpg)
+    ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/oops-plug-in2.jpg)
 
 #### 插件分类
 1. 静态配置表Excel转Json数据与对应的数据结构TS脚本插件[【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124484273?spm=1001.2014.3001.5502)
