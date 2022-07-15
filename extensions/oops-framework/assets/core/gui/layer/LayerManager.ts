@@ -12,7 +12,7 @@ import { UIMap } from "./UIMap";
 export enum LayerType {
     /** 游戏层 */
     Game = "LayerGame",
-    /** 主界层 */
+    /** 主界面层 */
     UI = "LayerUI",
     /** 弹窗层 */
     PopUp = "LayerPopUp",

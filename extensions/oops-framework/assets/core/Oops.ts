@@ -14,7 +14,7 @@ import { LayerManager } from "./gui/layer/LayerManager";
 import { HttpRequest } from "./network/HttpRequest";
 
 /** 框架版本 */
-export var version: string = "1.0.5";
+export var version: string = "1.0.7";
 
 export class oops {
     /** ECS */
