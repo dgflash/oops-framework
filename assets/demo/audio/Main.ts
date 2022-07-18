@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-07-14 10:57:43
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-14 16:09:20
+ * @LastEditTime: 2022-07-18 14:24:55
  */
 import { Node, Slider, _decorator } from 'cc';
 import { oops } from '../../../extensions/oops-framework/assets/core/Oops';
@@ -23,7 +23,7 @@ export class Main extends Root {
     sliderMusicHandle: Node = null!;
 
     start() {
-        oops.audio.musicVolume = this.sliderMusicVolume.progress;
+        oops.audio.volumeMusic = this.sliderMusicVolume.progress;
 
         this.sliderMusicHandle.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.sliderMusicHandle.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
@@ -50,13 +50,12 @@ export class Main extends Root {
         oops.audio.setMusicComplete(() => {
             oops.gui.toast("音乐播放完成");
         });
-
         oops.audio.playMusic("audios/nocturne");
     }
 
     /** 调解背景音乐音量 */
     onSliderMusicVolume(slider: Slider, customEventData: string) {
-        oops.audio.musicVolume = slider.progress;
+        oops.audio.volumeMusic = slider.progress;
     }
 
     /** 播放背景音效 */

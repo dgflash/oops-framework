@@ -152,6 +152,7 @@ export default class ResLoader {
         return bundle!.get(path, type);
     }
 
+    /** 打印缓存中所有资源信息（用于调试） */
     public dump() {
         assetManager.assets.forEach((value: Asset, key: string) => {
             console.log(assetManager.assets.get(key));
