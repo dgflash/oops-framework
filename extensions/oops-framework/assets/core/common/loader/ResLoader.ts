@@ -228,13 +228,15 @@ export default class ResLoader {
     /** 释放预制依赖资源 */
     private releasePrefabtDepsRecursively(uuid: string) {
         var asset = assetManager.assets.get(uuid)!;
+        assetManager.releaseAsset(asset);
+
         if (asset instanceof Prefab) {
             var uuids: string[] = assetManager.dependUtil.getDepsRecursively(uuid)!;
             uuids.forEach(uuid => {
-                assetManager.assets.get(uuid)!.decRef();
+                var asset = assetManager.assets.get(uuid)!;
+                asset.decRef();
             });
         }
-        assetManager.releaseAsset(asset);
     }
 }
 

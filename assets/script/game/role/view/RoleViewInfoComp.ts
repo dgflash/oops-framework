@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-06-02 09:38:48
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 19:57:00
+ * @LastEditTime: 2022-07-18 19:23:45
  */
 import { EventTouch, Node, _decorator } from "cc";
 import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
@@ -28,7 +28,7 @@ export class RoleViewInfoComp extends CCComp {
                 role.upgrade();
                 break;
             case "btn_close":
-                oops.gui.remove(UIID.Demo_Role_Info, false);
+                oops.gui.remove(UIID.Demo_Role_Info);
 
                 // 注：模拟二次删除清理缓存
                 setTimeout(() => {

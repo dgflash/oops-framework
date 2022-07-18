@@ -121,7 +121,7 @@ export class Demo extends Component {
 
     /** 背景音乐 */
     private btn_audio_open1(event: EventTouch, data: any) {
-        oops.audio.volumeMusic = 0.5;
+        oops.audio.musicVolume = 0.5;
 
         oops.audio.setMusicComplete(() => {
             oops.audio.playMusic("audios/nocturne");
