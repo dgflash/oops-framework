@@ -16,6 +16,27 @@ interface ILoadResArgs<T extends Asset> {
 
 export default class ResLoader {
     /**
+     * 加载远程资源
+     * @param url           资源地址
+     * @param options       资源参数，例：{ ext: ".png" }
+     * @param onComplete    
+     */
+    public loadRemote<T extends Asset>(url: string, options: IRemoteOptions | null, onComplete?: CompleteCallback<T> | null): void;
+    public loadRemote<T extends Asset>(url: string, onComplete?: CompleteCallback<T> | null): void;
+    public loadRemote<T extends Asset>(url: string, ...args: any): void {
+        var options: IRemoteOptions | null = null;
+        var onComplete: CompleteCallback<T> | null = null;
+        if (args.length == 2) {
+            options = args[0];
+            onComplete = args[1];
+        }
+        else {
+            onComplete = args[0];
+        }
+        assetManager.loadRemote<T>(url, options, onComplete);
+    }
+
+    /**
      * 加载资源包
      * @param url       资源地址
      * @param complete  完成事件
@@ -32,6 +53,14 @@ export default class ResLoader {
         });
     }
 
+    /**
+     * 加载一个资源
+     * @param bundleName    远程包名
+     * @param paths         资源路径
+     * @param type          资源类型
+     * @param onProgress    加载进度回调
+     * @param onComplete    加载完成回调
+     */
     public load<T extends Asset>(bundleName: string, paths: string | string[], type: AssetType<T> | null, onProgress: ProgressCallback | null, onComplete: CompleteCallback<T> | null): void;
     public load<T extends Asset>(bundleName: string, paths: string | string[], onProgress: ProgressCallback | null, onComplete: CompleteCallback<T> | null): void;
     public load<T extends Asset>(bundleName: string, paths: string | string[], onComplete?: CompleteCallback<T> | null): void;
@@ -58,6 +87,14 @@ export default class ResLoader {
         this.loadByArgs(args);
     }
 
+    /**
+     * 加载文件夹中的资源
+     * @param bundleName    远程包名
+     * @param dir           文件夹名
+     * @param type          资源类型
+     * @param onProgress    加载进度回调
+     * @param onComplete    加载完成回调
+     */
     public loadDir<T extends Asset>(bundleName: string, dir: string, type: AssetType<T> | null, onProgress: ProgressCallback | null, onComplete: CompleteCallback<T[]> | null): void;
     public loadDir<T extends Asset>(bundleName: string, dir: string, onProgress: ProgressCallback | null, onComplete: CompleteCallback<T[]> | null): void;
     public loadDir<T extends Asset>(bundleName: string, dir: string, onComplete?: CompleteCallback<T[]> | null): void;
@@ -83,21 +120,6 @@ export default class ResLoader {
         }
         args.dir = args.paths as string;
         this.loadByArgs(args);
-    }
-
-    public loadRemote<T extends Asset>(url: string, options: IRemoteOptions | null, onComplete?: CompleteCallback<T> | null): void;
-    public loadRemote<T extends Asset>(url: string, onComplete?: CompleteCallback<T> | null): void;
-    public loadRemote<T extends Asset>(url: string, ...args: any): void {
-        var options: IRemoteOptions | null = null;
-        var onComplete: CompleteCallback<T> | null = null;
-        if (args.length == 2) {
-            options = args[0];
-            onComplete = args[1];
-        }
-        else {
-            onComplete = args[0];
-        }
-        assetManager.loadRemote<T>(url, options, onComplete);
     }
 
     /** 通过资源相对路径释放资源 */

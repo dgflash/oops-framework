@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-07-14 10:57:43
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-18 12:43:16
+ * @LastEditTime: 2022-07-18 13:47:16
  */
 import { ImageAsset, Node, Sprite, SpriteFrame, Texture2D, _decorator } from 'cc';
 import { IRemoteOptions, resLoader } from '../../../extensions/oops-framework/assets/core/common/loader/ResLoader';
@@ -21,6 +21,7 @@ export class Main extends Root {
     sprite: Node = null!;
 
     private url = "https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/assets/resources/native/00/0021cb5a-e4f0-4709-b0b6-5e21875720b7.3d6ea.png";
+    // private cache: any = {};
 
     btnLoader() {
         var opt: IRemoteOptions = { ext: ".png" };
@@ -32,6 +33,7 @@ export class Main extends Root {
             var sprite = this.sprite.getComponent(Sprite) || this.sprite.addComponent(Sprite);
             sprite.spriteFrame = spriteFrame;
             data.addRef();
+            // this.cache[data.nativeUrl] = spriteFrame;
         }
         resLoader.loadRemote<ImageAsset>(this.url, opt, onComplete);
     }
@@ -51,7 +53,8 @@ export class Main extends Root {
                 }
 
                 if (texture) {
-                    texture.image?.decRef();
+                    // delete this.cache[texture.image!.nativeUrl];
+                    texture.image!.decRef();
                     texture.destroy();
                 }
                 spFrame.destroy();
