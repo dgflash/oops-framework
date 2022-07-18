@@ -32,71 +32,6 @@ export default class ResLoader {
         });
     }
 
-    public parseLoadResArgs<T extends Asset>(
-        paths: string | string[],
-        type?: AssetType<T> | ProgressCallback | CompleteCallback | null,
-        onProgress?: AssetType<T> | ProgressCallback | CompleteCallback | null,
-        onComplete?: ProgressCallback | CompleteCallback | null
-    ) {
-        let pathsOut: any = paths;
-        let typeOut: any = type;
-        let onProgressOut: any = onProgress;
-        let onCompleteOut: any = onComplete;
-        if (onComplete === undefined) {
-            const isValidType = js.isChildClassOf(type as AssetType, Asset);
-            if (onProgress) {
-                onCompleteOut = onProgress as CompleteCallback;
-                if (isValidType) {
-                    onProgressOut = null;
-                }
-            }
-            else if (onProgress === undefined && !isValidType) {
-                onCompleteOut = type as CompleteCallback;
-                onProgressOut = null;
-                typeOut = null;
-            }
-            if (onProgress !== undefined && !isValidType) {
-                onProgressOut = type as ProgressCallback;
-                typeOut = null;
-            }
-        }
-        return { paths: pathsOut, type: typeOut, onProgress: onProgressOut, onComplete: onCompleteOut };
-    }
-
-    private loadByBundleAndArgs<T extends Asset>(bundle: AssetManager.Bundle, args: ILoadResArgs<T>): void {
-        if (args.dir) {
-            bundle.loadDir(args.paths as string, args.type, args.onProgress, args.onComplete);
-        }
-        else {
-            if (typeof args.paths == 'string') {
-                bundle.load(args.paths, args.type, args.onProgress, args.onComplete);
-            }
-            else {
-                bundle.load(args.paths, args.type, args.onProgress, args.onComplete);
-            }
-        }
-    }
-
-    private loadByArgs<T extends Asset>(args: ILoadResArgs<T>) {
-        if (args.bundle) {
-            if (assetManager.bundles.has(args.bundle)) {
-                let bundle = assetManager.bundles.get(args.bundle);
-                this.loadByBundleAndArgs(bundle!, args);
-            }
-            else {
-                // 自动加载bundle
-                assetManager.loadBundle(args.bundle, (err, bundle) => {
-                    if (!err) {
-                        this.loadByBundleAndArgs(bundle, args);
-                    }
-                })
-            }
-        }
-        else {
-            this.loadByBundleAndArgs(resources, args);
-        }
-    }
-
     public load<T extends Asset>(bundleName: string, paths: string | string[], type: AssetType<T> | null, onProgress: ProgressCallback | null, onComplete: CompleteCallback<T> | null): void;
     public load<T extends Asset>(bundleName: string, paths: string | string[], onProgress: ProgressCallback | null, onComplete: CompleteCallback<T> | null): void;
     public load<T extends Asset>(bundleName: string, paths: string | string[], onComplete?: CompleteCallback<T> | null): void;
@@ -189,18 +124,6 @@ export default class ResLoader {
         }
     }
 
-    /** 释放预制依赖资源 */
-    private releasePrefabtDepsRecursively(uuid: string) {
-        var asset = assetManager.assets.get(uuid)!;
-        if (asset instanceof Prefab) {
-            var uuids: string[] = assetManager.dependUtil.getDepsRecursively(uuid)!;
-            uuids.forEach(uuid => {
-                assetManager.assets.get(uuid)!.decRef();
-            });
-        }
-        assetManager.releaseAsset(asset);
-    }
-
     /** 获取资源 */
     public get<T extends Asset>(path: string, type?: __private._cocos_core_asset_manager_shared__AssetType<T> | null, bundleName: string = "resources"): T | null {
         var bundle: AssetManager.Bundle | null = assetManager.getBundle(bundleName);
@@ -212,6 +135,83 @@ export default class ResLoader {
             console.log(assetManager.assets.get(key));
         })
         console.log(`当前资源总数:${assetManager.assets.count}`);
+    }
+
+    private parseLoadResArgs<T extends Asset>(
+        paths: string | string[],
+        type?: AssetType<T> | ProgressCallback | CompleteCallback | null,
+        onProgress?: AssetType<T> | ProgressCallback | CompleteCallback | null,
+        onComplete?: ProgressCallback | CompleteCallback | null
+    ) {
+        let pathsOut: any = paths;
+        let typeOut: any = type;
+        let onProgressOut: any = onProgress;
+        let onCompleteOut: any = onComplete;
+        if (onComplete === undefined) {
+            const isValidType = js.isChildClassOf(type as AssetType, Asset);
+            if (onProgress) {
+                onCompleteOut = onProgress as CompleteCallback;
+                if (isValidType) {
+                    onProgressOut = null;
+                }
+            }
+            else if (onProgress === undefined && !isValidType) {
+                onCompleteOut = type as CompleteCallback;
+                onProgressOut = null;
+                typeOut = null;
+            }
+            if (onProgress !== undefined && !isValidType) {
+                onProgressOut = type as ProgressCallback;
+                typeOut = null;
+            }
+        }
+        return { paths: pathsOut, type: typeOut, onProgress: onProgressOut, onComplete: onCompleteOut };
+    }
+
+    private loadByBundleAndArgs<T extends Asset>(bundle: AssetManager.Bundle, args: ILoadResArgs<T>): void {
+        if (args.dir) {
+            bundle.loadDir(args.paths as string, args.type, args.onProgress, args.onComplete);
+        }
+        else {
+            if (typeof args.paths == 'string') {
+                bundle.load(args.paths, args.type, args.onProgress, args.onComplete);
+            }
+            else {
+                bundle.load(args.paths, args.type, args.onProgress, args.onComplete);
+            }
+        }
+    }
+
+    private loadByArgs<T extends Asset>(args: ILoadResArgs<T>) {
+        if (args.bundle) {
+            if (assetManager.bundles.has(args.bundle)) {
+                let bundle = assetManager.bundles.get(args.bundle);
+                this.loadByBundleAndArgs(bundle!, args);
+            }
+            else {
+                // 自动加载bundle
+                assetManager.loadBundle(args.bundle, (err, bundle) => {
+                    if (!err) {
+                        this.loadByBundleAndArgs(bundle, args);
+                    }
+                })
+            }
+        }
+        else {
+            this.loadByBundleAndArgs(resources, args);
+        }
+    }
+
+    /** 释放预制依赖资源 */
+    private releasePrefabtDepsRecursively(uuid: string) {
+        var asset = assetManager.assets.get(uuid)!;
+        if (asset instanceof Prefab) {
+            var uuids: string[] = assetManager.dependUtil.getDepsRecursively(uuid)!;
+            uuids.forEach(uuid => {
+                assetManager.assets.get(uuid)!.decRef();
+            });
+        }
+        assetManager.releaseAsset(asset);
     }
 }
 
