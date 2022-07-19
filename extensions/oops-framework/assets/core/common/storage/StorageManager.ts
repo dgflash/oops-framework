@@ -27,7 +27,7 @@ export module storage {
     }
 
     /**
-     * 存储
+     * 存储本地数据
      * @param key 存储key
      * @param value 存储值
      * @returns 
@@ -75,7 +75,7 @@ export module storage {
     }
 
     /**
-     * 获取
+     * 获取本地数据
      * @param key 获取的key
      * @param defaultValue 获取的默认值
      * @returns 
@@ -127,8 +127,8 @@ export module storage {
     }
 
     /**
-     * 移除某个值
-     * @param key 需要移除的key 
+     * 删除指定关键字的数据
+     * @param key 需要移除的关键字
      * @returns 
      */
     export function remove(key: string) {
@@ -145,9 +145,7 @@ export module storage {
         sys.localStorage.removeItem(key);
     }
 
-    /**
-     * 清空整个本地存储
-     */
+    /** 清空整个本地存储 */
     export function clear() {
         sys.localStorage.clear();
     }

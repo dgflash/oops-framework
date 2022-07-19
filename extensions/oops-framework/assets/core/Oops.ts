@@ -2,10 +2,11 @@
  * @Author: dgflash
  * @Date: 2022-02-11 09:32:47
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-17 11:20:20
+ * @LastEditTime: 2022-07-19 11:02:08
  */
 import { ECSRootSystem } from "../libs/ecs/ECSSystem";
 import { AudioManager } from "./common/audio/AudioManager";
+import { Logger } from "./common/log/Logger";
 import { TimerManager } from "./common/manager/TimerManager";
 import { storage } from "./common/storage/StorageManager";
 import { GameManager } from "./game/GameManager";
@@ -17,6 +18,10 @@ import { HttpRequest } from "./network/HttpRequest";
 export var version: string = "1.0.7";
 
 export class oops {
+    /** 日志管理 */
+    static log = Logger;
+    /** 本地存储 */
+    static storage = storage;
     /** ECS */
     static ecs: ECSRootSystem;
     /** 多语言模块 */
@@ -31,6 +36,4 @@ export class oops {
     static game: GameManager;
     /** HTTP */
     static http: HttpRequest;
-    /** 本地存储 */
-    static storage = storage;
 }

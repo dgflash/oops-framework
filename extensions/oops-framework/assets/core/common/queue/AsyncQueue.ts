@@ -21,6 +21,7 @@ interface AsyncTask {
     params: any
 }
 
+/** 异步队列处理 */
 export class AsyncQueue {
     // 正在运行的任务
     private _runningAsyncTask: AsyncTask | null = null;
