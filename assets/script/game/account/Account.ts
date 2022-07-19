@@ -2,10 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-11-11 17:45:23
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 19:52:24
+ * @LastEditTime: 2022-07-19 13:49:35
  */
 
 import { Message } from "../../../../extensions/oops-framework/assets/core/common/event/MessageManager";
+import { oops } from "../../../../extensions/oops-framework/assets/core/Oops";
 import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
 import { GameEvent } from "../common/config/GameEvent";
 import { AccountNetDataComp, AccountNetDataSystem } from "./bll/AccountNetData";
@@ -33,12 +34,12 @@ export class Account extends ecs.Entity {
 
     /** 添加全局消息事件 */
     private addEvent() {
-        Message.on(GameEvent.GameServerConnected, this.onHandler, this);
+        oops.message.on(GameEvent.GameServerConnected, this.onHandler, this);
     }
 
     /** 移除全局消息事件 */
     private removeEvent() {
-        Message.off(GameEvent.GameServerConnected, this.onHandler, this);
+        oops.message.off(GameEvent.GameServerConnected, this.onHandler, this);
     }
 
     private onHandler(event: string, args: any) {

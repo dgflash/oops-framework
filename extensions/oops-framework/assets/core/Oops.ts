@@ -2,10 +2,11 @@
  * @Author: dgflash
  * @Date: 2022-02-11 09:32:47
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-19 11:02:08
+ * @LastEditTime: 2022-07-19 13:37:44
  */
 import { ECSRootSystem } from "../libs/ecs/ECSSystem";
 import { AudioManager } from "./common/audio/AudioManager";
+import { Message } from "./common/event/MessageManager";
 import { Logger } from "./common/log/Logger";
 import { TimerManager } from "./common/manager/TimerManager";
 import { storage } from "./common/storage/StorageManager";
@@ -20,6 +21,8 @@ export var version: string = "1.0.7";
 export class oops {
     /** 日志管理 */
     static log = Logger;
+    /** 全局消息 */
+    static message = Message;
     /** 本地存储 */
     static storage = storage;
     /** ECS */

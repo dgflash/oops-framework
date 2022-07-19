@@ -117,7 +117,6 @@ class MessageManager {
             return;
         }
 
-
         let length = list.length;
         for (let i = 0; i < length; i++) {
             let bin: EventData = list[i];

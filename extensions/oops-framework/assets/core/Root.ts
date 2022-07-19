@@ -6,7 +6,7 @@
  */
 import { Component, director, game, Game, log, Node, view, _decorator } from "cc";
 import { AudioManager } from "./common/audio/AudioManager";
-import { EngineMessage } from "./common/event/EngineMessage";
+import { EventMessage } from "./common/event/EventMessage";
 import { Message } from "./common/event/MessageManager";
 import { TimerManager } from "./common/manager/TimerManager";
 import { GameManager } from "./game/GameManager";
@@ -52,7 +52,7 @@ export class Root extends Component {
             oops.audio.resumeAll();
             director.resume();
             game.resume();
-            Message.dispatchEvent(EngineMessage.GAME_ENTER);
+            Message.dispatchEvent(EventMessage.GAME_ENTER);
         });
 
         // 游戏隐藏事件
@@ -62,14 +62,14 @@ export class Root extends Component {
             oops.audio.pauseAll();
             director.pause();
             game.pause();
-            Message.dispatchEvent(EngineMessage.GAME_EXIT);
+            Message.dispatchEvent(EventMessage.GAME_EXIT);
         });
 
         // 游戏尺寸修改事件
         var c_gui = this.gui?.addComponent(GUI)!;
         view.setResizeCallback(() => {
             c_gui.resize();
-            Message.dispatchEvent(EngineMessage.GAME_RESIZE);
+            Message.dispatchEvent(EventMessage.GAME_RESIZE);
         });
     }
 }

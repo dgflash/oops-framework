@@ -2,10 +2,10 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-01-27 10:05:12
+ * @LastEditTime: 2022-07-19 13:39:35
  */
 /** ---------- 全局消息事件 ----------  */
-export enum EngineMessage {
+export enum EventMessage {
     /** 中途退出游戏后，再进入游戏 */
     GAME_ENTER = "EngineMessage.GAME_ENTER",
     /** 中途退出游戏 */
