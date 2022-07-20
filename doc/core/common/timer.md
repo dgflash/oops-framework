@@ -67,7 +67,7 @@ export class Test extends Component {
     private timeId!: string;
     
     start() {
-        this.timeId = oops.timer.registerObject(this, "countDown", this.onSecond, this.onComplete);
+        this.timeId = oops.timer.register(this, "countDown", this.onSecond, this.onComplete);
     }
     
     onDestroy() {
