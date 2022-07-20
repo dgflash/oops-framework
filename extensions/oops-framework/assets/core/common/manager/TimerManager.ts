@@ -15,28 +15,29 @@ export const guid = function () {
 export class TimerManager extends EventDispatcher {
     private static times: any = {};
     private schedules: any = {};
-    private _scheduleCount: number = 1;
+    private scheduleCount: number = 1;
 
     private initTime: number = (new Date()).getTime();      // 当前游戏进入的时间毫秒值
     private component: Component;
 
-    // 服务器时间与本地时间间隔
-    private _$serverTimeElasped: number = 0;
+    // 服务器时间与本地时间同步
+    private serverTime: number = 0;
 
     constructor(component: Component) {
         super();
         this.component = component;
         this.schedule(this.onUpdate.bind(this), 1);
     }
+
     /**
-     * 设置服务器时间与本地时间间隔
+     * 服务器时间与本地时间同步
      * @param val 
      */
-    public serverTimeElasped(val?: number): number {
+    public setServerTime(val?: number): number {
         if (val) {
-            this._$serverTimeElasped = val;
+            this.serverTime = val;
         }
-        return this._$serverTimeElasped;
+        return this.serverTime;
     }
 
     /**
@@ -76,26 +77,42 @@ export class TimerManager extends EventDispatcher {
         return Date.now();
     }
 
+    /**
+     * 注册一个固定间隔时间的触发器
+     * @param callback  触发时的回调方法
+     * @param interval  固定间隔触发时间
+     * @returns uuid
+     */
     public schedule(callback: Function, interval: number): string {
-        let UUID = `schedule_${this._scheduleCount++}`
-        this.schedules[UUID] = callback;
+        let uuid = `schedule_${this.scheduleCount++}`
+        this.schedules[uuid] = callback;
         this.component.schedule(callback, interval);
-        return UUID;
+        return uuid;
     }
 
+    /**
+     * 注册一个只触发一次的延时的触发器
+     * @param callback  触发时的回调方法
+     * @param delay     延时触发时间
+     * @returns uuid
+     */
     public scheduleOnce(callback: Function, delay: number = 0): string {
-        let UUID = `scheduleOnce_${this._scheduleCount++}`;
-        this.schedules[UUID] = callback;
+        let uuid = `scheduleOnce_${this.scheduleCount++}`;
+        this.schedules[uuid] = callback;
         this.component.scheduleOnce(() => {
-            let cb = this.schedules[UUID];
+            let cb = this.schedules[uuid];
             if (cb) {
                 cb();
             }
-            this.unschedule(UUID);
+            this.unschedule(uuid);
         }, Math.max(delay, 0));
-        return UUID;
+        return uuid;
     }
 
+    /**
+     * 删除一个时间触发器
+     * @param uuid  唯一标识
+     */
     public unschedule(uuid: string) {
         let cb = this.schedules[uuid];
         if (cb) {
@@ -104,14 +121,15 @@ export class TimerManager extends EventDispatcher {
         }
     }
 
-    public unscheduleAllCallbacks() {
+    /** 删除所有时间触发器  */
+    public unscheduleAll() {
         for (let k in this.schedules) {
             this.component.unschedule(this.schedules[k]);
         }
         this.schedules = {};
     }
 
-    onUpdate(dt: number) {
+    private onUpdate(dt: number) {
         // 后台管理倒计时完成事件
         for (let key in TimerManager.times) {
             let data = TimerManager.times[key];
@@ -119,9 +137,9 @@ export class TimerManager extends EventDispatcher {
                 data.object[data.field]--;
 
                 if (data.object[data.field] == 0) {
-                    this.timerComplete(data);
+                    this.onTimerComplete(data);
                 }
-                else {                             // 修改是否完成状态
+                else {                                                          // 修改是否完成状态
                     if (data.onSecond) {
                         data.onSecond.call(data.object);                        // 触发每秒回调事件  
                     }
@@ -130,7 +148,31 @@ export class TimerManager extends EventDispatcher {
         }
     }
 
-    /** 游戏最小划时记录时间数据 */
+    /** 触发倒计时完成事件 */
+    private onTimerComplete(data: any) {
+        if (data.onComplete) data.onComplete.call(data.object);
+        if (data.event) this.dispatchEvent(data.event);
+    }
+
+    /** 在指定对象上注册一个倒计时的回调管理器 */
+    public register(object: any, field: string, onSecond: Function, onComplete: Function) {
+        let data: any = {};
+        data.id = guid();
+        data.object = object;                                   // 管理对象
+        data.field = field;                                     // 时间字段
+        data.onSecond = onSecond;                               // 每秒事件
+        data.onComplete = onComplete;                           // 倒计时完成事件
+        TimerManager.times[data.id] = data;
+        return data.id;
+    }
+
+    /** 在指定对象上注销一个倒计时的回调管理器 */
+    public unRegister(id: string) {
+        if (TimerManager.times[id])
+            delete TimerManager.times[id];
+    }
+
+    /** 游戏最小化时记录时间数据 */
     public save() {
         for (let key in TimerManager.times) {
             TimerManager.times[key].startTime = this.getTime();
@@ -145,55 +187,10 @@ export class TimerManager extends EventDispatcher {
             data.object[data.field] = data.object[data.field] - interval;
             if (data.object[data.field] < 0) {
                 data.object[data.field] = 0;
-                this.timerComplete(data);
+                this.onTimerComplete(data);
             }
             TimerManager.times[key].startTime = null;
         }
-    }
-
-    /** 触发倒计时完成事件 */
-    private timerComplete(data: any) {
-        if (data.onComplete) data.onComplete.call(data.object);
-        if (data.event) this.dispatchEvent(data.event);
-    }
-
-    /** 注册指定对象的倒计时属性更新 */
-    public registerObject(object: any, field: string, onSecond: Function, onComplete: Function) {
-        let data: any = {};
-        data.id = guid();
-        data.object = object;                                   // 管理对象
-        data.field = field;                                     // 时间字段
-        data.onSecond = onSecond;                               // 每秒事件
-        data.onComplete = onComplete;                           // 倒计时完成事件
-        TimerManager.times[data.id] = data;
-        return data.id;
-    }
-
-    /** 注消指定对象的倒计时属性更新 */
-    public unRegisterObject(id: string) {
-        if (TimerManager.times[id])
-            delete TimerManager.times[id];
-    }
-
-    /** 
-     * 注册事件需要管理的实时变化的时间对象 
-     * @param event(String)     时间为零时触发的事件
-     * @param object(object)    需要管理的数据结构对象
-     * @param field(Array)      需要管理的字段
-     */
-    public register(event: string, object: any, field: Array<string>) {
-        let data: any = {};
-        data.id = event;
-        data.event = event;                                 // 倒计时完成事件
-        data.object = object;                               // 管理对象
-        data.field = field;                                 // 时间字段
-        TimerManager.times[data.id] = data;
-    }
-
-    /** 注销定时器 */
-    public unRegister(event: string) {
-        if (TimerManager.times[event])
-            delete TimerManager.times[event];
     }
 }
 

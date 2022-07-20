@@ -116,12 +116,12 @@ export default class LabelTime extends Label {
     start() {
         this.format();
         if (!EDITOR)
-            this.timeId = oops.timer.registerObject(this, "countDown", this.onSecond, this.onComplete);
+            this.timeId = oops.timer.register(this, "countDown", this.onSecond, this.onComplete);
     }
 
     onDestroy() {
         if (!EDITOR)
-            oops.timer.unRegisterObject(this.timeId);
+            oops.timer.unRegister(this.timeId);
     }
 
     private onSecond() {
