@@ -1,12 +1,22 @@
+/*
+ * @Author: dgflash
+ * @Date: 2022-06-21 12:05:14
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-07-20 13:58:32
+ */
 import { BehaviorTree } from './BehaviorTree';
 import { BTreeNode } from './BTreeNode';
 
 /** 复合节点 */
 export abstract class BranchNode extends BTreeNode {
+    /** 子节点数组 */
     public children: Array<BTreeNode>;
+    /** 当前任务索引 */
     protected _actualTask!: number;
+    /** 正在运行的节点 */
     protected _runningNode!: BTreeNode;
     protected _nodeRunning!: BTreeNode | null;
+    /** 外部参数对象 */
     protected _blackboard: any;
 
     public constructor(nodes: Array<BTreeNode>) {
@@ -35,7 +45,7 @@ export abstract class BranchNode extends BTreeNode {
     }
 
     /** 执行当前节点逻辑 */
-    protected _run(obj?: any) {
+    protected _run(blackboard?: any) {
         var node = BehaviorTree.getNode(this.children[this._actualTask]);
         this._runningNode = node;
         node.setControl(this);

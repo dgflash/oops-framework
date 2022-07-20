@@ -1,4 +1,3 @@
-import { log } from 'cc';
 import { BTreeNode } from './BTreeNode';
 import { IControl } from './IControl';
 
@@ -8,19 +7,25 @@ var countUnnamed = 0;
 export class BehaviorTree implements IControl {
     private title: string;
 
-    // 根节点
+    /** 根节点 */
     private _root: BTreeNode;
-    // 当前执行节点
+    /** 当前执行节点 */
     private _current!: BTreeNode;
-    // 是否已开始执行
+    /** 是否已开始执行 */
     private _started: boolean = false;
-    // 外部参数对象
+    /** 外部参数对象 */
     private _blackboard: any;
 
+    /** 是否已开始执行 */
     public get started(): boolean {
         return this._started;
     }
 
+    /**
+     * 构造函数
+     * @param node          根节点
+     * @param blackboard    外部参数对象
+     */
     public constructor(node: BTreeNode, blackboard?: any) {
         countUnnamed += 1;
         this.title = node.constructor.name + '(btree_' + (countUnnamed) + ')';
@@ -28,13 +33,15 @@ export class BehaviorTree implements IControl {
         this._blackboard = blackboard;
     }
 
-    public setObject(obj: any) {
-        this._blackboard = obj;
+    /** 设置行为逻辑中的共享数据 */
+    public setObject(blackboard: any) {
+        this._blackboard = blackboard;
     }
 
+    /** 执行行为树逻辑 */
     public run() {
         if (this._started) {
-            log('行为树"' + this.title + '"未调用步骤，但在最后一次调用步骤时有一个任务未完成。');
+            console.error(`行为树【${this.title}】未调用步骤，在最后一次调用步骤时有一个任务未完成`);
         }
 
         this._started = true;
@@ -70,7 +77,7 @@ export class BehaviorTree implements IControl {
     static getNode(name: string | BTreeNode): BTreeNode {
         var node = name instanceof BTreeNode ? name : this._registeredNodes.get(name);
         if (!node) {
-            throw new Error('The node "' + name + '" could not be looked up. Maybe it was never registered?');
+            throw new Error(`无法找到节点【${name}】，可能它没有注册过`);
         }
         return node;
     }
