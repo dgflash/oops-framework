@@ -64,14 +64,14 @@ export class RandomManager {
     }
 
     /**
-     * 根据最大值，最小值范围 生成随机数数组
+     * 根据最大值，最小值范围生成随机数数组
      * @param min   最小值
      * @param max   最大值
      * @param n     随机个数
      * @param type  类型
-     * @returns 
+     * @returns Array<number>
      */
-    getRandomByMinMaxList(min: number, max: number, n: number, type: number = 2): Array<number> {
+    getRandomByMinMaxList(min: number, max: number, n: number): Array<number> {
         var result: Array<number> = [];
         for (let i = 0; i < n; i++) {
             result.push(this.getRandomInt(min, max))
@@ -83,7 +83,7 @@ export class RandomManager {
      * 获取数组中随机对象
      * @param objects 对象数组
      * @param n 随机个数
-     * @returns 
+     * @returns Array<T>
      */
     getRandomByObjectList<T>(objects: Array<T>, n: number): Array<T> {
         var temp: Array<T> = objects.slice();
@@ -99,9 +99,9 @@ export class RandomManager {
      * 定和随机分配
      * @param n     随机数量
      * @param sum   随机元素合
-     * @returns 
+     * @returns number[]
      */
-    getRandomBySumList(n: number, sum: number) {
+    getRandomBySumList(n: number, sum: number): number[] {
         var residue = sum;
         var value = 0;
         var result: Array<number> = [];

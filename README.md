@@ -8,11 +8,9 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 4. 框架提供游戏常用插件工具
 
 注：
-1. [源库链接更新效率更高](https://gitee.com/dgflash/oops-framework)
-2. Cocos Creato 3.x 不同版的框架在源库分支中下载，master分支为最新引擎版本
-3. 学习交流 QQ 群：798575969
-
-![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/qq.png)
+1. Cocos Creato 3.x 不同版的框架在源库分支中下载，master分支为最新引擎版本
+2. 学习交流 QQ 群：798575969
+    ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/qq.png)
 
 #### 技术文档
 - [oops-framework update](https://gitee.com/dgflash/oops-framework/tree/master/doc/using.md)
