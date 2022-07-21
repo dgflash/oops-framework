@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-03-31 18:03:50
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-15 14:04:57
+ * @LastEditTime: 2022-07-21 18:00:14
  */
 
 import { Camera, Component, Node, Vec3, _decorator } from "cc";
@@ -27,7 +27,8 @@ export class Effect2DFollow3D extends Component {
 
     private pos = new Vec3();
 
-    start() {
+    setTarget(value: Node) {
+        this.node3d = value;
         this.lateUpdate(0);
     }
 

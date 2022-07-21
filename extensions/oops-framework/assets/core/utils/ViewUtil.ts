@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-08-16 09:34:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-15 18:51:00
+ * @LastEditTime: 2022-07-21 17:42:14
  */
 import { Animation, AnimationClip, EventTouch, instantiate, Node, Prefab, Size, UITransform, v3, Vec3 } from "cc";
 import { resLoader } from "../common/loader/ResLoader";
@@ -91,6 +91,19 @@ export class ViewUtil {
                 var node = this.createPrefabNode(path);
                 resolve(node);
             });
+        });
+    }
+
+    /** 加载预制节点 */
+    public static loadPrefabNode(path: string, callback: Function) {
+        resLoader.load(path, Prefab, (err: Error | null, content: Prefab) => {
+            if (err) {
+                console.error(`名为【${path}】的资源加载失败`);
+                return;
+            }
+
+            var node = this.createPrefabNode(path);
+            callback(node);
         });
     }
 
