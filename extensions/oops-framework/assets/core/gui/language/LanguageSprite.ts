@@ -2,12 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-11-24 15:51:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-11 17:13:46
+ * @LastEditTime: 2022-07-21 16:08:10
  */
 import { CCString, Component, Size, Sprite, SpriteFrame, UITransform, _decorator } from "cc";
 import { EDITOR } from "cc/env";
 import { resLoader } from "../../common/loader/ResLoader";
-import { Logger } from "../../common/log/Logger";
 import { LanguageData } from "./LanguageData";
 
 const { ccclass, property, menu } = _decorator;
@@ -39,7 +38,7 @@ export class LanguageSprite extends Component {
 
     /** 更新语言 */
     language() {
-        this.updateSprite(); 
+        this.updateSprite();
     }
 
     private updateSprite() {
@@ -47,7 +46,7 @@ export class LanguageSprite extends Component {
         let path = `language/texture/${LanguageData.current}/${this.dataID}/spriteFrame`;
         let res: SpriteFrame | null = resLoader.get(path, SpriteFrame);
         if (!res) {
-            Logger.erroring("[LanguageSprite] 资源不存在 " + path);
+            console.error("[LanguageSprite] 资源不存在 " + path);
         }
         else {
             let spcomp: Sprite = this.getComponent(Sprite)!;

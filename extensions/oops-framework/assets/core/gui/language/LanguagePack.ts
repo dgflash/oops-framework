@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-03-11 17:15:42
+ * @LastEditTime: 2022-07-21 16:08:59
  */
 import { director, error, JsonAsset, warn } from "cc";
 import { resLoader } from "../../common/loader/ResLoader";
@@ -90,10 +90,10 @@ export class LanguagePack {
     public releaseLanguageAssets(lang: string) {
         let langpath = `${this._langTexturePath}/${lang}`;
         resLoader.releaseDir(langpath);
-        Logger.logBusiness(langpath, "释放语言图片资源");
+        Logger.logView(langpath, "释放语言图片资源");
 
         let langjsonpath = `${this._langjsonPath}/${lang}`;
         resLoader.release(langjsonpath);
-        Logger.logBusiness(langjsonpath, "释放语言文字资源");
+        Logger.logView(langjsonpath, "释放语言文字资源");
     }
 }

@@ -168,8 +168,7 @@ export class RoomSystem extends ecs.RootSystem {
     }
 }
 
-export class MoveSystem extends ecs.ComblockSystem<AvatarEntity> implements ecs.IEntityEnterSystem {
-
+export class MoveSystem extends ecs.ComblockSystem<AvatarEntity> implements ecs.IEntityEnterSystem, ecs.ISystemUpdate {
     init() {
     
     }
@@ -179,49 +178,39 @@ export class MoveSystem extends ecs.ComblockSystem<AvatarEntity> implements ecs.
     }
 
      // 实体第一次进入MoveSystem会进入此方法
-    entityEnter(entities: AvatarEntity[]) {
-        for(e of entities) {
-            e.Move.speed = 100;
-        }
+    entityEnter(e: AvatarEntity) {
+        e.Move.speed = 100;
     }
     
     // 每帧都会更新
-    update(entities: AvatarEntity[]) {
-        for(let e of entities) {
-            let moveComp = e.Move; // e.get(MoveComponent);
-            lel position = e.Transform.position;
-            
-            position.x += moveComp.heading.x * moveComp.speed * this.dt;
-            position.y += moveComp.heading.y * moveComp.speed * this.dt;
-            
-            e.Transform.angle = cc.misc.lerp(e.Transform.angle, Math.atan2(moveComp.speed.y, moveComp.speed.x) * cc.macro.DEG, dt);
-        }
+    update(e: AvatarEntity) {
+        let moveComp = e.Move;                      // e.get(MoveComponent);
+        lel position = e.Transform.position;
+        
+        position.x += moveComp.heading.x * moveComp.speed * this.dt;
+        position.y += moveComp.heading.y * moveComp.speed * this.dt;
+        
+        e.Transform.angle = cc.misc.lerp(e.Transform.angle, Math.atan2(moveComp.speed.y, moveComp.speed.x) * cc.macro.DEG, dt);
     }
 }
 
-export class RenderSystem extends.ecs.ComblockSystem<AvatarEntity> implements ecs.IEntityEnterSystem, ecs.IEntityRemoveSystem {
+export class RenderSystem extends ecs.ComblockSystem<AvatarEntity> implements ecs.IEntityEnterSystem, ecs.IEntityRemoveSystem, ecs.ISystemUpdate {
     filter(): ecs.IMatcher {
         return ecs.allOf(NodeComponent, TransformComponent);
     }
     
     // 实体第一次进入MoveSystem会进入此方法
-    entityEnter(entities: AvatarEntity[]) {
-        for(e of entities) {
-            e.Node.val.active = true;
-        }
+    entityEnter(e: AvatarEntity) {
+        e.Node.val.active = true;
     }
     
-    entityRemove(entities: AvatarEntity[]) {
-        for(let e of entities) {
-            // Global.avatarNodePool.put(e.Node.val);
-        }
+    entityRemove(e: AvatarEntity) {
+       
     }
     
-    update(entities: AvatarEntity[]) {
-        for(let e of entities) {
-            e.Node.val.setPosition(e.Transform.position);
-            e.Node.val.angle = e.Transform.angle;
-        }
+    update(e: AvatarEntity) {
+        e.Node.val.setPosition(e.Transform.position);
+        e.Node.val.angle = e.Transform.angle;
     }
 }
 ```
@@ -230,7 +219,7 @@ export class RenderSystem extends.ecs.ComblockSystem<AvatarEntity> implements ec
 ```TypeScript
 const { ccclass, property } = cc._decorator;
 @ccclass
-export class GameControllerBehaviour extends cc.Component {
+export class GameControllerBehaviour extends Component {
     rootSystem: RootSystem = null;
 
     onLoad() {
@@ -241,7 +230,6 @@ export class GameControllerBehaviour extends cc.Component {
     createAvatar(node: cc.Node) {
         let entity = ecs.createEntityWithComps<AvatarEntity>(NodeComponent, TransformComponent, MoveComponent);
         entity.Node.val = node;
-        // entity.Move.speed = 100;
     }
 
     update(dt: number) {
@@ -260,7 +248,6 @@ const { ccclass, property } = _decorator;
 
 @ccclass('CCComp')
 export abstract class CCComp extends Component implements ecs.IComp {
-    
     static tid: number = -1;
     static compName: string;
 
