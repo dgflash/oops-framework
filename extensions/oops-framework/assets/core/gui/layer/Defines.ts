@@ -15,7 +15,7 @@ export interface UICallbacks {
     onAdded?: (node: Node, params: any) => void,
 
     /**
-     * destroy之后回调
+     * 窗口节点 destroy 之后回调
      */
     onRemoved?: (node: Node | null, params: any) => void,
 

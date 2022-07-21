@@ -28,10 +28,11 @@ export enum LayerType {
 
 /** UI配置结构体 */
 export interface UIConfig {
+    /** 远程包名 */
     bundle?: string;
     /** 窗口层级 */
     layer: LayerType;
-    /** 预制资源 */
+    /** 预制资源相对路径 */
     prefab: string;
 }
 
@@ -74,7 +75,7 @@ export class LayerManager {
     }
 
     /**
-     * 显示toast
+     * 渐隐飘过提示
      * @param content 文本表示
      * @param useI18n 是否使用多语言
      */
@@ -146,6 +147,7 @@ export class LayerManager {
         });
     }
 
+    /** 缓存中是否存在指定标识的窗口 */
     public has(uiId: number) {
         var config = this.configs[uiId];
         if (config == null) {
@@ -210,6 +212,7 @@ export class LayerManager {
         }
     }
 
+    /** 清除所有窗口 */
     public clear(isDestroy: boolean = false) {
         this.ui.clear(isDestroy);
         this.popup.clear(isDestroy);
