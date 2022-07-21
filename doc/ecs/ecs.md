@@ -62,16 +62,16 @@ entity.remove(HelloComponent, false)
 
 - 获得组件对象
 ```TypeScript
-1、entity.Hello; // 见上方自定义实体操作
+entity.Hello; // 见上方自定义实体操作
 
-2、entity.get(HelloComponent);
+entity.get(HelloComponent);
 ```
 
 - 判断是否拥有组件：
 ```TypeScript
-1、entity.has(HelloComponent);
+entity.has(HelloComponent);
 
-2、!!entity.Hello;
+!!entity.Hello;
 ```
 
 - 销毁实体：
