@@ -2,14 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-21 15:30:55
+ * @LastEditTime: 2022-07-22 17:44:57
  */
 import { _decorator } from "cc";
 import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
 import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
 import { JsonUtil } from "../../../../../extensions/oops-framework/assets/core/utils/JsonUtil";
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
-import { Account } from "../../account/Account";
 import { GameEvent } from "../../common/config/GameEvent";
 import { UIID } from "../../common/config/GameUIConfig";
 import { CCVMParentComp } from "../../common/ecs/CCVMParentComp";
@@ -114,7 +113,6 @@ export class LoadingViewComp extends CCVMParentComp {
     /** 加载完成事件 */
     private onCompleteCallback() {
         // 初始化帐号模块
-        smc.account = ecs.getEntity<Account>(Account);
         smc.account.connect();
     }
 }

@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-21 14:48:35
+ * @LastEditTime: 2022-07-22 15:52:11
  */
 import { dynamicAtlasManager, macro, profiler, _decorator } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
@@ -24,7 +24,7 @@ export class Main extends CommonEnter {
         if (DEBUG) profiler.showStats();
     }
 
-    protected async run() {
+    protected async run() {this.node.children
         smc.initialize = ecs.getEntity<Initialize>(Initialize);
         if (JSB) {
             oops.gui.toast("热更新后新程序的提示");

@@ -58,21 +58,53 @@ function destroyEntity(entity: ECSEntity) {
 //#endregion
 
 export class ECSEntity {
-    /**
-     * 实体唯一标识，不要手动修改。
-     */
+    /** 实体唯一标识，不要手动修改 */
     eid: number = -1;
-
+    /** 组件过滤数据 */
     private mask = new ECSMask();
+    /** 当前实体身上附加的组件构造函数 */
+    private compTid2Ctor: Map<number, ecs.CompType<ecs.IComp>> = new Map();
+    /** 配合 entity.remove(Comp, false)， 记录组件实例上的缓存数据，在添加时恢复原数据 */
+    private compTid2Obj: Map<number, ecs.IComp> = new Map();
+
+    private _parent: ECSEntity | null = null;
+    /** 父实体 */
+    get parent(): ECSEntity | null {
+        return this._parent;
+    }
+
+    private _children: Map<number, ECSEntity> | null = null;
+    /** 子实体集合 */
+    get children(): Map<number, ECSEntity> {
+        if (this._children == null) {
+            this._children = new Map<number, ECSEntity>();
+        }
+        return this._children;
+    }
 
     /**
-     * 当前实体身上附加的组件构造函数
+     * 添加子实体
+     * @param entity 被添加的实体对象
      */
-    private compTid2Ctor: Map<number, ecs.CompType<ecs.IComp>> = new Map();
+    addChild(entity: ECSEntity) {
+        entity._parent = this;
+        this.children.set(entity.eid, entity);
+    }
+
     /**
-     * 配合 entity.remove(Comp, false)， 记录组件实例上的缓存数据，在添加时恢复原数据
+     * 移除子实体
+     * @param entity 被移除的实体对象
+     * @returns 
      */
-    private compTid2Obj: Map<number, ecs.IComp> = new Map();
+    removeChild(entity: ECSEntity) {
+        if (this.children == null) return;
+
+        this.children.delete(entity.eid);
+
+        if (this.children.size == 0) {
+            this._children = null;
+        }
+    }
 
     /**
      * 根据组件id动态创建组件，并通知关心的系统。

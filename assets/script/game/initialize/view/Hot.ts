@@ -1,4 +1,4 @@
-import { error, log, sys } from "cc";
+import { error, log, native, sys } from "cc";
 import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
 
 /** 热更参数 */
@@ -66,7 +66,7 @@ export class Hot {
             this.showSearchPath();
 
             this.manifest = res.nativeUrl;
-            this.storagePath = `${jsb.fileUtils.getWritablePath()}/oops_framework_remote`;
+            this.storagePath = `${native.fileUtils.getWritablePath()}/oops_framework_remote`;
             this.assetsMgr = new jsb.AssetsManager(this.manifest, this.storagePath, (versionA, versionB) => {
                 console.log("【热更新】客户端版本: " + versionA + ', 当前最新版本: ' + versionB);
                 this.options?.onVersionInfo && this.options.onVersionInfo({ local: versionA, server: versionB });
@@ -116,7 +116,7 @@ export class Hot {
 
     /** 删除热更所有存储文件 */
     clearHotUpdateStorage() {
-        jsb.fileUtils.removeDirectory(this.storagePath);
+        native.fileUtils.removeDirectory(this.storagePath);
     }
 
     // 检查更新
@@ -191,11 +191,11 @@ export class Hot {
 
     private onUpdateFinished() {
         this.assetsMgr.setEventCallback(null!);
-        let searchPaths = jsb.fileUtils.getSearchPaths();
+        let searchPaths = native.fileUtils.getSearchPaths();
         let newPaths = this.assetsMgr.getLocalManifest().getSearchPaths();
         Array.prototype.unshift.apply(searchPaths, newPaths);
         localStorage.setItem('HotUpdateSearchPaths', JSON.stringify(searchPaths));
-        jsb.fileUtils.setSearchPaths(searchPaths);
+        native.fileUtils.setSearchPaths(searchPaths);
 
         console.log('【热更新】更新成功');
         this.options?.onUpdateSucceed && this.options.onUpdateSucceed();
@@ -203,7 +203,7 @@ export class Hot {
 
     private showSearchPath() {
         console.log("========================搜索路径========================");
-        let searchPaths = jsb.fileUtils.getSearchPaths();
+        let searchPaths = native.fileUtils.getSearchPaths();
         for (let i = 0; i < searchPaths.length; i++) {
             console.log("[" + i + "]: " + searchPaths[i]);
         }

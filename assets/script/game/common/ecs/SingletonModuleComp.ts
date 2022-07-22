@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 14:20:46
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 19:54:06
+ * @LastEditTime: 2022-07-22 17:38:46
  */
 
 import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
@@ -15,7 +15,9 @@ export class SingletonModuleComp extends ecs.Comp {
     /** 游戏初始化模块 */
     initialize: Initialize = null!;
     /** 游戏账号模块 */
-    account: Account = null!;
+    get account(): Account {
+        return this.initialize.account;
+    }
 
     reset() { }
 }
