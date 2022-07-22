@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-08-12 09:33:37
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 17:52:37
+ * @LastEditTime: 2022-07-22 18:09:52
  */
 import { Message } from "../../../../../extensions/oops-framework/assets/core/common/event/MessageManager";
 import { Logger } from "../../../../../extensions/oops-framework/assets/core/common/log/Logger";
@@ -22,12 +22,6 @@ export class NetGameTips implements INetworkTips {
             tips.netInstableClose();
             Message.dispatchEvent(GameEvent.GameServerConnected);
         }
-    }
-
-    disconnectTips(): void {
-        tips.alert("net_server_disconnected", () => {
-            // netChannel.gameConnect();
-        })
     }
 
     /** 重连接提示 */
