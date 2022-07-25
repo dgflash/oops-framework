@@ -2,11 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-10-12 14:00:43
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-14 19:06:51
+ * @LastEditTime: 2022-07-25 11:51:21
  */
 
 import { Component, Node, NodePool, Vec3 } from 'cc';
-import { ViewUtil } from '../../utils/ViewUtil';
+import { ViewUtil } from '../../core/utils/ViewUtil';
 
 class EffectData extends Component {
     type: string = null!;

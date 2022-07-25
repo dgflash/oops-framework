@@ -6,7 +6,7 @@
  */
 
 import { Camera, Component, Node, Vec3, _decorator } from "cc";
-import { oops } from "../../Oops";
+import { oops } from "../../core/Oops";
 
 const { ccclass, property } = _decorator;
 

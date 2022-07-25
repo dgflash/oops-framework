@@ -34,12 +34,12 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
         - 标签类 - gui/label
         - 语言类 - gui/language
     - MVVM组件库 - libs/model-view
-    - 特效管理 - core/game/effect
-    - 位移组件 - core/game/move
-    - 摄像机控制 - core/game/camera
+    - 特效管理 - libs/animator-effect
+    - 位移组件 - libs/animator-move
+    - 摄像机控制 - libs/camera
 3. 网络类
-    - Http - core/network/HttpRequest.ts
-    - WebSocket - core/network/NetManager.ts
+    - Http - libs/network/HttpRequest.ts
+    - WebSocket - libs/network/NetManager.ts
 4. 框架类
     - ECS - libs/ecs
     - BehaviorTree 行为树 - libs/behavior-tree
@@ -49,7 +49,7 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
     - 日志管理 - Logger.ts
     - 随机数生成器 - RandomManager.ts
     - 加密工具 - libs/security
-    - gzip压缩 - libs/net-protocol
+    - gzip压缩 - libs/network/protocol
     - 辅助方法库 - core/utils
 6. 渲染纹理 
     - 三维摄像机内容显示到模型上 - RtToModel

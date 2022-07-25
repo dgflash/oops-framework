@@ -3,10 +3,10 @@
  * @Author: dgflash
  * @Date: 2022-03-25 18:12:10
  * @LastEditors: dgflash
- * @LastEditTime: 2022-04-20 16:24:32
+ * @LastEditTime: 2022-07-25 11:52:23
  */
 import { Component, Node, Vec3, _decorator } from "cc";
-import { Vec3Util } from "../../utils/Vec3Util";
+import { Vec3Util } from "../../core/utils/Vec3Util";
 
 const { ccclass, property } = _decorator;
 

@@ -6,7 +6,7 @@
  */
 
 import { Component, sp, _decorator } from 'cc';
-import { resLoader } from '../../../common/loader/ResLoader';
+import { resLoader } from '../../../core/common/loader/ResLoader';
 const { ccclass, property } = _decorator;
 
 /** 动画播放完隐藏特效 */

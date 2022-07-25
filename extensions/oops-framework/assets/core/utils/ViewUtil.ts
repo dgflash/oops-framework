@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-08-16 09:34:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-21 17:42:14
+ * @LastEditTime: 2022-07-25 11:51:27
  */
 import { Animation, AnimationClip, EventTouch, instantiate, Node, Prefab, Size, UITransform, v3, Vec3 } from "cc";
 import { resLoader } from "../common/loader/ResLoader";
