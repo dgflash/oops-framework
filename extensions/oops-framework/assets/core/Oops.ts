@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-02-11 09:32:47
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-19 13:37:44
+ * @LastEditTime: 2022-07-25 10:20:36
  */
 import { ECSRootSystem } from "../libs/ecs/ECSSystem";
 import { AudioManager } from "./common/audio/AudioManager";
@@ -13,7 +13,7 @@ import { storage } from "./common/storage/StorageManager";
 import { GameManager } from "./game/GameManager";
 import { LanguageManager } from "./gui/language/Language";
 import { LayerManager } from "./gui/layer/LayerManager";
-import { HttpRequest } from "./network/HttpRequest";
+import { HttpRequest } from "../libs/network/HttpRequest";
 
 /** 框架版本 */
 export var version: string = "1.0.7";

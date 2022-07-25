@@ -3,7 +3,7 @@
  * web模式基于HTML5 API
  */
 import { log, sys } from "cc";
-import { EventDispatcher } from "../common/event/EventDispatcher";
+import { EventDispatcher } from "../../core/common/event/EventDispatcher";
 
 export enum NetworkEvent {
     /** 网络变化事件 */

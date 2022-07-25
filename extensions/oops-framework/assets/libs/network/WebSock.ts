@@ -4,7 +4,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2021-11-04 17:33:02
  */
-import { Logger } from "../common/log/Logger";
+import { Logger } from "../../core/common/log/Logger";
 import { ISocket, MessageFunc, NetData } from "./NetInterface";
 
 type Connected = (event: any) => void;

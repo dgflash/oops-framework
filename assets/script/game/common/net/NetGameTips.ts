@@ -6,7 +6,7 @@
 import { Message } from "../../../../../extensions/oops-framework/assets/core/common/event/MessageManager";
 import { Logger } from "../../../../../extensions/oops-framework/assets/core/common/log/Logger";
 import { tips } from "../prompt/TipsManager";
-import { INetworkTips } from "../../../../../extensions/oops-framework/assets/core/network/NetInterface";
+import { INetworkTips } from "../../../../../extensions/oops-framework/assets/libs/network/NetInterface";
 import { GameEvent } from "../config/GameEvent";
 
 /** 游戏服务器提示 */

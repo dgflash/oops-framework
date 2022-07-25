@@ -1,5 +1,5 @@
 import { error, warn } from "cc";
-import { Logger } from "../common/log/Logger";
+import { Logger } from "../../core/common/log/Logger";
 import { CallbackObject, INetworkTips, IProtocolHelper, IRequestProtocol, ISocket, NetCallFunc, NetData, RequestObject } from "./NetInterface";
 
 /*

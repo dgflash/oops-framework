@@ -13,7 +13,7 @@ import { GameManager } from "./game/GameManager";
 import { GUI } from "./gui/GUI";
 import { LanguageManager } from "./gui/language/Language";
 import { LayerManager } from "./gui/layer/LayerManager";
-import { HttpRequest } from "./network/HttpRequest"; 
+import { HttpRequest } from "../libs/network/HttpRequest"; 
 import { oops, version } from "./Oops";
 
 const { ccclass, property } = _decorator;
