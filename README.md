@@ -45,15 +45,15 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
     - BehaviorTree 行为树 - libs/behavior-tree
     - 可视化动画状态机 - libs/animator
 5. 工具类
-    - 异步队列 - AsyncQueue.ts
     - 日志管理 - Logger.ts
     - 随机数生成器 - RandomManager.ts
+    - 数据结合 - libs/collection
     - 加密工具 - libs/security
-    - gzip压缩 - libs/network/protocol
+    - GZip压缩 - libs/network/protocol
     - 辅助方法库 - core/utils
 6. 渲染纹理 
-    - 三维摄像机内容显示到模型上 - RtToModel
-    - 三维模型显示到二维精灵上 - RtToSprite
+    - 三维摄像机内容显示到模型上 - libs/render-texture/RtToModel
+    - 三维模型显示到二维精灵上 - libs/render-texture/RtToSprite
 7. 热更新
     - 热更控制脚本 game/initialize/view/HotUpdate.ts
     - 本地热更配置 resources/project.manifes
