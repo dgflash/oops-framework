@@ -1,5 +1,5 @@
 ### 功能说明
-OopsFramework－随机算生成管理模块，封装了[seedrandom](https://www.npmjs.com/package/seedrandom) 第三方随机数据库
+OopsFramework－随机数生成管理模块，封装了[seedrandom](https://www.npmjs.com/package/seedrandom) 第三方随机数据库
 
 ### 使用说明
 ##### 设置随机种子
