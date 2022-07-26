@@ -1,7 +1,16 @@
 ### 框架使用说明
 OopsFramework从3.5.2版本开始以Cocos Creator插件方式提供使用，这样设计的目的是为了方便作者升级框架功能与修复问题时，方便的去更新框架。
 
-### 开发过程中更新最新版本框架方法
+### 自动更新最新分支框架版本
+###### windows
+```
+md extensions
+cd extensions
+git clone -b master https://gitee.com/dgflash/oops-plugin-framework.git
+git pull
+```
+
+### 手动更新最新分支框架版本
 1. 更新最新版本的框架工程
     ![](http://dgflash.gitee.io/oops-full-stack-web/doc/using/1.jpg)
 
