@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-07-21 16:49:00
  */
 
-import { Message } from "../../../../../extensions/oops-framework/assets/core/common/event/MessageManager";
-import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { Message } from "../../../../../extensions/oops-plugin-framework/assets/core/common/event/MessageManager";
+import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { RoleModelJobComp } from "../model/RoleModelJobComp";
 import { Role } from "../Role";
 import { RoleEvent } from "../RoleEvent";

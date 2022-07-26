@@ -6,8 +6,8 @@
  */
 
 import { game, JsonAsset } from "cc";
-import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
-import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
+import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { BuildTimeConstants } from "./BuildTimeConstants";
 import { GameConfig } from "./GameConfig";
 import { GameQueryConfig } from "./GameQueryConfig";

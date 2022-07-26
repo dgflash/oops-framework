@@ -1,4 +1,4 @@
-import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 
 /** 业务层对象 */
 @ecs.register('<%Name%>')

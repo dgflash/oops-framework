@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-07-18 14:24:55
  */
 import { Node, Slider, _decorator } from 'cc';
-import { oops } from '../../../extensions/oops-framework/assets/core/Oops';
-import { Root } from '../../../extensions/oops-framework/assets/core/Root';
+import { oops } from '../../../extensions/oops-plugin-framework/assets/core/Oops';
+import { Root } from '../../../extensions/oops-plugin-framework/assets/core/Root';
 
 const { ccclass, property } = _decorator;
 

@@ -6,7 +6,7 @@
  */
 import { Component, game, sys, _decorator } from "cc";
 import { tips } from "../../common/prompt/TipsManager";
-import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { UIID } from "../../common/config/GameUIConfig";
 import { Hot, HotOptions } from "./Hot";
 import { LoadingViewComp } from "./LoadingViewComp";

@@ -5,9 +5,9 @@
  * @LastEditTime: 2022-07-22 17:27:13
  */
 import { _decorator } from 'cc';
-import { Timer } from '../../../extensions/oops-framework/assets/core/common/manager/TimerManager';
-import { Root } from '../../../extensions/oops-framework/assets/core/Root';
-import { BehaviorTree, BTreeNode, Decorator, Sequence, Task } from '../../../extensions/oops-framework/assets/libs/behavior-tree';
+import { Timer } from '../../../extensions/oops-plugin-framework/assets/core/common/manager/TimerManager';
+import { Root } from '../../../extensions/oops-plugin-framework/assets/core/Root';
+import { BehaviorTree, BTreeNode, Decorator, Sequence, Task } from '../../../extensions/oops-plugin-framework/assets/libs/behavior-tree';
 
 const { ccclass, property } = _decorator;
 

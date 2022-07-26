@@ -1,4 +1,4 @@
-import { JsonUtil } from "../../../../../extensions/oops-framework/assets/core/utils/JsonUtil";
+import { JsonUtil } from "../../../../../extensions/oops-plugin-framework/assets/core/utils/JsonUtil";
 
 /** 策划 Excel 导出的 Json 静态数据 */
 export class <%Name%> {

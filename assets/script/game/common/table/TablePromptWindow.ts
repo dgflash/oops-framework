@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-06-14 17:53:13
  */
 
-import { JsonUtil } from "../../../../../extensions/oops-framework/assets/core/utils/JsonUtil";
+import { JsonUtil } from "../../../../../extensions/oops-plugin-framework/assets/core/utils/JsonUtil";
 
 
 export class TablePromptWindow {

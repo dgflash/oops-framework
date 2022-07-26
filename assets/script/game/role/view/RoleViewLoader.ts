@@ -6,7 +6,7 @@
  */
 
 import { Component, sp, _decorator } from "cc";
-import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
+import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
 import { config } from "../../common/config/Config";
 import { Role } from "../Role";
 

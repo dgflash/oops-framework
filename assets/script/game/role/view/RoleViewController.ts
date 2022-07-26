@@ -6,7 +6,7 @@
  */
 
 import { Component, EventTouch, Node, UITransform, v3, _decorator } from "cc";
-import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { Role } from "../Role";
 
 const { ccclass, property } = _decorator;

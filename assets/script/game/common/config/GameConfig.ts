@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-06-14 18:42:53
  */
 
-import { Logger } from "../../../../../extensions/oops-framework/assets/core/common/log/Logger";
+import { Logger } from "../../../../../extensions/oops-plugin-framework/assets/core/common/log/Logger";
 
 /*
  * 游戏配置解析，对应 resources/config/config.json 配置

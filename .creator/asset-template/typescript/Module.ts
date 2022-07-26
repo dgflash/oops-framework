@@ -1,4 +1,4 @@
-import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 
 /** <%Name%> 模块 */
 export class <%Name%> extends ecs.Entity {

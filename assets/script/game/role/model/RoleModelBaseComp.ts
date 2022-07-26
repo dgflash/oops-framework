@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-06-14 19:54:43
  */
 
-import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
-import { VM } from "../../../../../extensions/oops-framework/assets/libs/model-view/ViewModel";
+import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
+import { VM } from "../../../../../extensions/oops-plugin-framework/assets/libs/model-view/ViewModel";
 import { RoleAttributeType } from "./RoleEnum";
 import { RoleModelComp } from "./RoleModelComp";
 

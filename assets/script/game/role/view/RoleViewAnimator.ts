@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-06-14 19:56:45
  */
 import { sp, _decorator } from "cc";
-import AnimatorSpine from "../../../../../extensions/oops-framework/assets/libs/animator/AnimatorSpine";
-import { AnimatorStateLogic } from "../../../../../extensions/oops-framework/assets/libs/animator/core/AnimatorStateLogic";
+import AnimatorSpine from "../../../../../extensions/oops-plugin-framework/assets/libs/animator/AnimatorSpine";
+import { AnimatorStateLogic } from "../../../../../extensions/oops-plugin-framework/assets/libs/animator/core/AnimatorStateLogic";
 import { RoleAnimatorType, WeaponName } from "../model/RoleEnum";
 import { Role } from "../Role";
 import { AnimationEventHandler } from "./animator/AnimationEventHandler";

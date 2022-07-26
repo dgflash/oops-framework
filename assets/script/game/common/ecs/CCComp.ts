@@ -2,12 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-11-11 19:05:32
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-21 12:17:24
+ * @LastEditTime: 2022-07-25 17:05:19
  */
 
 import { _decorator } from 'cc';
-import { GameComponent } from '../../../../../extensions/oops-framework/assets/core/game/GameComponent';
-import { ecs } from '../../../../../extensions/oops-framework/assets/libs/ecs/ECS';
+import { GameComponent } from '../../../../../extensions/oops-plugin-framework/assets/core/game/GameComponent';
+import { ecs } from '../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS';
 
 const { ccclass, property } = _decorator;
 

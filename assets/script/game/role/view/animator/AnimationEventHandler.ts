@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-06-14 19:55:59
  */
 
-import AnimatorBase, { AnimationPlayer } from "../../../../../../extensions/oops-framework/assets/libs/animator/core/AnimatorBase";
+import AnimatorBase, { AnimationPlayer } from "../../../../../../extensions/oops-plugin-framework/assets/libs/animator/core/AnimatorBase";
 
 class FrameEventData {
     public callback!: Function;

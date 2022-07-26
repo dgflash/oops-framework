@@ -2,12 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-11-11 17:45:23
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-19 13:49:35
+ * @LastEditTime: 2022-07-25 17:04:50
  */
 
-import { Message } from "../../../../extensions/oops-framework/assets/core/common/event/MessageManager";
-import { oops } from "../../../../extensions/oops-framework/assets/core/Oops";
-import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
+import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
+import { Message } from "../../../resources/proto/output/protobuf";
 import { GameEvent } from "../common/config/GameEvent";
 import { AccountNetDataComp, AccountNetDataSystem } from "./bll/AccountNetData";
 import { AccountModelComp } from "./model/AccountModelComp";
@@ -56,7 +56,7 @@ export class Account extends ecs.Entity {
         // netChannel.gameConnect();
 
         // 无网状态下测试代码，有网络时会通过触发网络连接成功事件对接后续流程
-        Message.dispatchEvent(GameEvent.GameServerConnected)
+        oops.message.dispatchEvent(GameEvent.GameServerConnected)
     }
 
     /** 获取玩家信息 */

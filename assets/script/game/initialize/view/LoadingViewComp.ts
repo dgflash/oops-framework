@@ -5,10 +5,10 @@
  * @LastEditTime: 2022-07-22 17:44:57
  */
 import { _decorator } from "cc";
-import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
-import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
-import { JsonUtil } from "../../../../../extensions/oops-framework/assets/core/utils/JsonUtil";
-import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
+import { JsonUtil } from "../../../../../extensions/oops-plugin-framework/assets/core/utils/JsonUtil";
+import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { GameEvent } from "../../common/config/GameEvent";
 import { UIID } from "../../common/config/GameUIConfig";
 import { CCVMParentComp } from "../../common/ecs/CCVMParentComp";

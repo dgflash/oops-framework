@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-07-18 13:47:16
  */
 import { ImageAsset, Node, Sprite, SpriteFrame, Texture2D, _decorator } from 'cc';
-import { IRemoteOptions, resLoader } from '../../../extensions/oops-framework/assets/core/common/loader/ResLoader';
-import { Root } from '../../../extensions/oops-framework/assets/core/Root';
+import { IRemoteOptions, resLoader } from '../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader';
+import { Root } from '../../../extensions/oops-plugin-framework/assets/core/Root';
 
 const { ccclass, property } = _decorator;
 
@@ -20,7 +20,7 @@ export class Main extends Root {
     @property({ type: Node })
     sprite: Node = null!;
 
-    private url = "https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/assets/resources/native/00/0021cb5a-e4f0-4709-b0b6-5e21875720b7.3d6ea.png";
+    private url = "https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-plugin-framework/assets/resources/native/00/0021cb5a-e4f0-4709-b0b6-5e21875720b7.3d6ea.png";
     // private cache: any = {};
 
     btnLoader() {

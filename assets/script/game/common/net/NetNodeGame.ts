@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-06-14 17:52:54
  */
 
-import { CallbackObject, IRequestProtocol } from "../../../../../extensions/oops-framework/assets/libs/network/NetInterface";
-import { NetNode } from "../../../../../extensions/oops-framework/assets/libs/network/NetNode";
+import { CallbackObject, IRequestProtocol } from "../../../../../extensions/oops-plugin-framework/assets/libs/network/NetInterface";
+import { NetNode } from "../../../../../extensions/oops-plugin-framework/assets/libs/network/NetNode";
 import { netConfig } from "./NetConfig";
 
 /** 网络节点扩展 */

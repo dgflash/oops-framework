@@ -4,10 +4,10 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-07-22 17:09:30
  */
-import { resLoader } from "../../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
-import { AsyncQueue, NextFunction } from "../../../../../extensions/oops-framework/assets/libs/collection/AsyncQueue";
-import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
-import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
+import { AsyncQueue, NextFunction } from "../../../../../extensions/oops-plugin-framework/assets/libs/collection/AsyncQueue";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
+import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { config } from "../../common/config/Config";
 import { UIID } from "../../common/config/GameUIConfig";
 import { Initialize } from "../Initialize";

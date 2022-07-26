@@ -2,14 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-11-23 15:51:15
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 19:51:28
+ * @LastEditTime: 2022-07-25 17:03:54
  */
 
 import { v3 } from "cc";
-import { Message } from "../../../../../extensions/oops-framework/assets/core/common/event/MessageManager";
-import { storage } from "../../../../../extensions/oops-framework/assets/core/common/storage/StorageManager";
-import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
-import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { storage } from "../../../../../extensions/oops-plugin-framework/assets/core/common/storage/StorageManager";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
+import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { GameEvent } from "../../common/config/GameEvent";
 import { netConfig } from "../../common/net/NetConfig";
 import { Role } from "../../role/Role";
@@ -44,7 +43,7 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
                 this.createRole(e, data);
 
                 // 玩家登录成功事件
-                Message.dispatchEvent(GameEvent.LoginSuccess);
+                oops.message.dispatchEvent(GameEvent.LoginSuccess);
             }
         }
         // 请求登录游戏获取角色数据

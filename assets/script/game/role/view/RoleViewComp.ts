@@ -6,7 +6,7 @@
  */
 
 import { sp, _decorator } from "cc";
-import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { CCComp } from "../../common/ecs/CCComp";
 import { Role } from "../Role";
 import { RoleEvent } from "../RoleEvent";

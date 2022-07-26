@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-06-14 18:43:04
  */
 import { warn } from "cc";
-import { Logger } from "../../../../../extensions/oops-framework/assets/core/common/log/Logger";
-import { guid } from "../../../../../extensions/oops-framework/assets/core/common/manager/TimerManager";
+import { Logger } from "../../../../../extensions/oops-plugin-framework/assets/core/common/log/Logger";
+import { guid } from "../../../../../extensions/oops-plugin-framework/assets/core/common/manager/TimerManager";
 import { UrlParse } from "./UrlParse";
 
 /*

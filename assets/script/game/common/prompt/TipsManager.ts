@@ -7,8 +7,8 @@
 
 import { Node, tween, Vec3 } from "cc";
 import { UIID } from "../../../game/common/config/GameUIConfig";
-import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
-import { PopViewParams } from "../../../../../extensions/oops-framework/assets/core/gui/layer/Defines";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
+import { PopViewParams } from "../../../../../extensions/oops-plugin-framework/assets/core/gui/layer/Defines";
 
 /** 提示窗口管理 */
 class TipsManager {

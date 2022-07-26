@@ -2,12 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-11-11 19:05:32
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-21 12:17:51
+ * @LastEditTime: 2022-07-25 17:05:53
  */
 
 import { _decorator } from 'cc';
-import { ecs } from '../../../../../extensions/oops-framework/assets/libs/ecs/ECS';
-import VMParent from '../../../../../extensions/oops-framework/assets/libs/model-view/VMParent';
+import { ecs } from '../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS';
+import VMParent from '../../../../../extensions/oops-plugin-framework/assets/libs/model-view/VMParent';
 
 const { ccclass, property } = _decorator;
 

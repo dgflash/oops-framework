@@ -6,11 +6,11 @@
  */
 import { Component, dynamicAtlasManager, EventTouch, _decorator } from "cc";
 import { tips } from "../common/prompt/TipsManager";
-import { oops } from "../../../../extensions/oops-framework/assets/core/Oops";
+import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { UIID } from "../common/config/GameUIConfig";
 import { SingletonModuleComp } from "../common/ecs/SingletonModuleComp";
-import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
-import { resLoader } from "../../../../extensions/oops-framework/assets/core/common/loader/ResLoader";
+import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
+import { resLoader } from "../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
 
 const { ccclass, property } = _decorator;
 // 视图层实体是空的

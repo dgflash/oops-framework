@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-07-18 19:23:45
  */
 import { EventTouch, Node, _decorator } from "cc";
-import { oops } from "../../../../../extensions/oops-framework/assets/core/Oops";
-import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
+import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { UIID } from "../../common/config/GameUIConfig";
 import { CCComp } from "../../common/ecs/CCComp";
 import { SingletonModuleComp } from "../../common/ecs/SingletonModuleComp";

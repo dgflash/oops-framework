@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-11-11 17:45:23
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-22 17:44:32
+ * @LastEditTime: 2022-07-25 17:03:21
  */
-import { ecs } from "../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { Account } from "../account/Account";
 import { InitResComp, InitResSystem } from "./bll/InitRes";
 

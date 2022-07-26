@@ -11,7 +11,7 @@
  * @LastEditTime: 2022-01-25 10:05:40
  */
 
-import { AnimatorStateLogic } from "../../../../../../extensions/oops-framework/assets/libs/animator/core/AnimatorStateLogic";
+import { AnimatorStateLogic } from "../../../../../../extensions/oops-plugin-framework/assets/libs/animator/core/AnimatorStateLogic";
 import { Role } from "../../Role";
 import { AnimationEventHandler } from "./AnimationEventHandler";
 

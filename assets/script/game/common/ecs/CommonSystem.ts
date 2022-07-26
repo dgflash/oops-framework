@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-22 17:12:05
+ * @LastEditTime: 2022-07-25 17:06:07
  */
-import { ecs } from "../../../../../extensions/oops-framework/assets/libs/ecs/ECS";
+import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { EcsAccountSystem } from "../../account/Account";
 import { EcsInitializeSystem } from "../../initialize/Initialize";
 import { EcsRoleSystem } from "../../role/Role";
