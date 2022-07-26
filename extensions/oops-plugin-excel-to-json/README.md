@@ -1,7 +1,3 @@
-### 使用说明
-- npm install exceljs
-- node excel2json 
-
 ### 使用规则
 - Excel中前五行为工具规则数据
 - 第一行为字段中文名
