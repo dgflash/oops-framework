@@ -68,7 +68,9 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 
 #### 插件分类
 1. 静态配置表Excel转Json数据与对应的数据结构TS脚本插件[【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124484273?spm=1001.2014.3001.5502)
+    - 执行工程根目录下update-oops-plugin-excel-to-json.bat文件更新最新版本
 2. 热更新组件配套生成热更数据插件 [【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124483993?spm=1001.2014.3001.5502)
+    - 执行工程根目录下update-oops-plugin-hot-update.bat文件更新最新版本
 
 #### 第三方源码库
 | 库名       | 介绍                                                                | 原创                                                         |
