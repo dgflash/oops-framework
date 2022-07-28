@@ -12,7 +12,7 @@ export class <%Name%>Comp extends CCVMParentComp {
     data: any = {};
 
     /** 视图层逻辑代码分离演示 */
-    onLoad() {
+    start() {
         // var entity = this.ent as ecs.Entity;         // ecs.Entity 可转为当前模块的具体实体对象
     }
 

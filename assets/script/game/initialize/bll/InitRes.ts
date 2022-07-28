@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-07-22 17:09:30
  */
 import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
-import { AsyncQueue, NextFunction } from "../../../../../extensions/oops-plugin-framework/assets/libs/collection/AsyncQueue";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
+import { AsyncQueue, NextFunction } from "../../../../../extensions/oops-plugin-framework/assets/libs/collection/AsyncQueue";
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { config } from "../../common/config/Config";
 import { UIID } from "../../common/config/GameUIConfig";
@@ -42,9 +42,6 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
     /** 加载自定义内容（可选） */
     private loadCustom(queue: AsyncQueue) {
         queue.push(async (next: NextFunction, params: any, args: any) => {
-            // 设置渠道号
-            // if (config.query.channelId) SDKPlatform.setChannelId(config.query.channelId);
-
             // 加载多语言对应字体
             resLoader.load("language/font/" + oops.language.current, next);
         });
@@ -56,16 +53,15 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
             // 设置默认语言
             let lan = oops.storage.get("language");
             if (lan == null) {
-                // lan = SDKPlatform.getLanguage();
                 lan = "zh";
-                oops.storage.set("language", lan!);
+                oops.storage.set("language", lan);
             }
 
             // 设置语言包路径
             oops.language.setAssetsPath(config.game.languagePathJson, config.game.languagePathTexture);
 
             // 加载语言包资源
-            oops.language.setLanguage(lan!, next);
+            oops.language.setLanguage(lan, next);
         });
     }
 

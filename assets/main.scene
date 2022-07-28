@@ -460,7 +460,9 @@
     "_diffuseMapLDR": null,
     "_enabled": false,
     "_useHDR": false,
-    "_editableMaterial": null
+    "_editableMaterial": null,
+    "_reflectionHDR": null,
+    "_reflectionLDR": null
   },
   {
     "__type__": "cc.FogInfo",

@@ -9,7 +9,7 @@ const { ccclass, property } = _decorator;
 @ecs.register('<%Name%>', false)
 export class <%Name%>Comp extends CCComp {
     /** 视图层逻辑代码分离演示 */
-    onLoad() {
+    start() {
         // var entity = this.ent as ecs.Entity;         // ecs.Entity 可转为当前模块的具体实体对象
         // this.on(ModuleEvent.Cmd, this.onHandler, this);
     }
