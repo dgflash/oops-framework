@@ -29,7 +29,7 @@ export class Demo extends Component {
     start() {
         // 释放加载界面资源
         console.log("内存中现有资源");
-        resLoader.dump();
+        // resLoader.dump();
 
         console.log("当前图集数量", dynamicAtlasManager.atlasCount);
         console.log("可以创建的最大图集数量", dynamicAtlasManager.maxAtlasCount);
