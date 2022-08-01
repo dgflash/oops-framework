@@ -2,12 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-11-11 17:45:23
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-25 17:04:50
+ * @LastEditTime: 2022-08-01 13:49:37
  */
 
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
-import { Message } from "../../../resources/proto/output/protobuf";
 import { GameEvent } from "../common/config/GameEvent";
 import { AccountNetDataComp, AccountNetDataSystem } from "./bll/AccountNetData";
 import { AccountModelComp } from "./model/AccountModelComp";
@@ -18,6 +17,7 @@ import { AccountModelComp } from "./model/AccountModelComp";
  * 2、登录玩家帐号，获取玩家信息
  * 3、断线重连接
  */
+@ecs.register('Account')
 export class Account extends ecs.Entity {
     AccountModel!: AccountModelComp;
     AccountNetData!: AccountNetDataComp;

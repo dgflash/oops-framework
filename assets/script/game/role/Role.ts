@@ -3,7 +3,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:47:56
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-25 17:04:30
+ * @LastEditTime: 2022-08-01 13:49:32
  */
 import { Node, Vec3 } from "cc";
 import { ViewUtil } from "../../../../extensions/oops-plugin-framework/assets/core/utils/ViewUtil";
@@ -28,6 +28,7 @@ import { RoleViewInfoComp } from "./view/RoleViewInfoComp";
  * 4、角色需要有一个动画模型
  * 5、与玩家互动的玩法（升级、转职、攻击等）
  */
+@ecs.register('Role')
 export class Role extends ecs.Entity {
     // 数据层
     RoleModel!: RoleModelComp;
