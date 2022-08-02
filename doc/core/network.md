@@ -1,5 +1,5 @@
 ### 功能说明
-OopsFramework－网络模块WebSocket处理客户端与服务之间保持长链接通讯。
+Oops Framework－网络模块WebSocket处理客户端与服务之间保持长链接通讯。
 
 ### 使用说明
 ##### 自定义网络通讯数据协议（GZip压缩）

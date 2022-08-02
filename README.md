@@ -1,7 +1,7 @@
 # oops-framework
 
 #### 介绍
-oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
+Oops Framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 1. 提供游戏常用功能库，提高开发效率
 2. 提供业务模块开发的模板，降低程序设计难度
 3. 框架内置模块低耦合，可自行删除不需要的模块
@@ -72,20 +72,18 @@ oops-framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 2. 热更新组件配套生成热更数据插件 [【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124483993?spm=1001.2014.3001.5502)
     - 执行工程根目录下update-oops-plugin-hot-update.bat文件更新最新版本
 
-#### 第三方源码库
+#### 引用到的第三方源码库
 | 库名       | 介绍                                                                | 原创                                                         |
 | ---------- | ------------------------------------------------------------------- | ------------------------------------------------------------ |
 | WebSocket  | 原创者设计灵活，易扩展自定义协议                                    | [原创](https://github.com/wyb10a10/cocos_creator_framework)  |
 | animator   | 可视化动画状态机，与Untiy的Animator使用体验类似，扩展3D骨骼动画支持 | [原创](https://github.com/LeeYip/cocos-animator)             |
-| model-view | MVVM组件库，原库为cc2.x版本，本人升级到cc3.x                        | [原创](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
-| ECS        | Entity-Component-System，原码升级优化过                             | [原创](https://github.com/shangdibaozi/ECS)                  |
+| model-view | MVVM组件库，原创为cc2.x版本，本人升级到cc3.x                        | [原创](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
+| ECS        | Entity-Component-System，升级优化过                                 | [原创](https://github.com/shangdibaozi/ECS)                  |
 
-#### 第三方 NPM 库
-| 库名       | 介绍                               | 安装                      | 原创                                             |
-| ---------- | ---------------------------------- | ------------------------- | ------------------------------------------------ |
-| Nano ID    | 生成唯一标识                       | npm install --save nanoid | [原创](https://github.com/ai/nanoid)             |
-| seedrandom | 生成随机数                         | npm install seedrandom    | [原创](https://www.npmjs.com/package/seedrandom) |
-| ky         | Fetch API 的小巧优雅的 HTTP 客户端 | npm install ky            | [原创](https://github.com/sindresorhus/ky)       |
+#### 引用到的第三方NPM库
+| 库名       | 介绍       | 安装                   | 原创                                             |
+| ---------- | ---------- | ---------------------- | ------------------------------------------------ |
+| seedrandom | 生成随机数 | npm install seedrandom | [原创](https://www.npmjs.com/package/seedrandom) |
 
 #### 贡献榜
 | 时间       | 开发者   | 贡献内容                                                                                    |

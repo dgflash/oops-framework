@@ -1,5 +1,6 @@
+
 ### 功能说明
-OopsFramework－音频管理模块主要处理游戏背景音乐、游戏音效两大类功能。
+Oops Framework－音频管理模块主要处理游戏背景音乐、游戏音效两大类功能。
 
 ### [演示程序](https://gitee.com/dgflash/oops-framework/tree/master/assets/demo/audio)
 

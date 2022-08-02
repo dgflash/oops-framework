@@ -1,5 +1,5 @@
 ### 功能说明
-OopsFramework－本地存储模块主要封装了Cocos Crator引擎里sys.localStorage对象的跨平台平地存储功能，同时在此基础上添加了数据加密与不同帐号区分的功能。
+Oops Framework－本地存储模块主要封装了Cocos Crator引擎里sys.localStorage对象的跨平台平地存储功能，同时在此基础上添加了数据加密与不同帐号区分的功能。
 
 ### 使用说明
 ##### 初始化本地存储加密
