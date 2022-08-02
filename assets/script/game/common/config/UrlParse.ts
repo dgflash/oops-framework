@@ -1,8 +1,12 @@
+/*
+ * @Author: dgflash
+ * @Date: 2022-07-26 15:27:57
+ * @LastEditors: dgflash
+ * @LastEditTime: 2022-08-02 14:26:06
+ */
 import { sys } from "cc";
 
-/*
- * 地址栏参数处理
- */
+/* 地址栏参数处理 */
 export class UrlParse {
     private _data: any = null;
 

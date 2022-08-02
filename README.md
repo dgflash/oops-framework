@@ -3,7 +3,7 @@
 #### 介绍
 Oops Framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 1. 提供游戏常用功能库，提高开发效率
-2. 提供业务模块开发的模板，降低程序设计难度
+2. 提供业务模块代码模板，降低程序设计难度
 3. 框架内置模块低耦合，可自行删除不需要的模块
 4. 框架提供游戏常用插件工具
 
@@ -27,7 +27,7 @@ Oops Framework 基于 Cocos Creato 3.x 开发的一款游戏框架
     - 时间管理 - TimerManager.ts
     - 音效管理 - AudioManager.ts
     - 消息管理 - MessageManager.ts
-    - 屏幕适应 - GUI.ts.ts
+    - 屏幕适应 - GUI.ts
     - 本地存储 - StorageManager.ts
 2. 界面类 
     - 常用UI组件

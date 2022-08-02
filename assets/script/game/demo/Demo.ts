@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-08-01 12:13:24
+ * @LastEditTime: 2022-08-02 14:31:49
  */
 import { Component, dynamicAtlasManager, EventTouch, _decorator } from "cc";
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
@@ -17,12 +17,10 @@ const { ccclass, property } = _decorator;
 export class Demo extends Component {
     private lang: boolean = true;
 
-    onLoad() {
+    async onLoad() {
         // var path = "gui/prefab/role_info_base";
-        // resLoader.load(path, Prefab, () => {
-        //     var node = ViewUtil.createPrefabNode(path);
-        //     node.parent = this.node;
-        // });
+        // var node = await ViewUtil.createPrefabNodeAsync(path);
+        // node.parent = this.node;
 
         // 释放实始化实体
         smc.initialize.destroy();
@@ -123,7 +121,7 @@ export class Demo extends Component {
 
     /** 背景音乐 */
     private btn_audio_open1(event: EventTouch, data: any) {
-        oops.audio.musicVolume = 0.5;
+        oops.audio.volumeMusic = 0.5;
 
         oops.audio.setMusicComplete(() => {
             oops.audio.playMusic("audios/nocturne");

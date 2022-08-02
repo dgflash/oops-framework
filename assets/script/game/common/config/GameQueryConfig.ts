@@ -2,16 +2,14 @@
  * @Author: dgflash
  * @Date: 2022-04-14 17:08:01
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 18:43:04
+ * @LastEditTime: 2022-08-02 14:25:37
  */
 import { warn } from "cc";
 import { Logger } from "../../../../../extensions/oops-plugin-framework/assets/core/common/log/Logger";
 import { guid } from "../../../../../extensions/oops-plugin-framework/assets/core/common/manager/TimerManager";
 import { UrlParse } from "./UrlParse";
 
-/*
- * 获取和处理浏览器地址栏参数
- */
+/* 获取和处理浏览器地址栏参数 */
 export class GameQueryConfig {
     /** 玩家帐号名 */
     public get username(): string {

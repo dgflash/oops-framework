@@ -2,14 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 18:42:53
+ * @LastEditTime: 2022-08-02 14:25:50
  */
 
 import { Logger } from "../../../../../extensions/oops-plugin-framework/assets/core/common/log/Logger";
 
-/*
- * 游戏配置解析，对应 resources/config/config.json 配置
- */
+/* 游戏配置解析，对应 resources/config/config.json 配置 */
 export class GameConfig {
     /** 游戏配置路径 */
     getConfigPath(relative_path: string) {
@@ -59,7 +57,7 @@ export class GameConfig {
     get languagePathTexture(): string {
         return this._data.language.path.texture || "language/texture";
     }
-    
+
 
     private _data: any = null;
     constructor(config: any) {
