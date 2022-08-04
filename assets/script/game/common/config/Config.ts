@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 18:43:22
+ * @LastEditTime: 2022-08-04 18:47:32
  */
 
 import { game, JsonAsset } from "cc";
@@ -44,7 +44,7 @@ export class Config {
             oops.gui.init(UIConfigData);
 
             callback();
-        })
+        });
     }
 }
 

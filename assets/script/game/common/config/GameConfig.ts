@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-08-04 13:51:36
+ * @LastEditTime: 2022-08-04 18:44:31
  */
 
 import { Logger } from "../../../../../extensions/oops-plugin-framework/assets/core/common/log/Logger";
@@ -57,7 +57,6 @@ export class GameConfig {
     get languagePathTexture(): string {
         return this._data.language.path.texture || "language/texture";
     }
-
 
     private _data: any = null;
     constructor(config: any) {

@@ -56,11 +56,12 @@ export class GameQueryConfig {
         return ret;
     }
 
-    // 浏览器地址栏原始参数，不可修改！
     private _data: any = null;
+    /** 浏览器地址栏原始参数 */
     public get data() {
         return this._data;
     }
+
     constructor() {
         let data: any = (new UrlParse()).query;
         if (!data) {
