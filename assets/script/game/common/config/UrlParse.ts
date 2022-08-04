@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-07-26 15:27:57
  * @LastEditors: dgflash
- * @LastEditTime: 2022-08-02 14:26:06
+ * @LastEditTime: 2022-08-04 18:21:41
  */
 import { sys } from "cc";
 
@@ -24,20 +24,23 @@ export class UrlParse {
     }
 
     private parseUrl() {
-        if (typeof window !== "object") {
-            return {};
-        }
-        if (!window.document) {
-            return {};
-        }
+        if (typeof window !== "object") return {};
+        if (!window.document) return {};
+
         let url = window.document.location.href.toString();
         let u = url.split("?");
         if (typeof (u[1]) == "string") {
             u = u[1].split("&");
             let get: any = {};
             for (let i = 0, l = u.length; i < l; ++i) {
-                let j = u[i].split("=");
-                get[j[0]] = j[1];
+                let j = u[i];
+                let x = j.indexOf("=");
+                if (x < 0) {
+                    continue;
+                }
+                let key = j.substring(0, x);
+                let value = j.substring(x + 1);
+                get[decodeURIComponent(key)] = value && decodeURIComponent(value);
             }
             return get;
         }
