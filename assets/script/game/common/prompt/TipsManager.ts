@@ -2,13 +2,13 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 17:59:42
+ * @LastEditTime: 2022-08-05 10:13:47
  */
 
 import { Node, tween, Vec3 } from "cc";
-import { UIID } from "../../../game/common/config/GameUIConfig";
-import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { PopViewParams } from "../../../../../extensions/oops-plugin-framework/assets/core/gui/layer/Defines";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
+import { UIID } from "../config/GameUIConfig";
 
 /** 提示窗口管理 */
 class TipsManager {

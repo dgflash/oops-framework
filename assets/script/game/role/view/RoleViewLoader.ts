@@ -2,12 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 17:57:48
+ * @LastEditTime: 2022-08-05 17:06:50
  */
 
 import { Component, sp, _decorator } from "cc";
 import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
-import { config } from "../../common/config/Config";
+import { GameResPath } from "../../common/config/GameResPath";
 import { Role } from "../Role";
 
 const { ccclass, property } = _decorator;
@@ -29,7 +29,7 @@ export class RoleViewLoader extends Component {
     private load(name: string) {
         this.node.active = false;
 
-        var path = config.game.getRolePath(name);
+        var path = GameResPath.getRolePath(name);
         resLoader.load(path, sp.SkeletonData, (err: Error | null, sd: sp.SkeletonData) => {
             if (err) {
                 console.error(`动画名为【${path}】的角色资源不存在`);

@@ -2,13 +2,14 @@
  * @Author: dgflash
  * @Date: 2022-07-22 17:06:22
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-22 17:09:30
+ * @LastEditTime: 2022-08-05 10:16:40
  */
+
 import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { AsyncQueue, NextFunction } from "../../../../../extensions/oops-plugin-framework/assets/libs/collection/AsyncQueue";
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
-import { config } from "../../common/config/Config";
+import { config } from "../../../../../extensions/oops-plugin-framework/assets/module/config/Config";
 import { UIID } from "../../common/config/GameUIConfig";
 import { Initialize } from "../Initialize";
 import { LoadingViewComp } from "../view/LoadingViewComp";
@@ -76,7 +77,7 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
     private onComplete(queue: AsyncQueue, e: Initialize) {
         queue.complete = async () => {
             var node = await oops.gui.openAsync(UIID.Loading);
-            if (node) e.add(node.getComponent(LoadingViewComp) as ecs.Comp);
+            if (node) e.add(node.getComponent(LoadingViewComp) as ecs.Comp); 
             e.remove(InitResComp);
         };
     }

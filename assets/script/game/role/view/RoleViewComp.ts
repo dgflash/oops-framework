@@ -2,12 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-19 13:53:23
+ * @LastEditTime: 2022-08-05 10:32:42
  */
 
 import { sp, _decorator } from "cc";
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
-import { CCComp } from "../../common/ecs/CCComp";
+import { CCComp } from "../../../../../extensions/oops-plugin-framework/assets/module/common/CCComp";
 import { Role } from "../Role";
 import { RoleEvent } from "../RoleEvent";
 import { RoleViewAnimator } from "./RoleViewAnimator";

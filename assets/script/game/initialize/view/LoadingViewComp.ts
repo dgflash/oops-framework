@@ -2,16 +2,16 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-08-01 12:12:50
+ * @LastEditTime: 2022-08-05 10:15:00
  */
 import { _decorator } from "cc";
 import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { JsonUtil } from "../../../../../extensions/oops-plugin-framework/assets/core/utils/JsonUtil";
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
-import { GameEvent } from "../../common/config/GameEvent";
 import { UIID } from "../../common/config/GameUIConfig";
-import { CCVMParentComp } from "../../common/ecs/CCVMParentComp";
+import { GameEvent } from "../../common/config/GameEvent";
+import { CCVMParentComp } from "../../../../../extensions/oops-plugin-framework/assets/module/common/CCVMParentComp";
 import { smc } from "../../common/ecs/SingletonModuleComp";
 import { TableRoleJob } from "../../common/table/TableRoleJob";
 import { TableRoleLevelUp } from "../../common/table/TableRoleLevelUp";
