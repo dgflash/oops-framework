@@ -1,9 +1,3 @@
-/*
- * @Author: dgflash
- * @Date: 2022-06-02 09:38:48
- * @LastEditors: dgflash
- * @LastEditTime: 2022-06-14 17:53:26
- */
 
 import { JsonUtil } from "../../../../../extensions/oops-plugin-framework/assets/core/utils/JsonUtil";
 

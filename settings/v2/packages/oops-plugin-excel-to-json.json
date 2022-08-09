@@ -1,6 +1,6 @@
 {
   "__version__": "1.0.0",
-  "PathJson": "D:\\gitee\\oops-framework\\assets\\resources\\config\\game",
-  "PathExcel": "D:\\gitee\\oops-framework\\extensions\\oops-plugin-excel-to-json\\excel",
-  "PathTs": "D:\\gitee\\oops-framework\\assets\\script\\game\\common\\table"
+  "PathJson": "../../../assets/resources/config/game/",
+  "PathExcel": "../excel/",
+  "PathTs": "../../../assets/script/game/common/table/"
 }

@@ -104,3 +104,6 @@ Oops Framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 - [联机游戏框架 oops-mgobe](https://store.cocos.com/app/detail/3574)
 - [开源框架 oops-framework gitee](https://gitee.com/dgflash/oops-framework)
 - [开源框架 oops-framework github](https://github.com/dgflash/oops-framework)
+
+### 开发维护不易，如果对您有帮助，希望给与支持
+![您对作者的支持](http://dgflash.gitee.io/oops-full-stack-web/doc/support.jpg)
