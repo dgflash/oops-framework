@@ -2,13 +2,12 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-08-05 10:14:26
+ * @LastEditTime: 2022-08-09 18:14:52
  */
 import { Component, dynamicAtlasManager, EventTouch, _decorator } from "cc";
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
-import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { UIID } from "../common/config/GameUIConfig";
-import { SingletonModuleComp, smc } from "../common/ecs/SingletonModuleComp";
+import { smc } from "../common/ecs/SingletonModuleComp";
 import { tips } from "../common/prompt/TipsManager";
 
 const { ccclass, property } = _decorator;
@@ -21,9 +20,6 @@ export class Demo extends Component {
         // var path = "gui/prefab/role_info_base";
         // var node = await ViewUtil.createPrefabNodeAsync(path);
         // node.parent = this.node;
-
-        // 释放实始化实体
-        smc.initialize.destroy();
     }
 
     start() {
@@ -44,7 +40,7 @@ export class Demo extends Component {
 
     /** 升级 */
     private btn_level_up(event: EventTouch, data: any) {
-        var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
+        var role = smc.account.AccountModel.role;
         role.upgrade();
         // role.remove(RoleViewComp);
         // resLoader.releaseDir("content/role");
@@ -52,7 +48,7 @@ export class Demo extends Component {
 
     /** 攻击 */
     private btn_attack(event: EventTouch, data: any) {
-        var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
+        var role = smc.account.AccountModel.role;
         role.attack();
 
         // role.load();
@@ -61,19 +57,19 @@ export class Demo extends Component {
 
     /** 转职弓箭 */
     private btn_change_job9(event: EventTouch, data: any) {
-        var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
+        var role = smc.account.AccountModel.role;
         role.changeJob(9);
     }
 
     /** 转职匕首 */
     private btn_change_job5(event: EventTouch, data: any) {
-        var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
+        var role = smc.account.AccountModel.role;
         role.changeJob(5);
     }
 
     /** 转职刀 */
     private btn_change_job1(event: EventTouch, data: any) {
-        var role = ecs.getSingleton(SingletonModuleComp).account.AccountModel.role;
+        var role = smc.account.AccountModel.role;
         role.changeJob(1);
     }
 
