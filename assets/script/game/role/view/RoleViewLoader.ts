@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-11-18 17:42:59
  * @LastEditors: dgflash
- * @LastEditTime: 2022-08-05 17:06:50
+ * @LastEditTime: 2022-08-11 15:04:39
  */
 
 import { Component, sp, _decorator } from "cc";
@@ -43,6 +43,6 @@ export class RoleViewLoader extends Component {
     }
 
     onDestroy() {
-        this.spine.skeletonData.decRef();
+        if (this.spine.skeletonData) this.spine.skeletonData.decRef();
     }
 }
