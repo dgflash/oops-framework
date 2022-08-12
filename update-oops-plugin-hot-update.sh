@@ -1,4 +1,11 @@
-mkdir -p extensions
+if [ ! -d "extensions" ]; then
+    mkdir extensions
+fi
 cd extensions
-git clone -b master https://gitee.com/dgflash/oops-plugin-hot-update.git
-git pull
+
+if [ ! -d "oops-plugin-hot-update" ]; then
+    git clone -b master https://gitee.com/dgflash/oops-plugin-hot-update.git
+else
+    cd oops-plugin-hot-update
+    git pull
+fi
