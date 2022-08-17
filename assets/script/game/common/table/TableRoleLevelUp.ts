@@ -12,11 +12,14 @@ export class TableRoleLevelUp {
         this.id = id;
     }
 
+    /** 编号【KEY】 */
     id: number = 0;
 
+    /** 升级所需经验 */
     get needexp(): string {
         return this.data.needexp;
     }
+    /** 升级增加生命 */
     get hp(): string {
         return this.data.hp;
     }

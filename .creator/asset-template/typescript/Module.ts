@@ -1,6 +1,7 @@
 import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 
 /** <%Name%> 模块 */
+@ecs.register(`<%Name%>`)
 export class <%Name%> extends ecs.Entity {
     /** ---------- 数据层 ---------- */
     // <%Name%>Model!: <%Name%>ModelComp;
