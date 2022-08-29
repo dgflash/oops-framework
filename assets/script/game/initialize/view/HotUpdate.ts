@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-04-15 14:44:04
  * @LastEditors: dgflash
- * @LastEditTime: 2022-08-05 10:14:51
+ * @LastEditTime: 2022-08-29 14:13:42
  */
 import { Component, game, sys, _decorator } from "cc";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
@@ -22,11 +22,11 @@ export class HotUpdate extends Component {
     private lv: LoadingViewComp = null!;
 
     onLoad() {
-        // if (sys.isNative) {
-        //     this.lv = this.getComponent(LoadingViewComp)!;
-        //     this.lv.data.prompt = oops.language.getLangByID("update_tips_check_update");
-        //     this.startHotUpdate();
-        // }
+        if (sys.isNative) {
+            this.lv = this.getComponent(LoadingViewComp)!;
+            this.lv.data.prompt = oops.language.getLangByID("update_tips_check_update");
+            this.startHotUpdate();
+        }
     }
 
     /** 开始热更新 */

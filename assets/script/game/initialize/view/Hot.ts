@@ -31,7 +31,7 @@ export class HotOptions {
 
 /** 热更管理 */
 export class Hot {
-    private assetsMgr: jsb.AssetsManager = null!;
+    private assetsMgr: native.AssetsManager = null!;
     private options: HotOptions | null = null;
     private state = Hot.State.None;
     private storagePath: string = "";
@@ -67,7 +67,7 @@ export class Hot {
 
             this.manifest = res.nativeUrl;
             this.storagePath = `${native.fileUtils.getWritablePath()}/oops_framework_remote`;
-            this.assetsMgr = new jsb.AssetsManager(this.manifest, this.storagePath, (versionA, versionB) => {
+            this.assetsMgr = new native.AssetsManager(this.manifest, this.storagePath, (versionA, versionB) => {
                 console.log("【热更新】客户端版本: " + versionA + ', 当前最新版本: ' + versionB);
                 this.options?.onVersionInfo && this.options.onVersionInfo({ local: versionA, server: versionB });
 
@@ -151,21 +151,21 @@ export class Hot {
         this.assetsMgr.update();
     }
 
-    private onHotUpdateCallBack(event: jsb.EventAssetsManager) {
+    private onHotUpdateCallBack(event: native.EventAssetsManager) {
         let code = event.getEventCode();
         switch (code) {
-            case jsb.EventAssetsManager.ALREADY_UP_TO_DATE:
+            case native.EventAssetsManager.ALREADY_UP_TO_DATE:
                 console.log("【热更新】当前版本与远程版本一致且无须更新");
                 this.options?.onNoNeedToUpdate && this.options.onNoNeedToUpdate(code)
                 break;
-            case jsb.EventAssetsManager.NEW_VERSION_FOUND:
+            case native.EventAssetsManager.NEW_VERSION_FOUND:
                 console.log('【热更新】发现新版本,请更新');
                 this.options?.onNeedToUpdate && this.options.onNeedToUpdate(code, this.assetsMgr!.getTotalBytes());
                 break;
-            case jsb.EventAssetsManager.ASSET_UPDATED:
+            case native.EventAssetsManager.ASSET_UPDATED:
                 console.log('【热更新】资产更新');
                 break;
-            case jsb.EventAssetsManager.UPDATE_PROGRESSION:
+            case native.EventAssetsManager.UPDATE_PROGRESSION:
                 if (this.state === Hot.State.Update) {
                     // event.getPercent();
                     // event.getPercentByFile();
@@ -175,7 +175,7 @@ export class Hot {
                     this.options?.onUpdateProgress && this.options.onUpdateProgress(event);
                 }
                 break;
-            case jsb.EventAssetsManager.UPDATE_FINISHED:
+            case native.EventAssetsManager.UPDATE_FINISHED:
                 this.onUpdateFinished();
                 break;
             default:

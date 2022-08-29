@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-08-05 10:15:00
+ * @LastEditTime: 2022-08-29 13:37:08
  */
-import { _decorator } from "cc";
+import { sys, _decorator } from "cc";
 import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { JsonUtil } from "../../../../../extensions/oops-plugin-framework/assets/core/utils/JsonUtil";
@@ -49,7 +49,7 @@ export class LoadingViewComp extends CCVMParentComp {
 
     start() {
         // if (!sys.isNative) {
-        this.enter();
+            this.enter();
         // }
     }
 
