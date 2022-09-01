@@ -6,7 +6,6 @@
  */
 
 import { v3 } from "cc";
-import { storage } from "../../../../../extensions/oops-plugin-framework/assets/core/common/storage/StorageManager";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { GameEvent } from "../../common/config/GameEvent";
@@ -99,7 +98,7 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
 
     /** 设置本地存储的用户标识 */
     private setLocalStorage(uid: number) {
-        storage.setUser(uid);
-        storage.set("account", uid);
+        oops.storage.setUser(uid);
+        oops.storage.set("account", uid);
     }
 }

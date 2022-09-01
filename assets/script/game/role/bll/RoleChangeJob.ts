@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-07-21 16:49:00
  */
 
-import { Message } from "../../../../../extensions/oops-plugin-framework/assets/core/common/event/MessageManager";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { RoleModelJobComp } from "../model/RoleModelJobComp";
 import { Role } from "../Role";
@@ -43,7 +43,7 @@ export class RoleChangeJobSystem extends ecs.ComblockSystem implements ecs.IEnti
         e.RoleModelJob.id = e.RoleChangeJob.jobId;
 
         // 转职事件，通知视图层逻辑刷新界面效果，实现两层逻辑分离
-        Message.dispatchEvent(RoleEvent.ChangeJob);
+        oops.message.dispatchEvent(RoleEvent.ChangeJob);
 
         e.remove(RoleChangeJobComp);
     }

@@ -3,11 +3,11 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-07-22 18:09:52
  */
-import { Message } from "../../../../../extensions/oops-plugin-framework/assets/core/common/event/MessageManager";
 import { Logger } from "../../../../../extensions/oops-plugin-framework/assets/core/common/log/Logger";
-import { tips } from "../prompt/TipsManager";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { INetworkTips } from "../../../../../extensions/oops-plugin-framework/assets/libs/network/NetInterface";
 import { GameEvent } from "../config/GameEvent";
+import { tips } from "../prompt/TipsManager";
 
 /** 游戏服务器提示 */
 export class NetGameTips implements INetworkTips {
@@ -20,7 +20,7 @@ export class NetGameTips implements INetworkTips {
         else {
             Logger.logNet("游戏服务器连接成功");
             tips.netInstableClose();
-            Message.dispatchEvent(GameEvent.GameServerConnected);
+            oops.message.dispatchEvent(GameEvent.GameServerConnected);
         }
     }
 
