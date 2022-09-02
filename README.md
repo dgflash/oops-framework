@@ -1,7 +1,7 @@
 # oops-framework
 
 #### 介绍
-Oops Framework 基于 Cocos Creato 3.x 开发的一款游戏框架。
+Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 1. 提供游戏常用功能库，提高开发效率
 2. 提供业务模块代码模板，降低程序设计难度
 3. 框架内置模块低耦合，可自行删减不需要的模块，以适应不同类型的游戏
