@@ -1,22 +1,23 @@
 # oops-framework
 
 #### 介绍
-Oops Framework 基于 Cocos Creato 3.x 开发的一款游戏框架
+Oops Framework 基于 Cocos Creato 3.x 开发的一款游戏框架。
 1. 提供游戏常用功能库，提高开发效率
 2. 提供业务模块代码模板，降低程序设计难度
-3. 框架内置模块低耦合，可自行删除不需要的模块
+3. 框架内置模块低耦合，可自行删减不需要的模块，以适应不同类型的游戏
 4. 框架提供游戏常用插件工具
+    - 热更新配置生成插件([传送门](https://gitee.com/dgflash/oops-plugin-hot-update))
+    - 策划Excel配置表生成Json格式与配套ts代码插件([传送门](https://gitee.com/dgflash/oops-plugin-excel-to-json))
 
 注：
-1. 项目下载后执行update-oops-plugin-framework.bat下载最新版本框架插件，或手动下载[oops-plugin-framework](https://gitee.com/dgflash/oops-plugin-framework)框架插件拷贝到extensions目录中
+1. 项目下载后执行update-oops-plugin-framework.bat下载最新版本框架插件，在启动Cocos Creator运行项目
 1. master分支一般会与 Cocos Creator 引擎最新版本保持同步，需要其它版本可选其它分支下载
 1. 学习交流 QQ 群：798575969
 
     ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/qq.png)
 
 #### 技术文档
-- [oops-framework update](https://gitee.com/dgflash/oops-framework/tree/master/doc/using.md)
-- [oops-framework](https://gitee.com/dgflash/oops-framework/tree/master/doc/core)
+- [oops-framework](https://dgflash.gitee.io/oops-plugin-framework/)
 - [ecs](https://gitee.com/dgflash/oops-framework/tree/master/doc/ecs/ecs.md)
 - [mvvm](https://gitee.com/dgflash/oops-framework/tree/master/doc/mvvm)
 
@@ -86,14 +87,15 @@ Oops Framework 基于 Cocos Creato 3.x 开发的一款游戏框架
 | seedrandom | 生成随机数 | npm install seedrandom | [原创](https://www.npmjs.com/package/seedrandom) |
 
 #### 贡献榜
-| 时间       | 开发者   | 贡献内容                                                                                    |
-| ---------- | -------- | ------------------------------------------------------------------------------------------- |
-| 2022-08-04 | Bz       | 修复UrlParse对象解析腾讯游戏大厅的地址查询参数数据错误问题                                  |
-| 2022-06-02 | 羽毛先生 | 修复 UI 框架中界面无法不销毁移除的问题; 修复UI框架中从缓存获取界面时，传递新参数不更新问题  |
-| 2022-04-15 | Hess     | 建议优化 ecs 框架所有生命周期事件在处理多实体时，将批处理逻辑移到框架层实现，减小业务代码量 |
-| 2021-10-13 | laret    | 修复 Dialog 类型的 UI 不能连续触发                                                          |
-| 2021-10-20 | dogegg   | 支持添加 cc.Component 到 ecs 实体对象中                                                     |
-| 2022-02-18 | 匿名好友 | 修复 TimerManager 时间管理对象，在游戏最小化切到最大化时，定时间器不触发完成事件的问题      |
+| 时间       | 开发者    | 贡献内容                                                                                    |
+| ---------- | --------- | ------------------------------------------------------------------------------------------- |
+| 2022-09-01 | GaGa 嘎嘎 | 自动化文档生成工具的部署指导                                                                |
+| 2022-08-04 | Bz        | 修复UrlParse对象解析腾讯游戏大厅的地址查询参数数据错误问题                                  |
+| 2022-06-02 | 羽毛先生  | 修复 UI 框架中界面无法不销毁移除的问题; 修复UI框架中从缓存获取界面时，传递新参数不更新问题  |
+| 2022-04-15 | Hess      | 建议优化 ecs 框架所有生命周期事件在处理多实体时，将批处理逻辑移到框架层实现，减小业务代码量 |
+| 2021-10-13 | laret     | 修复 Dialog 类型的 UI 不能连续触发                                                          |
+| 2021-10-20 | dogegg    | 支持添加 cc.Component 到 ecs 实体对象中                                                     |
+| 2022-02-18 | 匿名好友  | 修复 TimerManager 时间管理对象，在游戏最小化切到最大化时，定时间器不触发完成事件的问题      |
 
 #### 在线演示
 - [框架部分功能演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/)
