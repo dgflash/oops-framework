@@ -2,9 +2,9 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-08-29 14:13:28
+ * @LastEditTime: 2022-09-06 18:09:46
  */
-import { Component, dynamicAtlasManager, EventTouch, _decorator } from "cc";
+import { Component, EventTouch, _decorator } from "cc";
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { UIID } from "../common/config/GameUIConfig";
 import { smc } from "../common/ecs/SingletonModuleComp";
@@ -24,14 +24,34 @@ export class Demo extends Component {
 
     start() {
         // 释放加载界面资源
-        console.log("内存中现有资源");
+        // if (DEV && EDITOR) {
+        //     // 编辑器中预览
+        // }
+        // else if (DEV && !EDITOR) {
+        //     // 浏览器中预览
+        // }
+        // console.log("内存中现有资源", DEV, EDITOR, sys.isBrowser);
         // resLoader.dump();
 
-        console.log("当前图集数量", dynamicAtlasManager.atlasCount);
-        console.log("可以创建的最大图集数量", dynamicAtlasManager.maxAtlasCount);
-        console.log("创建的图集的宽高", dynamicAtlasManager.textureSize);
-        console.log("可以添加进图集的图片的最大尺寸", dynamicAtlasManager.maxFrameSize);
-        console.log("可以添加进图集的图片的最大尺寸", dynamicAtlasManager.maxFrameSize);
+        // console.log("当前图集数量", dynamicAtlasManager.atlasCount);
+        // console.log("可以创建的最大图集数量", dynamicAtlasManager.maxAtlasCount);
+        // console.log("创建的图集的宽高", dynamicAtlasManager.textureSize);
+        // console.log("可以添加进图集的图片的最大尺寸", dynamicAtlasManager.maxFrameSize);
+        // console.log("可以添加进图集的图片的最大尺寸", dynamicAtlasManager.maxFrameSize);
+
+        // console.log("是否是原生平台", sys.isNative);
+        // console.log("是否是浏览器", sys.isBrowser);
+        // console.log("是否是移动端平台", sys.isMobile);
+        // console.log("是否是小端序", sys.isLittleEndian);
+        // console.log("运行平台或环境", sys.platform);
+        // console.log("运行环境的语言", sys.language);
+        // console.log("运行环境的语言代码", sys.languageCode);
+        // console.log("当前运行系统", sys.os);
+        // console.log("运行系统版本字符串", sys.osVersion);
+        // console.log("当前系统主版本", sys.osMainVersion);
+        // console.log("当前运行的浏览器类型", sys.browserType);
+        // console.log("获取当前设备的网络类型, 如果网络类型无法获取，默认将返回 `sys.NetworkType.LAN`", sys.getNetworkType());
+        // console.log("取当前设备的电池电量，如果电量无法获取，默认将返回 1", sys.getBatteryLevel());
     }
 
     private btn_long(event: EventTouch, data: any) {
