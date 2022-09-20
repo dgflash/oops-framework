@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-06-02 09:38:48
  * @LastEditors: dgflash
- * @LastEditTime: 2022-08-05 10:32:57
+ * @LastEditTime: 2022-09-20 17:18:29
  */
 import { EventTouch, Node, _decorator } from "cc";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
@@ -17,6 +17,10 @@ const { ccclass, property } = _decorator;
 @ccclass('RoleViewInfoComp')
 @ecs.register('RoleViewInfo', false)
 export class RoleViewInfoComp extends CCComp {
+    onAdded(args: any) {
+        console.log(args);
+    }
+
     onLoad() {
         this.node.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
     }

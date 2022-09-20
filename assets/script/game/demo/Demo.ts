@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-09-06 18:09:46
+ * @LastEditTime: 2022-09-20 17:20:20
  */
 import { Component, EventTouch, _decorator } from "cc";
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
@@ -95,7 +95,7 @@ export class Demo extends Component {
 
     /** 打开角色界面 */
     private btn_open_role_info(event: EventTouch, data: any) {
-        oops.gui.open(UIID.Demo_Role_Info);
+        oops.gui.open(UIID.Demo_Role_Info, "传递参数");
     }
 
     /** 多语言切换 */
