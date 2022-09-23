@@ -8,7 +8,7 @@ goto clone
 )
 
 :clone
-git clone -b master https://gitee.com/dgflash/oops-plugin-framework.git
+git clone -b 3.6.0 https://gitee.com/dgflash/oops-plugin-framework.git
 
 :update
 cd oops-plugin-framework
