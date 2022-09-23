@@ -1,14 +1,14 @@
 {
-  "name": "oops-framework",
-  "description": "oops-framework",
-  "uuid": "c30b28da-749e-479b-bcb6-cecd8d7be9e3",
   "creator": {
-    "version": "3.6.0"
+    "version": "3.6.1"
   },
   "dependencies": {
     "seedrandom": "^3.0.5"
   },
+  "description": "oops-framework",
   "devDependencies": {
     "@types/node": "^17.0.25"
-  }
+  },
+  "name": "oops-framework",
+  "uuid": "c30b28da-749e-479b-bcb6-cecd8d7be9e3"
 }

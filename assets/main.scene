@@ -227,7 +227,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 395.25691699604744,
+    "_orthoHeight": 439.1862284820031,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -253,6 +253,8 @@
     "_screenScale": 1,
     "_visibility": 33554432,
     "_targetTexture": null,
+    "_cameraType": -1,
+    "_trackingType": 0,
     "_id": "91CjdhwCZBXZzNJCpJXp5K"
   },
   {
@@ -462,7 +464,8 @@
     "_useHDR": false,
     "_editableMaterial": null,
     "_reflectionHDR": null,
-    "_reflectionLDR": null
+    "_reflectionLDR": null,
+    "_rotationAngle": 0
   },
   {
     "__type__": "cc.FogInfo",
