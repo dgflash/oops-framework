@@ -12,9 +12,13 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 注：
 1. 项目下载后执行update-oops-plugin-framework.bat下载最新版本框架插件，在启动Cocos Creator运行项目
 1. master分支一般会与 Cocos Creator 引擎最新版本保持同步，需要其它版本可选其它分支下载
-1. 学习交流 QQ 群：798575969
 
-    ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/qq.png)
+### QQ群
+- 798575969（1群） 
+- 621415300（2群）
+
+### QQ频道扫码加入，提供教程，持续更新
+![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/qq.png)
 
 #### 技术文档
 - [oops-framework](https://dgflash.gitee.io/oops-plugin-framework/)
@@ -98,11 +102,15 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 | 2022-02-18 | 匿名好友  | 修复 TimerManager 时间管理对象，在游戏最小化切到最大化时，定时间器不触发完成事件的问题      |
 
 #### 在线演示
-- [框架部分功能演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-framework/)
-- [全栈解决方案 oops-moba](https://store.cocos.com/app/detail/3814)
-- [游戏地图模块 oops-rpg-2d](https://store.cocos.com/app/detail/3675)
-- [游戏地图模块 oops-rpg-3d](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/?type=2)
-- [新手引导模块 oops-guide](https://store.cocos.com/app/detail/3653)
-- [联机游戏框架 oops-mgobe](https://store.cocos.com/app/detail/3574)
-- [开源框架 oops-framework gitee](https://gitee.com/dgflash/oops-framework)
-- [开源框架 oops-framework github](https://github.com/dgflash/oops-framework)
+[网络游戏全栈解决方案](https://store.cocos.com/app/detail/3814)
+
+[角色扮演游戏解决方案](https://store.cocos.com/app/detail/3675)
+
+[新手引导解决方案](https://store.cocos.com/app/detail/3653)
+
+[框架实现的解决方案演示](https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-solution/)
+
+[开源框架 oops-framework gitee](https://gitee.com/dgflash/oops-framework)
+
+[开源框架 oops-framework github](https://github.com/dgflash/oops-framework)
+
