@@ -163,7 +163,6 @@
     "__prefab": {
       "__id__": 6
     },
-    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -315,7 +314,6 @@
     "__prefab": {
       "__id__": 14
     },
-    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -525,7 +523,6 @@
     "__prefab": {
       "__id__": 23
     },
-    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -626,7 +623,6 @@
     "__prefab": {
       "__id__": 30
     },
-    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -935,7 +931,6 @@
     "__prefab": {
       "__id__": 42
     },
-    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -1036,7 +1031,6 @@
     "__prefab": {
       "__id__": 49
     },
-    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -1236,7 +1230,6 @@
     "__prefab": {
       "__id__": 59
     },
-    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
