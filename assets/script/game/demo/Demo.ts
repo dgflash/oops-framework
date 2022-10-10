@@ -120,6 +120,12 @@ export class Demo extends Component {
         tips.test(() => {
 
         });
+        tips.confirm("内容1", () => {
+
+        }, "确认1");
+        tips.confirm("内容2", () => {
+
+        }, "确认2");
     }
 
     /** 漂浮提示框 */

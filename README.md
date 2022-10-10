@@ -64,7 +64,7 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
     - 热更控制脚本 game/initialize/view/HotUpdate.ts
     - 本地热更配置 resources/project.manifes
     - 本地热更配置 resources/version.manifes
-8. Cocos Creator 3.5 版本新功能业务框架模板
+8. 业务框架模板
     ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/module.png)
 
 9. 框架以插件方式提供，与项目代码分离，方便不同版本平滑升级
