@@ -27,15 +27,22 @@ export class HelloComponent extends ecs.Comp {
 - 能通过```entity.Hello```获得组件对象；
 - 将组件的构造函数存入ecs上下文中，并且给该类组件分配一个组件id。
 
-## ecs.registerTag
-- tag类组件必须用registerTag来装饰
-
 ## 实体
 为了能利用Typescript的类型提示机制，在使用实体的时候需要用户自己继承ecs.Entity。
 ```TypeScript
+ecs.register('HelloEntity')
 export class HelloEntity extends ecs.Entity {
     Hello: HelloComponent; // 这里的Hello要和ecs.register中填入的参数一致
 }
+```
+
+- 管理子实体
+```TypeScript
+// 添加子实体
+entity.addChild(ecs.Entity);
+
+// 移除子实体
+entity.removeChild(ecs.Entity);
 ```
 
 - 添加组件：
@@ -84,7 +91,7 @@ entity.destroy() // 销毁实体时会先删除实体身上的所有组件，然
 - anyOf: 用来描述包含任意一个这些组件的实体；
 - allOf: 用来描述同时包含了这些组件的实体；
 - onlyOf: 用来描述只包含了这些组件的实体；不是特殊情况不建议使用onlyOf，因为onlyOf会监听所有组件的添加和删除事件；
-- excludeOf: 表示不包含所有这里面的组件（“与”关系）；
+- excludeOf: 表示不包含所有这里面的组件（与关系）；
 
 使用方式：
 
@@ -117,6 +124,7 @@ ecs.query(ecs.allOf(Comp1, Comp2))
 - ecs.IEntityEnterSystem: 实现这个接口表示关注实体的首次进入；
 - ecs.IEntityRemoveSystem: 实现这个接口表示关注实体的移除；
 - ecs.ISystemFirstUpdate: 实现这个接口会在System第一次执行update前执行一次firstUpdate
+- ecs.ISystemUpdate:实现这个接口会在System中每帧出发update方法
 
 # 怎么使用
 1、声明组件
@@ -272,7 +280,7 @@ const { ccclass, property } = _decorator;
 let outV3 = v3();
 @ccclass('MovementComponent')
 @ecs.register('Movement')
-export class MovementComponent extends ecs.Comp {
+export class MovementComponent extends CCComp {
     pos: Vec3 = v3();
     angle: number = 0;
     speed: number = 0;
@@ -319,7 +327,6 @@ export class MovementComponent extends ecs.Comp {
         return this.angle;
     }
 }
-
 
 ```
 
