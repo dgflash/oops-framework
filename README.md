@@ -89,7 +89,7 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 | 库名       | 介绍       | 安装                   | 原创                                             |
 | ---------- | ---------- | ---------------------- | ------------------------------------------------ |
 | seedrandom | 生成随机数 | npm install seedrandom | [原创](https://www.npmjs.com/package/seedrandom) |
-| crypto-es | 生成随机数 | yarn add crypto-es | [原创](https://github.com/entronad/crypto-es) |
+| crypto-es | 加密算法库 | yarn add crypto-es | [原创](https://github.com/entronad/crypto-es) |
 
 #### 贡献榜
 | 时间       | 开发者    | 贡献内容                                                                                    |
