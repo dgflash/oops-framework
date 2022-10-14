@@ -3,8 +3,7 @@
     "version": "3.6.1"
   },
   "dependencies": {
-    "crypto-es": "^1.2.7",
-    "seedrandom": "^3.0.5"
+    "crypto-es": "^1.2.7"
   },
   "description": "oops-framework",
   "devDependencies": {
