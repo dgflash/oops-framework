@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-10-14 15:25:22
+ * @LastEditTime: 2022-10-21 09:52:06
  */
 import { dynamicAtlasManager, macro, profiler, _decorator } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
@@ -27,16 +27,14 @@ dynamicAtlasManager.maxFrameSize = 512;
 export class Main extends Root {
     start() {
         if (DEBUG) profiler.showStats();
-        RandomManager.instance.setSeed(1);
-        for (let index = 0; index < 10; index++) {
-            console.log(RandomManager.instance.getRandomInt(1, 1000));
-
-
-        }
+        // RandomManager.instance.setSeed(1);
+        // for (let index = 0; index < 10; index++) {
+        //     console.log(RandomManager.instance.getRandomInt(1, 1000));
+        // }
     }
 
     protected run() {
-        smc.initialize = ecs.getEntity<Initialize>(Initialize);
+        // smc.initialize = ecs.getEntity<Initialize>(Initialize);
         if (JSB) {
             oops.gui.toast("热更新后新程序的提示");
         }
