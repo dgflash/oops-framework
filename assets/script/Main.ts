@@ -2,10 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-10-21 09:52:06
+ * @LastEditTime: 2022-10-14 15:25:22
  */
-import { dynamicAtlasManager, macro, profiler, _decorator } from 'cc';
+import { dynamicAtlasManager, macro, profiler, _decorator, Prefab } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
+import { RandomManager } from '../../extensions/oops-plugin-framework/assets/core/common/manager/RandomManager';
 import { oops } from '../../extensions/oops-plugin-framework/assets/core/Oops';
 import { Root } from '../../extensions/oops-plugin-framework/assets/core/Root';
 import { ecs } from '../../extensions/oops-plugin-framework/assets/libs/ecs/ECS';
@@ -15,6 +16,7 @@ import { EcsPositionSystem } from './game/common/ecs/position/EcsPositionSystem'
 import { smc } from './game/common/ecs/SingletonModuleComp';
 import { EcsInitializeSystem, Initialize } from './game/initialize/Initialize';
 import { EcsRoleSystem } from './game/role/Role';
+import { CCBundleManager } from '../../extensions/oops-plugin-framework/assets/module/common/CCBundleManager';
 
 const { ccclass, property } = _decorator;
 
@@ -26,6 +28,10 @@ dynamicAtlasManager.maxFrameSize = 512;
 export class Main extends Root {
     start() {
         if (DEBUG) profiler.showStats();
+        RandomManager.instance.setSeed(1);
+        for (let index = 0; index < 10; index++) {
+            console.log(RandomManager.instance.getRandomInt(1, 1000));
+        }
     }
 
     protected run() {
@@ -39,7 +45,7 @@ export class Main extends Root {
         oops.gui.init(UIConfigData);
     }
 
-    protected initEcsSystem() {
+    protected async initEcsSystem() {
         oops.ecs.add(new EcsPositionSystem())
         oops.ecs.add(new EcsAccountSystem());
         oops.ecs.add(new EcsRoleSystem());

@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "role_info",
+    "_name": "home2",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "role_info",
+    "_name": "home2",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -175,6 +175,7 @@
     "__prefab": {
       "__id__": 6
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -210,9 +211,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -362,6 +361,7 @@
     "__prefab": {
       "__id__": 13
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -416,9 +416,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -515,6 +513,7 @@
     "__prefab": {
       "__id__": 21
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -560,8 +559,8 @@
       "__id__": 23
     },
     "templateMode": false,
-    "watchPath": "Role.name",
     "labelType": "cc.Label",
+    "watchPath": "Role.name",
     "watchPathArr": [],
     "_id": ""
   },
@@ -571,9 +570,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -645,9 +642,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -797,6 +792,7 @@
     "__prefab": {
       "__id__": 35
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -851,9 +847,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -950,6 +944,7 @@
     "__prefab": {
       "__id__": 43
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -995,8 +990,8 @@
       "__id__": 45
     },
     "templateMode": false,
-    "watchPath": "RoleLevel.lv",
     "labelType": "cc.Label",
+    "watchPath": "RoleLevel.lv",
     "watchPathArr": [],
     "_id": ""
   },
@@ -1006,9 +1001,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1080,9 +1073,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1232,6 +1223,7 @@
     "__prefab": {
       "__id__": 57
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -1286,9 +1278,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1383,6 +1373,7 @@
     "__prefab": {
       "__id__": 65
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -1428,8 +1419,8 @@
       "__id__": 67
     },
     "templateMode": false,
-    "watchPath": "Role.hp",
     "labelType": "cc.Label",
+    "watchPath": "Role.hp",
     "watchPathArr": [
       ""
     ],
@@ -1441,9 +1432,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1515,9 +1504,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1669,6 +1656,7 @@
     "__prefab": {
       "__id__": 79
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -1724,9 +1712,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1821,6 +1807,7 @@
     "__prefab": {
       "__id__": 87
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -1866,8 +1853,8 @@
       "__id__": 89
     },
     "templateMode": false,
-    "watchPath": "Role.power",
     "labelType": "cc.Label",
+    "watchPath": "Role.power",
     "watchPathArr": [
       ""
     ],
@@ -1879,9 +1866,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -1953,9 +1938,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2105,6 +2088,7 @@
     "__prefab": {
       "__id__": 101
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -2159,9 +2143,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2256,6 +2238,7 @@
     "__prefab": {
       "__id__": 109
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -2301,8 +2284,8 @@
       "__id__": 111
     },
     "templateMode": false,
-    "watchPath": "Role.agile",
     "labelType": "cc.Label",
+    "watchPath": "Role.agile",
     "watchPathArr": [
       ""
     ],
@@ -2314,9 +2297,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2388,9 +2369,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2540,6 +2519,7 @@
     "__prefab": {
       "__id__": 123
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -2594,9 +2574,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2691,6 +2669,7 @@
     "__prefab": {
       "__id__": 131
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -2736,8 +2715,8 @@
       "__id__": 133
     },
     "templateMode": false,
-    "watchPath": "RoleBase.physical",
     "labelType": "cc.Label",
+    "watchPath": "RoleBase.physical",
     "watchPathArr": [
       ""
     ],
@@ -2749,9 +2728,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -2823,9 +2800,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3027,6 +3002,7 @@
     "__prefab": {
       "__id__": 146
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -3062,9 +3038,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3108,6 +3082,7 @@
     "__prefab": {
       "__id__": 151
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -3163,9 +3138,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3312,6 +3285,7 @@
     "__prefab": {
       "__id__": 160
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -3347,9 +3321,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3393,6 +3365,7 @@
     "__prefab": {
       "__id__": 165
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -3448,9 +3421,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3522,9 +3493,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
@@ -3605,6 +3574,7 @@
     "__prefab": {
       "__id__": 179
     },
+    "_visFlags": 0,
     "_customMaterial": null,
     "_srcBlendFactor": 2,
     "_dstBlendFactor": 4,
@@ -3657,9 +3627,7 @@
   },
   {
     "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
+    "root": null,
     "asset": {
       "__id__": 0
     },
