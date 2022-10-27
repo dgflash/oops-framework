@@ -2,10 +2,10 @@
  * @Author: dgflash
  * @Date: 2022-07-14 10:57:43
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-18 13:47:16
+ * @LastEditTime: 2022-10-27 10:16:45
  */
 import { ImageAsset, Node, Sprite, SpriteFrame, Texture2D, _decorator } from 'cc';
-import { IRemoteOptions, resLoader } from '../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader';
+import { oops } from '../../../extensions/oops-plugin-framework/assets/core/Oops';
 import { Root } from '../../../extensions/oops-plugin-framework/assets/core/Root';
 
 const { ccclass, property } = _decorator;
@@ -20,11 +20,11 @@ export class Main extends Root {
     @property({ type: Node })
     sprite: Node = null!;
 
-    private url = "https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/oops-plugin-framework/assets/resources/native/00/0021cb5a-e4f0-4709-b0b6-5e21875720b7.3d6ea.png";
+    private url = "https://oops-1255342636.cos-website.ap-shanghai.myqcloud.com/img/bg.png";
     // private cache: any = {};
 
     btnLoader() {
-        var opt: IRemoteOptions = { ext: ".png" };
+        var opt = { ext: ".png" };
         var onComplete = (err: Error | null, data: ImageAsset) => {
             const spriteFrame = new SpriteFrame();
             const texture = new Texture2D();
@@ -35,7 +35,7 @@ export class Main extends Root {
             data.addRef();
             // this.cache[data.nativeUrl] = spriteFrame;
         }
-        resLoader.loadRemote<ImageAsset>(this.url, opt, onComplete);
+        oops.res.loadRemote<ImageAsset>(this.url, opt, onComplete);
     }
 
     btnUnLoader() {
