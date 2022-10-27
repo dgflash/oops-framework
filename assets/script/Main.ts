@@ -4,7 +4,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-10-14 15:25:22
  */
-import { dynamicAtlasManager, macro, profiler, _decorator, Prefab } from 'cc';
+import { dynamicAtlasManager, macro, profiler, _decorator } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
 import { RandomManager } from '../../extensions/oops-plugin-framework/assets/core/common/manager/RandomManager';
 import { oops } from '../../extensions/oops-plugin-framework/assets/core/Oops';
@@ -16,7 +16,6 @@ import { EcsPositionSystem } from './game/common/ecs/position/EcsPositionSystem'
 import { smc } from './game/common/ecs/SingletonModuleComp';
 import { EcsInitializeSystem, Initialize } from './game/initialize/Initialize';
 import { EcsRoleSystem } from './game/role/Role';
-import { CCBundleManager } from '../../extensions/oops-plugin-framework/assets/module/common/CCBundleManager';
 
 const { ccclass, property } = _decorator;
 
