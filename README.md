@@ -24,6 +24,7 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 - [oops-framework](https://dgflash.gitee.io/oops-plugin-framework/)
 - [ecs](https://gitee.com/dgflash/oops-framework/tree/master/doc/ecs/ecs.md)
 - [mvvm](https://gitee.com/dgflash/oops-framework/tree/master/doc/mvvm)
+- [animator](https://github.com/LeeYip/cocos-animator/blob/master/README.md)
 
 #### 技术分类
 1. 基础类
@@ -89,11 +90,12 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 | 库名       | 介绍       | 安装                   | 原创                                             |
 | ---------- | ---------- | ---------------------- | ------------------------------------------------ |
 | seedrandom | 生成随机数 | npm install seedrandom | [原创](https://www.npmjs.com/package/seedrandom) |
-| crypto-es | 加密算法库 | yarn add crypto-es | [原创](https://github.com/entronad/crypto-es) |
+| crypto-es  | 加密算法库 | yarn add crypto-es     | [原创](https://github.com/entronad/crypto-es)    |
 
 #### 贡献榜
 | 时间       | 开发者    | 贡献内容                                                                                    |
 | ---------- | --------- | ------------------------------------------------------------------------------------------- |
+| 2022-10-27 | 登科      | 自动生成Bundle包内资源代码智能提示插件                                                      |
 | 2022-09-01 | GaGa 嘎嘎 | 自动化文档生成工具的部署指导                                                                |
 | 2022-08-04 | Bz        | 修复UrlParse对象解析腾讯游戏大厅的地址查询参数数据错误问题                                  |
 | 2022-06-02 | 羽毛先生  | 修复 UI 框架中界面无法不销毁移除的问题; 修复UI框架中从缓存获取界面时，传递新参数不更新问题  |
