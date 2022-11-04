@@ -1,6 +1,6 @@
 {
   "creator": {
-    "version": "3.6.1"
+    "version": "3.6.2"
   },
   "dependencies": {
     "crypto-es": "^1.2.7"
