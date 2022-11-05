@@ -8,7 +8,6 @@
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { AsyncQueue, NextFunction } from "../../../../../extensions/oops-plugin-framework/assets/libs/collection/AsyncQueue";
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
-import { config } from "../../../../../extensions/oops-plugin-framework/assets/module/config/Config";
 import { UIID } from "../../common/config/GameUIConfig";
 import { Initialize } from "../Initialize";
 import { LoadingViewComp } from "../view/LoadingViewComp";
@@ -58,7 +57,7 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
             }
 
             // 设置语言包路径
-            oops.language.setAssetsPath(config.game.languagePathJson, config.game.languagePathTexture);
+            oops.language.setAssetsPath(oops.config.game.languagePathJson, oops.config.game.languagePathTexture);
 
             // 加载语言包资源
             oops.language.setLanguage(lan, next);
