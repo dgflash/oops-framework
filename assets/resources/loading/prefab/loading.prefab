@@ -242,7 +242,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -262.5,
+      "y": -247.5,
       "z": 0
     },
     "_lrot": {
@@ -429,8 +429,8 @@
       "__id__": 17
     },
     "templateMode": false,
-    "labelType": "cc.Label",
     "watchPath": "*.prompt",
+    "labelType": "cc.Label",
     "watchPathArr": [
       ""
     ],
@@ -741,8 +741,8 @@
       "__id__": 33
     },
     "templateMode": true,
-    "labelType": "cc.Label",
     "watchPath": "",
+    "labelType": "cc.Label",
     "watchPathArr": [
       "*.progress"
     ],
@@ -942,8 +942,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1280,
-      "height": 750
+      "width": 1200,
+      "height": 720
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",

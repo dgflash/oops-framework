@@ -16,21 +16,14 @@ const { ccclass, property } = _decorator;
 export class Demo extends Component {
     private lang: boolean = true;
 
-    async onLoad() {oops.gui.remove
+    async onLoad() {
+        oops.gui.remove
         // var path = "gui/prefab/role_info_base";
         // var node = await ViewUtil.createPrefabNodeAsync(path);
         // node.parent = this.node;
     }
 
     start() {
-        // 释放加载界面资源
-        // if (DEV && EDITOR) {
-        //     // 编辑器中预览
-        // }
-        // else if (DEV && !EDITOR) {
-        //     // 浏览器中预览
-        // }
-        // console.log("内存中现有资源", DEV, EDITOR, sys.isBrowser);
         // resLoader.dump();
 
         // console.log("当前图集数量", dynamicAtlasManager.atlasCount);

@@ -4,14 +4,13 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-08-29 13:37:08
  */
-import { sys, _decorator } from "cc";
-import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
+import { _decorator } from "cc";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { JsonUtil } from "../../../../../extensions/oops-plugin-framework/assets/core/utils/JsonUtil";
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
-import { UIID } from "../../common/config/GameUIConfig";
-import { GameEvent } from "../../common/config/GameEvent";
 import { CCVMParentComp } from "../../../../../extensions/oops-plugin-framework/assets/module/common/CCVMParentComp";
+import { GameEvent } from "../../common/config/GameEvent";
+import { UIID } from "../../common/config/GameUIConfig";
 import { smc } from "../../common/ecs/SingletonModuleComp";
 import { TableRoleJob } from "../../common/table/TableRoleJob";
 import { TableRoleLevelUp } from "../../common/table/TableRoleLevelUp";
@@ -37,19 +36,18 @@ export class LoadingViewComp extends CCVMParentComp {
     private progress: number = 0;
 
     reset(): void {
-        // 获取用户信息的多语言提示文本
-        this.data.prompt = oops.language.getLangByID("loading_load_player");
+        setTimeout(() => {
+            // 关闭加载界面
+            oops.gui.remove(UIID.Loading);
 
-        // 关闭加载界面
-        oops.gui.remove(UIID.Loading);
-
-        // 打开游戏主界面（自定义逻辑）
-        oops.gui.open(UIID.Demo);
+            // 打开游戏主界面（自定义逻辑）
+            oops.gui.open(UIID.Demo);
+        }, 500);
     }
 
     start() {
         // if (!sys.isNative) {
-            this.enter();
+        this.enter();
         // }
     }
 
@@ -95,7 +93,7 @@ export class LoadingViewComp extends CCVMParentComp {
         // 加载初始游戏内容资源的多语言提示文本
         this.data.prompt = oops.language.getLangByID("loading_load_game");
 
-        resLoader.loadDir("game", this.onProgressCallback.bind(this), this.onCompleteCallback.bind(this));
+        oops.res.loadDir("game", this.onProgressCallback.bind(this), this.onCompleteCallback.bind(this));
     }
 
     /** 加载进度事件 */
@@ -112,6 +110,9 @@ export class LoadingViewComp extends CCVMParentComp {
 
     /** 加载完成事件 */
     private onCompleteCallback() {
+        // 获取用户信息的多语言提示文本
+        this.data.prompt = oops.language.getLangByID("loading_load_player");
+
         // 初始化帐号模块
         smc.account.connect();
     }
