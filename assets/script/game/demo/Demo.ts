@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-10-09 14:28:16
+ * @LastEditTime: 2022-11-11 17:25:50
  */
 import { Component, EventTouch, _decorator } from "cc";
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
@@ -17,7 +17,6 @@ export class Demo extends Component {
     private lang: boolean = true;
 
     async onLoad() {
-        oops.gui.remove
         // var path = "gui/prefab/role_info_base";
         // var node = await ViewUtil.createPrefabNodeAsync(path);
         // node.parent = this.node;
