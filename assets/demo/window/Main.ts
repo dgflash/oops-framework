@@ -18,7 +18,7 @@ const { ccclass, property } = _decorator;
  * 2、界面切换
  * 3、弹出窗口
  * 4、模式窗口
- * 5、弹出窗口传值方式
+ * 5、弹出窗口传数据方式
  * 6、弹出窗口动画
  */
 @ccclass('Main')

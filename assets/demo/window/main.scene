@@ -230,7 +230,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 360,
+    "_orthoHeight": 411.73708920187795,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -455,7 +455,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 360,
+    "_orthoHeight": 411.73708920187795,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -686,7 +686,7 @@
       "b": 0,
       "a": 255
     },
-    "_string": "显示有界面",
+    "_string": "显示主界面",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 20,
@@ -951,7 +951,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80,
+      "width": 100,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -980,7 +980,7 @@
       "b": 0,
       "a": 255
     },
-    "_string": "切换界面",
+    "_string": "切换主界面",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 20,
@@ -1274,7 +1274,7 @@
       "b": 0,
       "a": 255
     },
-    "_string": "弹窗窗口1",
+    "_string": "弹出窗口1",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 20,
@@ -1568,7 +1568,7 @@
       "b": 0,
       "a": 255
     },
-    "_string": "弹窗窗口2",
+    "_string": "弹出窗口2",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 20,
@@ -1862,7 +1862,7 @@
       "b": 0,
       "a": 255
     },
-    "_string": "模式窗口",
+    "_string": "模式弹窗",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 20,
