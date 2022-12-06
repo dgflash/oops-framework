@@ -1,5 +1,5 @@
 import { error, log, native, sys } from "cc";
-import { resLoader } from "../../../../../extensions/oops-plugin-framework/assets/core/common/loader/ResLoader";
+import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 
 /** 热更参数 */
 export class HotOptions {
@@ -57,7 +57,7 @@ export class Hot {
             return;
         }
 
-        resLoader.load('project', (err: Error | null, res: any) => {
+        oops.res.load('project', (err: Error | null, res: any) => {
             if (err) {
                 error("【热更新界面】缺少热更新配置文件");
                 return;
