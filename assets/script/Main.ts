@@ -2,17 +2,17 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-10-27 18:23:06
+ * @LastEditTime: 2023-01-19 15:28:28
  */
-import { dynamicAtlasManager, macro, profiler, _decorator } from 'cc';
+import { _decorator, dynamicAtlasManager, macro, profiler } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
 import { oops } from '../../extensions/oops-plugin-framework/assets/core/Oops';
 import { Root } from '../../extensions/oops-plugin-framework/assets/core/Root';
 import { ecs } from '../../extensions/oops-plugin-framework/assets/libs/ecs/ECS';
 import { EcsAccountSystem } from './game/account/Account';
 import { UIConfigData } from './game/common/config/GameUIConfig';
-import { EcsPositionSystem } from './game/common/ecs/position/EcsPositionSystem';
 import { smc } from './game/common/ecs/SingletonModuleComp';
+import { EcsPositionSystem } from './game/common/ecs/position/EcsPositionSystem';
 import { EcsInitializeSystem, Initialize } from './game/initialize/Initialize';
 import { EcsRoleSystem } from './game/role/Role';
 
@@ -26,10 +26,6 @@ dynamicAtlasManager.maxFrameSize = 512;
 export class Main extends Root {
     start() {
         if (DEBUG) profiler.showStats();
-        // RandomManager.instance.setSeed(1);
-        // for (let index = 0; index < 10; index++) {
-        //     console.log(RandomManager.instance.getRandomInt(1, 1000));
-        // }
     }
 
     protected run() {

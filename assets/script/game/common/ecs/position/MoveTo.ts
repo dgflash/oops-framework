@@ -2,10 +2,10 @@
  * @Author: dgflash
  * @Date: 2021-08-11 16:41:12
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-25 17:05:12
+ * @LastEditTime: 2023-01-19 15:27:24
  */
 import { Node, Vec3 } from "cc";
-import { Timer } from "../../../../../../extensions/oops-plugin-framework/assets/core/common/manager/TimerManager";
+import { Timer } from "../../../../../../extensions/oops-plugin-framework/assets/core/common/timer/Timer";
 import { Vec3Util } from "../../../../../../extensions/oops-plugin-framework/assets/core/utils/Vec3Util";
 import { ecs } from "../../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 

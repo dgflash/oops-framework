@@ -2,12 +2,12 @@
  * @Author: dgflash
  * @Date: 2022-07-14 10:57:43
  * @LastEditors: dgflash
- * @LastEditTime: 2022-07-22 17:27:13
+ * @LastEditTime: 2023-01-19 15:27:17
  */
 import { _decorator } from 'cc';
-import { Timer } from '../../../extensions/oops-plugin-framework/assets/core/common/manager/TimerManager';
 import { Root } from '../../../extensions/oops-plugin-framework/assets/core/Root';
 import { BehaviorTree, BTreeNode, Decorator, Sequence, Task } from '../../../extensions/oops-plugin-framework/assets/libs/behavior-tree';
+import { Timer } from '../../../extensions/oops-plugin-framework/assets/core/common/timer/Timer';
 
 const { ccclass, property } = _decorator;
 
