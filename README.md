@@ -54,7 +54,7 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 5. 工具类
     - 日志管理 - Logger.ts
     - 随机数生成器 - RandomManager.ts
-    - 数据结合 - libs/collection
+    - 数据集合 - libs/collection
     - 加密工具 - libs/security
     - GZip压缩 - libs/network/protocol
     - 辅助方法库 - core/utils
