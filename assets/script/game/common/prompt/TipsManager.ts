@@ -12,33 +12,30 @@ import { UIID } from "../config/GameUIConfig";
 
 /** 提示窗口管理 */
 class TipsManager {
-    private _timeId = ""
     /** 网络恢复 */
-    public networkRecovery() {
-        if (this._timeId) {
-            oops.timer.unschedule(this._timeId);
-            this._timeId = "";
-        }
+    networkRecovery() {
+        oops.timer.unschedule(this.netInstableOpen);
         oops.gui.remove(UIID.Netinstable);
     }
+
     /** 打开网络不稳定提示 */
-    public netInstableOpen() {
+    netInstableOpen() {
         if (!oops.gui.has(UIID.Netinstable)) {
             oops.gui.open(UIID.Netinstable);
         }
     }
-    public netInstableClose() {
+
+    netInstableClose() {
         oops.gui.remove(UIID.Netinstable);
     }
+
     /** 网络延时 */
-    public networkLatency(time: number) {
-        if (this._timeId) {
-            oops.timer.unschedule(this._timeId);
-        }
-        this._timeId = oops.timer.scheduleOnce(this.netInstableOpen, time);
+    networkLatency(time: number) {
+        oops.timer.unschedule(this.netInstableOpen);
+        oops.timer.scheduleOnce(this.netInstableOpen, time);
     }
 
-    public test(callback?: Function) {
+    test(callback?: Function) {
         let operate: any = {
             title: 'common_prompt_title_sys',
             content: "common_prompt_content",
@@ -55,7 +52,7 @@ class TipsManager {
         oops.gui.open(UIID.Window, operate, this.getPopCommonEffect());
     }
 
-    public alert(content: string, cb?: Function, title?: string, okWord?: string) {
+    alert(content: string, cb?: Function, title?: string, okWord?: string) {
         let operate: any = {
             title: title ? title : 'common_prompt_title_sys',
             content: content,
@@ -68,7 +65,7 @@ class TipsManager {
         oops.gui.open(UIID.Window, operate, tips.getPopCommonEffect());
     }
 
-    public confirm(content: string, cb: Function, okWord: string = "common_prompt_ok") {
+    confirm(content: string, cb: Function, okWord: string = "common_prompt_ok") {
         let operate: any = {
             title: 'common_prompt_title_sys',
             content: content,
