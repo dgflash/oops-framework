@@ -416,7 +416,8 @@
     "lightProbeInfo": {
       "__id__": 21
     },
-    "bakedWithStationaryMainLight": false
+    "bakedWithStationaryMainLight": false,
+    "bakedWithHighpLightmap": false
   },
   {
     "__type__": "cc.AmbientInfo",
