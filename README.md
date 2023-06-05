@@ -16,6 +16,7 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 ### QQ群
 - 798575969（1群） 
 - 621415300（2群）
+- 628575875（3群）
 
 ### QQ频道扫码加入，提供教程，持续更新
 ![](http://dgflash.gitee.io/oops-full-stack-web/doc/img/qq.png)
