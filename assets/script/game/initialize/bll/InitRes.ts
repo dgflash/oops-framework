@@ -57,7 +57,8 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
             }
 
             // 设置语言包路径
-            oops.language.setAssetsPath(oops.config.game.languagePathJson, oops.config.game.languagePathTexture);
+            oops.language.pack.json = oops.config.game.languagePathJson;
+            oops.language.pack.texture = oops.config.game.languagePathTexture;
 
             // 加载语言包资源
             oops.language.setLanguage(lan, next);
