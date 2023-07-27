@@ -1,6 +1,8 @@
 {
   "__version__": "1.0.0",
   "PathJson": "../../../assets/resources/config/game/",
-  "PathExcel": "../excel/",
-  "PathTs": "../../../assets/script/game/common/table/"
+  "PathExcel": "project://excel",
+  "PathTs": "../../../assets/script/game/common/table/",
+  "PathJsonClient": "project://assets/resources/config/game",
+  "PathTsClient": "project://assets/script/game/common/table"
 }
