@@ -12,6 +12,7 @@
     "netInstableOpen": "Waiting ",
     "btn_audio_open1": "Music",
     "btn_audio_open2": "Effect",
+    "btn_long": "Long Press",
     "loading_load_json": "Load Json",
     "loading_load_game": "Load Content",
     "loading_load_player": "Get user information",

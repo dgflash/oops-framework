@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2022-11-11 17:25:50
+ * @LastEditTime: 2023-07-29 09:57:37
  */
 import { Component, EventTouch, _decorator } from "cc";
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
@@ -47,7 +47,7 @@ export class Demo extends Component {
     }
 
     private btn_long(event: EventTouch, data: any) {
-        oops.gui.toast(data);
+        oops.gui.toast(data, true);
     }
 
     /** 升级 */
@@ -122,7 +122,7 @@ export class Demo extends Component {
 
     /** 漂浮提示框 */
     private btn_notify_show(event: EventTouch, data: any) {
-        oops.gui.toast("common_prompt_content");
+        oops.gui.toast("common_prompt_content", true);
     }
 
     /** 加载提示 */

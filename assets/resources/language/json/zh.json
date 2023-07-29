@@ -22,6 +22,7 @@
     "netInstableOpen": "等待动画",
     "btn_audio_open1": "音乐播放",
     "btn_audio_open2": "音效播放",
+    "btn_long": "长按按钮",
     "loading_load_json": "加载游戏本地数据",
     "loading_load_game": "加载游戏内容",
     "loading_load_player": "获取用户信息",
