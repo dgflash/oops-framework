@@ -2,10 +2,11 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2023-07-29 09:57:37
+ * @LastEditTime: 2023-08-11 09:59:43
  */
 import { Component, EventTouch, _decorator } from "cc";
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
+import { LabelChange } from "../../../../extensions/oops-plugin-framework/assets/libs/gui/label/LabelChange";
 import { UIID } from "../common/config/GameUIConfig";
 import { smc } from "../common/ecs/SingletonModuleComp";
 import { tips } from "../common/prompt/TipsManager";
@@ -15,6 +16,9 @@ const { ccclass, property } = _decorator;
 @ccclass('Demo')
 export class Demo extends Component {
     private lang: boolean = true;
+
+    @property(LabelChange)
+    private labChange: LabelChange = null!;
 
     async onLoad() {
         // var path = "gui/prefab/role_info_base";
@@ -44,6 +48,11 @@ export class Demo extends Component {
         // console.log("当前运行的浏览器类型", sys.browserType);
         // console.log("获取当前设备的网络类型, 如果网络类型无法获取，默认将返回 `sys.NetworkType.LAN`", sys.getNetworkType());
         // console.log("取当前设备的电池电量，如果电量无法获取，默认将返回 1", sys.getBatteryLevel());
+
+
+        this.labChange.changeTo(0.5, 250, () => {
+
+        })
     }
 
     private btn_long(event: EventTouch, data: any) {
