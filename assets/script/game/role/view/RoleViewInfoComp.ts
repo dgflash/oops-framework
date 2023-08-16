@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2022-06-02 09:38:48
  * @LastEditors: dgflash
- * @LastEditTime: 2022-09-20 17:18:29
+ * @LastEditTime: 2023-08-16 14:44:08
  */
 import { EventTouch, Node, _decorator } from "cc";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
@@ -32,12 +32,7 @@ export class RoleViewInfoComp extends CCComp {
                 role.upgrade();
                 break;
             case "btn_close":
-                oops.gui.remove(UIID.Demo_Role_Info);
-
-                // 注：模拟二次删除清理缓存
-                setTimeout(() => {
-                    oops.gui.remove(UIID.Demo_Role_Info);
-                }, 1000);
+                this.ent.remove(RoleViewInfoComp);
                 break;
         }
 
@@ -45,6 +40,15 @@ export class RoleViewInfoComp extends CCComp {
     }
 
     reset() {
-        this.node.destroy();
+        oops.gui.remove(UIID.Demo_Role_Info, false);
+
+        // 注：模拟二次删除清理缓存
+        setTimeout(() => {
+            oops.gui.remove(UIID.Demo_Role_Info);
+        }, 1000);
+    }
+
+    protected onDestroy(): void {
+        console.log("释放角色信息界面");
     }
 }

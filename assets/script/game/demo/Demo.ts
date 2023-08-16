@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2023-08-11 09:59:43
+ * @LastEditTime: 2023-08-16 14:54:30
  */
 import { Component, EventTouch, _decorator } from "cc";
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
@@ -10,6 +10,7 @@ import { LabelChange } from "../../../../extensions/oops-plugin-framework/assets
 import { UIID } from "../common/config/GameUIConfig";
 import { smc } from "../common/ecs/SingletonModuleComp";
 import { tips } from "../common/prompt/TipsManager";
+import { RoleViewInfoComp } from "../role/view/RoleViewInfoComp";
 
 const { ccclass, property } = _decorator;
 // 视图层实体是空的
@@ -95,8 +96,10 @@ export class Demo extends Component {
     }
 
     /** 打开角色界面 */
-    private btn_open_role_info(event: EventTouch, data: any) {
-        oops.gui.open(UIID.Demo_Role_Info, "传递参数");
+    private async btn_open_role_info(event: EventTouch, data: any) {
+        var role = smc.account.AccountModel.role;
+        var node = await oops.gui.openAsync(UIID.Demo_Role_Info, "传递参数");
+        if (node) role.add(node.getComponent(RoleViewInfoComp)!);
     }
 
     /** 多语言切换 */
