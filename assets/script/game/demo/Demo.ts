@@ -2,7 +2,7 @@
  * @Author: dgflash
  * @Date: 2021-07-03 16:13:17
  * @LastEditors: dgflash
- * @LastEditTime: 2023-08-16 14:54:30
+ * @LastEditTime: 2023-08-28 17:23:59
  */
 import { Component, EventTouch, _decorator } from "cc";
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
@@ -148,11 +148,7 @@ export class Demo extends Component {
     /** 背景音乐 */
     private btn_audio_open1(event: EventTouch, data: any) {
         oops.audio.volumeMusic = 0.5;
-
-        oops.audio.setMusicComplete(() => {
-            oops.audio.playMusic("audios/nocturne");
-        });
-        oops.audio.playMusic("audios/Gravel");
+        oops.audio.playerMusicLoop("audios/nocturne");
     }
 
     /** 背景音效 */
