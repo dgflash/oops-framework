@@ -1,8 +1,8 @@
 /*
  * @Author: dgflash
  * @Date: 2022-07-22 17:06:22
- * @LastEditors: dgflash
- * @LastEditTime: 2022-09-22 14:41:58
+ * @LastEditors: bansomin
+ * @LastEditTime: 2023-09-30 16:23:33
  */
 
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
@@ -51,7 +51,7 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         queue.push((next: NextFunction, params: any, args: any) => {
             // 设置默认语言
             let lan = oops.storage.get("language");
-            if (lan == null) {
+            if (lan == null || lan == "") {
                 lan = "zh";
                 oops.storage.set("language", lan);
             }
