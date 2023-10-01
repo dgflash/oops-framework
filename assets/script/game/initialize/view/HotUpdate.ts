@@ -78,8 +78,9 @@ export class HotUpdate extends Component {
             this.lv.data.prompt = oops.language.getLangByID("update_tips_new_version");
             let total: string = "";
             if (totalBytes < 1048576) {                                 // 小于1m，就显示kb
-                totalBytes = Math.ceil(totalBytes / 1024);
-                total = total + 'KB';
+                // totalBytes = Math.ceil(totalBytes / 1024);
+                // total = total + 'KB';
+                total = Math.ceil(totalBytes / 1024) + 'KB';
             }
             else {
                 total = (totalBytes / (1024 * 1024)).toFixed(1);

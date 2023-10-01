@@ -51,7 +51,8 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         queue.push((next: NextFunction, params: any, args: any) => {
             // 设置默认语言
             let lan = oops.storage.get("language");
-            if (lan == null) {
+            // if (lan == null) {
+            if (lan == null || lan == "") {
                 lan = "zh";
                 oops.storage.set("language", lan);
             }
