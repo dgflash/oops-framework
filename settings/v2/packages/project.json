@@ -1,5 +1,5 @@
 {
-  "__version__": "1.0.5",
+  "__version__": "1.0.6",
   "general": {
     "designResolution": {
       "width": 1200,
@@ -8,5 +8,8 @@
       "fitHeight": true
     }
   },
-  "custom_joint_texture_layouts": []
+  "custom_joint_texture_layouts": [],
+  "script": {
+    "preserveSymlinks": true
+  }
 }

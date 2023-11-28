@@ -4,7 +4,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2023-01-19 15:28:28
  */
-import { _decorator, dynamicAtlasManager, macro, profiler } from 'cc';
+import { DynamicAtlasManager, _decorator, macro, profiler } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
 import { oops } from '../../extensions/oops-plugin-framework/assets/core/Oops';
 import { Root } from '../../extensions/oops-plugin-framework/assets/core/Root';
@@ -19,8 +19,8 @@ import { EcsRoleSystem } from './game/role/Role';
 const { ccclass, property } = _decorator;
 
 macro.CLEANUP_IMAGE_CACHE = false;
-dynamicAtlasManager.enabled = true;
-dynamicAtlasManager.maxFrameSize = 512;
+DynamicAtlasManager.instance.enabled = true;
+DynamicAtlasManager.instance.maxFrameSize = 512;
 
 @ccclass('Main')
 export class Main extends Root {
