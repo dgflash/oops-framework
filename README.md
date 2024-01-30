@@ -21,6 +21,8 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 ### QQ频道扫码加入，提供教程，持续更新
 ![](https://dgflash.gitee.io/oops-demo/doc/img/qq.png)
 
+#### [视频教程](https://www.bilibili.com/video/BV1WV4y1G7Gb/?spm_id_from=333.337.search-card.all.click&vd_source=2ecab277f9fb79c5e11c909bf0affd34)
+
 #### 技术文档
 - [oops-framework](https://dgflash.gitee.io/oops-plugin-framework/)
 - [ecs](https://gitee.com/dgflash/oops-framework/tree/master/doc/ecs/ecs.md)
