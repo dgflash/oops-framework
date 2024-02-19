@@ -96,11 +96,11 @@ export class Role extends ecs.Entity {
     }
 }
 
-export class EcsRoleSystem extends ecs.System {
-    constructor() {
-        super();
+// export class EcsRoleSystem extends ecs.System {
+//     constructor() {
+//         super();
 
-        this.add(new RoleChangeJobSystem());
-        this.add(new RoleUpgradeSystem());
-    }
-}
+//         this.add(new RoleChangeJobSystem());
+//         this.add(new RoleUpgradeSystem());
+//     }
+// }

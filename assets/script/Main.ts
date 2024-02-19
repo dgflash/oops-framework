@@ -9,12 +9,10 @@ import { DEBUG, JSB } from 'cc/env';
 import { oops } from '../../extensions/oops-plugin-framework/assets/core/Oops';
 import { Root } from '../../extensions/oops-plugin-framework/assets/core/Root';
 import { ecs } from '../../extensions/oops-plugin-framework/assets/libs/ecs/ECS';
-import { EcsAccountSystem } from './game/account/Account';
 import { UIConfigData } from './game/common/config/GameUIConfig';
 import { smc } from './game/common/ecs/SingletonModuleComp';
 import { EcsPositionSystem } from './game/common/ecs/position/EcsPositionSystem';
-import { EcsInitializeSystem, Initialize } from './game/initialize/Initialize';
-import { EcsRoleSystem } from './game/role/Role';
+import { Initialize } from './game/initialize/Initialize';
 
 const { ccclass, property } = _decorator;
 
@@ -41,8 +39,8 @@ export class Main extends Root {
 
     protected async initEcsSystem() {
         oops.ecs.add(new EcsPositionSystem())
-        oops.ecs.add(new EcsAccountSystem());
-        oops.ecs.add(new EcsRoleSystem());
-        oops.ecs.add(new EcsInitializeSystem());
+        // oops.ecs.add(new EcsAccountSystem());
+        // oops.ecs.add(new EcsRoleSystem());
+        // oops.ecs.add(new EcsInitializeSystem());
     }
 }

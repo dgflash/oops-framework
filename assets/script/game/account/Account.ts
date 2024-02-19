@@ -65,10 +65,10 @@ export class Account extends ecs.Entity {
     }
 }
 
-export class EcsAccountSystem extends ecs.System {
-    constructor() {
-        super();
+// export class EcsAccountSystem extends ecs.System {
+//     constructor() {
+//         super();
 
-        this.add(new AccountNetDataSystem());
-    }
-}
+//         this.add(new AccountNetDataSystem());
+//     }
+// }

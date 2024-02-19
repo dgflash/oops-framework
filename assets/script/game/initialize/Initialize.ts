@@ -28,10 +28,10 @@ export class Initialize extends ecs.Entity {
     }
 }
 
-export class EcsInitializeSystem extends ecs.System {
-    constructor() {
-        super();
+// export class EcsInitializeSystem extends ecs.System {
+//     constructor() {
+//         super();
 
-        this.add(new InitResSystem());
-    }
-}
+//         this.add(new InitResSystem());
+//     }
+// }

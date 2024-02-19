@@ -265,7 +265,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 421.5962441314554,
+    "_orthoHeight": 372.356599861783,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -432,6 +432,9 @@
     "lightProbeInfo": {
       "__id__": 22
     },
+    "postSettings": {
+      "__id__": 23
+    },
     "bakedWithStationaryMainLight": false,
     "bakedWithHighpLightmap": false
   },
@@ -494,6 +497,7 @@
       "z": 0
     },
     "_distance": 0,
+    "_planeBias": 1,
     "_shadowColor": {
       "__type__": "cc.Color",
       "r": 0,
@@ -576,5 +580,9 @@
     "_showConvex": false,
     "_data": null,
     "_lightProbeSphereVolume": 1
+  },
+  {
+    "__type__": "cc.PostSettingsInfo",
+    "_toneMappingType": 0
   }
 ]

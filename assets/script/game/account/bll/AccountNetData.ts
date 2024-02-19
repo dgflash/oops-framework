@@ -21,6 +21,7 @@ export class AccountNetDataComp extends ecs.Comp {
 }
 
 /** 请求玩家游戏数据 */
+@ecs.register('Account')
 export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
     filter(): ecs.IMatcher {
         return ecs.allOf(AccountNetDataComp, AccountModelComp);
@@ -97,7 +98,7 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
     }
 
     /** 设置本地存储的用户标识 */
-    private setLocalStorage(uid: number) {
+    private setLocalStorage(uid: string) {
         oops.storage.setUser(uid);
         oops.storage.set("account", uid);
     }

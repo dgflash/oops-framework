@@ -18,6 +18,7 @@ export class InitResComp extends ecs.Comp {
     reset() { }
 }
 
+@ecs.register('Initialize')
 export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
     filter(): ecs.IMatcher {
         return ecs.allOf(InitResComp);

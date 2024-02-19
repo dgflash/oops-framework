@@ -22,6 +22,7 @@ export class RoleUpgradeComp extends ecs.Comp {
     }
 }
 
+@ecs.register('Role')
 export class RoleUpgradeSystem extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
     filter(): ecs.IMatcher {
         return ecs.allOf(RoleUpgradeComp, RoleModelLevelComp);

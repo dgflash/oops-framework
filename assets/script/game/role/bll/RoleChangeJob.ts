@@ -33,6 +33,7 @@ export class RoleChangeJobComp extends ecs.Comp {
     }
 }
 
+@ecs.register('Role')
 export class RoleChangeJobSystem extends ecs.ComblockSystem implements ecs.IEntityEnterSystem {
     filter(): ecs.IMatcher {
         return ecs.allOf(RoleChangeJobComp, RoleModelJobComp);
