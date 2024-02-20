@@ -15,7 +15,14 @@
         ],
         "path": {
             "json": "language/json",
-            "texture": "language/texture"
+            "texture": "language/texture",
+            "spine": ""
         }
+    },
+    "bundle": {
+        "enable": false,
+        "server": "http://localhost:8083/assets/bundle",
+        "name": "bundle",
+        "version": ""
     }
 }
