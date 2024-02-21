@@ -72,7 +72,7 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 
 9. 框架以插件方式提供，与项目代码分离，方便不同版本平滑升级
     ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/oops-plug-in1.jpg)
-    ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/oops-plug-in2.jpg)
+    ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/oops-plug-in2.jpg)
 10. 框架辅助插件
     ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/tools.jpg)
 
