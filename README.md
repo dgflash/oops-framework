@@ -68,13 +68,13 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
     - 本地热更配置 resources/project.manifes
     - 本地热更配置 resources/version.manifes
 8. 业务框架模板
-    ![](https://gitee.com/dgflash/oops-framework/blob/master/doc/img/module.png)
+    ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/module.png)
 
 9. 框架以插件方式提供，与项目代码分离，方便不同版本平滑升级
-    ![](https://gitee.com/dgflash/oops-framework/blob/master/doc/img/oops-plug-in1.jpg)
-    ![](https://gitee.com/dgflash/oops-framework/blob/master/doc/oops-plug-in2.jpg)
+    ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/oops-plug-in1.jpg)
+    ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/oops-plug-in2.jpg)
 10. 框架辅助插件
-    ![](https://gitee.com/dgflash/oops-framework/blob/master/doc/img/tools.jpg)
+    ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/tools.jpg)
 
 #### 插件分类
 1. 静态配置表Excel转Json数据与对应的数据结构TS脚本插件[【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124484273?spm=1001.2014.3001.5502)
