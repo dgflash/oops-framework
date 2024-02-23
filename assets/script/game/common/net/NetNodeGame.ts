@@ -15,8 +15,7 @@ export class NetNodeGame extends NetNode {
 
     public req(action: string, method: string, data: any, rspObject: CallbackObject, showTips: boolean = true, force: boolean = false) {
         let protocol: IRequestProtocol = {
-            action: action,
-            method: method,
+            cmd: action,
             data: JSON.stringify(data),
             isCompress: this.isCompress,
             channelid: netConfig.channelid
@@ -26,8 +25,7 @@ export class NetNodeGame extends NetNode {
 
     public reqUnique(action: string, method: string, data: any, rspObject: CallbackObject, showTips: boolean = true, force: boolean = false): boolean {
         let protocol: IRequestProtocol = {
-            action: action,
-            method: method,
+            cmd: action,
             data: JSON.stringify(data),
             isCompress: this.isCompress,
             channelid: netConfig.channelid
