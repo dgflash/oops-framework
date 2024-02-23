@@ -54,7 +54,19 @@ export class Demo extends Component {
         this.labChange.changeTo(0.5, 250, () => {
 
         })
+
+        // this.test_zip();
     }
+
+    // private async test_zip() {
+    //     var z = new ZipLoader();
+    //     var zip_path = "zip/data";
+    //     await z.load(zip_path);
+    //     var a = await z.getJson(zip_path, "data/a.json");
+    //     console.log(a);
+    //     var s = await z.getSpriteFrame(zip_path, "data/Dungeon.png");
+    //     console.log(s);
+    // }
 
     private btn_long(event: EventTouch, data: any) {
         oops.gui.toast(data, true);
