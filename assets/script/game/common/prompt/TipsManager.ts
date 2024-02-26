@@ -12,29 +12,6 @@ import { UIID } from "../config/GameUIConfig";
 
 /** 提示窗口管理 */
 class TipsManager {
-    /** 网络恢复 */
-    networkRecovery() {
-        oops.timer.unschedule(this.netInstableOpen);
-        oops.gui.remove(UIID.Netinstable);
-    }
-
-    /** 打开网络不稳定提示 */
-    netInstableOpen() {
-        if (!oops.gui.has(UIID.Netinstable)) {
-            oops.gui.open(UIID.Netinstable);
-        }
-    }
-
-    netInstableClose() {
-        oops.gui.remove(UIID.Netinstable);
-    }
-
-    /** 网络延时 */
-    networkLatency(time: number) {
-        oops.timer.unschedule(this.netInstableOpen);
-        oops.timer.scheduleOnce(this.netInstableOpen, time);
-    }
-
     test(callback?: Function) {
         let operate: any = {
             title: 'common_prompt_title_sys',

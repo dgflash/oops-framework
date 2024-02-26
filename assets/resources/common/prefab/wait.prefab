@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "netinstable",
+    "_name": "wait",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "netinstable",
+    "_name": "wait",
     "_objFlags": 0,
     "_parent": null,
     "_children": [

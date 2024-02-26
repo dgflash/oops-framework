@@ -151,9 +151,11 @@ export class Demo extends Component {
 
     /** 加载提示 */
     private netInstableOpen(event: EventTouch, data: any) {
-        tips.netInstableOpen();
+        // tips.netInstableOpen();
+        oops.gui.waitOpen();
         setTimeout(() => {
-            tips.netInstableClose();
+            // tips.netInstableClose();
+            oops.gui.waitClose();
         }, 2000);
     }
 
