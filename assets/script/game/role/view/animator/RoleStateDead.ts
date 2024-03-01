@@ -4,13 +4,6 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-06-14 19:56:19
  */
-/*
- * @Author: dgflash
- * @Date: 2021-09-01 15:19:04
- * @LastEditors: dgflash
- * @LastEditTime: 2022-01-25 10:05:40
- */
-
 import { AnimatorStateLogic } from "../../../../../../extensions/oops-plugin-framework/assets/libs/animator/core/AnimatorStateLogic";
 import { Role } from "../../Role";
 import { AnimationEventHandler } from "./AnimationEventHandler";
