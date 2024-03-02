@@ -162,7 +162,7 @@ export class Demo extends Component {
     /** 背景音乐 */
     private btn_audio_open1(event: EventTouch, data: any) {
         oops.audio.volumeMusic = 0.5;
-        oops.audio.playerMusicLoop("audios/nocturne");
+        oops.audio.playMusicLoop("audios/nocturne");
     }
 
     /** 背景音效 */
