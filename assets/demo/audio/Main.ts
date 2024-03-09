@@ -23,7 +23,7 @@ export class Main extends Root {
     sliderMusicHandle: Node = null!;
 
     start() {
-        oops.audio.volumeMusic = this.sliderMusicVolume.progress;
+        oops.res.loadDir("common");
 
         this.sliderMusicHandle.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.sliderMusicHandle.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
@@ -50,7 +50,7 @@ export class Main extends Root {
         oops.audio.setMusicComplete(() => {
             oops.gui.toast("音乐播放完成");
         });
-        oops.audio.playMusic("audios/nocturne");
+        oops.audio.playMusic("audios/Gravel");
     }
 
     /** 调解背景音乐音量 */
