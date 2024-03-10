@@ -50,7 +50,19 @@ export class Main extends Root {
         oops.audio.setMusicComplete(() => {
             oops.gui.toast("音乐播放完成");
         });
-        oops.audio.playMusic("audios/Gravel");
+        oops.audio.playMusic("audios/nocturne");
+    }
+
+    onPauseAll() {
+        oops.audio.pauseAll();
+    }
+
+    onResumeAll() {
+        oops.audio.resumeAll();
+    }
+
+    onStopAll() {
+        oops.audio.stopAll();
     }
 
     /** 调解背景音乐音量 */
