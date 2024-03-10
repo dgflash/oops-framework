@@ -36,6 +36,8 @@ export class Main extends Root {
 
     onTouchEnd() {
         this.enabled = true;
+
+        // 设置背景音乐进度
         oops.audio.progressMusic = this.sliderMusic.progress;
     }
 
@@ -47,39 +49,50 @@ export class Main extends Root {
 
     /** 播放背景音乐 */
     onBtnMusic() {
+        // 监听音乐播放完成事件（正常播放完、音乐强制停止时触发）
         oops.audio.setMusicComplete(() => {
             oops.gui.toast("音乐播放完成");
+            oops.audio.music.release();             // 释放背景音乐资源
+            oops.audio.effect.releaseAll();         // 释放背景音乐资源
         });
+
+        // 播放背景音乐（只需要传递音乐资源地址，框架会自动加载完音乐资源后开始播放音乐）
         oops.audio.playMusic("audios/nocturne");
     }
 
+    /** 暂停当前音乐与音效的播放 */
     onPauseAll() {
         oops.audio.pauseAll();
     }
 
+    /** 恢复当前暂停的音乐与音效播放 */
     onResumeAll() {
         oops.audio.resumeAll();
     }
 
+    /** 停止当前音乐与音效的播放 */
     onStopAll() {
         oops.audio.stopAll();
     }
 
     /** 调解背景音乐音量 */
     onSliderMusicVolume(slider: Slider, customEventData: string) {
+        // 设置背景音乐音量
         oops.audio.volumeMusic = slider.progress;
+        // 设置音效音量
+        oops.audio.volumeEffect = slider.progress;
     }
 
-    /** 播放背景音效 */
+    /** 播放音效 */
     onBtnEffect() {
         oops.audio.playEffect("audios/Gravel");
     }
 
-    onBtnSave() {
-        oops.audio.save();
-    }
+    // onBtnSave() {
+    //     oops.audio.save();
+    // }
 
-    onBtnLoad() {
-        oops.audio.load();
-    }
+    // onBtnLoad() {
+    //     oops.audio.load();
+    // }
 }
