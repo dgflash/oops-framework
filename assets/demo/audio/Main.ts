@@ -54,6 +54,7 @@ export class Main extends Root {
             oops.gui.toast("音乐播放完成");
             oops.audio.music.release();             // 释放背景音乐资源
             oops.audio.effect.releaseAll();         // 释放背景音乐资源
+            // oops.audio.effect.release("");
         });
 
         // 播放背景音乐（只需要传递音乐资源地址，框架会自动加载完音乐资源后开始播放音乐）
@@ -88,11 +89,13 @@ export class Main extends Root {
         oops.audio.playEffect("audios/Gravel");
     }
 
-    // onBtnSave() {
-    //     oops.audio.save();
-    // }
+    /** 保存音乐音效的音量、开关配置数据到本地 */
+    onBtnSave() {
+        oops.audio.save();
+    }
 
-    // onBtnLoad() {
-    //     oops.audio.load();
-    // }
+    /** 本地加载音乐音效的音量、开关配置数据并设置到游戏中 */
+    onBtnLoad() {
+        oops.audio.load();
+    }
 }
