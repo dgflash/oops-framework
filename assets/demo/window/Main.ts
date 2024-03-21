@@ -4,10 +4,10 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-11-11 18:14:21
  */
-import { Node, tween, Vec3, _decorator } from 'cc';
-import { PopViewParams } from '../../../extensions/oops-plugin-framework/assets/core/gui/layer/Defines';
+import { Node, Vec3, _decorator, tween } from 'cc';
 import { oops } from '../../../extensions/oops-plugin-framework/assets/core/Oops';
 import { Root } from '../../../extensions/oops-plugin-framework/assets/core/Root';
+import { PopViewParams } from '../../../extensions/oops-plugin-framework/assets/core/gui/layer/Defines';
 import { UIConfigData, UIID } from '../../script/game/common/config/GameUIConfig';
 
 const { ccclass, property } = _decorator;
@@ -24,6 +24,7 @@ const { ccclass, property } = _decorator;
 @ccclass('Main')
 export class Main extends Root {
     protected initGui() {
+        oops.res.loadDir("common");
         oops.gui.init(UIConfigData);
     }
 
