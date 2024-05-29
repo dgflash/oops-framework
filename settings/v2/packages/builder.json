@@ -228,5 +228,13 @@
         }
       }
     }
+  },
+  "splash-setting": {
+    "background": {
+      "type": "color"
+    },
+    "logo": {
+      "type": "none"
+    }
   }
 }
