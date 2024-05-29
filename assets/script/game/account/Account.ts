@@ -52,6 +52,7 @@ export class Account extends ecs.Entity {
 
     /** 连接游戏服务器 */
     connect() {
+
         // netChannel.gameCreate();
         // netChannel.gameConnect();
 
