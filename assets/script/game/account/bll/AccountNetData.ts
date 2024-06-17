@@ -43,7 +43,7 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
                 this.createRole(e, data);
 
                 // 玩家登录成功事件
-                oops.message.dispatchEvent(GameEvent.LoginSuccess);
+                // oops.message.dispatchEvent(GameEvent.LoadingSuccess);
             }
         }
         // 请求登录游戏获取角色数据

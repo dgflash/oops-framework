@@ -13,6 +13,10 @@ class NetConfig {
     public serverId!: number;
     public sessionKey!: string;
     public channelid!: number;
+
+
 }
+
+
 
 export var netConfig = new NetConfig();

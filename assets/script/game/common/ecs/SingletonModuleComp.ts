@@ -8,6 +8,7 @@
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { Account } from "../../account/Account";
 import { Initialize } from "../../initialize/Initialize";
+import { User } from "../../user/User";
 
 /** 游戏模块 */
 @ecs.register('SingletonModule')
@@ -17,6 +18,9 @@ export class SingletonModuleComp extends ecs.Comp {
     /** 游戏账号模块 */
     get account(): Account {
         return this.initialize.account;
+    }
+    get user(): User {
+        return this.initialize.user;
     }
 
     reset() { }
