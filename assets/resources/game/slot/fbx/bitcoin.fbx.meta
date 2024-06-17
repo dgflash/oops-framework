@@ -1,0 +1,178 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "d22baad9-3582-4fae-9c49-a27f64cd8ce1",
+  "files": [],
+  "subMetas": {
+    "45599": {
+      "importer": "gltf-material",
+      "uuid": "d22baad9-3582-4fae-9c49-a27f64cd8ce1@45599",
+      "displayName": "",
+      "id": "45599",
+      "name": "zlato.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bfa9c": {
+      "importer": "gltf-mesh",
+      "uuid": "d22baad9-3582-4fae-9c49-a27f64cd8ce1@bfa9c",
+      "displayName": "",
+      "id": "bfa9c",
+      "name": "bitcoin.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 14460
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e6c19": {
+      "importer": "gltf-scene",
+      "uuid": "d22baad9-3582-4fae-9c49-a27f64cd8ce1@e6c19",
+      "displayName": "",
+      "id": "e6c19",
+      "name": "bitcoin.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "d22baad9-3582-4fae-9c49-a27f64cd8ce1@bfa9c"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "d22baad9-3582-4fae-9c49-a27f64cd8ce1@45599"
+      ],
+      "scenes": [
+        "d22baad9-3582-4fae-9c49-a27f64cd8ce1@e6c19"
+      ]
+    },
+    "materials": {
+      "d22baad9-3582-4fae-9c49-a27f64cd8ce1@45599": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "__editorExtras__": {},
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {},
+          {},
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "mainColor": {
+              "__type__": "cc.Color",
+              "r": 255,
+              "g": 224,
+              "b": 0,
+              "a": 255
+            },
+            "albedoScale": 0.8,
+            "shininessExponent": 20,
+            "specularColor": {
+              "__type__": "cc.Color",
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 255
+            },
+            "specularFactor": 0
+          },
+          {},
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}

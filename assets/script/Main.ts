@@ -26,21 +26,23 @@ export class Main extends Root {
         if (DEBUG) profiler.showStats();
     }
 
+    protected initGui() {
+        oops.gui.init(UIConfigData);
+    }
+
+    /**初始化根System ，并非业务逻辑System*/
+    protected async initEcsSystem() {
+        oops.ecs.add(new EcsPositionSystem())
+        // oops.ecs.add(new EcsUserSystem())
+        // oops.ecs.add(new EcsAccountSystem());
+        // oops.ecs.add(new EcsRoleSystem());
+        // oops.ecs.add(new EcsInitializeSystem());
+    }
+
     protected run() {
         smc.initialize = ecs.getEntity<Initialize>(Initialize);
         if (JSB) {
             oops.gui.toast("热更新后新程序的提示");
         }
-    }
-
-    protected initGui() {
-        oops.gui.init(UIConfigData);
-    }
-
-    protected async initEcsSystem() {
-        oops.ecs.add(new EcsPositionSystem())
-        // oops.ecs.add(new EcsAccountSystem());
-        // oops.ecs.add(new EcsRoleSystem());
-        // oops.ecs.add(new EcsInitializeSystem());
     }
 }

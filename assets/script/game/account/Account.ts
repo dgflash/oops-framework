@@ -45,7 +45,7 @@ export class Account extends ecs.Entity {
     private onHandler(event: string, args: any) {
         switch (event) {
             case GameEvent.GameServerConnected:
-                this.getPlayer();
+                // this.getPlayer();
                 break;
         }
     }

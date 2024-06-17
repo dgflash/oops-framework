@@ -41,7 +41,7 @@ export class LoadingViewComp extends CCVMParentComp {
             oops.gui.remove(UIID.Loading);
 
             // 打开游戏主界面（自定义逻辑）
-            oops.gui.open(UIID.Demo);
+            // oops.gui.open(UIID.Demo);
         }, 500);
     }
 
@@ -57,12 +57,12 @@ export class LoadingViewComp extends CCVMParentComp {
     }
 
     private addEvent() {
-        this.on(GameEvent.LoginSuccess, this.onHandler, this);
+        this.on(GameEvent.LoadingSuccess, this.onHandler, this);
     }
 
     private onHandler(event: string, args: any) {
         switch (event) {
-            case GameEvent.LoginSuccess:
+            case GameEvent.LoadingSuccess:
                 // 加载流程结束，移除加载提示界面
                 this.ent.remove(LoadingViewComp);
                 break;
@@ -114,6 +114,7 @@ export class LoadingViewComp extends CCVMParentComp {
         this.data.prompt = oops.language.getLangByID("loading_load_player");
 
         // 初始化帐号模块
+        oops.message.dispatchEvent(GameEvent.LoadingSuccess);
         smc.account.connect();
     }
 }

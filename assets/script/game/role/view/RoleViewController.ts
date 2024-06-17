@@ -8,6 +8,7 @@
 import { Component, EventTouch, Node, UITransform, v3, _decorator } from "cc";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { Role } from "../Role";
+import { Logger } from "../../../../../extensions/oops-plugin-framework/assets/core/common/log/Logger";
 
 const { ccclass, property } = _decorator;
 

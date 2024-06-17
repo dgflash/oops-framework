@@ -11,5 +11,9 @@
   "custom_joint_texture_layouts": [],
   "script": {
     "preserveSymlinks": true
+  },
+  "physics": {
+    "maxSubSteps": 5,
+    "fixedTimeStep": 0.01
   }
 }
