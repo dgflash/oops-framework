@@ -6,7 +6,7 @@
  */
 
 import { Node, tween, Vec3 } from "cc";
-import { PopViewParams } from "../../../../../extensions/oops-plugin-framework/assets/core/gui/layer/Defines";
+import { UICallbacks } from "../../../../../extensions/oops-plugin-framework/assets/core/gui/layer/Defines";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { UIID } from "../config/GameUIConfig";
 
@@ -60,8 +60,8 @@ class TipsManager {
     }
 
     /** 弹窗动画 */
-    private getPopCommonEffect(callbacks?: PopViewParams) {
-        let newCallbacks: PopViewParams = {
+    private getPopCommonEffect(callbacks?: UICallbacks) {
+        let newCallbacks: UICallbacks = {
             // 节点添加动画
             onAdded: (node, params) => {
                 node.setScale(0.1, 0.1, 0.1);
