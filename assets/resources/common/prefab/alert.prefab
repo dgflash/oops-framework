@@ -139,8 +139,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 59.999994268999416,
-      "height": 50.400000000000006
+      "width": 59.995087231595086,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -178,7 +178,7 @@
     "_string": "标题",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 31.95,
+    "_actualFontSize": 30.5625,
     "_fontSize": 30,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -360,7 +360,7 @@
     "_string": "内容",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 27.689999999999998,
+    "_actualFontSize": 26.4875,
     "_fontSize": 26,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -602,7 +602,7 @@
     "_string": "确认",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 21.299999999999997,
+    "_actualFontSize": 20.375,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -832,7 +832,7 @@
     },
     "component": "",
     "_componentId": "653bf8VPC5Fn49zFJFqXVgx",
-    "handler": "onTouchEnd",
+    "handler": "onOk",
     "customEventData": ""
   },
   {
