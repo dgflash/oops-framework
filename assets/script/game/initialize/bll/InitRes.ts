@@ -52,15 +52,10 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
         queue.push((next: NextFunction, params: any, args: any) => {
             // 设置默认语言
             let lan = oops.storage.get("language");
-            // if (lan == null) {
             if (lan == null || lan == "") {
                 lan = "zh";
                 oops.storage.set("language", lan);
             }
-
-            // 设置语言包路径
-            oops.language.pack.json = oops.config.game.languagePathJson;
-            oops.language.pack.texture = oops.config.game.languagePathTexture;
 
             // 加载语言包资源
             oops.language.setLanguage(lan, next);
