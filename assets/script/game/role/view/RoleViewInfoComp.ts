@@ -19,6 +19,7 @@ const { ccclass, property } = _decorator;
 export class RoleViewInfoComp extends CCComp {
     onAdded(args: any) {
         console.log(args);
+        return true;
     }
 
     onLoad() {
