@@ -325,11 +325,11 @@ this.Animator.onInit(AnimationPlayer);
 ```
 
 #### 如果需要使用spine在不同的trackindex播放动画，可以用AnimatorSpine和AnimatorSpineSecondary挂在同一个spine节点上实现并行状态机
-![image](images/runtime2.png)</br>
+![image](images/runtime2.png)</br></br>
 AnimatorSpine为主状态机，trackindex为0，负责播放walk、run、jump三个动画</br>
 AnimatorSpineSecondary为次状态机，trackindex为1，负责播放shoot动画</br>
 编辑好两个不同的状态机，运行时便可将实现播放别的动画的同时开枪</br>
-![image](images/example1.gif)</br>
+![image](images/example1.gif)</br></br>
 **ps：但实际项目中如果需要使用并行状态机往往比这会复杂很多，很可能需要你自行修改runtime的实现**
 
 
