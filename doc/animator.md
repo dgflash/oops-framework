@@ -83,7 +83,8 @@
 - 导入数据
     - 将<kbd>ctrl</kbd>+<kbd>s</kbd>所保存文件拖入状态机编辑器内将还原整个状态机视图
     - cocos creator的animation文件、spine的json文件、dragonbones的json文件均可拖入状态机编辑器内自动生成对应的状态节点
-    ![image](images/operate4.gif)
+   
+        ![image](images/operate4.gif)
 
 #### <a id="json"></a>导出的数据格式
 - 状态机编辑器工程数据格式
@@ -325,11 +326,15 @@ this.Animator.onInit(AnimationPlayer);
 ```
 
 #### 如果需要使用spine在不同的trackindex播放动画，可以用AnimatorSpine和AnimatorSpineSecondary挂在同一个spine节点上实现并行状态机
-![image](images/runtime2.png)</br></br>
+
+![image](images/runtime2.png)</br>
+
 AnimatorSpine为主状态机，trackindex为0，负责播放walk、run、jump三个动画</br>
 AnimatorSpineSecondary为次状态机，trackindex为1，负责播放shoot动画</br>
 编辑好两个不同的状态机，运行时便可将实现播放别的动画的同时开枪</br>
-![image](images/example1.gif)</br></br>
+
+![image](images/example1.gif)</br>
+
 **ps：但实际项目中如果需要使用并行状态机往往比这会复杂很多，很可能需要你自行修改runtime的实现**
 
 
