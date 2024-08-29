@@ -32,43 +32,43 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 
 #### 技术分类
 1. 基础类
-    - 界面管理 - LayerManager.ts
-    - 资源管理 - ResLoader.ts
-    - 时间管理 - TimerManager.ts
-    - 音效管理 - AudioManager.ts
-    - 消息管理 - MessageManager.ts
-    - 屏幕适应 - GUI.ts
-    - 本地存储 - StorageManager.ts
-2. 界面类 
-    - 常用UI组件
-        - 按钮类 - gui/button
-        - 标签类 - gui/label
-        - 语言类 - gui/language
-    - MVVM组件库 - libs/model-view
-    - 特效管理 - libs/animator-effect
-    - 位移组件 - libs/animator-move
-    - 摄像机控制 - libs/camera
-3. 网络类
-    - Http - libs/network/HttpRequest.ts
-    - WebSocket - libs/network/NetManager.ts
-4. 框架类
-    - ECS - libs/ecs
-    - BehaviorTree 行为树 - libs/behavior-tree
-    - 可视化动画状态机 - libs/animator
-5. 工具类
-    - 日志管理 - Logger.ts
-    - 随机数生成器 - RandomManager.ts
-    - 数据集合 - libs/collection
-    - 加密工具 - libs/security
-    - GZip压缩 - libs/network/protocol
-    - 辅助方法库 - core/utils
-6. 渲染纹理 
-    - 三维摄像机内容显示到模型上 - libs/render-texture/RtToModel
-    - 三维模型显示到二维精灵上 - libs/render-texture/RtToSprite
-7. 热更新
-    - 热更控制脚本 game/initialize/view/HotUpdate.ts
-    - 本地热更配置 resources/project.manifes
-    - 本地热更配置 resources/version.manifes
+    - 资源管理
+    - 时间管理
+    - 音效管理
+    - 消息管理
+    - 屏幕适应
+    - 本地存储
+    - 随机数库
+    - 日志管理
+1. 界面类 
+    - 界面管理
+    - 界面组件库
+        - 标签类组件
+        - 按钮类组件
+        - 多语言组件
+    - MVVM组件库
+1. 框架类
+    - ECS
+    - 行为树
+1. 动画类
+    - 动画状态机
+    - 动画特效组件
+    - 动画移动组件
+1. 摄像机
+    - 自由飞行摄像机
+    - 轨道摄像机
+1. 网络类
+    - Http
+    - WebSocket
+1. 工具类
+    - 数据集合
+    - 加密工具
+    - 辅助方法库
+1. 渲染纹理 
+    - 三维摄像机内容显示到模型上
+    - 三维模型显示到二维精灵上
+1. 热更新
+
 8. 业务框架模板
     ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/module.png)
 
