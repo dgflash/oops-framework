@@ -24,60 +24,6 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 
 ### QQ频道提供教程，持续更新（频道号：q366856bf5）
 
-#### 技术分类
-1. 基础类
-    - 资源管理
-    - 时间管理
-    - 音效管理
-    - 消息管理
-    - 屏幕适应
-    - 本地存储
-    - 随机数库
-    - 日志管理
-1. 界面类 
-    - 界面管理
-    - 界面组件库
-        - 标签类组件
-        - 按钮类组件
-        - 多语言组件
-    - MVVM组件库
-1. 框架类
-    - ECS
-    - 行为树
-1. 动画类
-    - 动画状态机
-    - 动画特效组件
-    - 动画移动组件
-1. 摄像机
-    - 自由飞行摄像机
-    - 轨道摄像机
-1. 网络类
-    - Http
-    - WebSocket
-1. 工具类
-    - 数据集合
-    - 加密工具
-    - 辅助方法库
-1. 渲染纹理 
-    - 三维摄像机内容显示到模型上
-    - 三维模型显示到二维精灵上
-1. 热更新
-
-8. 业务框架模板
-    ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/module.png)
-
-9. 框架以插件方式提供，与项目代码分离，方便不同版本平滑升级
-    ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/oops-plug-in1.jpg)
-    ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/oops-plug-in2.jpg)
-10. 框架辅助插件
-    ![](https://gitee.com/dgflash/oops-framework/raw/master/doc/img/tools.jpg)
-
-#### 插件分类
-1. 静态配置表Excel转Json数据与对应的数据结构TS脚本插件[【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124484273?spm=1001.2014.3001.5502)
-    - 执行工程根目录下update-oops-plugin-excel-to-json.bat文件更新最新版本
-2. 热更新组件配套生成热更数据插件 [【教程传送门】](https://blog.csdn.net/weixin_39324642/article/details/124483993?spm=1001.2014.3001.5502)
-    - 执行工程根目录下update-oops-plugin-hot-update.bat文件更新最新版本
-
 #### 引用且重构过的第三方库
 | 库名       | 介绍                                                                | 原创                                                         |
 | ---------- | ------------------------------------------------------------------- | ------------------------------------------------------------ |
