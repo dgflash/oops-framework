@@ -86,24 +86,6 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 | model-view | MVVM组件库，原创为cc2.x版本，本人升级到cc3.x                        | [原创](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
 | ECS        | Entity-Component-System，升级优化过                                 | [原创](https://github.com/shangdibaozi/ECS)                  |
 
-#### 引用到的第三方NPM库
-| 库名       | 介绍       | 安装                   | 原创                                             |
-| ---------- | ---------- | ---------------------- | ------------------------------------------------ |
-| seedrandom | 生成随机数 | npm install seedrandom | [原创](https://www.npmjs.com/package/seedrandom) |
-| crypto-es  | 加密算法库 | yarn add crypto-es     | [原创](https://github.com/entronad/crypto-es)    |
-
-#### 贡献榜
-| 时间       | 开发者    | 贡献内容                                                                                    |
-| ---------- | --------- | ------------------------------------------------------------------------------------------- |
-| 2022-10-27 | 登科      | 自动生成Bundle包内资源代码智能提示插件                                                      |
-| 2022-09-01 | GaGa 嘎嘎 | 自动化文档生成工具的部署指导                                                                |
-| 2022-08-04 | Bz        | 修复UrlParse对象解析腾讯游戏大厅的地址查询参数数据错误问题                                  |
-| 2022-06-02 | 羽毛先生  | 修复 UI 框架中界面无法不销毁移除的问题; 修复UI框架中从缓存获取界面时，传递新参数不更新问题  |
-| 2022-04-15 | Hess      | 建议优化 ecs 框架所有生命周期事件在处理多实体时，将批处理逻辑移到框架层实现，减小业务代码量 |
-| 2021-10-13 | laret     | 修复 Dialog 类型的 UI 不能连续触发                                                          |
-| 2021-10-20 | dogegg    | 支持添加 cc.Component 到 ecs 实体对象中                                                     |
-| 2022-02-18 | 匿名好友  | 修复 TimerManager 时间管理对象，在游戏最小化切到最大化时，定时间器不触发完成事件的问题      |
-
 #### 在线演示
 [网络游戏全栈解决方案](https://store.cocos.com/app/detail/3814)
 
