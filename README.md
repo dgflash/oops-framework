@@ -14,13 +14,13 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 1. master分支一般会与 Cocos Creator 引擎最新版本保持同步，需要其它版本可选其它分支下载
 
 #### 框架介绍与文档
-- [传送门](https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=12008674&doc_id=2873565)
+- [传送门](https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=12002375&doc_id=2873565)
 
 ### QQ群
-- 798575969（1群） 
-- 621415300（2群）
-- 628575875（3群）
-- 226524184（4群）
+- 798575969（1群 - 满） 
+- 621415300（2群 - 满）
+- 628575875（3群 - 满）
+- 226524184（4群 - 推荐）
 
 ### QQ频道提供教程，持续更新（频道号：q366856bf5）
 
