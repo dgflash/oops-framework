@@ -1,4 +1,4 @@
-import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
+import { ecs } from "db://oops-framework/libs/ecs/ECS";
 
 /** <%Name%> 模块 */
 @ecs.register(`<%Name%>`)
@@ -21,14 +21,5 @@ export class <%Name%> extends ecs.Entity {
     destroy() {
         // 注: 自定义释放逻辑，视图层实现 ecs.IComp 接口的 ecs 组件需要手动释放
         super.destroy();
-    }
-}
-
-/** <%Name%> 模块业务逻辑系统组件，如无业务逻辑处理可删除此对象 */
-export class Ecs<%Name%>System extends ecs.System {
-    constructor() {
-        super();
-
-        // this.add(new ecs.ComblockSystem());
     }
 }
