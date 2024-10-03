@@ -44,9 +44,9 @@ export class RoleViewInfoComp extends CCComp {
         oops.gui.remove(UIID.Demo_Role_Info, false);
 
         // 注：模拟二次删除清理缓存
-        setTimeout(() => {
-            oops.gui.remove(UIID.Demo_Role_Info);
-        }, 1000);
+        // setTimeout(() => {
+        //     oops.gui.remove(UIID.Demo_Role_Info);
+        // }, 1000);
     }
 
     protected onDestroy(): void {

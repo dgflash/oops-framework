@@ -6,9 +6,16 @@
         "localDataIv": "framework",
         "httpServer": "http://192.168.0.150/main/",
         "httpTimeout": 10000,
-        "frameRate": 60
+        "frameRate": "60",
+        "loadingTimeoutGui": 1000,
+        "webSocketIp": "127.0.0.1",
+        "webSocketProt": "8081",
+        "webSocketHeartTime": 6000,
+        "webSocketReceiveTime": 10000,
+        "webSocketReconnetTimeOut": 3000
     },
     "language": {
+        "default": "zh",
         "type": [
             "zh",
             "en"
@@ -21,8 +28,10 @@
     },
     "bundle": {
         "enable": false,
-        "server": "http://localhost:8083/assets/bundle",
-        "name": "bundle",
-        "version": ""
+        "server": "http://localhost",
+        "default": "resources",
+        "packages": {
+            "bundle": ""
+        }
     }
 }
