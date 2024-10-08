@@ -45,13 +45,14 @@ export class Account extends ecs.Entity {
     private onHandler(event: string, args: any) {
         switch (event) {
             case GameEvent.GameServerConnected:
-                this.getPlayer();
+                // this.getPlayer();
                 break;
         }
     }
 
     /** 连接游戏服务器 */
     connect() {
+
         // netChannel.gameCreate();
         // netChannel.gameConnect();
 

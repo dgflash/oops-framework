@@ -6,6 +6,7 @@
  */
 import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { Account } from "../account/Account";
+import { User } from "../user/User";
 import { InitResComp, InitResSystem } from "./bll/InitRes";
 
 /**
@@ -17,11 +18,15 @@ import { InitResComp, InitResSystem } from "./bll/InitRes";
 export class Initialize extends ecs.Entity {
     /** 帐号管理 */
     account: Account = null!;
+    /** 用户管理 */
+    user: User = null!;
 
     protected init() {
         // 帐号模块为初始化模块的子实体对象
         this.account = ecs.getEntity<Account>(Account);
+        this.user = ecs.getEntity<User>(User);
         this.addChild(this.account);
+        this.addChild(this.user);
 
         // 初始化游戏公共资源
         this.add(InitResComp);
