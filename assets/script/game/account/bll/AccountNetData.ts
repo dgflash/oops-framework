@@ -9,7 +9,6 @@ import { v3 } from "cc";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { GameEvent } from "../../common/config/GameEvent";
-import { netConfig } from "../../common/net/NetConfig";
 import { Role } from "../../role/Role";
 import { Account } from "../Account";
 import { AccountModelComp } from "../model/AccountModelComp";
@@ -28,11 +27,6 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
     }
 
     entityEnter(e: Account): void {
-        var params: any = {
-            playerId: netConfig.dbid,
-            sessionKey: netConfig.sessionKey,
-        }
-
         let onComplete = {
             target: this,
             callback: (data: any) => {
@@ -46,8 +40,6 @@ export class AccountNetDataSystem extends ecs.ComblockSystem implements ecs.IEnt
                 oops.message.dispatchEvent(GameEvent.LoginSuccess);
             }
         }
-        // 请求登录游戏获取角色数据
-        // netChannel.game.req("LoginAction", "loadPlayer", params, onComplete);
 
         // 离线测试代码开始
         var data = {

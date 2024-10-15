@@ -74,7 +74,9 @@ class TipsManager {
             onBeforeRemove: (node, next) => {
                 tween(node)
                     .to(0.2, { scale: new Vec3(0.1, 0.1, 0.1) })
-                    .call(next)
+                    .call((target, data) => {
+                        next();
+                    })
                     .start();
             },
         }
