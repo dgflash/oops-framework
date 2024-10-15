@@ -18,12 +18,6 @@ export enum UIID {
     Demo,
     /** 角色信息 */
     Demo_Role_Info,
-
-    MainUI,
-    MainUI_Switch,
-    Pop1,
-    Pop2,
-    Dialog
 }
 
 /** 打开界面方式的配置数据 */
@@ -32,10 +26,5 @@ export var UIConfigData: { [key: number]: UIConfig } = {
     [UIID.Netinstable]: { layer: LayerType.PopUp, prefab: "common/prefab/netinstable" },
     [UIID.Window]: { layer: LayerType.Dialog, prefab: "common/prefab/window" },
     [UIID.Demo]: { layer: LayerType.UI, prefab: "gui/prefab/demo" },
-    [UIID.Demo_Role_Info]: { layer: LayerType.UI, prefab: "gui/prefab/role_info" },
-    [UIID.MainUI]: { layer: LayerType.UI, prefab: "demo/MainUI" },
-    [UIID.MainUI_Switch]: { layer: LayerType.UI, prefab: "demo/MainUI_Switch" },
-    [UIID.Pop1]: { layer: LayerType.PopUp, prefab: "demo/Pop1" },
-    [UIID.Pop2]: { layer: LayerType.PopUp, prefab: "demo/Pop2" },
-    [UIID.Dialog]: { layer: LayerType.Dialog, prefab: "demo/Dialog" },
+    [UIID.Demo_Role_Info]: { layer: LayerType.UI, prefab: "gui/prefab/role_info" }
 }
