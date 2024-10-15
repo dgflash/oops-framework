@@ -26,7 +26,7 @@ class TipsManager {
             },
             needCancel: true
         };
-        oops.gui.open(UIID.Window, operate, this.getPopCommonEffect());
+        oops.gui.open(UIID.Confirm, operate, this.getPopCommonEffect());
     }
 
     alert(content: string, cb?: Function, title?: string, okWord?: string) {
@@ -39,7 +39,7 @@ class TipsManager {
             },
             needCancel: false
         };
-        oops.gui.open(UIID.Window, operate, tips.getPopCommonEffect());
+        oops.gui.open(UIID.Confirm, operate, tips.getPopCommonEffect());
     }
 
     confirm(content: string, cb: Function, okWord: string = "common_prompt_ok") {
@@ -56,7 +56,7 @@ class TipsManager {
             },
             needCancel: true
         };
-        oops.gui.open(UIID.Window, operate, tips.getPopCommonEffect());
+        oops.gui.open(UIID.Confirm, operate, tips.getPopCommonEffect());
     }
 
     /** 弹窗动画 */

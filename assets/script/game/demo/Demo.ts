@@ -21,12 +21,6 @@ export class Demo extends Component {
     @property(LabelChange)
     private labChange: LabelChange = null!;
 
-    async onLoad() {
-        // var path = "gui/prefab/role_info_base";
-        // var node = await ViewUtil.createPrefabNodeAsync(path);
-        // node.parent = this.node;
-    }
-
     start() {
         // resLoader.dump();
 
@@ -51,22 +45,8 @@ export class Demo extends Component {
         // console.log("取当前设备的电池电量，如果电量无法获取，默认将返回 1", sys.getBatteryLevel());
 
 
-        this.labChange.changeTo(0.5, 250, () => {
-
-        })
-
-        // this.test_zip();
+        this.labChange.changeTo(0.5, 250, () => { })
     }
-
-    // private async test_zip() {
-    //     var z = new ZipLoader();
-    //     var zip_path = "zip/data";
-    //     await z.load(zip_path);
-    //     var a = await z.getJson(zip_path, "data/a.json");
-    //     console.log(a);
-    //     var s = await z.getSpriteFrame(zip_path, "data/Dungeon.png");
-    //     console.log(s);
-    // }
 
     private btn_long(event: EventTouch, data: any) {
         oops.gui.toast(data, true);
@@ -76,17 +56,12 @@ export class Demo extends Component {
     private btn_level_up(event: EventTouch, data: any) {
         var role = smc.account.AccountModel.role;
         role.upgrade();
-        // role.remove(RoleViewComp);
-        // resLoader.releaseDir("content/role");
     }
 
     /** 攻击 */
     private btn_attack(event: EventTouch, data: any) {
         var role = smc.account.AccountModel.role;
         role.attack();
-
-        // role.load();
-        // role.RoleView.node.parent = oops.gui.game;
     }
 
     /** 转职弓箭 */
@@ -151,10 +126,8 @@ export class Demo extends Component {
 
     /** 加载提示 */
     private netInstableOpen(event: EventTouch, data: any) {
-        // tips.netInstableOpen();
         oops.gui.waitOpen();
         setTimeout(() => {
-            // tips.netInstableClose();
             oops.gui.waitClose();
         }, 2000);
     }
