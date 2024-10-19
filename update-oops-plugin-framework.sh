@@ -9,3 +9,5 @@ else
     cd oops-plugin-framework
     git pull
 fi
+
+npm install
