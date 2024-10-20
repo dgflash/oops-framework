@@ -13,8 +13,9 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 1. 项目下载后执行update-oops-plugin-framework.bat下载最新版本框架插件，在启动Cocos Creator运行项目
 1. master分支一般会与 Cocos Creator 引擎最新版本保持同步，需要其它版本可选其它分支下载
 
-#### 框架介绍与文档
-- [传送门](https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=12002375&doc_id=2873565)
+#### <a href="https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=12002375&doc_id=2873565" target="_blank">框架文档</a>
+
+### <a href="https://store.cocos.com/app/search?name=oops" target="_blank">框架相关产品</a>
 
 ### QQ群
 - 798575969（1群 - 满） 
@@ -23,12 +24,3 @@ Oops Framework 基于 Cocos Creator 3.x 开发的一款游戏框架。
 - 226524184（4群 - 推荐）
 
 ### QQ频道提供教程，持续更新（频道号：q366856bf5）
-
-### 引用且重构过的第三方库
-| 库名       | 介绍                                                                | 原创                                                         |
-| ---------- | ------------------------------------------------------------------- | ------------------------------------------------------------ |
-| animator   | 可视化动画状态机，与Untiy的Animator使用体验类似 | [原创](https://github.com/LeeYip/cocos-animator)             |
-| model-view | MVVM组件库                | [原创](https://github.com/wsssheep/cocos_creator_mvvm_tools) |
-| ECS        | Entity-Component-System  | [原创](https://github.com/shangdibaozi/ECS)   |
-
-### <a href="https://store.cocos.com/app/search?name=oops" target="_blank">框架相关产品</a>
