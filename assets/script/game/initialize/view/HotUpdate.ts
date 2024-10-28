@@ -4,7 +4,7 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-08-29 14:13:42
  */
-import { Component, game, sys, _decorator } from "cc";
+import { _decorator, Component, game, sys } from "cc";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { UIID } from "../../common/config/GameUIConfig";
 import { tips } from "../../common/prompt/TipsManager";
@@ -130,7 +130,7 @@ export class HotUpdate extends Component {
             },
             needCancel: true
         };
-        oops.gui.open(UIID.Window, operate);
+        oops.gui.open(UIID.Confirm, operate);
     }
 
     /** 非 WIFI 环境提示玩家 */
