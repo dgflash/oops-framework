@@ -2,9 +2,7 @@
   "creator": {
     "version": "3.8.4"
   },
-  "dependencies": {
-    "crypto-es": "^1.2.7"
-  },
+  "dependencies": {},
   "description": "oops-framework",
   "devDependencies": {
     "@types/node": "^17.0.25"
