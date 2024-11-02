@@ -27,10 +27,10 @@ Oops Framework 致力于提供一个拥有游戏开发常用技术的框架，�
 - 对新人极为友好，操作简单且易于上手
 
 ### 官方推荐
-<a href="https://mp.weixin.qq.com/s/FfkKn1jLxfDCd6sMaDAT-A" target="_blank">Cocos 官方推荐框架</a>
-<a href="https://mp.weixin.qq.com/s/WTLBMjv0uoA4XPneLcjC-w" target="_blank">Cocos 官方2022年TOP10的插件工具</a>
-<a href="https://mp.weixin.qq.com/s/MzP-6P6uiddm3ckrISvmkg" target="_blank">Cocos Creator 3.x 优秀开源框架</a>
-<a href="https://www.bilibili.com/video/BV1B9pFejEko/?vd_source=2ecab277f9fb79c5e11c909bf0affd34" target="_blank">Cocos Creator 3.x 优秀开源框架盘点</a>
+- <a href="https://mp.weixin.qq.com/s/FfkKn1jLxfDCd6sMaDAT-A" target="_blank">Cocos 官方推荐框架</a>
+- <a href="https://mp.weixin.qq.com/s/WTLBMjv0uoA4XPneLcjC-w" target="_blank">Cocos 官方2022年TOP10的插件工具</a>
+- <a href="https://mp.weixin.qq.com/s/MzP-6P6uiddm3ckrISvmkg" target="_blank">Cocos Creator 3.x 优秀开源框架</a>
+- <a href="https://www.bilibili.com/video/BV1B9pFejEko/?vd_source=2ecab277f9fb79c5e11c909bf0affd34" target="_blank">Cocos Creator 3.x 优秀开源框架盘点</a>
 
 ### <a href="https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=12002375&doc_id=2873565" target="_blank">框架文档</a>
 
