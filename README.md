@@ -9,8 +9,12 @@
 <a href="https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=12101082&doc_id=2873565" target="_blank">
     <img src="https://img.shields.io/badge/Version-2.0.0-blue.svg?style=flat" height="22"/>
 </a>
+<a href="https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=12002367&doc_id=2873565" target="_blank">
+    <img src="https://img.shields.io/badge/Document-Guide-red.svg?style=flat" height="22"/>
+</a>
 <a href='https://gitee.com/dgflash/oops-framework/stargazers' target="_blank">
    <img src='https://gitee.com/dgflash/oops-framework/badge/star.svg?theme=dark' alt='star' height="22" />
+
 </div>
 
 ### 概览
