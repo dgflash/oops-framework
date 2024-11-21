@@ -9,3 +9,5 @@ else
     cd oops-plugin-excel-to-json
     git pull
 fi
+
+npm install
