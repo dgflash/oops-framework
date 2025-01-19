@@ -39,6 +39,7 @@ export class RoleViewLoader extends Component {
             this.spine.skeletonData = sd;
             this.spine.skeletonData.addRef();
             this.node.active = true;
+            this.node.setPosition(0, -100);
         });
     }
 

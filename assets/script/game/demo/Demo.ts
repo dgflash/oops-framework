@@ -4,18 +4,19 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2023-08-28 17:23:59
  */
-import { Component, EventTouch, _decorator } from "cc";
+import { Node, EventTouch, _decorator } from "cc";
 import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { LabelChange } from "../../../../extensions/oops-plugin-framework/assets/libs/gui/label/LabelChange";
 import { UIID } from "../common/config/GameUIConfig";
 import { smc } from "../common/ecs/SingletonModuleComp";
 import { tips } from "../common/prompt/TipsManager";
 import { RoleViewInfoComp } from "../role/view/RoleViewInfoComp";
+import { GameComponent } from "db://oops-framework/module/common/GameComponent";
 
 const { ccclass, property } = _decorator;
 // 视图层实体是空的
 @ccclass('Demo')
-export class Demo extends Component {
+export class Demo extends GameComponent {
     private lang: boolean = true;
 
     @property(LabelChange)
@@ -46,6 +47,40 @@ export class Demo extends Component {
 
 
         this.labChange.changeTo(0.5, 250, () => { })
+
+        this.node.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
+    }
+
+    private onTouchEnd(event: EventTouch) {
+        switch (event.target.name) {
+            case "oops-tutorial":
+                window.open("https://store.cocos.com/app/detail/6647", '_blank');
+                break;
+            case "oops-net":
+                window.open("https://store.cocos.com/app/detail/5877", '_blank');
+                break;
+            case "oops-guide":
+                window.open("https://store.cocos.com/app/detail/3653", '_blank');
+                break;
+            case "oops-moba":
+                window.open("https://store.cocos.com/app/detail/3814", '_blank');
+                break;
+            case "oops-war-chess":
+                window.open("https://store.cocos.com/app/detail/5676", '_blank');
+                break;
+            case "oops-turn-battle":
+                window.open("https://store.cocos.com/app/detail/7062", '_blank');
+                break;
+            case "oops-tiledmap":
+                window.open("https://store.cocos.com/app/detail/4428", '_blank');
+                break;
+            case "oops-rpg-player3d":
+                window.open("https://store.cocos.com/app/detail/4139", '_blank');
+                break;
+            case "oops-rpg-player2d":
+                window.open("https://store.cocos.com/app/detail/3675", '_blank');
+                break;
+        }
     }
 
     private btn_long(event: EventTouch, data: any) {
