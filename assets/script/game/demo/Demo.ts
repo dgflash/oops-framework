@@ -80,6 +80,9 @@ export class Demo extends GameComponent {
             case "oops-rpg-player2d":
                 window.open("https://store.cocos.com/app/detail/3675", '_blank');
                 break;
+            case "oops-hot-update":
+                window.open("https://store.cocos.com/app/detail/7296", '_blank');
+                break;
         }
     }
 
