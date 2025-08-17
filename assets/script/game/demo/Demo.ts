@@ -175,8 +175,8 @@ export class Demo extends GameComponent {
 
     /** 背景音乐 */
     private btn_audio_open1(event: EventTouch, data: any) {
-        oops.audio.volumeMusic = 0.5;
-        oops.audio.playMusicLoop("audios/nocturne");
+        oops.audio.music.volume = 0.5;
+        oops.audio.music.loadAndPlay("audios/nocturne");
     }
 
     /** 背景音效 */

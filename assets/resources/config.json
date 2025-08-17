@@ -17,7 +17,7 @@
     "gui": [
         {
             "name": "LayerGame",
-            "type": "Node"
+            "type": "Game"
         },
         {
             "name": "LayerUI",
