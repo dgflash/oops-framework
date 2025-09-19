@@ -114,6 +114,7 @@ Cocos Store产品：[Cocos Store](https://store.cocos.com/app/search?name=dgflas
 - 741197640（5群 - 满）
 - 438995424（6群 - 满）
 - 916492808（7群 - 推荐）
+- 973884097（8群 - 推荐）
 
 ### QQ频道：q366856bf5
 
