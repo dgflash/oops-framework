@@ -99,7 +99,7 @@ oops框架文档： [WIKI](https://gitee.com/dgflash/oops-framework/wikis/pages?
 
 bili视频教程：[dgflash](https://space.bilibili.com/479459079?spm_id_from=333.788.upinfo.detail.click)
 
-Cocos Store产品：[Cocos Store](https://store.cocos.com/app/search?name=oops)
+Cocos Store产品：[Cocos Store](https://store.cocos.com/app/search?name=dgflash)
 
 <br/>
 
