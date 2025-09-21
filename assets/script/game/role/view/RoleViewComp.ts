@@ -5,9 +5,9 @@
  * @LastEditTime: 2022-08-05 10:32:42
  */
 
-import { sp, _decorator } from "cc";
+import { _decorator, sp } from "cc";
+import { CCView } from "db://oops-framework/module/common/CCView";
 import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
-import { CCComp } from "../../../../../extensions/oops-plugin-framework/assets/module/common/CCComp";
 import { Role } from "../Role";
 import { RoleEvent } from "../RoleEvent";
 import { RoleViewAnimator } from "./RoleViewAnimator";
@@ -19,7 +19,7 @@ const { ccclass, property } = _decorator;
 /** 角色显示组件 */
 @ccclass('RoleViewComp')                   // 定义为 Cocos Creator 组件
 @ecs.register('RoleView', false)           // 定义为 ECS 组件
-export class RoleViewComp extends CCComp {
+export class RoleViewComp extends CCView<Role> {
     @property({ type: sp.Skeleton, tooltip: '角色动画' })
     spine: sp.Skeleton = null!;
 

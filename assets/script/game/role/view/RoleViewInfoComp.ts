@@ -5,18 +5,19 @@
  * @LastEditTime: 2023-08-16 14:44:08
  */
 import { EventTouch, Node, _decorator } from "cc";
-import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
-import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
-import { CCComp } from "../../../../../extensions/oops-plugin-framework/assets/module/common/CCComp";
+import { oops } from "db://oops-framework/core/Oops";
+import { ecs } from "db://oops-framework/libs/ecs/ECS";
+import { CCView } from "db://oops-framework/module/common/CCView";
 import { UIID } from "../../common/config/GameUIConfig";
 import { SingletonModuleComp } from "../../common/ecs/SingletonModuleComp";
+import { Role } from "../Role";
 
 const { ccclass, property } = _decorator;
 
 /** 角色信息界面 */
 @ccclass('RoleViewInfoComp')
 @ecs.register('RoleViewInfo', false)
-export class RoleViewInfoComp extends CCComp {
+export class RoleViewInfoComp extends CCView<Role> {
     onAdded(args: any) {
         console.log(args);
         return true;
@@ -41,12 +42,7 @@ export class RoleViewInfoComp extends CCComp {
     }
 
     reset() {
-        oops.gui.remove(UIID.Demo_Role_Info, false);
-
-        // 注：模拟二次删除清理缓存
-        // setTimeout(() => {
-        //     oops.gui.remove(UIID.Demo_Role_Info);
-        // }, 1000);
+        oops.gui.remove(UIID.Demo_Role_Info);
     }
 
     protected onDestroy(): void {

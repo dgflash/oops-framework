@@ -1,18 +1,51 @@
 {
+    "type": "dev",
     "config": {
-        "version": "1.0.5",
-        "package": "com.oops.game",
-        "localDataKey": "oops",
-        "localDataIv": "framework",
-        "httpServer": "http://192.168.0.150/main/",
-        "httpTimeout": 10000,
-        "frameRate": "60",
-        "loadingTimeoutGui": 1000,
-        "webSocketIp": "127.0.0.1",
-        "webSocketProt": "8081",
-        "webSocketHeartTime": 6000,
-        "webSocketReceiveTime": 10000,
-        "webSocketReconnetTimeOut": 3000
+        "dev": {
+            "version": "1.0.0",
+            "localDataKey": "oops",
+            "localDataIv": "framework",
+            "frameRate": 60,
+            "loadingTimeoutGui": 1000,
+            "mobileSafeArea": false,
+            "stats": true,
+            "httpServer": "http://192.168.0.1/",
+            "httpTimeout": 10000,
+            "webSocketServer": "ws://127.0.0.1:8080",
+            "webSocketHeartTime": 6000,
+            "webSocketReceiveTime": 10000,
+            "webSocketReconnetTimeOut": 3000
+        },
+        "test": {
+            "version": "1.0.0",
+            "localDataKey": "oops",
+            "localDataIv": "framework",
+            "frameRate": 60,
+            "loadingTimeoutGui": 1000,
+            "mobileSafeArea": false,
+            "stats": false,
+            "httpServer": "http://192.168.0.2/",
+            "httpTimeout": 10000,
+            "webSocketServer": "wss://127.0.0.1:8081",
+            "webSocketHeartTime": 6000,
+            "webSocketReceiveTime": 10000,
+            "webSocketReconnetTimeOut": 3000
+        },
+        "prod": {
+            "version": "1.0.0",
+            "localDataKey": "oops",
+            "localDataIv": "framework",
+            "frameRate": 60,
+            "loadingTimeoutGui": 1000,
+            "mobileSafeArea": false,
+            "stats": false,
+            "httpServer": "http://192.168.0.150/",
+            "httpTimeout": 10000,
+            "webSocketServer": "wss://127.0.0.1:8082",
+            "webSocketHeartTime": 6000,
+            "webSocketReceiveTime": 10000,
+            "webSocketReconnetTimeOut": 3000
+        }
     },
     "gui": [
         {

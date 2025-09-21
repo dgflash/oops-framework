@@ -72,7 +72,7 @@ export class InitResSystem extends ecs.ComblockSystem implements ecs.IEntityEnte
     /** 加载完成进入游戏内容加载界面 */
     private onComplete(queue: AsyncQueue, e: Initialize) {
         queue.complete = async () => {
-            var node = await oops.gui.openAsync(UIID.Loading);
+            var node = await oops.gui.open(UIID.Loading);
             if (node) e.add(node.getComponent(LoadingViewComp) as ecs.Comp);
             e.remove(InitResComp);
         };

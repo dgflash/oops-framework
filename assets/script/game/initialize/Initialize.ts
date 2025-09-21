@@ -4,9 +4,10 @@
  * @LastEditors: dgflash
  * @LastEditTime: 2022-08-01 13:49:35
  */
-import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
+import { ecs } from "db://oops-framework/libs/ecs/ECS";
+import { CCEntity } from "db://oops-framework/module/common/CCEntity";
 import { Account } from "../account/Account";
-import { InitResComp, InitResSystem } from "./bll/InitRes";
+import { InitResComp } from "./bll/InitRes";
 
 /**
  * 游戏进入初始化模块
@@ -14,7 +15,7 @@ import { InitResComp, InitResSystem } from "./bll/InitRes";
  * 2、加载默认资源
  */
 @ecs.register('Initialize')
-export class Initialize extends ecs.Entity {
+export class Initialize extends CCEntity {
     /** 帐号管理 */
     account: Account = null!;
 

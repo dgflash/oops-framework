@@ -7,7 +7,6 @@
 import { _decorator, Component, game, sys } from "cc";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { UIID } from "../../common/config/GameUIConfig";
-import { tips } from "../../common/prompt/TipsManager";
 import { Hot, HotOptions } from "./Hot";
 import { LoadingViewComp } from "./LoadingViewComp";
 
@@ -139,6 +138,7 @@ export class HotUpdate extends Component {
             callback();
             return;
         }
-        tips.alert(oops.language.getLangByID("update_nowifi_tip") + size, callback);
+        callback();
+        // tips.alert(oops.language.getLangByID("update_nowifi_tip") + size, callback);
     }
 }

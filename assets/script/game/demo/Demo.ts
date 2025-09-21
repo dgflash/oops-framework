@@ -10,7 +10,6 @@ import { oops } from "../../../../extensions/oops-plugin-framework/assets/core/O
 import { LabelChange } from "../../../../extensions/oops-plugin-framework/assets/libs/gui/label/LabelChange";
 import { UIID } from "../common/config/GameUIConfig";
 import { smc } from "../common/ecs/SingletonModuleComp";
-import { tips } from "../common/prompt/TipsManager";
 import { RoleViewInfoComp } from "../role/view/RoleViewInfoComp";
 
 const { ccclass, property } = _decorator;
@@ -126,7 +125,7 @@ export class Demo extends GameComponent {
     /** 打开角色界面 */
     private async btn_open_role_info(event: EventTouch, data: any) {
         var role = smc.account.AccountModel.role;
-        var node = await oops.gui.openAsync(UIID.Demo_Role_Info, "传递参数");
+        var node = await oops.gui.open(UIID.Demo_Role_Info, { data: "传递参数" });
         if (node) role.add(node.getComponent(RoleViewInfoComp)!);
     }
 
@@ -144,22 +143,6 @@ export class Demo extends GameComponent {
         }
     }
 
-    /** 弹出提示框 */
-    private btn_common_prompt(event: EventTouch, data: any) {
-        tips.test(() => {
-
-        });
-        tips.test(() => {
-
-        });
-        tips.confirm("内容1", () => {
-
-        }, "确认1");
-        tips.confirm("内容2", () => {
-
-        }, "确认2");
-    }
-
     /** 漂浮提示框 */
     private btn_notify_show(event: EventTouch, data: any) {
         oops.gui.toast("common_prompt_content", true);
@@ -175,7 +158,6 @@ export class Demo extends GameComponent {
 
     /** 背景音乐 */
     private btn_audio_open1(event: EventTouch, data: any) {
-        oops.audio.music.volume = 0.5;
         oops.audio.music.loadAndPlay("audios/nocturne");
     }
 

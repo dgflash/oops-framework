@@ -346,7 +346,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "01:48:52",
+    "_string": "01:48:07",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 40,
@@ -386,7 +386,7 @@
       "y": 2
     },
     "_shadowBlur": 2,
-    "countDown": 6532,
+    "countDown": 6487,
     "dayFormat": "{0} day",
     "timeFormat": "{0}:{1}:{2}",
     "zeroize": true,

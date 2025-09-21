@@ -6,11 +6,12 @@
  * @LastEditTime: 2022-08-01 13:49:32
  */
 import { Node, Vec3 } from "cc";
+import { CCEntity } from "db://oops-framework/module/common/CCEntity";
 import { ViewUtil } from "../../../../extensions/oops-plugin-framework/assets/core/utils/ViewUtil";
 import { ecs } from "../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
 import { MoveToComp } from "../common/ecs/position/MoveTo";
-import { RoleChangeJobComp, RoleChangeJobSystem } from "./bll/RoleChangeJob";
-import { RoleUpgradeComp, RoleUpgradeSystem } from "./bll/RoleUpgrade";
+import { RoleChangeJobComp } from "./bll/RoleChangeJob";
+import { RoleUpgradeComp } from "./bll/RoleUpgrade";
 import { RoleAnimatorType } from "./model/RoleEnum";
 import { RoleModelBaseComp } from "./model/RoleModelBaseComp";
 import { RoleModelComp } from "./model/RoleModelComp";
@@ -29,7 +30,7 @@ import { RoleViewInfoComp } from "./view/RoleViewInfoComp";
  * 5、与玩家互动的玩法（升级、转职、攻击等）
  */
 @ecs.register('Role')
-export class Role extends ecs.Entity {
+export class Role extends CCEntity {
     // 数据层
     RoleModel!: RoleModelComp;
     RoleModelBase!: RoleModelBaseComp;          // 角色初始资质

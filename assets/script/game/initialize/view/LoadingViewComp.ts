@@ -5,22 +5,21 @@
  * @LastEditTime: 2022-08-29 13:37:08
  */
 import { _decorator, sys } from "cc";
-import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
-import { JsonUtil } from "../../../../../extensions/oops-plugin-framework/assets/core/utils/JsonUtil";
-import { ecs } from "../../../../../extensions/oops-plugin-framework/assets/libs/ecs/ECS";
-import { CCVMParentComp } from "../../../../../extensions/oops-plugin-framework/assets/module/common/CCVMParentComp";
+import { oops } from "db://oops-framework/core/Oops";
+import { JsonUtil } from "db://oops-framework/core/utils/JsonUtil";
+import { ecs } from "db://oops-framework/libs/ecs/ECS";
+import { CCViewVM } from "db://oops-framework/module/common/CCViewVM";
 import { GameEvent } from "../../common/config/GameEvent";
 import { UIID } from "../../common/config/GameUIConfig";
 import { smc } from "../../common/ecs/SingletonModuleComp";
-import { TableRoleJob } from "../../common/table/TableRoleJob";
-import { TableRoleLevelUp } from "../../common/table/TableRoleLevelUp";
+import { Initialize } from "../Initialize";
 
 const { ccclass, property } = _decorator;
 
 /** 游戏资源加载 */
 @ccclass('LoadingViewComp')
 @ecs.register('LoadingView', false)
-export class LoadingViewComp extends CCVMParentComp {
+export class LoadingViewComp extends CCViewVM<Initialize> {
     /** VM 组件绑定数据 */
     data: any = {
         /** 加载资源当前进度 */
@@ -82,8 +81,7 @@ export class LoadingViewComp extends CCVMParentComp {
         this.data.prompt = oops.language.getLangByID("loading_load_json");
 
         return new Promise(async (resolve, reject) => {
-            await JsonUtil.loadAsync(TableRoleJob.TableName);
-            await JsonUtil.loadAsync(TableRoleLevelUp.TableName);
+            await JsonUtil.loadDir();
             resolve(null);
         });
     }
