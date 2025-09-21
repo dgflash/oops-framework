@@ -95,11 +95,13 @@ graph TB
 
 # 学习资源
 
-oops框架文档： [WIKI](https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=12002375&doc_id=2873565)
+Oops框架文档： [WIKI](https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=12002375&doc_id=2873565)
+
+Oops框架Api文档： [Api](https://oops-1255342636.cos.ap-shanghai.myqcloud.com/doc/oops-framework/index.html)
 
 bili视频教程：[dgflash](https://space.bilibili.com/479459079?spm_id_from=333.788.upinfo.detail.click)
 
-Cocos Store产品：[Cocos Store](https://store.cocos.com/app/search?name=oops)
+Cocos Store产品：[Cocos Store](https://store.cocos.com/app/search?name=dgflash)
 
 <br/>
 
@@ -114,6 +116,7 @@ Cocos Store产品：[Cocos Store](https://store.cocos.com/app/search?name=oops)
 - 741197640（5群 - 满）
 - 438995424（6群 - 满）
 - 916492808（7群 - 推荐）
+- 973884097（8群 - 推荐）
 
 ### QQ频道：q366856bf5
 
