@@ -90,11 +90,6 @@
         }
     },
     "bundle": {
-        "enable": false,
-        "server": "http://localhost",
-        "default": "resources",
-        "packages": {
-            "bundle": ""
-        }
+        "default": "resources"
     }
 }
