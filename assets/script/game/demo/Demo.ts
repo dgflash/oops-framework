@@ -11,6 +11,7 @@ import { LabelChange } from "../../../../extensions/oops-plugin-framework/assets
 import { UIID } from "../common/config/GameUIConfig";
 import { smc } from "../common/ecs/SingletonModuleComp";
 import { RoleViewInfoComp } from "../role/view/RoleViewInfoComp";
+import { UIParam } from "db://oops-framework/core/gui/layer/LayerUIElement";
 
 const { ccclass, property } = _decorator;
 // 视图层实体是空的
@@ -164,5 +165,17 @@ export class Demo extends GameComponent {
     /** 背景音效 */
     private btn_audio_open2(event: EventTouch, data: any) {
         oops.audio.playEffect("audios/Gravel");
+    }
+
+    private btn_common_prompt() {
+        let uip: UIParam = {
+            data: {
+                title: "公共弹窗",
+                content: "这是一个公共弹窗",
+                okWord: 'common_prompt_ok',
+                needCancel: false
+            }
+        }
+        oops.gui.open(UIID.Alert, uip);
     }
 }
