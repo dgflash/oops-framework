@@ -241,7 +241,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 131.2109375,
+      "width": 131.18507361778845,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -280,7 +280,7 @@
     "_string": "content",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 40,
+    "_actualFontSize": 45.13888888888889,
     "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
