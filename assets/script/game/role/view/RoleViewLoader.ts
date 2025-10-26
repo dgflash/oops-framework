@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-08-11 15:04:39
  */
 
-import { Component, sp, _decorator } from "cc";
+import { _decorator, Component, sp } from "cc";
 import { oops } from "../../../../../extensions/oops-plugin-framework/assets/core/Oops";
 import { GameResPath } from "../../common/config/GameResPath";
 import { Role } from "../Role";
@@ -26,21 +26,15 @@ export class RoleViewLoader extends Component {
         this.load(role.RoleModel.anim);
     }
 
-    private load(name: string) {
+    private async load(name: string) {
         this.node.active = false;
 
         var path = GameResPath.getRolePath(name);
-        oops.res.load(path, sp.SkeletonData, (err: Error | null, sd: sp.SkeletonData) => {
-            if (err) {
-                console.error(`动画名为【${path}】的角色资源不存在`);
-                return;
-            }
 
-            this.spine.skeletonData = sd;
-            this.spine.skeletonData.addRef();
-            this.node.active = true;
-            this.node.setPosition(0, -100);
-        });
+        this.spine.skeletonData = await oops.res.load(path, sp.SkeletonData);
+        this.spine.skeletonData.addRef();
+        this.node.active = true;
+        this.node.setPosition(0, -100);
     }
 
     onDestroy() {
