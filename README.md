@@ -48,7 +48,7 @@ oops Framework 致力于提供一个拥有游戏开发常用技术的框架，�
 
 Oops Framework 文档： [WIKI](https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=12002375&doc_id=2873565)
 
-Oops Framework API 文档： [Api](https://oops-1255342636.cos.ap-shanghai.myqcloud.com/doc/oops-framework/index.html)
+Oops Framework API 文档： [API](https://oops-1255342636.cos.ap-shanghai.myqcloud.com/doc/oops-framework/index.html)
 
 bili视频教程：[dgflash](https://space.bilibili.com/479459079?spm_id_from=333.788.upinfo.detail.click)
 
