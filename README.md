@@ -27,7 +27,7 @@ oops Framework 致力于提供一个拥有游戏开发常用技术的框架，�
 ## 框架特点
 
 - 提供较为全面的游戏开发常用技术
-- 提供可提高开发效率的插件工具
+- 提供可提高开发效率的插件<a href="https://gitee.com/dgflash/oops-framework/wikis/pages?sort_id=17097283&doc_id=2873565" target="_blank">工具</a>
 - 提供教学项目以及不同类型的解决方案项目
 - 拥有稳定可靠的框架技术
 - 对新人极为友好，操作简单且易于上手
